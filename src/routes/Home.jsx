@@ -1,6 +1,9 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import {useState,useEffect} from 'react'
+import CardCarousel from '../components/CardCarousel'
+
+
 
 function Home() {
 
@@ -15,7 +18,7 @@ function Home() {
         showIndicators={false}
         showArrows={false}
       >
-        <div className="w-[100vw] z-0 pt-16 h-[300vh]">
+        <div className="w-[100vw] z-0 pt-16 h-[57vh]">
           <img
             className=" h-[100vh] desktop:h-[52.2vh] desktop:w-[70vw] object-cover shadow"
             src="https://image.tmdb.org/t/p/original/5pMy5LF2JAleBNBtuzizfCMWM7k.jpg"
@@ -37,6 +40,7 @@ function Home() {
           />
         </div>
       </Carousel>
+      <CardCarousel/>
     </div>
   );
 }
