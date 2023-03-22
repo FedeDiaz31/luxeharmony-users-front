@@ -19,6 +19,10 @@ module.exports = {
       textSecondary: "black",
       buttonsPrimaryColor: "#85734D",
       buttonsSecondaryColor: "black",
+      headerAndFooterColor:"#292728" ,
+    },
+    fonts: {
+      primaryFont: "Bebas Neue"
     }
   },
   plugins: [],

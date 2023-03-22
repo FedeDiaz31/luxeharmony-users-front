@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <div>
+      <div className="w-full fixed z-10">
         <Header />
       </div>
       <Routes>
