@@ -8,3 +8,12 @@ header ul li {
     transition: ease-in-out 1s;
 }
 
+.cardProduct{
+    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.403);
+    transition: ease-in-out 0.2s;
+}
+
+.cardProduct:hover{
+    transform: scale(1.07);
+    cursor: pointer;
+}
