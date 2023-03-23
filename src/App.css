@@ -17,3 +17,20 @@ header ul li {
     transform: scale(1.07);
     cursor: pointer;
 }
+
+
+
+
+
+/* ACCORDION STYLES */
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    background: black!important;
+    padding: 0px 1rem;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div {
+    border-bottom: .1px gray solid;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root > div , .css-1elwnq4-MuiPaper-root-MuiAccordion-root>div > div {
+    color: white;
+}
