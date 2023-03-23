@@ -54,6 +54,7 @@ const Product = () => {
                   autoPlay={true}
                   showNav={false}
                   showBullets={false}
+                  thumbnailHeight={50}
                 />
               ) : (
                 <h1>Loading...</h1>

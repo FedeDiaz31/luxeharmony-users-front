@@ -11,8 +11,6 @@ import AboutUs from "./routes/AboutUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-
-
 function App() {
   return (
     <div className="App">
@@ -29,9 +27,7 @@ function App() {
         <Route path="/chekout" element={<CheckOut />} />
         <Route path="/about" element={<AboutUs />} />
       </Routes>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

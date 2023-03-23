@@ -28,9 +28,12 @@ header ul li {
     background: black!important;
     padding: 0px 1rem;
 }
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div {
-    border-bottom: .1px gray solid;
-}
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root > div , .css-1elwnq4-MuiPaper-root-MuiAccordion-root>div > div {
     color: white;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div>div{
+    border-bottom: .01rem white solid;
+    padding-bottom: 15px;
+
 }
