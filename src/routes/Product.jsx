@@ -1,30 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Tabs from "../components/Tabs";
 
 import ImageGallery from "react-image-gallery";
 
-const images = [
-  {
-    original: "/images/product/BBES335REAGNB1_back.png",
-    thumbnail: "/images/product/BBES335REAGNB1_back.png",
-  },
-  {
-    original: "/images/product/BBES335REAGNB1_beauty.png",
-    thumbnail: "/images/product/BBES335REAGNB1_beauty.png",
-  },
-  {
-    original: "/images/product/BBES335REAGNB1_front.png",
-    thumbnail: "/images/product/BBES335REAGNB1_front.png",
-  },
-  {
-    original: "/images/product/BBES335REAGNB1_side.png",
-    thumbnail: "/images/product/BBES335REAGNB1_side.png",
-  },
-];
+// const images = [
+//   {
+//     original: "/images/product/BBES335REAGNB1_back.png",
+//     thumbnail: "/images/product/BBES335REAGNB1_back.png",
+//   },
+//   {
+//     original: "/images/product/BBES335REAGNB1_beauty.png",
+//     thumbnail: "/images/product/BBES335REAGNB1_beauty.png",
+//   },
+//   {
+//     original: "/images/product/BBES335REAGNB1_front.png",
+//     thumbnail: "/images/product/BBES335REAGNB1_front.png",
+//   },
+//   {
+//     original: "/images/product/BBES335REAGNB1_side.png",
+//     thumbnail: "/images/product/BBES335REAGNB1_side.png",
+//   },
+// ];
 
 const Product = () => {
+  const [product, setProduct] = useState(null);
+  const { slug } = useParams();
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await axios({
+        method: "get",
+        url: `http://localhost:8000/products/${slug}`,
+      });
+      setProduct(response.data);
+    };
+    getProducts();
+  }, []);
+
   return (
     <>
       <Header />
@@ -32,14 +49,16 @@ const Product = () => {
         <div className="m-auto container mt-12">
           <div className="columns-1 tablet:columns-2">
             <div className="columns-1">
-              <ImageGallery
-                items={images}
-                thumbnailPosition={"left"}
-                showPlayButton={false}
-                autoPlay={true}
-                showNav={false}
-                showBullets={false}
-              />
+              {product ? (
+                <ImageGallery
+                  items={product.images}
+                  thumbnailPosition={"left"}
+                  showPlayButton={false}
+                  autoPlay={true}
+                  showNav={false}
+                  showBullets={false}
+                />
+              ) : null}
             </div>
             <div className="columns-1">
               <h1 className="text-3xl">Guitarra electrica</h1>
