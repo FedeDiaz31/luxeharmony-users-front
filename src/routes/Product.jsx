@@ -38,9 +38,9 @@ const Product = () => {
     return (
       <>
         <main className="w-[60vw] m-auto pt-32">
-          <div className="m-auto container ">
+          <div className="m-auto container mt-16">
             <div className="columns-1 laptop:columns-2">
-              <div className="columns-1 mr-10">
+              <div className="columns-1 mr-16">
                 {images.length > 0 ? (
                   <ImageGallery
                     items={images}
@@ -51,6 +51,7 @@ const Product = () => {
                     showBullets={false}
                     slideInterval={5000}
                     slideDuration={1500}
+                    originalHeight={false}
                   />
                 ) : (
                   <h1>Loading...</h1>
@@ -58,7 +59,9 @@ const Product = () => {
                 {console.log(images)}
               </div>
               <div>
-                <h1 className="model-title text-3xl pb-5">{product.model}</h1>
+                <h1 className="model-title text-3xl pb-5 my-20">
+                  {product.model}
+                </h1>
 
                 <div className="w-[25vw] options columns-2 flex-row">
                   <ul>
@@ -95,7 +98,7 @@ const Product = () => {
               <h2 className="text-2xl mb-2 font-bold">{product.subtitle}</h2>
               <p>{product.description}</p>
             </div>
-            <div className="column-1">
+            <div className="column-1 mt-20 mb-16">
               {product ? <Tabs product={product} /> : null}
             </div>
 
