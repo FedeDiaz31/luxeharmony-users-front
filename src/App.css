@@ -32,12 +32,6 @@ header ul li {
     color: white;
 }
 
-<<<<<<< Updated upstream
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div>div{
-    border-bottom: .01rem white solid;
-    padding-bottom: 15px;
-
-=======
 
 
 /*Product page styles*/
@@ -73,5 +67,4 @@ header ul li {
 .warranty h3{
     font-family: 'Bebas neue';
     font-size: 30px;
->>>>>>> Stashed changes
 }

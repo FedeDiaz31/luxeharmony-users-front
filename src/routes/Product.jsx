@@ -22,43 +22,6 @@ const Product = () => {
     getProduct();
   }, []);
 
-<<<<<<< Updated upstream
-  return (
-    <>
-      <main className="pt-32">
-        <div className="m-auto container ">
-          <div className="columns-1 tablet:columns-2">
-            <div className="columns-1">
-              {product ? (
-                <ImageGallery
-                  items={product.images}
-                  thumbnailPosition={"left"}
-                  showPlayButton={false}
-                  autoPlay={true}
-                  showNav={false}
-                  showBullets={false}
-                  thumbnailHeight={50}
-                />
-              ) : (
-                <h1>Loading...</h1>
-              )}
-            </div>
-            <div className="columns-1">
-              <h1 className="text-3xl">{!product ?? product.model}</h1>
-            </div>
-            <div className="options columns-2 flex-row">
-              <ul>
-                <div>
-                  <li>Finish:</li>
-                  <li>Color:</li>
-                </div>
-                <div>
-                  <li>Perfect</li>
-                  <li>Verdecito claro</li>
-                </div>
-              </ul>
-            </div>
-=======
   useEffect(() => {
     if (product) {
       setImages(
@@ -68,7 +31,6 @@ const Product = () => {
       );
     }
   }, [product]);
->>>>>>> Stashed changes
 
   if (product === null) {
     return <Splash />;
