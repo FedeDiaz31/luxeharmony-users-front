@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 
 function Header() {
   const [userHasScrolled, setUserHasScrolled] = useState(false);
 
   useEffect(() => {
     window.onscroll = function (e) {
-      if (Math.ceil(window.pageYOffset) > 0) {
+      if (Math.ceil(window.pageYOffset) > 10) {
         setUserHasScrolled(true);
       } else {
         setUserHasScrolled(false);
@@ -16,11 +18,13 @@ function Header() {
   return userHasScrolled ? (
     <header className="w-full h-8 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center ease-in-out duration-300  ">
       <div className="flex flex-row justify-around items-center h-full ">
-        <img
-          className="h-full "
-          src="https://images.ctfassets.net/m8onsx4mm13s/72p8qgeqA4UK7FD2MwyA19/cbc4a71ff92b788b791a53fa683dc6f4/gibson__1_.svg"
-          alt=""
-        />
+        <Link className="h-full" to={'/'}>
+          <img
+            className="h-full "
+            src="https://images.ctfassets.net/m8onsx4mm13s/72p8qgeqA4UK7FD2MwyA19/cbc4a71ff92b788b791a53fa683dc6f4/gibson__1_.svg"
+            alt=""
+          />
+        </Link>
         <ul className=" flex h-10 m-20 text-xl ">
           <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
             ELECTRIC
@@ -58,11 +62,13 @@ function Header() {
   ) : (
     <header className="w-full h-24 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center ease-in-out duration-300  ">
       <div className="flex flex-row justify-around items-center h-full ">
+        <Link className="h-full" to={'/'}>
         <img
           className="h-full "
           src="https://images.ctfassets.net/m8onsx4mm13s/72p8qgeqA4UK7FD2MwyA19/cbc4a71ff92b788b791a53fa683dc6f4/gibson__1_.svg"
           alt=""
         />
+        </Link>
         <ul className=" flex h-10 m-20 text-xl ">
           <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
             ELECTRIC

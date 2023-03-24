@@ -32,8 +32,46 @@ header ul li {
     color: white;
 }
 
+<<<<<<< Updated upstream
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root>div>div{
     border-bottom: .01rem white solid;
     padding-bottom: 15px;
 
+=======
+
+
+/*Product page styles*/
+
+.model-title{
+  font-family: 'Bebas neue'; 
+  border-bottom: 1px solid rgba(128, 128, 128, 0.526);
+}
+
+.product-price{
+    font-family: 'Bebas neue';  
+    border-top: 1px solid rgba(128, 128, 128, 0.526); 
+}
+
+.add-to-cart{
+    font-family: 'Bebas neue'; 
+    transition: ease-in-out 0.2s;
+}
+
+.add-to-cart:hover {
+   background-color: rgb(174, 146, 84);
+}
+
+/*category component styles*/
+
+.category-title{
+    font-family: 'Bebas neue'; 
+    font-size: 24px;
+}
+
+/* warranty component styles*/
+
+.warranty h3{
+    font-family: 'Bebas neue';
+    font-size: 30px;
+>>>>>>> Stashed changes
 }

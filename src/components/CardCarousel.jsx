@@ -27,9 +27,9 @@ console.log(products)
 
   return (
     <div ref={containerRef} className="w-[80vw] h-[35vh]  m-auto pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  ">
-        <img onClick={()=>containerRef.current.scrollLeft-=600} className="absolute left-[7vw]  cursor-pointer" src={backChevron} alt="" />
-            { products.map(product =><CardProduct  key={product._id} slug={product.slug} brand={product.brand} image={product.image}></CardProduct>)}
-        <img onClick={()=>containerRef.current.scrollLeft+=600} className="absolute right-[7vw]  cursor-pointer" src={forwardChevron} alt="" />
+        <img onClick={()=>containerRef.current.scrollLeft-=300} className="absolute left-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150" src={backChevron} alt="" />
+            { products.map(product =><CardProduct  key={product._id} slug={product.slug} brand={product.brand} image={product.image[0]}></CardProduct>)}
+        <img onClick={()=>containerRef.current.scrollLeft+=300} className="absolute right-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150" src={forwardChevron} alt="" />
     </div>
   )
 }
