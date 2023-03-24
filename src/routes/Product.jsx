@@ -9,7 +9,7 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const { slug } = useParams();
   const [images, setImages] = useState([]);
-  document.title=`${product ? product.model:'cargando...'} | Gibson `
+  document.title = `${product ? product.model : "cargando..."} | Gibson `;
 
   useEffect(() => {
     const getProduct = async () => {
@@ -39,7 +39,7 @@ const Product = () => {
       <>
         <main className="w-[60vw] m-auto pt-32">
           <div className="m-auto container ">
-            <div className="columns-1 tablet:columns-2">
+            <div className="columns-1 laptop:columns-2">
               <div className="columns-1 mr-10">
                 {images.length > 0 ? (
                   <ImageGallery
@@ -58,34 +58,36 @@ const Product = () => {
                 {console.log(images)}
               </div>
               <div>
-                <h1 className="model-title text-3xl pb-5">
-                  {product.model}
-                </h1>
+                <h1 className="model-title text-3xl pb-5">{product.model}</h1>
 
                 <div className="w-[25vw] options columns-2 flex-row">
                   <ul>
                     <div className="py-3">
                       <li className=" font-bold">Finish:</li>
-                      <li className=" font-bold">Color:</li>
+                      <li className=" font-bold">Material:</li>
                     </div>
-                    <div className="py-3">
+                    <div className="py-3 whitespace-nowrap">
                       <li>
                         {product ? product.detail.bodyFinish : "cargando..."}
                       </li>
-                      <li>Red</li>
+                      <li>
+                        {product ? product.detail.bodyMaterial : "cargando..."}
+                      </li>
                     </div>
                   </ul>
                 </div>
                 <div className="column-1 ">
                   <p className="product-price text-3xl pt-8">
-                    {product ? '$'+product.price : <h2>cargando...</h2>}
+                    {product ? "$" + product.price : <h2>cargando...</h2>}
                   </p>
                   <button className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10">
                     ADD TO CART
                   </button>
                 </div>
                 <div className="column-1 text-center">
-                  <p className=" text-xs text-left mt-1">SHIPPING & RETURN POLICY</p>
+                  <p className=" text-xs text-left mt-1">
+                    SHIPPING & RETURN POLICY
+                  </p>
                 </div>
               </div>
             </div>
