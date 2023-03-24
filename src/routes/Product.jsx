@@ -96,7 +96,7 @@ const Product = () => {
               <p>{!product ?? product.description}</p>
             </div>
             <div className="column-1">
-              <Tabs />
+              {product ? <Tabs product={product} /> : null}
             </div>
 
             <hr className="mb-7 mt-3" />
