@@ -68,3 +68,11 @@ header ul li {
     font-family: 'Bebas neue';
     font-size: 30px;
 }
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: rgb(174, 146, 84) !important;
+}
+
+.css-1aquho2-MuiTabs-indicator{
+    background-color:rgb(174, 146, 84) !important;
+}
