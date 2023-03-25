@@ -38,9 +38,9 @@ const Product = () => {
     return (
       <>
         <main className="w-[60vw] m-auto pt-32">
-          <div className="m-auto container mt-16">
-            <div className="columns-1 laptop:columns-2">
-              <div className="columns-1 mr-16">
+          <div className="m-auto container mt-5">
+            <div className="grid grid-cols-1 tablet:grid-cols-2">
+              <div className="tablet:mr-16 min-h-[300px]">
                 {images.length > 0 ? (
                   <ImageGallery
                     items={images}
@@ -51,47 +51,49 @@ const Product = () => {
                     showBullets={false}
                     slideInterval={5000}
                     slideDuration={1500}
-                    originalHeight={false}
                   />
                 ) : (
                   <h1>Loading...</h1>
                 )}
                 {console.log(images)}
               </div>
-              <div>
-                <h1 className="model-title text-3xl pb-5 my-20">
-                  {product.model}
-                </h1>
-
-                <div className="w-[25vw] options columns-2 flex-row">
-                  <ul>
-                    <div className="py-3">
-                      <li className=" font-bold">Finish:</li>
-                      <li className=" font-bold">Material:</li>
-                    </div>
-                    <div className="py-3 whitespace-nowrap">
-                      <li>
-                        {product ? product.detail.bodyFinish : "cargando..."}
-                      </li>
-                      <li>
-                        {product ? product.detail.bodyMaterial : "cargando..."}
-                      </li>
-                    </div>
-                  </ul>
+              <div className="mt-10 tablet:m-0">
+                <div>
+                  <h1 className="model-title text-3xl pb-5">{product.model}</h1>
                 </div>
-                <div className="column-1 ">
-                  <p className="product-price text-3xl pt-8">
-                    {product ? "$" + product.price : <h2>cargando...</h2>}
-                  </p>
-                  <button className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10">
-                    ADD TO CART
-                  </button>
+                <div>
+                  <div className="w-[25vw] options columns-2 flex-row">
+                    <ul>
+                      <div className="py-3">
+                        <li className=" font-bold">Finish:</li>
+                        <li className=" font-bold">Material:</li>
+                      </div>
+                      <div className="py-3 whitespace-nowrap">
+                        <li>
+                          {product ? product.detail.bodyFinish : "cargando..."}
+                        </li>
+                        <li>
+                          {product
+                            ? product.detail.bodyMaterial
+                            : "cargando..."}
+                        </li>
+                      </div>
+                    </ul>
+                  </div>
+                  <div className="column-1 ">
+                    <p className="product-price text-3xl pt-8">
+                      {product ? "$" + product.price : <h2>cargando...</h2>}
+                    </p>
+                    <button className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10">
+                      ADD TO CART
+                    </button>
+                    <div className="column-1 text-center">
+                      <p className=" text-xs text-left mt-1">
+                        SHIPPING & RETURN POLICY
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="column-1 text-center">
-                <p className=" text-xs text-left mt-1">
-                  SHIPPING & RETURN POLICY
-                </p>
               </div>
             </div>
             <div className="column-1 mt-10 mb-10">
