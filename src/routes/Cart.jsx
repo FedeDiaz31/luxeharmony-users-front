@@ -1,11 +1,17 @@
+import { useSelector } from "react-redux";
+
 function Cart() {
+  const cart = useSelector((state) => state.cart);
   return (
-    <div>
+    <div className="pt-[70px]">
       <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
         <h3 className="text-4xl">Shopping Cart</h3>
       </div>
+      {/*      Items Cart */}
       <div className="bg-bgPrimaryColor">
-        <div></div>
+        {cart.map((items) => {
+          return <div></div>;
+        })}
       </div>
     </div>
   );

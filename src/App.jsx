@@ -17,7 +17,7 @@ function App() {
       <div className="w-full fixed z-10">
         <Header />
       </div>
-      <div className="pt-[70px]">
+      <div>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<SignUp />} />

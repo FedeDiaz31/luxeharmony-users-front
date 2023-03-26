@@ -1,9 +1,9 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
-const userSlice = createSlice({
-    name: "user",
+const cartSlice = createSlice({
+    name: "cart",
     initialState,
     reducers: {
         addItem(state, action) {
@@ -16,5 +16,5 @@ const userSlice = createSlice({
     },
 });
 
-export const { login, logOut, edit } = userSlice.actions;
-export default userSlice.reducer;
+export const { addItem, removeItem } = cartSlice.actions;
+export default cartSlice.reducer;
