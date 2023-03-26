@@ -10,7 +10,7 @@ function CategoriesContainer() {
     const getCategories = async () => {
       const response = await axios({
         method: "get",
-        url: "http://localhost:8000/categories",
+        url: `${process.env.REACT_APP_API_URL}/categories`,
       });
       setCategories(response.data);
     };

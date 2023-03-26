@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import CardCarousel from "../components/CardCarousel";
 import CategoriesContainer from "../components/CategoriesContainer";
 import Warranty from "../components/Warranty";
+import BrandsContainer from "../components/BrandsContainer";
 
 function Home() {
+  document.title = ` Home | LuxeHarmony `;
   return (
     <div>
       <Carousel
@@ -40,8 +42,9 @@ function Home() {
         </div>
       </Carousel>
       <Warranty />
-      <CategoriesContainer />
+      <BrandsContainer />
       <CardCarousel />
+      <CategoriesContainer />
     </div>
   );
 }

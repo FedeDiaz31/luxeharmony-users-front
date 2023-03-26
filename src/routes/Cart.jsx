@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeProduct } from "../redux/cartReducer";
 
 function Cart() {
+  document.title = ` Cart | LuxeHarmony `;
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const [subtotal, setSubtotal] = useState(0);
@@ -67,7 +68,7 @@ function Cart() {
             );
           })}
         </div>
-        <div className="bg-bgSecondaryColor h-[200px] w-[1px]"></div>
+        <div className="bg-bgFourthColor h-[200px] w-[1px]"></div>
         <div className="">
           <div className="flex w-full justify-between items-center mb-5">
             <h3 className="text-sm font-semibold">Subtotal</h3>

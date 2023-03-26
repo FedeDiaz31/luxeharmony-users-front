@@ -21,7 +21,7 @@ const Product = () => {
     const getProduct = async () => {
       const response = await axios({
         method: "get",
-        url: `http://localhost:8000/products/${slug}`,
+        url: `${process.env.REACT_APP_API_URL}/products/${slug}`,
       });
       setProduct(response.data);
     };
