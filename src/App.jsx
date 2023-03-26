@@ -17,16 +17,19 @@ function App() {
       <div className="w-full fixed z-10">
         <Header />
       </div>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:slug" element={<Product />} />
-        <Route path="/chekout" element={<CheckOut />} />
-        <Route path="/about" element={<AboutUs />} />
-      </Routes>
+      <div className="pt-[70px]">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:slug" element={<Product />} />
+          <Route path="/chekout" element={<CheckOut />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

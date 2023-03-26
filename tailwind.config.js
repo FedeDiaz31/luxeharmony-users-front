@@ -13,11 +13,13 @@ module.exports = {
       bgPrimaryColor: "#FCFBFD",
       bgSecondaryColor: "black",
       bgTertiaryColor: "#85734D",
+      bgFourthColor: "#a3a3a386",
       textPrimary: "#FEFEFE",
       textSecondary: "black",
       buttonsPrimaryColor: "#85734D",
       buttonsSecondaryColor: "black",
       headerAndFooterColor: "#292728",
+
     },
     fonts: {
       primaryFont: "Bebas Neue",
