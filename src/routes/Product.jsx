@@ -1,6 +1,11 @@
+//Dependencias
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addProduct } from "../redux/cartReducer";
+
+//Componentes
 import Tabs from "../components/Tabs";
 import ImageGallery from "react-image-gallery";
 import Splash from "../components/Splash";
@@ -9,6 +14,7 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const { slug } = useParams();
   const [images, setImages] = useState([]);
+  const dispatch = useDispatch();
   document.title = `${product ? product.model : "cargando..."} | Gibson `;
 
   useEffect(() => {
@@ -31,6 +37,10 @@ const Product = () => {
       );
     }
   }, [product]);
+
+  const handleAddProduct = () => {
+    dispatch(addProduct(product));
+  };
 
   if (product === null) {
     return <Splash />;
@@ -55,7 +65,6 @@ const Product = () => {
                 ) : (
                   <h1>Loading...</h1>
                 )}
-                {console.log(images)}
               </div>
               <div className="mt-10 tablet:m-0">
                 <div>
@@ -84,7 +93,10 @@ const Product = () => {
                     <p className="product-price text-3xl pt-8">
                       {product ? "$" + product.price : <h2>cargando...</h2>}
                     </p>
-                    <button className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10">
+                    <button
+                      onClick={handleAddProduct}
+                      className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10"
+                    >
                       ADD TO CART
                     </button>
                     <div className="column-1 text-center">

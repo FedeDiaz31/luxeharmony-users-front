@@ -32,7 +32,6 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs({ product }) {
-  console.log({ "en tab": product });
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -40,9 +39,10 @@ export default function BasicTabs({ product }) {
   };
 
   return (
-    <Box  sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs className='tab'
+        <Tabs
+          className="tab"
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
