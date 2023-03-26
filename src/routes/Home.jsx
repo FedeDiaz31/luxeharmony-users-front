@@ -13,30 +13,30 @@ function Home() {
       <Carousel
         autoPlay={true}
         infiniteLoop={true}
-        interval={5000}
+        interval={2500}
         showStatus={false}
         showThumbs={false}
         showIndicators={false}
-        showArrows={false}
+        showArrows={true}
       >
-        <div className="w-[100vw] z-0 pt-16 h-[57vh] bg-bgSecondaryColor">
+        <div className="w-[100%] z-0 h-[80vh] mt-4 bg-bgSecondaryColor">
           <img
-            className=" h-[100vh] desktop:h-[52.2vh] desktop:w-[70vw] object-cover shadow "
-            src="https://images.ctfassets.net/m8onsx4mm13s/2w1gwJzJw1lAOXNGpGhKLw/1683e570d82908eb6a9d89ec46bfa569/Gibson-BJA-LPjr_Homepage-Masthead.jpg"
+            className=" h-[100vh]  object-cover shadow "
+            src="https://d2zap0z9ahyacn.cloudfront.net/eyJidWNrZXQiOiJwcnNpbWFnZXMiLCJrZXkiOiJndWl0YXItaW1hZ2VzL21jY2FydHktNTk0LTIwMjEtZ2FsbGVyeS0xXzIwMjEtMDMtMjAtMTU0MDA3LmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjE2MDAsImhlaWdodCI6ODAwLCJmaXQiOiJjb3ZlciJ9LCJzaGFycGVuIjp0cnVlfX0="
             alt="banner1"
           />
         </div>
         <div className="w-[100vw] z-0 pt-16  bg-bgSecondaryColor">
           <img
-            className="h-[100vh] desktop:h-[52.2vh] desktop:w-[70vw] object-cover shadow"
-            src="https://image.tmdb.org/t/p/original/ovM06PdF3M8wvKb06i4sjW3xoww.jpg"
+            className="h-[100vh]  object-cover shadow"
+            src="https://mmrmagazine.com/site/wp-content/uploads/KRK_CLASSIC-Expansion1-scaled.jpg"
             alt="banner2"
           />
         </div>
         <div className="w-[100vw] z-0 pt-16  bg-bgSecondaryColor">
           <img
-            className=" h-[100vh] desktop:h-[52.2vh] desktop:w-[70vw] object-cover shadow"
-            src="https://image.tmdb.org/t/p/original/kODNw6GJNdgldUMEhKPlCw8wQCr.jpg"
+            className=" h-[100vh]  object-cover shadow"
+            src="https://static01.nyt.com/images/2021/11/13/arts/12silksonic-review/12silksonic-review-videoSixteenByNineJumbo1600.jpg"
             alt="banner3"
           />
         </div>
