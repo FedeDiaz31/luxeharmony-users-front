@@ -17,30 +17,32 @@ function Header() {
 
   return userHasScrolled ? (
     <header className="w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
-      <div className="flex justify-around items-center h-full">
+      <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
         <Link
           className="h-full bg-bgPrimaryColor p-1 flex items-center"
           to={"/"}
         >
           <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
         </Link>
-        <ul className="hidden laptop:flex h-10 m-20 text-xl ">
-          <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
-            ELECTRIC
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            ACOUSTIC
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            BASS
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            AUDIO PRO
-          </li>
-        </ul>
+        <div>
+          <ul className="hidden laptop:flex h-10 m-20 text-xl">
+            <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
+              ELECTRIC
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              ACOUSTIC
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              BASS
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              AUDIO PRO
+            </li>
+          </ul>
+        </div>
         <div>
           <svg
-            class=" w-5 ml-96 "
+            className="w-5"
             aria-hidden="true"
             focusable="false"
             data-prefix="fal"
@@ -60,12 +62,12 @@ function Header() {
     </header>
   ) : (
     <header className="w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
-      <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5">
+      <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
         <Link
           className=" bg-bgPrimaryColor p-3 h-full flex items-center"
           to={"/"}
         >
-          <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
+          <img className="w-28" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
         </Link>
         <div className="hidden laptop:flex">
           <ul className="h-10 m-20 text-xl flex">
@@ -84,7 +86,7 @@ function Header() {
           </ul>
         </div>
         <svg
-          class="w-7"
+          className="w-7"
           aria-hidden="true"
           focusable="false"
           data-prefix="fal"
