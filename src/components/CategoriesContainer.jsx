@@ -19,10 +19,10 @@ function CategoriesContainer() {
 
   return (
     <div
-      className=" w-full px-5 pb-10 text-center  bg-bgSecondaryColor"
+      className=" w-full px-5 pb-10 text-center bg-bgSecondaryColor"
       id="categories-container"
     >
-      <h2 className="category-title text-[#fff] pt-10 pl-[13.5vw] text-left mb-5">
+      <h2 className="category-title text-[#fff] text-center py-10">
         SHOP BY CATEGORY
       </h2>
       <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 gap-5">

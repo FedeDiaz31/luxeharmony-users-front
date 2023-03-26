@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeProduct } from "../redux/cartReducer";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const [subtotal, setSubtotal] = useState(0);
   let total = 0;
 
@@ -21,32 +23,42 @@ function Cart() {
       <div className="flex m-10 justify-center gap-5">
         {/*      Items Cart */}
         <div className="bg-bgPrimaryColorgrid gap-3 grid">
-          {cart.map((item, i) => {
+          {cart.map((product, i) => {
             return (
               <div key={i}>
                 <div className="flex gap-3 px-25 mr-52">
                   <div className="border border-bgFourthColor rounded p-3 px-5">
-                    <img className="w-20" src={item.image[0]} alt="" />
+                    <img className="w-20" src={product.image[0]} alt="" />
                   </div>
                   <div className="grid items-center">
                     <div>
                       <h3 className="font-medium">
-                        {item.model}, {item.brand.name}
+                        {product.model}, {product.brand.name}
                       </h3>
                       <h3 className="text-xl font-light">
-                        ${item.price.toFixed(2)}
+                        ${product.price.toFixed(2)}
                       </h3>
                     </div>
-                    <div className="flex items-center w-[150px] justify-between">
-                      <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l">
-                        -
-                      </button>
-                      <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                        1
-                      </h4>
-                      <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r">
-                        +
-                      </button>
+                    <div className="flex gap-3">
+                      <div className="flex items-center w-[150px] justify-between">
+                        <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l">
+                          -
+                        </button>
+                        <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
+                          1
+                        </h4>
+                        <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r">
+                          +
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          onClick={() => dispatch(removeProduct(product))}
+                          className="border-bgFourthColor border rounded px-3"
+                        >
+                          remove
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -66,7 +78,7 @@ function Cart() {
             offers will be applied at Checkout.
           </p>
           <div className="mt-10">
-            <button className="bg-bgTertiaryColor text-textPrimary px-6 py-2 rounded text-sm">
+            <button className="bg-bgTertiaryColor text-textPrimary px-20 py-2 rounded text-sm">
               Checkout
             </button>
           </div>

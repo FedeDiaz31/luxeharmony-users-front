@@ -12,7 +12,7 @@ import AccordionFooter from "../components/AccordionFooter";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-bgSecondaryColor text-white pt-28">
+    <footer className="w-full bg-textSecondary text-white pt-28">
       <div className="container mx-auto">
         <div className="w-full">
           <AccordionFooter />
