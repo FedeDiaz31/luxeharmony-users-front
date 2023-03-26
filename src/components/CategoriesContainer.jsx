@@ -19,13 +19,13 @@ function CategoriesContainer() {
 
   return (
     <div
-      className=" w-full m-auto text-center  bg-bgSecondaryColor"
+      className=" w-full px-5 pb-10 text-center  bg-bgSecondaryColor"
       id="categories-container"
     >
-      <h2 className="category-title text-[#fff] pt-10 pl-[13.5vw] text-left">
+      <h2 className="category-title text-[#fff] pt-10 pl-[13.5vw] text-left mb-5">
         SHOP BY CATEGORY
       </h2>
-      <div className="flex items-center justify-center">
+      <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 gap-5">
         <CategoryHome
           title={"Electric guitars"}
           paragraph={

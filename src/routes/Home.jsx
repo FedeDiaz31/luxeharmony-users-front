@@ -1,17 +1,16 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import {useState,useEffect} from 'react'
-import CardCarousel from '../components/CardCarousel'
+import { useState, useEffect } from "react";
+import CardCarousel from "../components/CardCarousel";
 import CategoriesContainer from "../components/CategoriesContainer";
 import Warranty from "../components/Warranty";
 
-
 function Home() {
-document.title='Home | Gibson '
+  document.title = "Home | Gibson ";
 
   return (
     <div>
-      <Carousel 
+      <Carousel
         autoPlay={true}
         infiniteLoop={true}
         interval={5000}
@@ -42,9 +41,9 @@ document.title='Home | Gibson '
           />
         </div>
       </Carousel>
-      <Warranty/>
-      <CategoriesContainer/>
-      <CardCarousel/>
+      <Warranty />
+      <CategoriesContainer />
+      <CardCarousel />
     </div>
   );
 }

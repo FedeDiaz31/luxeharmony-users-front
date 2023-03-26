@@ -16,12 +16,15 @@ function Header() {
   }, [userHasScrolled]);
 
   return userHasScrolled ? (
-    <header className="w-full h-8 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center ease-in-out duration-300  ">
-      <div className="flex flex-row justify-around items-center h-full ">
-        <Link className="h-full bg-bgPrimaryColor p-1" to={"/"}>
-          <img className="h-full" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
+    <header className="w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
+      <div className="flex justify-around items-center h-full">
+        <Link
+          className="h-full bg-bgPrimaryColor p-1 flex items-center"
+          to={"/"}
+        >
+          <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
         </Link>
-        <ul className=" flex h-10 m-20 text-xl ">
+        <ul className="hidden laptop:flex h-10 m-20 text-xl ">
           <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
             ELECTRIC
           </li>
@@ -56,27 +59,32 @@ function Header() {
       </div>
     </header>
   ) : (
-    <header className="w-full h-20 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center ease-in-out duration-300">
-      <div className="flex flex-row justify-around items-center h-full">
-        <Link className="h-full bg-bgPrimaryColor p-3" to={"/"}>
-          <img className="h-full" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
+    <header className="w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
+      <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5">
+        <Link
+          className=" bg-bgPrimaryColor p-3 h-full flex items-center"
+          to={"/"}
+        >
+          <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
         </Link>
-        <ul className=" flex h-10 m-20 text-xl">
-          <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
-            ELECTRIC
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            ACOUSTIC
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            BASS
-          </li>
-          <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-            AUDIO PRO
-          </li>
-        </ul>
+        <div className="hidden laptop:flex">
+          <ul className="h-10 m-20 text-xl flex">
+            <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
+              ELECTRIC
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              ACOUSTIC
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              BASS
+            </li>
+            <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
+              AUDIO PRO
+            </li>
+          </ul>
+        </div>
         <svg
-          class="w-7 ml-96 "
+          class="w-7"
           aria-hidden="true"
           focusable="false"
           data-prefix="fal"
