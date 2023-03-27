@@ -22,7 +22,7 @@ function CategoriesContainer() {
       className="w-full px-5 pb-10 text-center bg-bgPrimaryColor"
       id="categories-container"
     >
-      <h2 className="category-title text-textSecondary text-center pb-10">
+      <h2 className="category-title text-textSecondary text-center pb-14">
         SHOP BY CATEGORY
       </h2>
       <div className="relative grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 gap-5">

@@ -4,7 +4,7 @@ function CategoryHome({ brand }) {
   console.log(brand);
   return (
     /*     <Link className="bg-bgPrimaryColor" to={`/categories/${brands}`}> */
-    <div className="flex h-[100%]  items-center justify-center">
+    <div className="flex h-[100%] hover:scale-[103%] cursor-pointer items-center justify-center transition-all duration-200">
       <img
         className="w-[150px]  object-contain"
         src={

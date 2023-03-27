@@ -68,7 +68,7 @@ function Home() {
         </Carousel>
       </div>
       <Warranty />
-      <div ref={brands} className={"pt-20"}>
+      <div ref={brands} className={"pt-14"}>
         <CategoriesContainer />
       </div>
       <BrandsContainer />
