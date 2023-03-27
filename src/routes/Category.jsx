@@ -21,7 +21,7 @@ function Category() {
   return (
     <div className="w-[100vw]">
       <div className="w-100vw h-[40vh] bg-bgSecondaryColor"></div>
-      <div className=" w-[60vw] m-auto grid grid-cols-3 gap-3">
+      <div className=" w-[50vw] m-auto py-10 grid grid-cols-3 gap-3">
         {products ? (
           products.map((product) => (
             <CardProductCategory
