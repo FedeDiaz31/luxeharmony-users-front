@@ -7,7 +7,6 @@ import {
   removeProduct,
   removeAllThisProducts,
 } from "../redux/cartReducer";
-import { useState } from "react";
 
 function CartComponent({ setShowCart }) {
   const dispatch = useDispatch();

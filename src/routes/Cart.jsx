@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeProduct } from "../redux/cartReducer";
+import {
+  addProduct,
+  removeProduct,
+  removeAllThisProducts,
+} from "../redux/cartReducer";
 
 function Cart() {
   document.title = ` Cart | LuxeHarmony `;
@@ -15,7 +19,17 @@ function Cart() {
       setSubtotal(total);
     }
   }, [cart]);
+  console.log(cart);
+  const showRowProduct = cart.filter((item, index) => {
+    return cart.indexOf(item) === index;
+  }); //Esta constante filtra los productos repetidos. (Para no tener visualment lineas repetidas en el carrito)
 
+  function quantityProduct(cartProducts, product) {
+    const arrayProduct = cartProducts.filter(
+      (prod) => prod._id === product._id
+    );
+    return arrayProduct.length;
+  }
   return (
     <div className="pt-[70px]">
       <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
@@ -24,7 +38,7 @@ function Cart() {
       <div className="flex m-10 justify-center gap-5">
         {/*      Items Cart */}
         <div className="bg-bgPrimaryColorgrid gap-3 grid">
-          {cart.map((product, i) => {
+          {showRowProduct.map((product, i) => {
             return (
               <div key={i}>
                 <div className="flex gap-3 px-25 mr-52">
@@ -36,25 +50,39 @@ function Cart() {
                       <h3 className="font-medium">
                         {product.model}, {product.brand.name}
                       </h3>
-                      <h3 className="text-xl font-light">
-                        ${product.price.toFixed(2)}
-                      </h3>
+                      <div className="flex mt-3">
+                        <h3 className=" font-light">
+                          <span>Unit </span> ${product.price}
+                        </h3>
+                        <h3 className=" font-light ml-5">
+                          <span>Total </span> $
+                          {product.price * quantityProduct(cart, product)}
+                        </h3>
+                      </div>
                     </div>
                     <div className="flex gap-3">
                       <div className="flex items-center w-[150px] justify-between">
-                        <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l">
+                        <button
+                          className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
+                          onClick={() => dispatch(removeProduct(product))}
+                        >
                           -
                         </button>
                         <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                          1
+                          {quantityProduct(cart, product)}
                         </h4>
-                        <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r">
+                        <button
+                          className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
+                          onClick={() => dispatch(addProduct(product))}
+                        >
                           +
                         </button>
                       </div>
                       <div>
                         <button
-                          onClick={() => dispatch(removeProduct(product))}
+                          onClick={() =>
+                            dispatch(removeAllThisProducts(product))
+                          }
                           className="border-bgFourthColor border rounded px-3"
                         >
                           remove
