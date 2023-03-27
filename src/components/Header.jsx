@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 
 import CartComponent from "./CartComponent";
 
+import NavBar from "./NavBar";
+
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled } from "@mui/material/styles";
@@ -43,8 +45,8 @@ function Header() {
       <div
         className={
           showCart
-            ? "absolute top-[40px] transition-all duration-200 z-10 right-0 tablet:right-[20px] opacity-100"
-            : "absolute top-[-200px] transition-all duration-200 z-10 right-0 tablet:right-[20px] opacity-0"
+            ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
+            : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
         }
       >
         <CartComponent setShowCart={setShowCart} />
@@ -52,8 +54,8 @@ function Header() {
 
       {userHasScrolled ? (
         // Header SCROLL
-        <header className="z-50 absolute w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
-          <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
+        <header className="z-50 relative w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
+          <div className="flex justify-between laptop:justify-around items-center h-full w-full">
             <div className="laptop:hidden">
               <NavMenu />
             </div>
@@ -63,21 +65,8 @@ function Header() {
             >
               <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
             </Link>
-            <div>
-              <ul className="hidden laptop:flex h-10 m-20 text-xl">
-                <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
-                  ELECTRIC
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  ACOUSTIC
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  BASS
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  AUDIO PRO
-                </li>
-              </ul>
+            <div className="flex h-full items-center w-full relative">
+              <NavBar />
             </div>
             <button
               className="cursos-pointer"
@@ -96,41 +85,26 @@ function Header() {
       ) : (
         //Header NO SCROLL
         <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
-          <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
-            <div className="laptop:hidden">
+          <div className="flex justify-between laptop:justify-around items-center h-full w-full">
+            <div className="tablet:hidden">
               <NavMenu />
             </div>
             <Link
-              className=" bg-bgPrimaryColor p-3 h-full flex items-center"
+              className=" bg-bgPrimaryColor h-full flex items-center"
               to={"/"}
             >
               <img className="w-28" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
             </Link>
-            <div className="hidden laptop:flex">
-              <ul className="h-10 m-20 text-xl flex">
-                <li className="text-textPrimary px-5 flex justify-center items-center transition-all duration-200 ease-in-out hover:underline cursor-pointer ">
-                  ELECTRIC
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  ACOUSTIC
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  BASS
-                </li>
-                <li className="text-textPrimary px-5 flex justify-center items-center transition ease-in-out hover:underline cursor-pointer">
-                  AUDIO PRO
-                </li>
-              </ul>
+            <div className="hidden laptop:flex w-3/4  h-full items-center">
+              <NavBar />
             </div>
             <button
               className="cursos-pointer"
               onClick={() => setShowCart(!showCart)}
             >
-              <IconButton aria-label="cart" color="inherit">
-                <StyledBadge badgeContent={cart.length}>
-                  <ShoppingCartIcon />
-                </StyledBadge>
-              </IconButton>
+              <StyledBadge badgeContent={cart.length}>
+                <ShoppingCartIcon />
+              </StyledBadge>
             </button>
           </div>
         </header>
