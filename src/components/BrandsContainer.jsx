@@ -18,7 +18,7 @@ function BrandsContainer() {
 
   return (
     <div
-      className=" w-full px-5 text-center bg-bgSecondaryColor"
+      className=" py-10 w-full px-5 text-center bg-bgSecondaryColor"
       id="categories-container"
     >
       <div className="grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 py-10">

@@ -2,19 +2,18 @@ import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function AccordionFooter() {
   return (
-    <div className="bg-bgSecondaryColor tablet:hidden">
+    <div className="bg-headerAndFooterColor tablet:hidden">
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <li className="font-bold list-none  ">SHOP</li>
+          <li className="font-bold list-none">SHOP</li>
         </AccordionSummary>
         <AccordionDetails>
           <ul>

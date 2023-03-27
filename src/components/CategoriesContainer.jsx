@@ -53,7 +53,7 @@ function CategoriesContainer() {
           }
           category={"bass"}
           img={
-            "https://images.equipboard.com/uploads/user/image/5877/big_flea.jpg?v=1679621055"
+            "https://app.thebrag.com/img-socl/?url=https://au.rollingstone.com/wp-content/uploads/2020/07/22-flea.jpg&nologo=1"
           }
         />
         <CategoryHome
@@ -62,7 +62,9 @@ function CategoriesContainer() {
             "Experience high-quality sound like never before with our professional audio section."
           }
           category={"audio pro"}
-          img={"https://i.ytimg.com/vi/z28V4CoVdL0/maxresdefault.jpg"}
+          img={
+            "https://creativefreedompreneur.com/wp-content/uploads/2015/04/Starting-Your-Own-Music-Production-Company.png"
+          }
         />
       </div>
     </div>
