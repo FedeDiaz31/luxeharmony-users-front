@@ -21,7 +21,7 @@ function BrandsContainer() {
       className=" w-full px-5 pb-10 text-center bg-bgSecondaryColor"
       id="categories-container"
     >
-      <h2 className="category-title text-[#fff] text-center py-10">
+      <h2 className="category-title text-[#fff] text-center py-5">
         OUR BRANDS
       </h2>
       <div className="grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5">
