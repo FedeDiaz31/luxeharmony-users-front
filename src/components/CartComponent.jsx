@@ -2,7 +2,11 @@ import { dividerClasses } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { removeProduct } from "../redux/cartReducer";
+import {
+  addProduct,
+  removeProduct,
+  removeAllThisProducts,
+} from "../redux/cartReducer";
 import { useState } from "react";
 
 function CartComponent({ setShowCart }) {
@@ -14,6 +18,10 @@ function CartComponent({ setShowCart }) {
     setShowCart(false);
   };
 
+  const showRowProduct = cart.filter((item, index) => {
+    return cart.indexOf(item) === index;
+  }); //Esta constante filtra los productos repetidos. (Para no tener lineas repetidas)
+
   function quantityProduct(cartProducts, product) {
     const arrayProduct = cartProducts.filter(
       (prod) => prod._id === product._id
@@ -24,7 +32,7 @@ function CartComponent({ setShowCart }) {
   return (
     <>
       <div className="w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-16 grid gap-2">
-        {cart.map((product) => (
+        {showRowProduct.map((product) => (
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <img
@@ -35,20 +43,32 @@ function CartComponent({ setShowCart }) {
               <h2 className="text-bgSecondaryColor">{product.model}</h2>
             </div>
             <div className="flex gap-3">
+              <h4 className="text-black">
+                USD {product.price * quantityProduct(cart, product)}
+              </h4>
               <div className="flex gap-3">
                 <div className="flex items-center w-[110px] justify-between">
-                  <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l">
+                  <button
+                    className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
+                    onClick={() => dispatch(removeProduct(product))}
+                  >
                     -
                   </button>
+
                   <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
                     {quantityProduct(cart, product)}
                   </h4>
-                  <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r">
+                  <button
+                    className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
+                    onClick={() => dispatch(addProduct(product))}
+                  >
                     +
                   </button>
                 </div>
               </div>
-              <DeleteIcon onClick={() => dispatch(removeProduct(product))} />
+              <DeleteIcon
+                onClick={() => dispatch(removeAllThisProducts(product))}
+              />
             </div>
           </div>
         ))}
