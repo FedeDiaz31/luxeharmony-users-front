@@ -43,7 +43,6 @@ function Home() {
       </Carousel>
       <Warranty />
       <CategoriesContainer />
-
       <BrandsContainer />
       <CardCarousel />
     </div>
