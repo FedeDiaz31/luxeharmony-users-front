@@ -19,7 +19,7 @@ function Home() {
   return (
     <div>
       <div>
-        <div className="absolute w-full z-10 h-[40vh] bg-gradient-to-t from-bgSecondaryColor bottom-0"></div>
+        <div className="absolute w-full z-10 h-[40vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
         <div className="absolute w-full z-20 h-[100vh] flex items-end justify-center pb-14">
           <div>
             <div className="w-full flex justify-center h-[14rem] items-end pb-8">
