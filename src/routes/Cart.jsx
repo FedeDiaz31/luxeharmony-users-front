@@ -10,19 +10,19 @@ function Cart() {
   document.title = ` Cart | LuxeHarmony `;
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const [subtotal, setSubtotal] = useState(0);
-  let total = 0;
 
-  useEffect(() => {
-    for (let product of cart) {
-      total += product.price;
-      setSubtotal(total);
-    }
-  }, [cart]);
-  console.log(cart);
   const showRowProduct = cart.filter((item, index) => {
     return cart.indexOf(item) === index;
   }); //Esta constante filtra los productos repetidos. (Para no tener visualment lineas repetidas en el carrito)
+
+  function subTotalPrice(products) {
+    const prices = products.map((product) => product.price);
+    let totalPrice = 0;
+    for (let price of prices) {
+      totalPrice += price;
+    }
+    return totalPrice;
+  }
 
   function quantityProduct(cartProducts, product) {
     const arrayProduct = cartProducts.filter(
@@ -100,7 +100,7 @@ function Cart() {
         <div className="">
           <div className="flex w-full justify-between items-center mb-5">
             <h3 className="text-sm font-semibold">Subtotal</h3>
-            <h4 className="font-bold">${subtotal.toFixed(2)}</h4>
+            <h4 className="font-bold">${subTotalPrice(cart).toFixed(2)}</h4>
           </div>
           <p className="max-w-[300px]">
             This order is in USD. Applicable taxes, shipping, coupons or special
