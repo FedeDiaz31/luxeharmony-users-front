@@ -1,89 +1,79 @@
-
 header {
-    font-family: 'Bebas neue';
-    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.885);
-
+  font-family: "Bebas neue";
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.885);
 }
 
 header ul li {
-    transition: ease-in-out 1s;
+  transition: ease-in-out 1s;
 }
 
 .cardProduct {
-    /*    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.403); */
-    transition: ease-in-out 0.2s;
+  /*    box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.403); */
+  transition: ease-in-out 0.2s;
 }
 
 .cardProduct:hover {
-    transform: scale(1.07);
-    cursor: pointer;
+  transform: scale(1.07);
+  cursor: pointer;
 }
-
-
-
-
 
 /* ACCORDION STYLES */
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-    background: black !important;
-    padding: 0px 1rem;
+  background: black !important;
+  padding: 0px 1rem;
 }
 
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div,
-.css-1elwnq4-MuiPaper-root-MuiAccordion-root>div>div {
-    color: white;
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root > div,
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root > div > div {
+  color: white;
 }
-
-
 
 /*Product page styles*/
 
 .model-title {
-    font-family: 'Bebas neue';
-    border-bottom: 1px solid rgba(128, 128, 128, 0.526);
+  font-family: "Bebas neue";
+  border-bottom: 1px solid rgba(128, 128, 128, 0.526);
 }
 
 .product-price {
-    font-family: 'Bebas neue';
-    border-top: 1px solid rgba(128, 128, 128, 0.526);
+  font-family: "Bebas neue";
+  border-top: 1px solid rgba(128, 128, 128, 0.526);
 }
 
 .add-to-cart {
-    font-family: 'Bebas neue';
-    transition: ease-in-out 0.2s;
+  font-family: "Bebas neue";
+  transition: ease-in-out 0.2s;
 }
 
 .add-to-cart:hover {
-    background-color: rgb(174, 146, 84);
+  background-color: rgb(174, 146, 84);
 }
 
 /*category component styles*/
 
 .category-title {
-    font-family: 'Bebas neue';
-    font-size: 24px;
+  font-family: "Bebas neue";
+  font-size: 2rem;
 }
 
 /* warranty component styles*/
 
 .warranty h3 {
-    font-family: 'Bebas neue';
-    font-size: 30px;
+  font-family: "Bebas neue";
+  font-size: 30px;
 }
 
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-    color: rgb(174, 146, 84) !important;
+  color: rgb(174, 146, 84) !important;
 }
 
 .css-1aquho2-MuiTabs-indicator {
-    background-color: rgb(174, 146, 84) !important;
+  background-color: rgb(174, 146, 84) !important;
 }
-
 
 /* ABOUT CSS */
 
-
 #aboutHeader {
-    background-image: url('./assets/img/laptops-1920.jpg');
+  background-image: url("./assets/img/laptops-1920.jpg");
 }
