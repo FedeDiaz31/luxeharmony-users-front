@@ -43,8 +43,8 @@ function Header() {
       <div
         className={
           showCart
-            ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-            : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+            ? "absolute top-[40px] transition-all duration-200 z-10 right-0 tablet:right-[20px] opacity-100"
+            : "absolute top-[-200px] transition-all duration-200 z-10 right-0 tablet:right-[20px] opacity-0"
         }
       >
         <CartComponent setShowCart={setShowCart} />
