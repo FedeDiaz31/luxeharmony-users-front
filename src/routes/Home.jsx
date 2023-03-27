@@ -36,13 +36,13 @@ function Home() {
           <div>
             <div>
               <div className="absolute w-full z-10 h-[70vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
-              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-end pr-32 pb-20">
+              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-center tablet:justify-end tablet:pr-32 pb-20">
                 <div>
-                  <div className="w-full flex flex-col items-end h-[14rem] justify-end text-textPrimary">
-                    <h3 className="font-bold text-4xl opacity-75  max-w-[400px] text-end">
+                  <div className="w-full flex flex-col items-center tablet:items-end h-[14rem] justify-end text-textPrimary">
+                    <h3 className="font-bold text-xl mobilXS:text-2xl tablet:text-4xl opacity-75  max-w-[400px] text-center tablet:text-end">
                       SPECIFIC CATEGORIES FOR YOU
                     </h3>
-                    <p className="font-light text-lg opacity-75  max-w-[300px] text-end">
+                    <p className="font-light text-lg opacity-75  max-w-[300px] text-center tablet:text-end">
                       Find your perfect instrument.
                     </p>
                     <button
@@ -56,21 +56,21 @@ function Home() {
               </div>
             </div>
             <img
-              className=" h-[99.85vh]  object-cover shadow "
+              className=" h-[99.85vh]  object-cover shadow"
               src="https://d2zap0z9ahyacn.cloudfront.net/eyJidWNrZXQiOiJwcnNpbWFnZXMiLCJrZXkiOiJndWl0YXItaW1hZ2VzL21jY2FydHktNTk0LTIwMjEtZ2FsbGVyeS0xXzIwMjEtMDMtMjAtMTU0MDA3LmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjE2MDAsImhlaWdodCI6ODAwLCJmaXQiOiJjb3ZlciJ9LCJzaGFycGVuIjp0cnVlfX0="
               alt="banner1"
             />
           </div>
-          <div className="h-[99.85vh] z-0 pt-16  bg-bgSecondaryColor">
+          <div>
             <div>
               <div className="absolute w-full z-10 h-[70vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
-              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-start pl-36 pb-40">
+              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-center tablet:justify-start tablet:pl-36 pb-20">
                 <div>
-                  <div className="w-full flex flex-col items-start h-[14rem] justify-end text-textPrimary">
-                    <h3 className="font-bold text-4xl opacity-75  max-w-[400px] text-start">
+                  <div className="w-full flex flex-col items-center tablet:items-start h-[14rem] justify-end text-textPrimary">
+                    <h3 className="font-bold text-xl mobilXS:text-2xl tablet:text-4xl opacity-75  max-w-[400px] text-start">
                       PRO SOUNDS SISTEMS
                     </h3>
-                    <p className="font-light text-lg opacity-75  max-w-[300px] text-start">
+                    <p className="font-light text-lg opacity-75  max-w-[300px] items-center tablet:text-start">
                       Specialists in providing the best sound artists and their
                       work environment.
                     </p>
@@ -90,16 +90,16 @@ function Home() {
               alt="banner2"
             />
           </div>
-          <div className="h-[99.85vh] z-0 pt-16  bg-bgSecondaryColor">
+          <div>
             <div>
               <div className="absolute w-full z-10 h-[70vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
-              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-end pr-32 pb-40">
+              <div className="absolute w-full z-20 h-[100vh] flex items-end justify-center tablet:justify-end tablet:pr-32 pb-20">
                 <div>
-                  <div className="w-full flex flex-col items-end h-[14rem] justify-end text-textPrimary">
-                    <h3 className="font-bold text-4xl opacity-75">
+                  <div className="w-full flex flex-col items-center mobilXS:items-end h-[14rem] justify-end text-textPrimary">
+                    <h3 className="font-bold text-xl mobilXS:text-2xl tablet:text-4xl opacity-75">
                       TOP BRANDS IN MARKET
                     </h3>
-                    <p className="font-light text-lg opacity-75 text-end">
+                    <p className="font-light text-lg opacity-75 text-center mobilXS:text-end">
                       Aliance is de name. <br /> Our brands, your sounds.
                     </p>
                     <button

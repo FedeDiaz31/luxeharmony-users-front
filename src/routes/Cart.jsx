@@ -19,7 +19,6 @@ function Cart() {
       setSubtotal(total);
     }
   }, [cart]);
-  console.log(cart);
   const showRowProduct = cart.filter((item, index) => {
     return cart.indexOf(item) === index;
   }); //Esta constante filtra los productos repetidos. (Para no tener visualment lineas repetidas en el carrito)

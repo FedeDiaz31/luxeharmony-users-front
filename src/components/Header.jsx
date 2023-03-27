@@ -97,7 +97,7 @@ function Header() {
         //Header NO SCROLL
         <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
-            <div className="tablet:hidden">
+            <div className="laptop:hidden">
               <NavMenu />
             </div>
             <Link
