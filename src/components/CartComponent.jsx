@@ -3,14 +3,23 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { removeProduct } from "../redux/cartReducer";
+import { useState } from "react";
 
 function CartComponent({ setShowCart }) {
   const dispatch = useDispatch();
+
   const cart = useSelector((state) => state.cart);
 
   const handleCloseCart = () => {
     setShowCart(false);
   };
+
+  function quantityProduct(cartProducts, product) {
+    const arrayProduct = cartProducts.filter(
+      (prod) => prod._id === product._id
+    );
+    return arrayProduct.length;
+  }
 
   return (
     <>
@@ -32,7 +41,7 @@ function CartComponent({ setShowCart }) {
                     -
                   </button>
                   <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                    1
+                    {quantityProduct(cart, product)}
                   </h4>
                   <button className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r">
                     +
