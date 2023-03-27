@@ -30,7 +30,7 @@ function CartComponent({ setShowCart }) {
 
   return (
     <>
-      <div className="w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-16 grid gap-2">
+      <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-16 grid gap-2">
         {showRowProduct.map((product) => (
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -39,9 +39,11 @@ function CartComponent({ setShowCart }) {
                 alt="product-pic"
                 className="w-10 z-0"
               />
-              <h2 className="text-bgSecondaryColor">{product.model}</h2>
+              <h2 className="text-bgSecondaryColor hidden tablet:block">
+                {product.model}
+              </h2>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
               <h4 className="text-black">
                 USD {product.price * quantityProduct(cart, product)}
               </h4>

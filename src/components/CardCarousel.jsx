@@ -25,7 +25,7 @@ function CardCarousel() {
     <>
       {" "}
       <h2 className="category-title text-textSecondary text-center pt-10">
-        HILIGHTS
+        HIGHLIGHTS
       </h2>
       <div
         ref={containerRef}
