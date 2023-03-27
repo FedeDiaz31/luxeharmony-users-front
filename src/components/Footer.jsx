@@ -69,17 +69,18 @@ const Footer = () => {
             <div className="py-4"></div>
           </div>
           <h4 className="text-textPrimary text-center text-sm pt-10 tablet:pb-16 pb-5">
-            Customer Support (US & Canada): <strong> 1-800-4GIBSON</strong>
+            Customer Support (US & Uruguay):{" "}
+            <strong> 1-800-LUXE-HARMONY</strong>
           </h4>
         </div>
       </div>
       <hr className="bg-bgPrimaryColor my-0 h-[2px] w-3/4 m-auto" />
       <div className="w-full bg-headerAndFooterColor pb-5 text-center">
         <h4 className="mx-auto text-base text-textPrimary font-semibold py-10">
-          VISIT THE GIBSON BRANDS FAMILY
+          TEAM 5
         </h4>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 columns-4 my-4">
+        {/*         <div className="flex flex-wrap items-center justify-center gap-3 columns-4 my-4">
           <img src={epiphone} alt="Epiphone" />
           <img src={gibson} alt="Gibson" />
 
@@ -88,7 +89,7 @@ const Footer = () => {
           <img className="w-20" src={maestro} alt="Maestro" />
           <img src={epiphosteinberger} alt="Steinberger" />
         </div>
-
+ */}
         <div className="container mx-auto">
           <div className="columns-1 justify-between flex gap-y-1 tablet:columns-2 flex-col tablet:flex-row">
             <div>

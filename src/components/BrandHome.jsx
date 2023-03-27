@@ -4,17 +4,17 @@ function CategoryHome({ brand }) {
   console.log(brand);
   return (
     /*     <Link className="bg-bgPrimaryColor" to={`/categories/${brands}`}> */
-
-    <img
-      className="w-full flex h-[70%] object-contain"
-      src={
-        brand.logo.includes("http")
-          ? brand.logo
-          : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
-      }
-      alt=""
-    />
-    /*     </Link> */
+    <div className="flex h-[100%]  items-center justify-center">
+      <img
+        className="w-[150px]  object-contain"
+        src={
+          brand.logo.includes("http")
+            ? brand.logo
+            : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
+        }
+        alt=""
+      />
+    </div>
   );
 }
 
