@@ -14,7 +14,7 @@ function Cart() {
       total += product.price;
       setSubtotal(total);
     }
-  }, []);
+  }, [cart]);
 
   return (
     <div className="pt-[70px]">

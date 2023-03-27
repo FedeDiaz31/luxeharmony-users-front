@@ -54,7 +54,9 @@ function Header() {
         // Header SCROLL
         <header className="z-50 absolute w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
-            <NavMenu />
+            <div className="tablet:hidden">
+              <NavMenu />
+            </div>
             <Link
               className="h-full bg-bgPrimaryColor p-1 flex items-center"
               to={"/"}
@@ -81,8 +83,8 @@ function Header() {
               className="cursos-pointer"
               onClick={() => setShowCart(!showCart)}
             >
-              <IconButton aria-label="cart">
-                <StyledBadge badgeContent={cart.length} color="secondary">
+              <IconButton aria-label="cart" color="inherit">
+                <StyledBadge badgeContent={cart.length}>
                   <ShoppingCartIcon />
                 </StyledBadge>
               </IconButton>
@@ -95,8 +97,9 @@ function Header() {
         //Header NO SCROLL
         <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full px-5 tablet:px-10 laptop:px-20">
-            <NavMenu />
-
+            <div className="tablet:hidden">
+              <NavMenu />
+            </div>
             <Link
               className=" bg-bgPrimaryColor p-3 h-full flex items-center"
               to={"/"}
@@ -123,8 +126,8 @@ function Header() {
               className="cursos-pointer"
               onClick={() => setShowCart(!showCart)}
             >
-              <IconButton aria-label="cart">
-                <StyledBadge badgeContent={cart.length} color="secondary">
+              <IconButton aria-label="cart" color="inherit">
+                <StyledBadge badgeContent={cart.length}>
                   <ShoppingCartIcon />
                 </StyledBadge>
               </IconButton>

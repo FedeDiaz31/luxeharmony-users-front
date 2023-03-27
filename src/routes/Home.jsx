@@ -42,9 +42,9 @@ function Home() {
         </div>
       </Carousel>
       <Warranty />
+      <CategoriesContainer />
       <BrandsContainer />
       <CardCarousel />
-      <CategoriesContainer />
     </div>
   );
 }
