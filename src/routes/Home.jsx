@@ -19,16 +19,22 @@ function Home() {
   return (
     <div>
       <div>
-        <div className="absolute w-full z-10 h-[40vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
-        <div className="absolute w-full z-20 h-[100vh] flex items-end justify-center pb-14">
+        <div className="absolute w-full z-10 h-[70vh] bg-gradient-to-t from-bgSecondaryColor bottom-[-17px]"></div>
+        <div className="absolute w-full z-20 h-[100vh] flex items-end justify-end pr-32 pb-16">
           <div>
-            <div className="w-full flex justify-center h-[14rem] items-end pb-8">
-              <button onClick={handleScrollHome}>
-                <img
-                  className="relative w-20 h-20 opacity-30 hover:opacity-75 top-[70px] hover:top-[75px] transition-all duration-200 "
-                  src="https://i.ibb.co/8mqFZ22/arrows1.png"
-                  alt="arrow"
-                />
+            <div className="w-full flex flex-col items-end h-[14rem] justify-end text-textPrimary">
+              <h3 className="font-bold text-4xl opacity-75">
+                TOP BRANDS IN MARKET
+              </h3>
+              <p className="font-light text-lg opacity-75  max-w-[300px] text-end">
+                Specialists in providing the best sound artists and their work
+                environment.
+              </p>
+              <button
+                className="bg-buttonsPrimaryColor opacity-75 hover:opacity-100 hover:bg-buttonHoverPrimary px-5 py-2 font-semibold text-md mt-5 transition-all duration-200"
+                onClick={handleScrollHome}
+              >
+                SHOW ALL CATEGORIES
               </button>
             </div>
           </div>
