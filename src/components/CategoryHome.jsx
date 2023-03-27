@@ -11,7 +11,11 @@ function CategoryHome({ category, img, title, paragraph }) {
       to={`/categories/${category}`}
       className="relative overflow-hidden"
     >
-      <img className="w-full h-[100%] object-cover" src={img} alt="" />
+      <img
+        className="w-full h-[300px] tablet:h-[400px] object-cover"
+        src={img}
+        alt=""
+      />
       <div
         className={
           hover

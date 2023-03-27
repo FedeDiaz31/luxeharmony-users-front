@@ -68,11 +68,11 @@ function Home() {
                 <div>
                   <div className="w-full flex flex-col items-center tablet:items-start h-[14rem] justify-end text-textPrimary">
                     <h3 className="font-bold text-xl mobilXS:text-2xl tablet:text-4xl opacity-75  max-w-[400px] text-start">
-                      PRO SOUNDS SISTEMS
+                      PRO SOUNDS SYSTEMS
                     </h3>
                     <p className="font-light text-lg opacity-75  max-w-[300px] items-center tablet:text-start">
-                      Specialists in providing the best sound artists and their
-                      work environment.
+                      Specialists in providing high quality audio equipment for
+                      artists and their work environment.
                     </p>
                     <button
                       className="bg-buttonsPrimaryColor opacity-75 hover:opacity-100 hover:bg-buttonHoverPrimary px-5 py-2 font-semibold text-md mt-5 transition-all duration-200"
@@ -100,7 +100,7 @@ function Home() {
                       TOP BRANDS IN MARKET
                     </h3>
                     <p className="font-light text-lg opacity-75 text-center mobilXS:text-end">
-                      Aliance is de name. <br /> Our brands, your sounds.
+                      Aliance is the name. <br /> Our brands, your sounds.
                     </p>
                     <button
                       className="bg-buttonsPrimaryColor opacity-75 hover:opacity-100 hover:bg-buttonHoverPrimary px-5 py-2 font-semibold text-md mt-5 transition-all duration-200"
