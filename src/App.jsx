@@ -28,7 +28,7 @@ function App() {
           <Route path="/product/:slug" element={<Product />} />
           <Route path="/chekout" element={<CheckOut />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/categories/:name" element={<Category />} />
+          <Route path="/categories/:slug" element={<Category />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
