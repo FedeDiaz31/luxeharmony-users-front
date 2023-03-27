@@ -2,7 +2,7 @@ import React from "react";
 
 function Warranty() {
   return (
-    <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 w-full gap-3 px-6">
+    <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 w-full gap-3 px-6 bg-bgSecondaryColor">
       <div className="px-5 pb-5 bg-bgSecondaryColor my-5 text-[#fff]">
         <img
           src="https://images.ctfassets.net/m8onsx4mm13s/4qm6G6cNU4mSAb566UuIJ1/5dfd9c110728306b565b59671a95cc83/In-Time-For-Holidays__2_.png"
