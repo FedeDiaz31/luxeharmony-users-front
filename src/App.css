@@ -78,3 +78,11 @@ header ul li {
 .css-1aquho2-MuiTabs-indicator {
     background-color: rgb(174, 146, 84) !important;
 }
+
+
+/* ABOUT CSS */
+
+
+#aboutHeader {
+    background-image: url('./assets/img/laptops-g6a6ba6c0a_1280.jpg');
+}
