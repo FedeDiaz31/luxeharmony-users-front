@@ -21,8 +21,8 @@ function LoginComponent({ setShowLogin }) {
       data: { password, email },
       method: "post",
     });
-    console.log(response.data);
-    dispatch(login(response.data));
+    dispatch(login(response.data.user));
+
     handleCloseLogin();
     navigate("/");
   };

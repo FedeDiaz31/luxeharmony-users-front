@@ -9,6 +9,7 @@ import Badge from "@mui/material/Badge";
 
 import NavMenu from "./NavMenu";
 import LoginComponent from "./LoginComponent";
+import UserComponent from "./UserComponent";
 // import { motion } from "framer-motion"
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -24,6 +25,7 @@ function Header() {
   const [userHasScrolled, setUserHasScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showUser, setShowUser] = useState(false);
 
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
@@ -38,18 +40,31 @@ function Header() {
     };
   }, [userHasScrolled]);
 
+  console.log(user);
+
   return (
     <>
-      <div
-        className={
-          showLogin
-            ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-            : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
-        }
-      >
-        <LoginComponent setShowLogin={setShowLogin} />
-      </div>
-
+      {user ? (
+        <div
+          className={
+            showUser
+              ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
+              : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+          }
+        >
+          <UserComponent setShowUSer={setShowUser} />
+        </div>
+      ) : (
+        <div
+          className={
+            showLogin
+              ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
+              : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+          }
+        >
+          <LoginComponent setShowLogin={setShowLogin} />
+        </div>
+      )}
       <div
         className={
           showCart
@@ -78,13 +93,23 @@ function Header() {
             </div>
             <div className="flex items-center gap-5">
               {user ? (
-                ""
+                <button
+                  onClick={() => {
+                    setShowUser(!showUser);
+                    setShowCart(false);
+                    setShowLogin(false);
+                  }}
+                  className="w-full bg-bgSecondaryColor py-1 px-3"
+                >
+                  <h2>{user.firstname}</h2>
+                </button>
               ) : (
                 <div className="w-full bg-bgSecondaryColor py-1 px-3">
                   <button
                     onClick={() => {
                       setShowLogin(!showLogin);
                       setShowCart(false);
+                      setShowUser(false);
                     }}
                     to="/about"
                   >
@@ -98,6 +123,7 @@ function Header() {
                 onClick={() => {
                   setShowCart(!showCart);
                   setShowLogin(false);
+                  setShowUser(false);
                 }}
               >
                 <StyledBadge badgeContent={cart.length}>
@@ -125,25 +151,35 @@ function Header() {
             </div>
             <div className="flex items-center gap-5">
               {user ? (
-                <h3>{user.firstname}</h3>
+                <button
+                  onClick={() => {
+                    setShowUser(!showUser);
+                    setShowCart(false);
+                    setShowLogin(false);
+                  }}
+                  className="w-full bg-bgSecondaryColor py-1 px-3"
+                >
+                  <h3>{user.firstname}</h3>
+                </button>
               ) : (
-                <div className="w-full bg-bgSecondaryColor py-1 px-3">
-                  <button
-                    onClick={() => {
-                      setShowLogin(!showLogin);
-                      setShowCart(false);
-                    }}
-                    to="/about"
-                  >
-                    LOGIN
-                  </button>
-                </div>
+                <button
+                  className="w-full bg-bgSecondaryColor py-1 px-3"
+                  onClick={() => {
+                    setShowLogin(!showLogin);
+                    setShowCart(false);
+                    setShowUser(false);
+                  }}
+                  to="/about"
+                >
+                  LOGIN
+                </button>
               )}
               <button
                 className="cursos-pointer"
                 onClick={() => {
                   setShowCart(!showCart);
                   setShowLogin(false);
+                  setShowUser(false);
                 }}
               >
                 <StyledBadge badgeContent={cart.length}>
