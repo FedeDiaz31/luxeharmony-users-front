@@ -10,6 +10,7 @@ import AboutUs from "./routes/AboutUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./routes/Category";
+import About from "./routes/About";
 
 function App() {
   return (
@@ -26,8 +27,8 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product/:slug" element={<Product />} />
           <Route path="/chekout" element={<CheckOut />} />
-          <Route path="/about" element={<AboutUs />} />
           <Route path="/categories/:slug" element={<Category />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
