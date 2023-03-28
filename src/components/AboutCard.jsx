@@ -8,12 +8,11 @@ function AboutCard({linkedin,img,title,paragraph}) {
     const [open, setOpen] = useState(false);
     return (
         <div
-          to={`https://www.linkedin.com/in/${linkedin}`}
           className="relative overflow-hidden w-[15vw]"
           target={'blank'}
         >
           <img
-            className="w-full h-[300px] tablet:h-[400px] object-cover"
+            className="w-full h-[300px] tablet:h-[300px] object-cover"
             src={img}
             alt=""
           />
@@ -27,14 +26,15 @@ function AboutCard({linkedin,img,title,paragraph}) {
             <div className='flex items-center justify-between'>
                 <h2 className="category-title text-left pl-3 pt-3">{title}</h2>
                 {open ? 
-                <div onClick={()=>setOpen(false)} className=' text-bgPrimaryColor mr-4 w-10 h-1 flex items-center justify-center'>
-                    <img className='fill-[#fff] scale-50 cursor-pointer' src={chevron} alt="" />    
+                <div onClick={()=>setOpen(false)} className=' text-bgPrimaryColor w-14 h-16 flex items-center justify-center cursor-pointer'>
+                    <img className='fill-[#fff] scale-50 ' src={chevron} alt="" />    
                 </div> :
-                <div onClick={()=>setOpen(true)} className=' text-bgPrimaryColor mr-4 w-10 h-10 flex items-center justify-center'>
-                    <img className='fill-[#fff] scale-50 cursor-pointer' src={chevronDown} alt="" />   
+                <div onClick={()=>setOpen(true)} className=' text-bgPrimaryColor w-14 h-16 flex items-center justify-center cursor-pointer'>
+                    <img className='fill-[#fff] scale-50 ' src={chevronDown} alt="" />   
                 </div>}
             </div>
             <p className="text-left px-3 text-sm">{paragraph}</p>
+            <Link className='link-about-linkedin ml-3' to={`https://www.linkedin.com/in/${linkedin}`}>Github</Link>
           </div>
         </div>
       );
