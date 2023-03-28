@@ -61,7 +61,7 @@ function CategoriesContainer() {
           paragraph={
             "Experience high-quality sound like never before with our professional audio section."
           }
-          category={"audio pro"}
+          category={"audiopro"}
           img={
             "https://creativefreedompreneur.com/wp-content/uploads/2015/04/Starting-Your-Own-Music-Production-Company.png"
           }

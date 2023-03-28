@@ -9,7 +9,11 @@ function CardProductCategory({ slug, model, image, brand, price }) {
     >
       <img
         className="w-[30vw] h-[60vh] border border-bgFourthColor object-contain"
-        src={image}
+        src={
+          image.includes("http")
+            ? image
+            : `${process.env.REACT_APP_API_URL}/img/products/${image}`
+        }
         alt={brand + model}
       />
       <div className="w-[100%] text-left">

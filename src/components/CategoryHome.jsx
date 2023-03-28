@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function CategoryHome({ category, img, title, paragraph }) {
   const [hover, setHover] = useState(false);
+
   return (
     <Link
       onMouseEnter={() => setHover(true)}
@@ -13,7 +14,11 @@ function CategoryHome({ category, img, title, paragraph }) {
     >
       <img
         className="w-full h-[300px] tablet:h-[400px] object-cover"
-        src={img}
+        src={
+          img.includes("http")
+            ? img
+            : `${process.env.REACT_APP_API_URL}/img/products/${img}`
+        }
         alt=""
       />
       <div

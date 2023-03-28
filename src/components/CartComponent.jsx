@@ -43,7 +43,7 @@ function CartComponent({ setShowCart }) {
                   src={
                     product.image[0].includes("http")
                       ? product.image[0]
-                      : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}.png`
+                      : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
                   }
                   alt="product-pic"
                   className="w-10 z-0"

@@ -40,8 +40,6 @@ function Header() {
     };
   }, [userHasScrolled]);
 
-  console.log(user);
-
   return (
     <>
       {user ? (
@@ -77,13 +75,13 @@ function Header() {
 
       {userHasScrolled ? (
         // Header SCROLL
-        <header className="z-50 relative w-full h-12 bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
+        <header className="z-50 relative w-full h-12 bg-opacity-[98%] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full">
             <div className="laptop:hidden">
               <NavMenu />
             </div>
             <Link
-              className="h-full bg-bgPrimaryColor p-1 flex items-center"
+              className="h-full bg-bgPrimaryColor p-1 flex items-center shadow"
               to={"/"}
             >
               <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
@@ -135,13 +133,13 @@ function Header() {
         </header>
       ) : (
         //Header NO SCROLL
-        <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
+        <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200 px-5 tablet:px-20">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full">
             <div className="laptop:hidden">
               <NavMenu />
             </div>
             <Link
-              className=" bg-bgPrimaryColor h-full flex items-center"
+              className="bg-bgPrimaryColor h-full flex items-center shadow"
               to={"/"}
             >
               <img className="w-28" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />

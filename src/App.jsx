@@ -32,7 +32,9 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

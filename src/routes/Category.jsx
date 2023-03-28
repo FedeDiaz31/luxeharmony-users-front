@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CardProductCategory from "../components/CardProductCategory";
+import Spinner from "../components/Spinner";
 
 function Category() {
   const name = useParams().slug;
@@ -25,7 +26,7 @@ function Category() {
           Category {name}
         </h3>
       </div> */}
-      <div className=" w-[50vw] m-auto py-10 grid grid-cols-3 gap-3 pt-32">
+      <div className="mx-72 m-auto py-10 grid grid-cols-3 gap-3 pt-32">
         {products ? (
           products.map((product) => (
             <CardProductCategory
@@ -37,7 +38,9 @@ function Category() {
             />
           ))
         ) : (
-          <h1>cargando...</h1>
+          <div className="w-full grid place-content-center h-[60vh]">
+            <Spinner />
+          </div>
         )}
       </div>
     </div>

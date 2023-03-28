@@ -30,8 +30,6 @@ function Cart() {
     );
     return arrayProduct.length;
   }
-
-  console.log(cart);
   return (
     <div className="pt-[70px]">
       <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
@@ -50,7 +48,7 @@ function Cart() {
                       src={
                         product.image[0].includes("http")
                           ? product.image[0]
-                          : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}.png`
+                          : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
                       }
                       alt=""
                     />
