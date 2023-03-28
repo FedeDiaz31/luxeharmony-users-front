@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 function CardCarousel() {
   const containerRef = useRef();
   const [products, setProducts] = useState([]);
+  const [containerWidth,setContainerWidth] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +22,13 @@ function CardCarousel() {
     getProducts();
   }, []);
 
+useEffect(()=>{
+  setContainerWidth(containerRef.current.scrollWidth)
+},[products])
+
+
+console.log(containerWidth)
+
   return (
     <>
       {" "}
@@ -29,10 +37,10 @@ function CardCarousel() {
       </h2>
       <div
         ref={containerRef}
-        className="w-[70vw] h-[50vh]  m-auto mb-10 pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  "
+        className="w-[60vw] h-[50vh]  m-auto mb-10 pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  "
       >
         <img
-          onClick={() => (containerRef.current.scrollLeft -= 1000)}
+          onClick={() => (containerRef.current.scrollLeft -= containerWidth/products.length)}
           className="absolute left-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
           src={backChevron}
           alt=""
@@ -46,7 +54,7 @@ function CardCarousel() {
           ></CardProduct>
         ))}
         <img
-          onClick={() => (containerRef.current.scrollLeft += 1000)}
+          onClick={() => (containerRef.current.scrollLeft += containerWidth/products.length)}
           className="absolute right-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
           src={forwardChevron}
           alt=""

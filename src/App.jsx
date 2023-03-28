@@ -11,10 +11,26 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./routes/Category";
 import About from "./routes/About";
+import { useEffect,useState } from "react";
+import Splash from "./components/Splash";
 
 function App() {
+const[splash,setSplash]=useState(true)
+
+useEffect(()=>{
+  setTimeout(()=>{
+    setSplash(false)
+  },2000)
+},[])
+
+if(splash){
+  return(
+    <Splash/>
+  )
+} else{
   return (
     <div className="App">
+     
       <div className="w-full fixed z-50">
         <Header />
       </div>
@@ -37,6 +53,7 @@ function App() {
       </div>
     </div>
   );
+  }
 }
 
 export default App;

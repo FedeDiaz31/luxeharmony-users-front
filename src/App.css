@@ -3,7 +3,6 @@ header {
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.885);
 }
 
-
 header ul li {
   transition: ease-in-out 1s;
 }
@@ -13,19 +12,14 @@ header ul li {
   transition: ease-in-out 0.2s;
 }
 
-
 .cardProduct:hover {
   transform: scale(1.07);
   cursor: pointer;
 }
 
-
-
-.title-card-category{
-    font-family: 'Bebas neue';
+.title-card-category {
+  font-family: "Bebas neue";
 }
-
-
 
 /* ACCORDION STYLES */
 
@@ -84,18 +78,33 @@ header ul li {
 
 /* ABOUT CSS */
 
-.about-title{
- font-family: 'Bebas neue';
- font-size: 30px;
+.about-title {
+  font-family: "Bebas neue";
+  font-size: 30px;
 }
 
-
-.technologies-title{
- font-family: 'Bebas neue';
- font-size: 30px;
+.technologies-title {
+  font-family: "Bebas neue";
+  font-size: 30px;
 }
 
+.link-about-linkedin {
+  color: rgb(20, 181, 255);
+}
 
-.link-about-linkedin{
- color: rgb(20, 181, 255);
+.splash {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  overflow-y: hidden;
+  position: absolute;
+  z-index: 100;
+  transition: ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-logo {
+  width: 20vw;
 }
