@@ -32,7 +32,13 @@ const Product = () => {
     if (product) {
       setImages(
         product.image.map((picture) => {
-          return { original: picture, thumbnail: picture };
+          if (picture.includes("http")) {
+            return { original: picture, thumbnail: picture };
+          } else
+            return {
+              original: `${process.env.REACT_APP_API_URL}/img/products/${picture}`,
+              thumbnail: `${process.env.REACT_APP_API_URL}/img/products/${picture}`,
+            };
         })
       );
     }
