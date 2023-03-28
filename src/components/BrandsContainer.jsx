@@ -18,10 +18,13 @@ function BrandsContainer() {
 
   return (
     <div
-      className=" py-10 w-full px-5 text-center bg-bgSecondaryColor"
+      className=" pb-10 w-full px-5 text-center bg-bgSecondaryColor"
       id="categories-container"
     >
-      <div className="grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 py-10">
+      <h2 className="category-title text-textPrimary text-center py-14">
+        ALIANCES
+      </h2>
+      <div className="grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5">
         {brands
           ? brands.map((brand) => {
               return <BrandHome key={brand._id} brand={brand} />;

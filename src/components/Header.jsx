@@ -52,7 +52,7 @@ function Header() {
               : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
           }
         >
-          <UserComponent setShowUSer={setShowUser} />
+          <UserComponent setShowUser={setShowUser} />
         </div>
       ) : (
         <div
