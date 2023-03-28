@@ -30,59 +30,69 @@ function CartComponent({ setShowCart }) {
 
   return (
     <>
-      <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-16 grid gap-2">
-        {showRowProduct.map((product) => (
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <img
-                src={product.image[0]}
-                alt="product-pic"
-                className="w-10 z-0"
-              />
-              <h2 className="text-bgSecondaryColor hidden tablet:block">
-                {product.model}
-              </h2>
-            </div>
-            <div className="flex gap-3 items-center">
-              <h4 className="text-black">
-                USD {product.price * quantityProduct(cart, product)}
-              </h4>
-              <div className="flex gap-3">
-                <div className="flex items-center w-[110px] justify-between">
-                  <button
-                    className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
-                    onClick={() => dispatch(removeProduct(product))}
-                  >
-                    -
-                  </button>
-
-                  <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                    {quantityProduct(cart, product)}
-                  </h4>
-                  <button
-                    className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
-                    onClick={() => dispatch(addProduct(product))}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <DeleteIcon
-                onClick={() => dispatch(removeAllThisProducts(product))}
-              />
-            </div>
+      <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-12 grid gap-2">
+        {showRowProduct.length === 0 ? (
+          <div>
+            <h3 className="font-light text-2xl text-center">Empty cart...</h3>
           </div>
-        ))}
+        ) : (
+          showRowProduct.map((product) => (
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <img
+                  src={
+                    product.image[0].includes("http")
+                      ? product.image[0]
+                      : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}.png`
+                  }
+                  alt="product-pic"
+                  className="w-10 z-0"
+                />
+                <h2 className="text-bgSecondaryColor hidden tablet:block">
+                  {product.model}
+                </h2>
+              </div>
+              <div className="flex gap-3 items-center">
+                <h4 className="text-black">
+                  USD {product.price * quantityProduct(cart, product)}
+                </h4>
+                <div className="flex gap-3">
+                  <div className="flex items-center w-[110px] justify-between">
+                    <button
+                      className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
+                      onClick={() => dispatch(removeProduct(product))}
+                    >
+                      -
+                    </button>
+
+                    <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
+                      {quantityProduct(cart, product)}
+                    </h4>
+                    <button
+                      className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
+                      onClick={() => dispatch(addProduct(product))}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <DeleteIcon
+                  onClick={() => dispatch(removeAllThisProducts(product))}
+                />
+              </div>
+            </div>
+          ))
+        )}
         <div className="mt-5">
           <Link onClick={handleCloseCart} to={"/cart"}>
-            <div className="bg-bgPrimaryColor w-full text-center border border-bgFourthColor rounded py-1 ">
+            <div className="bg-bgPrimaryColor w-full text-center border border-bgFourthColor py-1 ">
               Review cart
             </div>
           </Link>
         </div>
         <div>
           <button
-            className="bg-bgTertiaryColor w-full text-textPrimary rounded py-1"
+            className="bg-bgTertiaryColor w-full text-textPrimary py-1"
             onClick={handleCloseCart}
           >
             Close

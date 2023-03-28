@@ -19,12 +19,12 @@ function CategoryHome({ category, img, title, paragraph }) {
       <div
         className={
           hover
-            ? "absolute h-[200px] bottom-0 bg-bgSecondaryColor text-textPrimary py-4 transition-all duration-200"
-            : "absolute h-[200px] bottom-[-130px] bg-bgSecondaryColor text-textPrimary py-4 transition-all duration-200"
+            ? "absolute h-[200px] bottom-0 bg-bgSecondaryColor text-textPrimary py-3 transition-all duration-200"
+            : "absolute h-[200px] bottom-[-130px] bg-bgSecondaryColor text-textPrimary py-3 transition-all duration-200"
         }
       >
         <h2 className="category-title text-left pl-3 pt-3">{title}</h2>
-        <p className=" text-left px-3 text-s">{paragraph}</p>
+        <p className="text-left px-3 text-sm">{paragraph}</p>
       </div>
     </Link>
   );

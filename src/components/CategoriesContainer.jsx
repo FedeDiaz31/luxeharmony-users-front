@@ -37,7 +37,7 @@ function CategoriesContainer() {
           }
         />
         <CategoryHome
-          title={"Acoustic guitar"}
+          title={"Acoustic guitars"}
           paragraph={
             "Unleash your acoustic potential with our premium acoustic guitar section"
           }
@@ -53,7 +53,7 @@ function CategoriesContainer() {
           }
           category={"bass"}
           img={
-            "https://app.thebrag.com/img-socl/?url=https://au.rollingstone.com/wp-content/uploads/2020/07/22-flea.jpg&nologo=1"
+            "https://www.fmicassets.com/demandware/assets/features/flea-bass-2016/mobile/flea-green-bg.jpg"
           }
         />
         <CategoryHome

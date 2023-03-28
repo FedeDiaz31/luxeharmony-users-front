@@ -4,7 +4,6 @@ import Home from "./routes/Home";
 import Cart from "./routes/Cart";
 import Products from "./routes/Products";
 import Product from "./routes/Product";
-import Login from "./routes/Login";
 import SignUp from "./routes/SignUp";
 import CheckOut from "./routes/CheckOut";
 import AboutUs from "./routes/AboutUs";
@@ -20,8 +19,8 @@ function App() {
       </div>
       <div>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<SignUp />} />
+          {/*           <Route path="/login" element={<Login />} /> */}
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products" element={<Products />} />

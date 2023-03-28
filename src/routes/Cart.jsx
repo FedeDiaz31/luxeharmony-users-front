@@ -30,6 +30,8 @@ function Cart() {
     );
     return arrayProduct.length;
   }
+
+  console.log(cart);
   return (
     <div className="pt-[70px]">
       <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
@@ -43,7 +45,15 @@ function Cart() {
               <div key={i}>
                 <div className="flex gap-3 px-25 mr-52">
                   <div className="border border-bgFourthColor rounded p-3 px-5">
-                    <img className="w-20" src={product.image[0]} alt="" />
+                    <img
+                      className="w-20"
+                      src={
+                        product.image[0].includes("http")
+                          ? product.image[0]
+                          : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}.png`
+                      }
+                      alt=""
+                    />
                   </div>
                   <div className="grid items-center">
                     <div>

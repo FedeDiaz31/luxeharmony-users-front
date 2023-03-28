@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
             <div className="py-4"></div>
           </div>
-          <h4 className="text-textPrimary text-center text-sm pt-2 tablet:pb-16 pb-2">
+          <h4 className="text-textPrimary text-center text-sm pt-2 pb-5">
             Customer Support (US & Uruguay):{" "}
             <strong> 1-800-LUXE-HARMONY</strong>
           </h4>

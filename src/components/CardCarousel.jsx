@@ -29,10 +29,10 @@ function CardCarousel() {
       </h2>
       <div
         ref={containerRef}
-        className="w-[90vw] h-[50vh]  m-auto pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  "
+        className="w-[70vw] h-[50vh]  m-auto mb-10 pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  "
       >
         <img
-          onClick={() => (containerRef.current.scrollLeft -= 1400)}
+          onClick={() => (containerRef.current.scrollLeft -= 1000)}
           className="absolute left-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
           src={backChevron}
           alt=""
@@ -46,7 +46,7 @@ function CardCarousel() {
           ></CardProduct>
         ))}
         <img
-          onClick={() => (containerRef.current.scrollLeft += 1400)}
+          onClick={() => (containerRef.current.scrollLeft += 1000)}
           className="absolute right-[7vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
           src={forwardChevron}
           alt=""
