@@ -3,6 +3,7 @@ header {
   box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.885);
 }
 
+
 header ul li {
   transition: ease-in-out 1s;
 }
@@ -12,10 +13,13 @@ header ul li {
   transition: ease-in-out 0.2s;
 }
 
+
 .cardProduct:hover {
   transform: scale(1.07);
   cursor: pointer;
 }
+
+
 
 .title-card-category{
     font-family: 'Bebas neue';
@@ -80,6 +84,13 @@ header ul li {
 
 /* ABOUT CSS */
 
-#aboutHeader {
-  background-image: url("./assets/img/laptops-1920.jpg");
+.about-title{
+ font-family: 'Bebas neue';
+ font-size: 30px;
+}
+
+
+.technologies-title{
+ font-family: 'Bebas neue';
+ font-size: 30px;
 }
