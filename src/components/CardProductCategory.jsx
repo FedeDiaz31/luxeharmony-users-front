@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function CardProductCategory({ slug, model, image, brand, price }) {
-  console.log(brand);
-
   return (
     <Link
       to={`/product/${slug}`}
@@ -15,7 +13,8 @@ function CardProductCategory({ slug, model, image, brand, price }) {
         alt={brand + model}
       />
       <div className="w-[100%] text-left">
-        <img className="w-20 my-4"
+        <img
+          className="w-20 my-4"
           src={
             brand.logo2.includes("http")
               ? brand.logo2

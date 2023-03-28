@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { useSelector } from "react-redux";
-
 import CartComponent from "./CartComponent";
-
 import NavBar from "./NavBar";
-
-import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 
 import NavMenu from "./NavMenu";
+import LoginComponent from "./LoginComponent";
 // import { motion } from "framer-motion"
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -27,8 +23,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 function Header() {
   const [userHasScrolled, setUserHasScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     window.onscroll = function (e) {
@@ -42,6 +40,16 @@ function Header() {
 
   return (
     <>
+      <div
+        className={
+          showLogin
+            ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
+            : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+        }
+      >
+        <LoginComponent setShowLogin={setShowLogin} />
+      </div>
+
       <div
         className={
           showCart
@@ -65,28 +73,45 @@ function Header() {
             >
               <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
             </Link>
-            <div className="flex h-full items-center w-full relative">
+            <div className="hidden laptop:flex h-full items-center">
               <NavBar />
             </div>
-            <button
-              className="cursos-pointer"
-              onClick={() => setShowCart(!showCart)}
-            >
-              <IconButton aria-label="cart" color="inherit">
+            <div className="flex items-center gap-5">
+              {user ? (
+                ""
+              ) : (
+                <div className="w-full bg-bgSecondaryColor py-1 px-3">
+                  <button
+                    onClick={() => {
+                      setShowLogin(!showLogin);
+                      setShowCart(false);
+                    }}
+                    to="/about"
+                  >
+                    LOGIN
+                  </button>
+                </div>
+              )}
+
+              <button
+                className="cursos-pointer"
+                onClick={() => {
+                  setShowCart(!showCart);
+                  setShowLogin(false);
+                }}
+              >
                 <StyledBadge badgeContent={cart.length}>
                   <ShoppingCartIcon />
                 </StyledBadge>
-              </IconButton>
-
-              {/* ///////////////////////// */}
-            </button>
+              </button>
+            </div>
           </div>
         </header>
       ) : (
         //Header NO SCROLL
         <header className="z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full">
-            <div className="tablet:hidden">
+            <div className="laptop:hidden">
               <NavMenu />
             </div>
             <Link
@@ -95,17 +120,37 @@ function Header() {
             >
               <img className="w-28" src="LOGO-BLACK-LUXE-HARMONY2.png" alt="" />
             </Link>
-            <div className="hidden laptop:flex w-3/4  h-full items-center">
+            <div className="hidden laptop:flex h-full items-center">
               <NavBar />
             </div>
-            <button
-              className="cursos-pointer"
-              onClick={() => setShowCart(!showCart)}
-            >
-              <StyledBadge badgeContent={cart.length}>
-                <ShoppingCartIcon />
-              </StyledBadge>
-            </button>
+            <div className="flex items-center gap-5">
+              {user ? (
+                <h3>{user.firstname}</h3>
+              ) : (
+                <div className="w-full bg-bgSecondaryColor py-1 px-3">
+                  <button
+                    onClick={() => {
+                      setShowLogin(!showLogin);
+                      setShowCart(false);
+                    }}
+                    to="/about"
+                  >
+                    LOGIN
+                  </button>
+                </div>
+              )}
+              <button
+                className="cursos-pointer"
+                onClick={() => {
+                  setShowCart(!showCart);
+                  setShowLogin(false);
+                }}
+              >
+                <StyledBadge badgeContent={cart.length}>
+                  <ShoppingCartIcon />
+                </StyledBadge>
+              </button>
+            </div>
           </div>
         </header>
       )}
