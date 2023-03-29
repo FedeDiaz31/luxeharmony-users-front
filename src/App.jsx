@@ -7,7 +7,6 @@ import Products from "./routes/Products";
 import Product from "./routes/Product";
 import SignUp from "./routes/SignUp";
 import CheckOut from "./routes/CheckOut";
-import AboutUs from "./routes/AboutUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./routes/Category";
