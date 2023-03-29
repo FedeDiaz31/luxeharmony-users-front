@@ -60,11 +60,13 @@ function Cart() {
                       </h3>
                       <div className="flex mt-3">
                         <h3 className=" font-light">
-                          <span>Unit </span> ${product.price}
+                          <span>Unit </span> ${product.price.toFixed(1)}
                         </h3>
                         <h3 className=" font-light ml-5">
                           <span>Total </span> $
-                          {product.price * quantityProduct(cart, product)}
+                          {(
+                            product.price * quantityProduct(cart, product)
+                          ).toFixed(1)}
                         </h3>
                       </div>
                     </div>

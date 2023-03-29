@@ -1,6 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../animation/animations.css";
 import { Carousel } from "react-responsive-carousel";
-import { useState, useEffect } from "react";
 import CardCarousel from "../components/CardCarousel";
 import CategoriesContainer from "../components/CategoriesContainer";
 import Warranty from "../components/Warranty";
@@ -9,6 +9,7 @@ import { useRef } from "react";
 
 function Home() {
   document.title = ` Home | LuxeHarmony `;
+
   const brands = useRef(null);
   const categories = useRef(null);
 
@@ -23,7 +24,7 @@ function Home() {
 
   return (
     <div>
-      <div className="z-0">
+      <div className="z-0 fade-in">
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -122,13 +123,15 @@ function Home() {
         </Carousel>
       </div>
       <Warranty />
-      <div ref={categories} className={"pt-14"}>
+      <div ref={categories} className="pt-14">
         <CategoriesContainer />
       </div>
-      <div ref={brands} className={"pt-14"}>
+      <div ref={brands} className="mt-14">
         <BrandsContainer />
       </div>
-      <CardCarousel />
+      <div className="my-14">
+        <CardCarousel />
+      </div>
     </div>
   );
 }

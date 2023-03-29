@@ -30,7 +30,7 @@ function CartComponent({ setShowCart }) {
 
   return (
     <>
-      <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-12 grid gap-2">
+      <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
         {showRowProduct.length === 0 ? (
           <div>
             <h3 className="font-light text-2xl text-center">Empty cart...</h3>
@@ -53,8 +53,9 @@ function CartComponent({ setShowCart }) {
                 </h2>
               </div>
               <div className="flex gap-3 items-center">
-                <h4 className="text-black">
-                  USD {product.price * quantityProduct(cart, product)}
+                <h4 className="font-light">
+                  USD{" "}
+                  {(product.price * quantityProduct(cart, product)).toFixed(2)}
                 </h4>
                 <div className="flex gap-3">
                   <div className="flex items-center w-[110px] justify-between">

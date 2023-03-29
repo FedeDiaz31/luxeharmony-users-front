@@ -13,7 +13,7 @@ function UserComponent({ setShowUser }) {
     <>
       {user && (
         <>
-          <div className="w-full tablet:w-[300px] bg-bgPrimaryColor border border-bgFourthColor rounded mb-10 pb-3 px-5 pt-12 grid gap-2">
+          <div className="w-full tablet:w-[300px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
             <div className=" flex flex-col gap-3 mt-3">
               <div className="flex justify-between w-full items-center">
                 <h3 className="font-light text-2xl">
@@ -23,14 +23,22 @@ function UserComponent({ setShowUser }) {
               </div>
             </div>
             <div className="mt-5">
-              <button className="w-full" onClick={handleCloseLogin}>
-                <Link
-                  to={`/${user.id}`}
-                  className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor py-1"
-                >
-                  Profile
-                </Link>
-              </button>
+              <Link
+                onClick={handleCloseLogin}
+                to={`/${user.id}`}
+                className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor py-1"
+              >
+                Your Orders
+              </Link>
+            </div>
+            <div className="">
+              <Link
+                onClick={handleCloseLogin}
+                to={`/${user.id}`}
+                className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor py-1"
+              >
+                Profile
+              </Link>
             </div>
             <div className="w-full">
               <button

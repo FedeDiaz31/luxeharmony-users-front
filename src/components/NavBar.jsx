@@ -17,7 +17,7 @@ const NavBar = () => {
         <Nav.Item>Item E-4</Nav.Item>
       </Nav.Menu>
       <Nav.Item className="w-full  px-2 pb-1">
-        <Link to="/about">ABOUT US</Link>
+        <Link to="/about">ABOUT</Link>
       </Nav.Item>
     </Nav>
   );

@@ -1,5 +1,5 @@
 //Dependencias
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,15 +8,16 @@ import { addProduct } from "../redux/cartReducer";
 //Componentes
 import Tabs from "../components/Tabs";
 import ImageGallery from "react-image-gallery";
-import Splash from "../components/Splash";
+import "../animation/animations.css";
+import Spinner from "../components/Spinner";
 
 const Product = () => {
   const [product, setProduct] = useState(null);
   const { slug } = useParams();
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
-  document.title = `${product ? product.model : "cargando..."} | Gibson `;
-
+  document.title = `${product ? product.model : "cargando..."} | LuxeHarmony `;
+  window.scrollTo({ top: 0 });
   useEffect(() => {
     const getProduct = async () => {
       const response = await axios({
@@ -48,19 +49,28 @@ const Product = () => {
     dispatch(addProduct(product));
   };
 
-  if (product === null) {
-    return <Splash />;
+  const thumbnailClass = {
+    border: "none",
+  };
+
+  if (!product) {
+    return (
+      <div className="w-full grid place-content-center h-[100vh]">
+        <Spinner />
+      </div>
+    );
   } else {
     return (
       <>
-        <main className="w-[60vw] m-auto pt-32">
-          <div className="m-auto container mt-5">
+        <main className="mx-10 tablet:mx-20 laptop:mx-48 pt-32 fade-in">
+          <div className="m-auto mt-5">
             <div className="grid grid-cols-1 tablet:grid-cols-2">
               <div className="tablet:mr-16 min-h-[300px]">
                 {images.length > 0 ? (
                   <ImageGallery
                     items={images}
                     thumbnailPosition={"left"}
+                    thumbnailClass={thumbnailClass}
                     showPlayButton={false}
                     autoPlay={true}
                     showNav={false}
@@ -69,7 +79,9 @@ const Product = () => {
                     slideDuration={1500}
                   />
                 ) : (
-                  <h1>Loading...</h1>
+                  <div className="w-full grid place-content-center h-[60vh]">
+                    <Spinner />
+                  </div>
                 )}
               </div>
               <div className="mt-10 tablet:m-0">
@@ -118,13 +130,13 @@ const Product = () => {
               <h2 className="text-2xl mb-2 font-bold">{product.subtitle}</h2>
               <p>{product.description}</p>
             </div>
-            <div className="column-1 mt-20 mb-16">
+            <div className="column-1 mt-20 mb-16 ">
               {product ? <Tabs product={product} /> : null}
             </div>
 
             <hr className="mb-7 mt-3" />
 
-            <div className=" flex mt-10 mb-10 justify-evenly w-full">
+            <div className="tablet:flex mt-10 mb-10 justify-evenly w-full">
               <div>
                 <h3 className="text-2xl font-bold mb-4">
                   SIGN UP FOR NEWS & OFFERS
@@ -137,7 +149,7 @@ const Product = () => {
                   and Privacy Policy.
                 </h6>
               </div>
-              <div className="w-80 justify-center">
+              <div className="w-80 justify-center mt-10 tablet:mt-0">
                 <h3 className="text-l font-semibold mb-5">Follow us: </h3>
                 <div className="grid grid-cols-5">
                   <div>

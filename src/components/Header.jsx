@@ -75,7 +75,7 @@ function Header() {
 
       {userHasScrolled ? (
         // Header SCROLL
-        <header className="z-50 relative w-full h-12 bg-opacity-[98%] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
+        <header className="z-50 relative w-full h-10 bg-opacity-[98%] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200">
           <div className="flex justify-between laptop:justify-around items-center h-full w-full">
             <div className="laptop:hidden">
               <NavMenu />

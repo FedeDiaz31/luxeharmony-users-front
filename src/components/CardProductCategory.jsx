@@ -1,14 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function CardProductCategory({ slug, model, image, brand, price }) {
   return (
     <Link
       to={`/product/${slug}`}
-      className=" w-[100%]  flex flex-col items-center justify-center bg-bgPrimaryColor "
+      className="flex flex-col items-center justify-center bg-bgPrimaryColor"
     >
       <img
-        className="w-[30vw] h-[60vh] border border-bgFourthColor object-contain"
+        className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain"
         src={
           image.includes("http")
             ? image
@@ -16,7 +15,7 @@ function CardProductCategory({ slug, model, image, brand, price }) {
         }
         alt={brand + model}
       />
-      <div className="w-[100%] text-left">
+      <div className="text-left w-full">
         <img
           className="w-20 my-4"
           src={
