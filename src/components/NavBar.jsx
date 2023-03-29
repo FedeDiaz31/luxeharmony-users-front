@@ -44,7 +44,7 @@ const NavBar = () => {
         </div>
       </Nav.Menu>
       <Nav.Menu title="BRANDS" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-[95px] rounded p-1">
+        <div className="bg-bgFourthColor w-[130px] rounded p-1">
           {" "}
           {brands.map((brand) => (
             <NavLink to={`brands/${brand.slug}`}>
