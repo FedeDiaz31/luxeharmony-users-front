@@ -30,15 +30,28 @@ const NavBar = () => {
     };
     getBrands();
   }, []);
+  console.log(categories);
 
   return (
     <Nav className="gap-5 w-[350px] mx-auto mt-auto h-1/2 relative items-start m-2 flex">
       <Nav.Menu title="CATEGORIES" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-full rounded p-3">
+        <div className="bg-bgFourthColor w-[100px] rounded p-3">
           {" "}
           {categories.map((category) => (
             <NavLink to={`categories/${category.slug}`}>
-              <div lassName="flex ">{category.name}</div>
+              <div className="flex ">
+                <img
+                  className="w-5 my-1 object-contain mr-3"
+                  src={
+                    category.products[0].image[0].includes("http")
+                      ? `${category.products[0].image[0]}`
+                      : `${process.env.REACT_APP_API_URL}/img/products/${category.products[0].image[0]}`
+                  }
+                  alt="image"
+                />
+
+                <span className="mt-3"> {category.name}</span>
+              </div>
             </NavLink>
           ))}
         </div>

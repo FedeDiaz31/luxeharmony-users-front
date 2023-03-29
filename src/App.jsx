@@ -9,11 +9,14 @@ import CheckOut from "./routes/CheckOut";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./routes/Category";
+import Brand from "./routes/Brands";
 import About from "./routes/About";
 import { useEffect, useState } from "react";
 import Splash from "./components/Splash";
 import Profile from "./routes/Profile";
 import Orders from "./routes/Orders";
+import ScrollToTop from "./hooks/ScrollToTop";
+import AuthRequire from "./hooks/AuthRequire";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -33,18 +36,23 @@ function App() {
           <Header />
         </div>
         <div className="min-h-[100vh]">
-          <Routes>
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/product/:slug" element={<Product />} />
-            <Route path="/chekout" element={<CheckOut />} />
-            <Route path="/categories/:slug" element={<Category />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <ScrollToTop>
+            <Routes>
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/product/:slug" element={<Product />} />
+              <Route path="/chekout" element={<CheckOut />} />
+              <Route path="/categories/:slug" element={<Category />} />
+              <Route path="/brands/:slug" element={<Brand />} />
+              <Route element={<AuthRequire />}>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/orders" element={<Orders />} />
+              </Route>
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </ScrollToTop>
         </div>
         <div>
           <Footer />

@@ -4,10 +4,15 @@ function CardProductCategory({ slug, model, image, brand, price }) {
   return (
     <Link
       to={`/product/${slug}`}
-      className="flex flex-col items-center justify-center max-w-[200px]"
+      className="relative flex flex-col items-center justify-center max-w-[200px] overflow-hidden"
     >
       <img
-        className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain"
+        className="absolute w-10 top-[-5px] right-[-10px] scale-[120%] "
+        src="/band-highlight.png"
+        alt="band"
+      />
+      <img
+        className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain "
         src={
           image.includes("http")
             ? image
@@ -26,7 +31,7 @@ function CardProductCategory({ slug, model, image, brand, price }) {
           alt=""
         />
         <h1 className="title-card-category">{model}</h1>
-        <span>${price}</span>
+        <span className="font-light">U$D {price.toFixed(2)}</span>
       </div>
     </Link>
   );
