@@ -8,6 +8,7 @@ import "../animation/animations.css";
 // Components
 import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
+import Subscribe from "../components/Subscribe";
 
 function Category() {
   const name = useParams().slug;
@@ -61,6 +62,8 @@ function Category() {
           <Spinner />
         </div>
       )}
+      <hr className="mx-[18%] mt-4" />
+      <Subscribe />
     </div>
   );
 }
