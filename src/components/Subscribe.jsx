@@ -25,7 +25,7 @@ function Subscribe() {
 
   return (
     <div>
-      <div className="tablet:flex mt-10 mb-10 justify-evenly w-full">
+      <div className="grid tablet:flex mt-10 mb-10 justify-center tablet:justify-evenly w-full">
         <div>
           <h3 className="text-2xl font-bold mb-4">SIGN UP FOR NEWS & OFFERS</h3>
           <form ref={form} onSubmit={sendEmail}>
@@ -53,7 +53,7 @@ function Subscribe() {
               SUBSCRIBE
             </button>
           </form>
-          <h6 className="text-xs">
+          <h6 className="text-xs max-w-[300px] tablet:w-full">
             By submitting this form, you agree to our Terms & Conditions and
             Privacy Policy.
           </h6>
