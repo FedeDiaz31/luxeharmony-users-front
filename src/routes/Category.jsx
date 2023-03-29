@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
-import "../animation/animations.css";
+// Dependencies
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// Animations
+import "../animation/animations.css";
+// Components
 import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
 
 function Category() {
   const name = useParams().slug;
   const [products, setProducts] = useState(null);
-  document.title = ` Home | ${name} `;
+  const navigate = useNavigate();
+  document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
   window.scrollTo({ top: 0 });
 
   useEffect(() => {
@@ -23,20 +28,33 @@ function Category() {
   }, []);
 
   return (
-    <div className="fade-in">
+    <div className="">
+      <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary px-32">
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-bgTertiaryColor px-3"
+        >
+          Back
+        </button>
+        <h3 className="text-3xl font-light">
+          {name[0].toUpperCase() + name.substring(1)}
+        </h3>
+      </div>
       {products ? (
-        <div className="mx-10 mobilXS:mx-42 tablet:mx-72 m-auto py-10 grid grid-cols-1 mobilXS:grid-cols-2 tablet:grid-cols-3 gap-3 pt-32">
-          {products.map((product) => {
-            return (
-              <CardProductCategory
-                slug={product.slug}
-                model={product.model}
-                brand={product.brand}
-                image={product.image[0]}
-                price={product.price}
-              />
-            );
-          })}
+        <div className="w-full justify-center flex">
+          <div className="mx-10 mobilXS:mx-42 tablet:mx-72 m-auto py-10 grid grid-cols-1 mobilXS:grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 gap-8  fade-in">
+            {products.map((product) => {
+              return (
+                <CardProductCategory
+                  slug={product.slug}
+                  model={product.model}
+                  brand={product.brand}
+                  image={product.image[0]}
+                  price={product.price}
+                />
+              );
+            })}
+          </div>
         </div>
       ) : (
         <div className="w-full grid place-content-center h-[100vh]">

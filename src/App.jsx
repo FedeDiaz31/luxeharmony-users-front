@@ -32,7 +32,7 @@ function App() {
         <div className="w-full fixed z-50">
           <Header />
         </div>
-        <div className=" min-h-[100vh]">
+        <div className="min-h-[100vh]">
           <Routes>
             {/*           <Route path="/login" element={<Login />} /> */}
             <Route path="/signup" element={<SignUp />} />

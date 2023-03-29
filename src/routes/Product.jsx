@@ -1,14 +1,15 @@
-//Dependencias
+// Dependencies
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addProduct } from "../redux/cartReducer";
-
-//Componentes
+import { useNavigate } from "react-router-dom";
+// Animations
+import "../animation/animations.css";
+// Components
 import Tabs from "../components/Tabs";
 import ImageGallery from "react-image-gallery";
-import "../animation/animations.css";
 import Spinner from "../components/Spinner";
 
 const Product = () => {
@@ -16,8 +17,10 @@ const Product = () => {
   const { slug } = useParams();
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   document.title = `${product ? product.model : "cargando..."} | LuxeHarmony `;
   window.scrollTo({ top: 0 });
+
   useEffect(() => {
     const getProduct = async () => {
       const response = await axios({
@@ -62,8 +65,17 @@ const Product = () => {
   } else {
     return (
       <>
-        <main className="mx-10 tablet:mx-20 laptop:mx-48 pt-32 fade-in">
-          <div className="m-auto mt-5">
+        <main className="">
+          <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary px-32">
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-bgTertiaryColor px-3"
+            >
+              Back
+            </button>
+            <h3 className="text-2xl font-light">{product.model}</h3>
+          </div>
+          <div className="m-auto mt-5 mx-10 tablet:mx-20 laptop:mx-48 fade-in">
             <div className="grid grid-cols-1 tablet:grid-cols-2">
               <div className="tablet:mr-16 min-h-[300px]">
                 {images.length > 0 ? (
@@ -85,9 +97,9 @@ const Product = () => {
                 )}
               </div>
               <div className="mt-10 tablet:m-0">
-                <div>
+                {/* <div>
                   <h1 className="model-title text-3xl pb-5">{product.model}</h1>
-                </div>
+                </div> */}
                 <div>
                   <div className="w-[25vw] options columns-2 flex-row">
                     <ul>

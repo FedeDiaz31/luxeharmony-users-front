@@ -4,7 +4,7 @@ function CardProductCategory({ slug, model, image, brand, price }) {
   return (
     <Link
       to={`/product/${slug}`}
-      className="flex flex-col items-center justify-center bg-bgPrimaryColor"
+      className="flex flex-col items-center justify-center max-w-[200px]"
     >
       <img
         className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain"
