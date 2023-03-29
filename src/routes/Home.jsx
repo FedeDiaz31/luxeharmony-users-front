@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <div>
-      <div className="z-0 fade-in">
+      <div className="z-0 bg-bgSecondaryColor">
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -57,7 +57,7 @@ function Home() {
               </div>
             </div>
             <img
-              className=" h-[99.85vh]  object-cover shadow"
+              className=" h-[99.85vh]  object-cover shadow fade-in bg-bgSecondaryColor"
               src="https://d2zap0z9ahyacn.cloudfront.net/eyJidWNrZXQiOiJwcnNpbWFnZXMiLCJrZXkiOiJndWl0YXItaW1hZ2VzL21jY2FydHktNTk0LTIwMjEtZ2FsbGVyeS0xXzIwMjEtMDMtMjAtMTU0MDA3LmpwZyIsImVkaXRzIjp7ImpwZWciOnsicXVhbGl0eSI6ODIsInByb2dyZXNzaXZlIjp0cnVlLCJ0cmVsbGlzUXVhbnRpc2F0aW9uIjp0cnVlLCJvdmVyc2hvb3REZXJpbmdpbmciOnRydWUsIm9wdGltaXplU2NhbnMiOnRydWV9LCJyZXNpemUiOnsid2lkdGgiOjE2MDAsImhlaWdodCI6ODAwLCJmaXQiOiJjb3ZlciJ9LCJzaGFycGVuIjp0cnVlfX0="
               alt="banner1"
             />
@@ -86,7 +86,7 @@ function Home() {
               </div>
             </div>
             <img
-              className="h-[100vh]  object-cover shadow"
+              className="h-[100vh] object-cover shadow fade-in bg-bgSecondaryColor"
               src="https://i.pinimg.com/originals/36/12/0c/36120cb6a62381a761685cdbd178b0d8.jpg"
               alt="banner2"
             />
@@ -115,7 +115,7 @@ function Home() {
             </div>
 
             <img
-              className=" h-[100vh]  object-cover shadow"
+              className=" h-[100vh]  object-cover shadow fade-in bg-bgSecondaryColor"
               src="https://static01.nyt.com/images/2021/11/13/arts/12silksonic-review/12silksonic-review-videoSixteenByNineJumbo1600.jpg"
               alt="banner3"
             />

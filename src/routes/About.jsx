@@ -5,16 +5,24 @@ import ottaPic from "../assets/img/otta.jpg";
 import fede from "../assets/img/fede.jpg";
 import magguerPic from "../assets/img/fotomagguer.png";
 import nachoPic from "../assets/img/nachoPic.jpg";
+// Animations
+import "../animation/animations.css";
 // Components
 import AboutCard from "../components/AboutCard";
 
 function About() {
+  document.title = ` About | LuxeHarmony `;
+
   return (
     <div className="w-full">
       {/*       Project */}
       <div className="w-full">
-        <div>
-          <img src={Banner} className="h-[50vh] w-full object-cover" alt="" />
+        <div className="bg-bgSecondaryColor">
+          <img
+            src={Banner}
+            className="h-[50vh] w-full object-cover  fade-in"
+            alt=""
+          />
         </div>
         <div className="w-full tablet:h-[50vh] py-5 flex flex-col items-center bg-bgSecondaryColor  text-bgPrimaryColor">
           <h3 className="about-title text-center">ABOUT THE PROJECT</h3>
