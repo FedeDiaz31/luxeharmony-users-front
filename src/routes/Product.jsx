@@ -20,7 +20,6 @@ const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   document.title = `${product ? product.model : "cargando..."} | LuxeHarmony `;
-  window.scrollTo({ top: 0 });
 
   useEffect(() => {
     const getProduct = async () => {
