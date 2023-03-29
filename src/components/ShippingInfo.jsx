@@ -231,8 +231,8 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
 
   return (
     <>
-      <form method="post" className="pt-12  mx-auto">
-        <h2 className="mb-2">Contact Information</h2>
+      <form method="post" className="pt-12  mx-auto font-primaryFont">
+        <h2 className="mb-2  text-xl font-primaryFont">Contact Information</h2>
         <div className="columns-1">
           <div className="grid-cols-2 grid gap-2">
             <div>
@@ -291,7 +291,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <h2 className="mb-2">Shipping Address</h2>
+          <h2 className="mb-2 text-xl font-primaryFont">Shipping Address</h2>
           <div>
             <label className="text-xs block" htmlFor="streetAddres">
               Street Address

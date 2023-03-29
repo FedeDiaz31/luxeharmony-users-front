@@ -14,7 +14,7 @@ const CheckOut = () => {
   const [order, setOrder] = useState(null);
   const [bill, setBill] = useState({});
   const [data, setData] = useState(null);
-  const [process, setProcess] = useState("userInfo");
+  const [process, setProcess] = useState("shippingInfo");
 
   const user = useSelector((state) => state.user);
 
@@ -25,6 +25,7 @@ const CheckOut = () => {
   };
 
   const cart = useSelector((state) => state.cart);
+  console.log(cart);
 
   const sendOrder = async () => {
     await axios({
@@ -93,6 +94,11 @@ const CheckOut = () => {
     });
   };
 
+  const handleToggleSummary = (e) => {
+    console.log("summary");
+    document.getElementById("viewSummary").classList.toggle("hidden");
+  };
+
   function subTotalPrice() {
     const prices = cart.map((product) => product.price);
     let totalPrice = 0;
@@ -105,11 +111,50 @@ const CheckOut = () => {
 
   return (
     <div className="container mx-auto pt-24">
-      <div className="border py-2 my-2">{`Cart summary  ${
-        cart ? subTotalPrice() : null
-      }`}</div>
+      <div
+        className="flex justify-between columns-2 "
+        onClick={(e) => handleToggleSummary()}
+      >
+        <p className="w-1/2">Toggle Cart Summary</p>
+        <p>${cart ? subTotalPrice() : null}</p>
+      </div>
+      <div id="viewSummary" className="py-2 my-2  transition-opacity">
+        <div className=" columns-1 flex-col">
+          {cart.map((product) => (
+            <div className="flex justify-around  w-full py-2 border-b  border-l-0 border-r-0">
+              <img
+                src={
+                  product.image[0].includes("http")
+                    ? product.image[0]
+                    : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
+                }
+                alt="product-pic"
+                className="w-10 z-0"
+              />{" "}
+              <h4 className="w-36 text-clip">{product.model}</h4>
+              <div className="font-bold">${product.price.toFixed(2)}</div>
+            </div>
+          ))}
+        </div>
+        <div className="columns-2 flex justify-between py-1 items-center mx-1">
+          <div className="text-xl">Subtotal</div>
+          <div className="text-xl font-bold">
+            ${cart ? subTotalPrice() : null}
+          </div>
+        </div>
+        <div className="columns-2 flex justify-between py-1 items-center mx-1">
+          <h3 className="text-xl">Shipping</h3>
+          <h3 className="text-sm">Calculated At Next Step</h3>
+        </div>
+        <div className="columns-2 flex justify-between py-1 items-center mx-1">
+          <h2 className="text-3xl">Total</h2>
+          <div className="text-3xl font-bold">
+            ${cart ? subTotalPrice() : null}
+          </div>
+        </div>
+      </div>
 
-      {process === "userInfo" ? (
+      {process === "shippingInfo" ? (
         <div className="columns-1">
           <div>
             <ShippingInfo
