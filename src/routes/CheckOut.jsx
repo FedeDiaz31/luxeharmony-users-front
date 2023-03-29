@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { redirect } from "react-router-dom";
 
 import axios from "axios";
 
@@ -25,7 +26,6 @@ const CheckOut = () => {
   };
 
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
   const sendOrder = async () => {
     await axios({
@@ -36,6 +36,8 @@ const CheckOut = () => {
       url: `http://localhost:8000/orders`,
       data: createOrder(),
     });
+
+    return redirect("/");
   };
 
   const sendBill = async () => {
@@ -95,7 +97,6 @@ const CheckOut = () => {
   };
 
   const handleToggleSummary = (e) => {
-    console.log("summary");
     document.getElementById("viewSummary").classList.toggle("hidden");
   };
 
@@ -112,7 +113,7 @@ const CheckOut = () => {
   return (
     <div className="container mx-auto pt-24">
       <div
-        className="flex justify-between columns-2 "
+        className="flex justify-between columns-2 p-2 "
         onClick={(e) => handleToggleSummary()}
       >
         <p className="w-1/2">Toggle Cart Summary</p>
@@ -131,24 +132,30 @@ const CheckOut = () => {
                 alt="product-pic"
                 className="w-10 z-0"
               />{" "}
-              <h4 className="w-36 text-clip">{product.model}</h4>
-              <div className="font-bold">${product.price.toFixed(2)}</div>
+              <h4 className="w-36 text-clip font-secondaryFont">
+                {product.model}
+              </h4>
+              <div className="font-secondaryFont">
+                ${product.price.toFixed(2)}
+              </div>
             </div>
           ))}
         </div>
         <div className="columns-2 flex justify-between py-1 items-center mx-1">
-          <div className="text-xl">Subtotal</div>
-          <div className="text-xl font-bold">
+          <h3 className="text-xl font-secondaryFont">Subtotal</h3>
+          <h3 className="text-xl  font-secondaryFont">
             ${cart ? subTotalPrice() : null}
-          </div>
+          </h3>
         </div>
         <div className="columns-2 flex justify-between py-1 items-center mx-1">
-          <h3 className="text-xl">Shipping</h3>
-          <h3 className="text-sm">Calculated At Next Step</h3>
+          <h3 className="text-xl font-secondaryFont">Shipping</h3>
+          <h3 className="text-sm font-secondaryFont">
+            Calculated At Next Step
+          </h3>
         </div>
         <div className="columns-2 flex justify-between py-1 items-center mx-1">
           <h2 className="text-3xl font-secondaryFont">Total</h2>
-          <div className="text-3xl font-bold">
+          <div className="text-2xl font-semibold font-secondaryFont">
             ${cart ? subTotalPrice() : null}
           </div>
         </div>

@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       primaryFont: ['"Bebas Neue"', "cursive"],
       secondaryFont: ['"Nanum Gothic"', "sans-serif"],
+      terciaryFont: ['"Oswald"', "sans-serif"],
     },
     extend: {},
     screens: {

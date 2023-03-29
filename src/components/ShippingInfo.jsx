@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const FormCheckOut = ({ handleProcess, user, handleData }) => {
   // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
@@ -8,15 +9,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const regexPhoneNumber = /^\+?\d{7,15}$/;
   const regexStreetAddress =
     /^[a-zA-Z0-9\s.,#-]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+\s)?\d{1,}[a-zA-Z]*$/;
-  const regexCity = /^[a-zA-Z]{3,}$/;
-  const regexCountry = /^[a-zA-Z]{3,}$/;
-  const regexProvince = /^[a-zA-Z]{3,}$/;
+  const regexCity = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
+  const regexCountry = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
+  const regexProvince = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
 
   // FORM STATES
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  // VALUES
+
+  const [firstName, setFirstName] = useState(user.firstname);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [email, setEmail] = useState(user.email);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [reference, setReference] = useState("");
@@ -25,14 +28,34 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const [province, setProvince] = useState("");
   const [newsletter, setNewsletter] = useState(true);
 
+  // ERROR STATES
+
+  const [firstNameError, setFirstNameError] = useState(null);
+  const [lastNameError, setLastNameError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [phoneNumberError, setPhoneNumberError] = useState(null);
+  const [streetAddressError, setStreetAddressError] = useState(null);
+  const [cityError, setCityError] = useState(null);
+  const [countryError, setCountryError] = useState(null);
+  const [provinceError, setProvinceError] = useState(null);
+
+  // SELECT COUNTRYS AND STATES
+
+  const [states, setStates] = useState(null);
+  const [countryId, setCountryId] = useState(null);
+  const [countrys, setCountrys] = useState(null);
+
   // FORM STYLES
 
   const classToAddAlert = [
     "border-[red]",
-    "border-2",
+    "border-1",
     "active:border-[red]",
-    'active:border-2"',
+    "bg-[red]",
+    "text-textPrimary",
+    "focus-visible:border-0",
   ];
+  const spanClasses = "bg-[#F91C20] text-textPrimary text-sm px-2 block my-2";
 
   // CHECK DATA FROM DE FORM - IF SOME FIELD IS NOT VALID THIS FUNCTION PREVENT THE USER TO CONTINUE
   const checkData = () => {
@@ -73,24 +96,32 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   };
 
   // FORM STATES HANDLES
+
+  // HANDLE FIRSTNAME
   const handleFirstName = (e) => {
     if (regexFirstName.test(e.target.value)) {
       setFirstName(e.target.value);
+      setFirstNameError(false);
       for (let classToAdd of classToAddAlert) {
-        e.target.classList.remove(classToAdd);
+        e.target.classList.toggle(classToAdd);
       }
     } else {
       setFirstName(e.target.value);
+      setFirstNameError(true);
 
       for (let classToAdd of classToAddAlert) {
-        e.target.classList.add(classToAdd);
+        e.target.classList.toggle(classToAdd);
       }
     }
   };
+
+  // HANDLE LASTNAME
 
   const handleLastname = (e) => {
     if (regexLastName.test(e.target.value)) {
       setLastName(e.target.value);
+      setLastNameError(false);
+
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
@@ -99,18 +130,23 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
+        setLastNameError(true);
       }
     }
   };
 
+  // HANDLE EMAIL
   const handleEmail = (e) => {
     if (regexEmail.test(e.target.value)) {
       setEmail(e.target.value);
+      setEmailError(false);
+
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setEmail(e.target.value);
+      setEmailError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
@@ -118,14 +154,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE PHONE NUMBER
   const handlePhoneNumber = (e) => {
     if (regexPhoneNumber.test(e.target.value)) {
       setPhoneNumber(e.target.value);
+      setPhoneNumberError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setPhoneNumber(e.target.value);
+      setPhoneNumberError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
@@ -133,14 +172,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE STREET ADDRESS
   const handleStreetAddress = (e) => {
     if (regexStreetAddress.test(e.target.value)) {
       setStreetAddress(e.target.value);
+      setStreetAddressError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setStreetAddress(e.target.value);
+      setStreetAddressError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
@@ -148,6 +190,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE REFERENCE
   const handleReference = (e) => {
     if (regexFirstName.test(e.target.value)) {
       setReference(e.target.value);
@@ -163,29 +206,36 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE PROVINCE
   const handleProvince = (e) => {
     if (regexProvince.test(e.target.value)) {
       setProvince(e.target.value);
+      setProvinceError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setProvince(e.target.value);
+      setProvinceError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
     }
   };
+
+  // HANDLE CITY
 
   const handleCity = (e) => {
     if (regexCity.test(e.target.value)) {
       setCity(e.target.value);
+      setCityError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setCity(e.target.value);
+      setCityError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
@@ -193,14 +243,20 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE COUNTRY
+
   const handleCountry = (e) => {
+    console.log(e.target.value);
     if (regexCountry.test(e.target.value)) {
-      setCountry(e.target.value);
+      setCountry((prevState) => e.target.value.trim());
+      setCountryError(false);
+
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
-      setCountry(e.target.value);
+      setCountry((prevState) => e.target.value);
+      setCountryError(true);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
@@ -208,42 +264,73 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     }
   };
 
+  // HANDLE NEWSLETTER
   const handleNewsletter = (e) => {
     setNewsletter(e.target.checked);
   };
 
-  // useEffect(() => {
-  //   async function fetchCountrys() {
-  //     const response = await axios({
-  //       url: "https://api.countrystatecity.in/v1/countries",
-  //       headers: {
-  //         "X-CSCAPI-KEY": "API_KEY",
-  //       },
-  //       method: "get",
-  //     });
+  useEffect(() => {
+    async function fetchCountrys() {
+      const response = await axios({
+        url: "https://api.countrystatecity.in/v1/countries",
+        headers: {
+          "X-CSCAPI-KEY":
+            "dElxYkhKS3I1dlpXc2padkVJUXBtZ2EwcWlPSG12aVdGWDZhdjhQeA==",
+        },
+        method: "get",
+      });
 
-  //     console.log(response);
-  //   }
-  //   fetchCountrys();
-  // }, []);
+      setCountrys(response.data);
+    }
+    fetchCountrys();
+  }, []);
 
-  // SHIPPING BUTTON
+  useEffect(() => {
+    if (countrys) {
+      countrys.find((element) => {
+        if (country === element.name) {
+          return setCountryId(element.iso2);
+        }
+        return false;
+      });
+    }
+    async function fetchStates() {
+      if (countryId) {
+        const response = await axios({
+          url: `https://api.countrystatecity.in/v1/countries/${countryId}/states`,
+          headers: {
+            "X-CSCAPI-KEY":
+              "dElxYkhKS3I1dlpXc2padkVJUXBtZ2EwcWlPSG12aVdGWDZhdjhQeA==",
+          },
+          method: "get",
+        });
+        setStates(response.data);
+      }
+    }
+    fetchStates();
+  }, [country, countrys, countryId]);
 
   return (
     <>
-      <form method="post" className="pt-12  mx-auto font-primaryFont">
-        <h2 className="mb-2  text-xl font-primaryFont">Contact Information</h2>
+      <form
+        method="post"
+        className="pt-12  mx-auto font-terciaryFont text-[#737373]"
+      >
+        <h2 className="mb-2  text-xl font-terciaryFont">Contact Information</h2>
         <div className="columns-1">
           <div className="grid-cols-2 grid gap-2">
             <div>
               <label className="text-xs" htmlFor="firstname">
                 First Name
-              </label>
+              </label>{" "}
+              {firstNameError ? (
+                <span className={spanClasses}>Error</span>
+              ) : null}
               <input
                 className="py-2 pl-2"
                 type="text"
                 name="firstname"
-                placeholder={user ? user.firstname : firstName}
+                placeholder={firstName}
                 value={firstName}
                 onChange={(e) => handleFirstName(e)}
                 required
@@ -252,12 +339,15 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <div>
               <label className="text-xs" htmlFor="firstname">
                 Last Name
-              </label>
+              </label>{" "}
+              {lastNameError ? (
+                <span className={spanClasses}>Error</span>
+              ) : null}
               <input
                 className="py-2 pl-2"
                 type="text"
                 name="lastname"
-                placeholder={user ? user.lastname : lastName}
+                placeholder={lastName}
                 onChange={(e) => handleLastname(e)}
                 required
               />
@@ -267,19 +357,22 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <label className="text-xs block" htmlFor="email">
               Email
             </label>
+            {emailError ? <span className={spanClasses}>Error</span> : null}
             <input
               className="py-2 pl-2 w-full"
               type="text"
               name="email"
-              placeholder={user ? user.email : email}
+              placeholder={email}
+              value={email}
               onChange={(e) => handleEmail(e)}
               required
             />
           </div>
           <div>
-            <label className="block text-xs" htmlFor="phoneNumber">
+            <label className="block text-xs " htmlFor="phoneNumber">
               Phone Number
             </label>
+            {phoneNumber ? <span className={spanClasses}>Error</span> : null}
             <input
               className="py-2 pl-2 w-full"
               type="number"
@@ -296,6 +389,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <label className="text-xs block" htmlFor="streetAddres">
               Street Address
             </label>
+            {streetAddressError ? (
+              <span className={spanClasses}>Error</span>
+            ) : null}
             <input
               className="py-2 pl-2 w-full"
               type="text"
@@ -324,6 +420,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <label className="text-xs block" htmlFor="city">
               City
             </label>
+            {cityError ? <span className={spanClasses}>Error</span> : null}
             <input
               className="py-2 pl-2 w-full"
               type="select"
@@ -338,24 +435,26 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <label className="text-xs block" htmlFor="country">
               Country
             </label>
+            {countryError ? <span className={spanClasses}>Error</span> : null}
             <select
               className="py-2 w-11/12"
               name="country"
               placeholder="Country"
-              value={country}
               onChange={(e) => handleCountry(e)}
               required
             >
-              <option value="KameHouse">KameHouse </option>
-              <option value="PuebloPaleta">Pueblo Paleta </option>
-
-              <option value="LaComarca">La Comarca</option>
+              {countrys?.map((country) => (
+                <option value={country.name} id={country.id} key={country.id}>
+                  {country.name}
+                </option>
+              ))}
             </select>
           </div>
           <div>
             <label className="text-xs block" htmlFor="state">
               State/Province
             </label>
+            {provinceError ? <span className={spanClasses}>Error</span> : null}
             <select
               onChange={(e) => handleProvince(e)}
               className="py-2 w-11/12"
@@ -364,21 +463,21 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               value={province}
               required
             >
-              <option value="Canelones">Canelones </option>
-              <option value="USA">USA </option>
-
-              <option value="Provincia">Provincia </option>
+              {states?.map((state) => {
+                return <option>{state.name}</option>;
+              })}
             </select>
           </div>
-          <div>
+          <div className="my-2">
             <input
               type="checkbox"
               name="newsletter"
               onChange={(e) => handleNewsletter(e)}
               checked={newsletter}
               required
+              className="scale-150 mx-2"
             />
-            <label htmlFor="newsletter">
+            <label htmlFor="newsletter" className="text-textSecondary px-2">
               Get updates about new products and other exciting news from Gibson
               Brands.
             </label>

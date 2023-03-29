@@ -1,13 +1,72 @@
 import React from "react";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
 
 const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
+  // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
+  const regexCardNumber = /5[1-5][0-9]{14}$/; // MASTERCARD
+  const regexCvv = /^\D*\d{3}$/;
+  const regexDate = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+
   const [checked, setChecked] = useState(false);
 
-  const [cardNumber, setCardNumber] = useState("");
-  const [cvc, setCvv] = useState("");
-  const [date, setDate] = useState("");
+  const [cardNumber, setCardNumber] = useState(null);
+  const [cvc, setCvv] = useState(null);
+  const [date, setDate] = useState(null);
+
+  // FORM STYLES
+
+  const classToAddAlert = [
+    "border-[red]",
+    "border-2",
+    "active:border-[red]",
+    'active:border-2"',
+  ];
+
+  const handleCardNumber = (e) => {
+    if (regexCardNumber.test(e.target.value)) {
+      console.log(e.target.value);
+      setCardNumber(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setCardNumber(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
+  };
+
+  const handleDate = (e) => {
+    if (regexDate.test(e.target.value)) {
+      setDate(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setDate(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
+  };
+
+  const handleCvv = (e) => {
+    if (regexCvv.test(e.target.value)) {
+      setCvv(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setCvv(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
+  };
 
   const handleBackButton = () => {
     handleProcess("shippingOptions");
@@ -21,14 +80,12 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
       date: date,
     };
 
-    // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
-    const regexCardNumber = /5[1-5][0-9]{14}$/; // MASTERCARD
-    const regexCvv = /^\D*\d{3}$/;
-    const regexDate = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
-
     let checkCardNumber = regexCardNumber.test(data.cardNumber);
     let checkCvv = regexCvv.test(data.cvc);
     let checkDate = regexDate.test(data.date);
+    console.log(data);
+
+    console.log(checkCardNumber, checkCvv, checkDate);
 
     if (checkCardNumber && checkCvv && checkDate) {
       handleData(data);
@@ -52,19 +109,19 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
         <h4>Pay With Card</h4>
         <div>
           <input
-            onChange={(e) => setCardNumber(e.target.value)}
+            onChange={(e) => handleCardNumber(e)}
             className="w-2/3"
             type="number"
             placeholder="Card number // mastercard"
           />
           <input
-            onChange={(e) => setDate(e.target.value)}
+            onChange={(e) => handleDate(e)}
             className="w-1/6"
             type="text"
             placeholder="MM/YY"
           />
           <input
-            onChange={(e) => setCvv(e.target.value)}
+            onChange={(e) => handleCvv(e)}
             className="w-1/6"
             type="text"
             placeholder="CVC"
@@ -87,7 +144,6 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
             e.preventDefault();
             if (checked) {
               checkData();
-              return <Navigate to="/" replace={true} />;
             }
           }}
           className="bg-bgTertiaryColor w-full text-textPrimary py-1 my-2"

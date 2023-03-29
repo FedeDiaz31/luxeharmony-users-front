@@ -108,3 +108,13 @@ header ul li {
 .splash-logo {
   width: 20vw;
 }
+
+
+
+/* css inputs */
+
+input:focus-visible {
+  border: 0;
+  background: #a3a3a386;
+  outline: none;
+}
