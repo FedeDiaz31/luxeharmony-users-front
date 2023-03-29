@@ -241,10 +241,10 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               onChange={(e) => handleCountry(e)}
               required
             >
-              <option value="olaa">Country</option>
-              <option value="olaa">Country</option>
+              <option value="Country 1">Country 1</option>
+              <option value="Country 2">Country 2</option>
 
-              <option value="olaa">Country</option>
+              <option value="Country 3">Country 3</option>
             </select>
           </div>
           <div>
@@ -259,10 +259,10 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               value={province}
               required
             >
-              <option value="olaa">State/Provine</option>
-              <option value="olaa">State/Provine</option>
+              <option value="State 1">State 1</option>
+              <option value="State 2">State 2</option>
 
-              <option value="olaa">State/Provine</option>
+              <option value="State 3">State 3</option>
             </select>
           </div>
           <div>
