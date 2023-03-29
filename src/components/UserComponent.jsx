@@ -25,7 +25,7 @@ function UserComponent({ setShowUser }) {
             <div className="mt-5">
               <Link
                 onClick={handleCloseLogin}
-                to={`/${user.id}`}
+                to={`/orders`}
                 className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor py-1"
               >
                 Your Orders
@@ -34,7 +34,7 @@ function UserComponent({ setShowUser }) {
             <div className="">
               <Link
                 onClick={handleCloseLogin}
-                to={`/${user.id}`}
+                to={`/profile`}
                 className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor py-1"
               >
                 Profile
