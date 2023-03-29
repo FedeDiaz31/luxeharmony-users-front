@@ -147,7 +147,7 @@ const CheckOut = () => {
           <h3 className="text-sm">Calculated At Next Step</h3>
         </div>
         <div className="columns-2 flex justify-between py-1 items-center mx-1">
-          <h2 className="text-3xl">Total</h2>
+          <h2 className="text-3xl font-secondaryFont">Total</h2>
           <div className="text-3xl font-bold">
             ${cart ? subTotalPrice() : null}
           </div>
