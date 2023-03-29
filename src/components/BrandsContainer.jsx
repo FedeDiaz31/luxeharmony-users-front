@@ -4,62 +4,51 @@ import "../animation/animations.css";
 
 function BrandsContainer() {
   const [brands, setBrands] = useState(null);
-  /* 
-    useEffect(() => {
-      const getBrands = async () => {
-        const response = await axios({
-          method: "get",
-          url: `${process.env.REACT_APP_API_URL}/brands`,
-        });
-        setBrands(response.data);
-      };
-      getBrands();
-    }, []); */
+
+  useEffect(() => {
+    const getBrands = async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/brands`,
+      });
+      setBrands(response.data);
+    };
+    getBrands();
+  }, []);
 
   return (
     <>
-      {/*    {brands ? ( */}
-      <div
-        id="categories-container"
-        className="min-h-[200px] px-5 grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 w-full bg-bgSecondaryColor"
-      >
-        <div className="flex items-center justify-center">
-          <img className="w-[150px]" src={"GIBSON-LOGO-WHITE-1.png"} alt="" />
+      <div className="bg-bgSecondaryColor tablet:pt-10 py-5">
+        <div className="w-full text-lg items-center text-textPrimary flex flex-col">
+          <h3 className="font-bold">ALIANCE IS THE NAME</h3>
+          <p className="max-w-[500px] text-center text-sm font-light">
+            Collaborating with elite music brands creates a perfect symphony of
+            creativity and technology, producing unforgettable musical
+            experiences.
+          </p>
         </div>
-        <div className="flex items-center justify-center">
-          <img className="w-[150px]" src={"FENDER-LOGO-WHITE-1.png"} alt="" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="w-[150px]" src={"PRS-LOGO-WHITE-1.png"} alt="" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="w-[150px]" src={"NEUMANN-LOGO-WHITE-1.png"} alt="" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="w-[150px]" src={"UA-LOGO-WHITE-1.png"} alt="" />
-        </div>
-        {/*   {brands.map((brand) => {
-            return (
-              <div className="flex items-center justify-center">
-                <img
-                  className="w-[150px]"
-                  src={
-                    brand.logo.includes("http")
-                      ? brand.logo
-                      : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
-                  }
-                  alt=""
-                />
-              </div>
-            );
-          })} */}
-      </div>
-      {/*    ) : (
         <div
           id="categories-container"
-          className="min-h-[200px] px-5 grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 w-full bg-bgSecondaryColor"
-        ></div>
-      )} */}
+          className="bg-bgSecondaryColor min-h-[200px] px-5 grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 w-full "
+        >
+          {brands &&
+            brands.map((brand) => {
+              return (
+                <div className="flex items-center justify-center">
+                  <img
+                    className="w-[180px]"
+                    src={
+                      brand.logo.includes("http")
+                        ? brand.logo
+                        : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
+                    }
+                    alt=""
+                  />
+                </div>
+              );
+            })}
+        </div>
+      </div>
     </>
   );
 }

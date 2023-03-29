@@ -228,11 +228,12 @@ const Profile = ({ handleProcess, handleData }) => {
 
   return (
     <>
-      <div className="pl-6 pt-[60px] ">
-        <form method="post" className=" mx-auto font-primaryFont">
-          <h2 className="text-[35px] mt-6">
-            Welcome to your profile, {user.firstname} {user.lastname}!
-          </h2>
+      <div className="pl-6 pt-[70px] ">
+        <form method="post" className="mx-auto font-primaryFont px-40">
+          <h2 className="text-[35px] mt-6">Welcome to your profile,</h2>
+          <h3 className="text-[35px]">
+            {user.firstname} {user.lastname}!
+          </h3>
           <div className="grid laptop:grid-cols-2 tablet:grid-cols-1">
             <div>
               <h2 className=" text-[20px] my-4">USER DATA</h2>

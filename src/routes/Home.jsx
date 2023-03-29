@@ -6,6 +6,7 @@ import CategoriesContainer from "../components/CategoriesContainer";
 import Warranty from "../components/Warranty";
 import BrandsContainer from "../components/BrandsContainer";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   document.title = ` Home | LuxeHarmony `;
@@ -75,12 +76,12 @@ function Home() {
                       Specialists in providing high quality audio equipment for
                       artists and their work environment.
                     </p>
-                    <button
+                    <Link
                       className="bg-buttonsPrimaryColor opacity-75 hover:opacity-100 hover:bg-buttonHoverPrimary px-5 py-2 font-semibold text-md mt-5 transition-all duration-200"
-                      onClick={handleScrollCategories}
+                      to={"/categories/audiopro"}
                     >
                       SHOWROOM
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

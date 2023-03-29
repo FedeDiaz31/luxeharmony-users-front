@@ -9,7 +9,7 @@ function CardProduct({ brand, image, model, slug }) {
     >
       <h1>{model}</h1>
       <img
-        className="w-[70%]"
+        className="w-full"
         src={
           image.includes("http")
             ? image

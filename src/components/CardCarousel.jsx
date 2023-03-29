@@ -1,4 +1,4 @@
-import { React, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import backChevron from "../assets/img/arrowBack.svg";
 import forwardChevron from "../assets/img/arrowForward.svg";
 import axios from "axios";
@@ -10,6 +10,7 @@ function CardCarousel() {
   const [products, setProducts] = useState([]);
   const [containerWidth, setContainerWidth] = useState(null);
   const navigate = useNavigate();
+  const highlight = true;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,7 +30,7 @@ function CardCarousel() {
   return (
     <>
       {" "}
-      <h2 className="category-title text-textSecondary text-center pt-10">
+      <h2 className="category-title text-textSecondary text-center py-5">
         HIGHLIGHTS
       </h2>
       <div

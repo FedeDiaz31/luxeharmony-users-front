@@ -9,15 +9,20 @@ function Warranty() {
           alt="a truck representing free shipping"
         />
         <h3 className="font-bold">FREE SHIPPING</h3>
-        <p> On US online orders over $50.</p>
+        <p className="font-light max-w-[300px] m-auto">
+          {" "}
+          On US online orders over $50.
+        </p>
       </div>
-      <div className="px-5 pb-5 bg-bgSecondaryColor mb-5 tablet:my-5 text-[#fff] ">
+      <div className="px-5 pb-5 bg-bgSecondaryColor mb-5 tablet:my-5 text-[#fff]">
         <img
           src="https://images.ctfassets.net/m8onsx4mm13s/6IvzKzqfqdVRKgZHjBqFIk/de259c13ae15133900b72c494b76c694/Lifetime-Warranty__2_.png"
           alt="a shield representing lifetime warranty"
         />
         <h3 className="font-bold">LIFETIME WARRANTY</h3>
-        <p>Free, limited warranty on material and workmanship.</p>
+        <p className="font-light max-w-[300px] m-auto">
+          Free, limited warranty on material and workmanship.
+        </p>
       </div>
       <div className="px-5 pb-5 bg-bgSecondaryColor mb-5 laptop:my-5 text-[#fff]">
         <img
@@ -25,7 +30,9 @@ function Warranty() {
           alt=""
         />
         <h3 className="font-bold">FINANCING AVAILABLE</h3>
-        <p>Options available through Klarna at chekout</p>
+        <p className="font-light max-w-[300px] m-auto">
+          Options available through Klarna at chekout
+        </p>
       </div>
     </div>
   );
