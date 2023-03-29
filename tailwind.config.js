@@ -3,8 +3,8 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      primaryFont: ['"Bebas Neue"', "cursive"],
-      secondaryFont: ['"Nanum Gothic"', "sans-serif"],
+      primaryFont: "Bebas Neue",
+      secondaryFont: "Nanum Gothic",
     },
     extend: {},
     screens: {
@@ -23,8 +23,7 @@ module.exports = {
       buttonsPrimaryColor: "#85734D",
       buttonsSecondaryColor: "black",
       headerAndFooterColor: "#292728",
-    },
-    fonts: {},
+    }
   },
   plugins: [],
 };
