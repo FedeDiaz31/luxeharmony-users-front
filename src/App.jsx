@@ -9,6 +9,7 @@ import CheckOut from "./routes/CheckOut";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from "./routes/Category";
+import Brand from "./routes/Brands";
 import About from "./routes/About";
 import { useEffect, useState } from "react";
 import Splash from "./components/Splash";
@@ -43,6 +44,7 @@ function App() {
               <Route path="/product/:slug" element={<Product />} />
               <Route path="/chekout" element={<CheckOut />} />
               <Route path="/categories/:slug" element={<Category />} />
+              <Route path="/brands/:slug" element={<Brand />} />
               <Route element={<AuthRequire />}>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/orders" element={<Orders />} />

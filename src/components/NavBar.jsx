@@ -45,7 +45,7 @@ const NavBar = () => {
                   src={
                     category.products[0].image[0].includes("http")
                       ? `${category.products[0].image[0]}`
-                      : `${process.env.REACT_APP_API_URL}/img/${category.products[0].image[0]}`
+                      : `${process.env.REACT_APP_API_URL}/img/products/${category.products[0].image[0]}`
                   }
                   alt="image"
                 />
