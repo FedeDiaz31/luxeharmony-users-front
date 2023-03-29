@@ -3,8 +3,8 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      primaryFont: "Bebas Neue",
-      secondaryFont: "Nanum Gothic",
+      primaryFont: ['"Bebas Neue"', "cursive"],
+      secondaryFont: ['"Nanum Gothic"', "sans-serif"],
     },
     extend: {},
     screens: {
