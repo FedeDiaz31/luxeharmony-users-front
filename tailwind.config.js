@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      primaryFont: "Bebas Neue",
+      secondaryFont: "Nanum Gothic",
+    },
     extend: {},
     screens: {
       mobilXS: "420px",
@@ -19,11 +23,8 @@ module.exports = {
       buttonsPrimaryColor: "#85734D",
       buttonsSecondaryColor: "black",
       headerAndFooterColor: "#292728",
-
     },
-    fonts: {
-      primaryFont: "Bebas Neue",
-    },
+    fonts: {},
   },
   plugins: [],
 };
