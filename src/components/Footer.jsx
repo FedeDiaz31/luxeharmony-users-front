@@ -37,28 +37,48 @@ const Footer = () => {
                   <Link to="/about">OUR DEVELOPMENT TEAM</Link>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/magguer/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/magguer/"
+                  >
                     Martin Aguerre
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/juan-manuel-ottado/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/juan-manuel-ottado/"
+                  >
                     Juan Manuel Ottado
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/alan-torino/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/alan-torino/"
+                  >
                     Alan Torino
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/federico-d%C3%ADaz-morel-810a73202/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/federico-d%C3%ADaz-morel-810a73202/"
+                  >
                     {" "}
                     Federico Diaz
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/ignacio-vidal-856627236/">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://www.linkedin.com/in/ignacio-vidal-856627236/"
+                  >
                     Ignacio Vidal
                   </a>
                 </li>

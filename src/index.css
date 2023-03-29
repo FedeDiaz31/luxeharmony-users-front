@@ -3,3 +3,12 @@
 @tailwind utilities;
 
 @import "~react-image-gallery/styles/css/image-gallery.css";
+
+@layer base {
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

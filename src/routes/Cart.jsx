@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addProduct,
   removeProduct,
@@ -117,9 +118,11 @@ function Cart() {
             offers will be applied at Checkout.
           </p>
           <div className="mt-10">
-            <button className="bg-bgTertiaryColor text-textPrimary px-20 py-2 rounded text-sm">
-              Checkout
-            </button>
+            <Link to="/chekout">
+              <button className="bg-bgTertiaryColor text-textPrimary px-20 py-2 rounded text-sm">
+                Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>
