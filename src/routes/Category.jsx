@@ -26,7 +26,7 @@ function Category() {
       setProducts(response.data.products);
     };
     getProducts();
-  }, []);
+  }, [name]);
 
   return (
     <div className="">
