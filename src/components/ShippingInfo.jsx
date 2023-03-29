@@ -1,7 +1,16 @@
 import { useState, useEffect } from "react";
 
 const FormCheckOut = ({ handleProcess, user, handleData }) => {
-  const [isDataOk, setIsDataOk] = useState(false);
+  // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
+  const regexFirstName = /^[A-Za-z]+$/;
+  const regexLastName = /^[a-zA-Z'-]+$/;
+  const regexEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+  const regexPhoneNumber = /^\+?\d{7,15}$/;
+  const regexStreetAddress =
+    /^[a-zA-Z0-9\s.,#-]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+\s)?\d{1,}[a-zA-Z]*$/;
+  const regexCity = /^[a-zA-Z]{3,}$/;
+  const regexCountry = /^[a-zA-Z]{3,}$/;
+  const regexProvince = /^[a-zA-Z]{3,}$/;
 
   // FORM STATES
 
@@ -16,6 +25,15 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const [province, setProvince] = useState("");
   const [newsletter, setNewsletter] = useState(true);
 
+  // FORM STYLES
+
+  const classToAddAlert = [
+    "border-[red]",
+    "border-2",
+    "active:border-[red]",
+    'active:border-2"',
+  ];
+
   // CHECK DATA FROM DE FORM - IF SOME FIELD IS NOT VALID THIS FUNCTION PREVENT THE USER TO CONTINUE
   const checkData = () => {
     // CREATE AN OBJECT WITH THE ACTUAL FORM VALUES
@@ -29,17 +47,6 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       country: country,
       province: province,
     };
-
-    // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
-    const regexFirstName = /^[A-Za-z]+$/;
-    const regexLastName = /^[a-zA-Z'-]+$/;
-    const regexEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
-    const regexPhoneNumber = /^\+?\d{7,15}$/;
-    const regexStreetAddress =
-      /^[a-zA-Z0-9\s.,#-]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+\s)?\d{1,}[a-zA-Z]*$/;
-    const regexCity = /^[a-zA-Z]{3,}$/;
-    const regexCountry = /^[a-zA-Z]{3,}$/;
-    const regexProvince = /^[a-zA-Z]{3,}$/;
 
     let checkFirstname = regexFirstName.test(data.firstname);
     let checkLastName = regexLastName.test(data.lastname);
@@ -60,47 +67,145 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       checkCountry &&
       checkProvince
     ) {
-      setIsDataOk(true);
       handleData(data);
       handleProcess("shippingOptions");
     }
   };
 
   // FORM STATES HANDLES
+  const handleFirstName = (e) => {
+    if (regexFirstName.test(e.target.value)) {
+      setFirstName(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setFirstName(e.target.value);
 
-  const handleFirstname = (e) => {
-    setFirstName(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
+
   const handleLastname = (e) => {
-    setLastName(e.target.value);
+    if (regexLastName.test(e.target.value)) {
+      setLastName(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setLastName(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleEmail = (e) => {
-    setEmail(e.target.value);
+    if (regexEmail.test(e.target.value)) {
+      setEmail(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setEmail(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handlePhoneNumber = (e) => {
-    setPhoneNumber(e.target.value);
+    if (regexPhoneNumber.test(e.target.value)) {
+      setPhoneNumber(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setPhoneNumber(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleStreetAddress = (e) => {
-    setStreetAddress(e.target.value);
+    if (regexStreetAddress.test(e.target.value)) {
+      setStreetAddress(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setStreetAddress(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleReference = (e) => {
-    setReference(e.target.value);
+    if (regexFirstName.test(e.target.value)) {
+      setReference(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setReference(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleProvince = (e) => {
-    setProvince(e.target.value);
+    if (regexProvince.test(e.target.value)) {
+      setProvince(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setProvince(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleCity = (e) => {
-    setCity(e.target.value);
+    if (regexCity.test(e.target.value)) {
+      setCity(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setCity(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleCountry = (e) => {
-    setCountry(e.target.value);
+    if (regexCountry.test(e.target.value)) {
+      setCountry(e.target.value);
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.remove(classToAdd);
+      }
+    } else {
+      setCountry(e.target.value);
+
+      for (let classToAdd of classToAddAlert) {
+        e.target.classList.add(classToAdd);
+      }
+    }
   };
 
   const handleNewsletter = (e) => {
@@ -140,7 +245,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
                 name="firstname"
                 placeholder={user ? user.firstname : firstName}
                 value={firstName}
-                onChange={(e) => handleFirstname(e)}
+                onChange={(e) => handleFirstName(e)}
                 required
               />
             </div>
@@ -241,10 +346,10 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               onChange={(e) => handleCountry(e)}
               required
             >
-              <option value="Country 1">Country 1</option>
-              <option value="Country 2">Country 2</option>
+              <option value="KameHouse">KameHouse </option>
+              <option value="PuebloPaleta">Pueblo Paleta </option>
 
-              <option value="Country 3">Country 3</option>
+              <option value="LaComarca">La Comarca</option>
             </select>
           </div>
           <div>
@@ -259,10 +364,10 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               value={province}
               required
             >
-              <option value="State 1">State 1</option>
-              <option value="State 2">State 2</option>
+              <option value="Canelones">Canelones </option>
+              <option value="USA">USA </option>
 
-              <option value="State 3">State 3</option>
+              <option value="Provincia">Provincia </option>
             </select>
           </div>
           <div>
