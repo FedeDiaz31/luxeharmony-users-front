@@ -40,7 +40,7 @@ function Orders() {
                       <div className="hidden mobilXS:flex items-center gap-3">
                         <h3 className="text-sm tablet:text-lg">⦾</h3>
                         <h3 className="text-sm tablet:text-lg font-light">
-                          U$ {product.price.toFixed(2)}
+                          U$D {product.price.toFixed(2)}
                         </h3>
                       </div>
                     </div>
