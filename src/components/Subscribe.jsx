@@ -31,7 +31,7 @@ function Subscribe() {
       <div>
         <div className="grid tablet:flex mt-10 mb-10 justify-center tablet:justify-evenly w-full">
           <div>
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="desktop:text-2xl font-bold mb-4">
               AN E-MAIL HAS BEEN SENT TO YOUR MAILBOX
             </h3>
             <div class="wrapper">
