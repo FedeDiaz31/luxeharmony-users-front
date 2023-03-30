@@ -9,6 +9,7 @@ import "../animation/animations.css";
 import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
+import Skeleton from "../components/Skeleton";
 
 function Category() {
   const name = useParams().slug;
@@ -16,6 +17,7 @@ function Category() {
   const navigate = useNavigate();
   document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
   window.scrollTo({ top: 0 });
+  const hola = false;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -28,6 +30,11 @@ function Category() {
     getProducts();
   }, [name]);
 
+if(hola){
+  return(
+  <Skeleton/>
+  )
+} else{
   return (
     <div className="">
       <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary px-32">
@@ -58,6 +65,7 @@ function Category() {
       <Subscribe />
     </div>
   );
+}
 }
 
 export default Category;
