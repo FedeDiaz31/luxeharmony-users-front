@@ -13,7 +13,6 @@ import Subscribe from "../components/Subscribe";
 function Brand() {
   const name = useParams().slug;
   const [products, setProducts] = useState(null);
-  const [brand, setBrand] = useState(null);
   const navigate = useNavigate();
   document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
   window.scrollTo({ top: 0 });
@@ -24,8 +23,7 @@ function Brand() {
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/brands/${name}`,
       });
-      setProducts(response.data[0].products);
-      setBrand(response.data[0]);
+      setProducts(response.data);
     };
     getProducts();
   }, [name]);
