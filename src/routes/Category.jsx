@@ -10,7 +10,6 @@ import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
 import Skeleton from "../components/Skeleton";
-import SpinnerLogo from "../components/SpinnerLogo";
 
 function Category() {
   const name = useParams().slug;
@@ -18,7 +17,7 @@ function Category() {
   const navigate = useNavigate();
   document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
   window.scrollTo({ top: 0 });
-  const hola = true;
+  const hola = false;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -33,7 +32,7 @@ function Category() {
 
 if(hola){
   return(
-  <SpinnerLogo/>
+  <Skeleton/>
   )
 } else{
   return (
@@ -45,7 +44,7 @@ if(hola){
         >
           Back
         </button>
-        <h3 className="desktop:text-3xl font-light">
+        <h3 className="text-3xl font-light">
           {name[0].toUpperCase() + name.substring(1)}
         </h3>
       </div>

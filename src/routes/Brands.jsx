@@ -28,10 +28,7 @@ function Brand() {
     getProducts();
   }, [name]);
 
-<<<<<<< Updated upstream
   console.log(products);
-=======
->>>>>>> Stashed changes
 
   return (
     <div className="">
