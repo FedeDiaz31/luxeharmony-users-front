@@ -23,7 +23,7 @@ function CardProductCategory({ product }) {
         alt={product.brand + product.model}
       />
       <div className="text-left w-full">
-        <img
+        {/* <img
           className="w-20 my-4"
           src={
             product.brand.logo2.includes("http")
@@ -31,7 +31,7 @@ function CardProductCategory({ product }) {
               : `${process.env.REACT_APP_API_URL}/img/${product.brand.logo2}`
           }
           alt=""
-        />
+        /> */}
         <h1 className="title-card-category">{product.model}</h1>
         <span className="font-light">U$D {product.price.toFixed(2)}</span>
       </div>

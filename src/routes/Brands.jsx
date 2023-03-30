@@ -31,7 +31,6 @@ function Brand() {
   }, [name]);
 
   console.log(products);
-  console.log(brand);
 
   return (
     <div className="">
@@ -50,15 +49,7 @@ function Brand() {
         <div className="w-full justify-center flex">
           <div className="mx-10 mobilXS:mx-42 tablet:mx-72 m-auto py-10 grid grid-cols-1 mobilXS:grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 gap-8  fade-in">
             {products.map((product) => {
-              return (
-                <CardProductCategory
-                  slug={product.slug}
-                  model={product.model}
-                  brand={brand}
-                  image={product.image[0]}
-                  price={product.price}
-                />
-              );
+              return <CardProductCategory product={product} />;
             })}
           </div>
         </div>
