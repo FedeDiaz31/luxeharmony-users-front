@@ -1,4 +1,5 @@
 import React from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const ShippingOptions = ({ handleProcess }) => {
   //
@@ -16,8 +17,9 @@ const ShippingOptions = ({ handleProcess }) => {
           e.preventDefault();
           handleBackButton();
         }}
+        className="border border-1 px-1"
       >
-        {" "}
+        <ArrowBackIcon />
         BACK
       </button>
       <h2>Shipping Options</h2>

@@ -113,9 +113,21 @@ header ul li {
 
 input:focus-visible {
   border: 0;
-  background: #a3a3a386;
   outline: none;
 }
+
+
+input, select {
+  /* border-bottom: .1px solid rgb(83, 83, 83)!important; */
+  background: #bfbebe;
+}
+
+label {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+/*  */
 
 .skeleton {
   width: 55%;

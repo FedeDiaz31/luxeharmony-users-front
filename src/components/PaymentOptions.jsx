@@ -1,3 +1,4 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React from "react";
 import { useState } from "react";
 
@@ -12,6 +13,8 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
   const [cardNumber, setCardNumber] = useState(null);
   const [cvc, setCvv] = useState(null);
   const [date, setDate] = useState(null);
+
+  const [disabled, setDisabled] = useState(false);
 
   // FORM STYLES
 
@@ -83,14 +86,13 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
     let checkCardNumber = regexCardNumber.test(data.cardNumber);
     let checkCvv = regexCvv.test(data.cvc);
     let checkDate = regexDate.test(data.date);
-    console.log(data);
-
-    console.log(checkCardNumber, checkCvv, checkDate);
 
     if (checkCardNumber && checkCvv && checkDate) {
       handleData(data);
       sendBill();
       sendOrder();
+    } else {
+      setDisabled(true);
     }
   };
 
@@ -101,8 +103,9 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
           e.preventDefault();
           handleBackButton();
         }}
+        className="border border-1 px-1"
       >
-        {" "}
+        <ArrowBackIcon />
         BACK
       </button>
       <div>
@@ -150,6 +153,9 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
         >
           Complete Order
         </button>
+        {disabled ? (
+          <span className="text-[red]">Please check all the fields.</span>
+        ) : null}
       </div>
     </>
   );

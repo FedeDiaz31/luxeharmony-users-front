@@ -39,6 +39,8 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const [countryError, setCountryError] = useState(null);
   const [provinceError, setProvinceError] = useState(null);
 
+  const [disabled, setDisabled] = useState(false);
+
   // SELECT COUNTRYS AND STATES
 
   const [states, setStates] = useState(null);
@@ -92,6 +94,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     ) {
       handleData(data);
       handleProcess("shippingOptions");
+      setDisabled(false);
+    } else {
+      setDisabled(true);
     }
   };
 
@@ -103,15 +108,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       setFirstName(e.target.value);
       setFirstNameError(false);
       for (let classToAdd of classToAddAlert) {
-        e.target.classList.toggle(classToAdd);
+        e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setFirstName(e.target.value);
       setFirstNameError(true);
 
       for (let classToAdd of classToAddAlert) {
-        e.target.classList.toggle(classToAdd);
+        e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -125,6 +132,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setLastName(e.target.value);
 
@@ -132,6 +140,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
         e.target.classList.add(classToAdd);
         setLastNameError(true);
       }
+      return false;
     }
   };
 
@@ -144,6 +153,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setEmail(e.target.value);
       setEmailError(true);
@@ -151,6 +161,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -162,6 +173,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setPhoneNumber(e.target.value);
       setPhoneNumberError(true);
@@ -169,6 +181,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -180,6 +193,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setStreetAddress(e.target.value);
       setStreetAddressError(true);
@@ -187,6 +201,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -197,12 +212,14 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setReference(e.target.value);
 
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -214,6 +231,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setProvince(e.target.value);
       setProvinceError(true);
@@ -221,6 +239,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -233,6 +252,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setCity(e.target.value);
       setCityError(true);
@@ -240,6 +260,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -254,6 +275,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
+      return true;
     } else {
       setCountry((prevState) => e.target.value);
       setCountryError(true);
@@ -261,6 +283,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
+      return false;
     }
   };
 
@@ -312,14 +335,14 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
 
   return (
     <>
-      <form
-        method="post"
-        className="pt-12  mx-auto font-terciaryFont text-[#737373]"
-      >
-        <h2 className="mb-2  text-xl font-terciaryFont">Contact Information</h2>
-        <div className="columns-1">
-          <div className="grid-cols-2 grid gap-2">
-            <div>
+      <form method="post" className=" mx-auto font-terciaryFont text-[#737373]">
+        <div className="columns-1 px-1">
+          <h2 className="mb-2  text-xl font-terciaryFont">
+            Contact Information
+          </h2>
+          <hr />
+          <div className="grid-cols-2 grid gap-2 ">
+            <div className="">
               <label className="text-xs" htmlFor="firstname">
                 First Name
               </label>{" "}
@@ -327,7 +350,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
                 <span className={spanClasses}>Error</span>
               ) : null}
               <input
-                className="py-2 pl-2"
+                className="py-2 pl-2 w-full"
                 type="text"
                 name="firstname"
                 placeholder={firstName}
@@ -344,7 +367,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
                 <span className={spanClasses}>Error</span>
               ) : null}
               <input
-                className="py-2 pl-2"
+                className="py-2 pl-2 w-full"
                 type="text"
                 name="lastname"
                 placeholder={lastName}
@@ -372,7 +395,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             <label className="block text-xs " htmlFor="phoneNumber">
               Phone Number
             </label>
-            {phoneNumber ? <span className={spanClasses}>Error</span> : null}
+            {phoneNumberError ? (
+              <span className={spanClasses}>Error</span>
+            ) : null}
             <input
               className="py-2 pl-2 w-full"
               type="number"
@@ -384,7 +409,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <h2 className="mb-2 text-xl font-primaryFont">Shipping Address</h2>
+          <h2 className="mb-2  text-xl font-terciaryFont">Shipping Address</h2>
+          <hr />
+
           <div>
             <label className="text-xs block" htmlFor="streetAddres">
               Street Address
@@ -437,7 +464,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             </label>
             {countryError ? <span className={spanClasses}>Error</span> : null}
             <select
-              className="py-2 w-11/12"
+              className="py-2 w-full"
               name="country"
               placeholder="Country"
               onChange={(e) => handleCountry(e)}
@@ -457,7 +484,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
             {provinceError ? <span className={spanClasses}>Error</span> : null}
             <select
               onChange={(e) => handleProvince(e)}
-              className="py-2 w-11/12"
+              className="py-2 w-full"
               name="state"
               placeholder="state"
               value={province}
@@ -493,6 +520,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
           >
             Continue to Shipping Options
           </button>
+          {disabled ? (
+            <span className="text-[red]">Please check all the fields.</span>
+          ) : null}
         </div>
       </form>
     </>
