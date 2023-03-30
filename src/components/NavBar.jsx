@@ -34,11 +34,10 @@ const NavBar = () => {
   return (
     <Nav className="gap-5 w-[350px] mx-auto mt-auto h-1/2 relative items-start m-2 flex">
       <Nav.Menu title="CATEGORIES" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-[100px] rounded p-3">
-          {" "}
+        <div className="bg-bgFourthColor w-[100px] rounded p-3 absolute">
           {categories.map((category) => (
             <NavLink to={`categories/${category.slug}`}>
-              <div className="flex ">
+              <div className="flex">
                 <img
                   className="w-5 my-1 object-contain mr-3"
                   src={
@@ -56,8 +55,7 @@ const NavBar = () => {
         </div>
       </Nav.Menu>
       <Nav.Menu title="BRANDS" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-[130px] rounded p-1">
-          {" "}
+        <div className="bg-bgFourthColor w-[130px] rounded p-1 absolute">
           {brands.map((brand) => (
             <NavLink to={`brands/${brand.slug}`}>
               <div className="flex">
