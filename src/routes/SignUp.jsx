@@ -1,4 +1,5 @@
-import {GoogleLogin,GoogleLogout} from "react-google-login";
+import {GoogleLogin,GoogleLogout, useGoogleLogout} from "react-google-login";
+
 import { useEffect,useState } from "react";
 import {gapi} from 'gapi-script'
 import axios from "axios";
@@ -24,11 +25,10 @@ useEffect(()=>{
 
 
  async function onSuccess(response){
-  setUser(response.profileObj)
   const res = await axios({
       method: "post",
       url: `${process.env.REACT_APP_API_URL}/users`,
-      data:user,
+      data:response.profileObj,
     });
     console.log(res)
     dispatch(login(res.data.user));
@@ -42,14 +42,9 @@ function onFailure(){
   console.log('no funciono')
 }
 
-function successLogOut(){
-  console.log('se deslogueo')
-}
-
   return ( 
   <div className="w-full h-full absolute flex items-center justify-center">
     <GoogleLogin clientId={clientId} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_policy'} isSignedIn={true} />
-    <GoogleLogout clientId={clientId} onSuccess={successLogOut}cookiePolicy={'single_host_policy'} />
   </div>)
 }
 

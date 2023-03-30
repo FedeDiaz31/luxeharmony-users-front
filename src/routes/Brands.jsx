@@ -28,11 +28,6 @@ function Brand() {
     getProducts();
   }, [name]);
 
-<<<<<<< Updated upstream
-  console.log(products);
-=======
->>>>>>> Stashed changes
-
   return (
     <div className="">
       <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary px-32">

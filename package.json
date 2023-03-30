@@ -19,11 +19,7 @@
     "gapi-script": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< Updated upstream
     "react-final-form": "^6.5.9",
-=======
-    "react-google-login": "^5.2.2",
->>>>>>> Stashed changes
     "react-image-gallery": "^1.2.11",
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",

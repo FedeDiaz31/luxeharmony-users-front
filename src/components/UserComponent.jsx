@@ -2,12 +2,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../redux/userReducer";
 import { Link } from "react-router-dom";
 
+
+
 function UserComponent({ setShowUser }) {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleCloseLogin = () => {
     setShowUser(false);
   };
+
+
+ function handleLogOut(){
+  dispatch(logOut());
+ }
 
   return (
     <>
@@ -42,7 +49,7 @@ function UserComponent({ setShowUser }) {
             <div className="w-full">
               <button
                 className="bg-bgTertiaryColor flex justify-center w-full text-textPrimary  py-1"
-                onClick={() => dispatch(logOut())}
+                onClick={handleLogOut}
               >
                 Log out
               </button>
