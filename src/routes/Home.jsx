@@ -33,7 +33,8 @@ function Home() {
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
-          showArrows={true}
+          showArrows={false}
+          swipeable={false}
         >
           <div>
             <div>
