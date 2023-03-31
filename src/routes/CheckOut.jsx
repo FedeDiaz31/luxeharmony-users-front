@@ -35,7 +35,7 @@ const CheckOut = () => {
         Authorization: `Bearer ${user.token}`,
       },
       method: "post",
-      url: `http://localhost:8000/orders`,
+      url: `${process.env.REACT_APP_API_URL}/orders`,
       data: createOrder(),
     });
   };
@@ -46,7 +46,7 @@ const CheckOut = () => {
         Authorization: `Bearer ${user.token}`,
       },
       method: "post",
-      url: `http://localhost:8000/bills`,
+      url: `${process.env.REACT_APP_API_URL}/bills`,
       data: createBill(),
     });
     setOrderIsSend(true);
@@ -130,7 +130,7 @@ const CheckOut = () => {
         <div className=" columns-1 flex-col">
           {cart.map((product) => (
             <div className="flex justify-around  w-full py-2 border-b  border-l-0 border-r-0">
-              <img
+              {/* <img
                 src={
                   product.image[0].includes("http")
                     ? product.image[0]
@@ -138,7 +138,7 @@ const CheckOut = () => {
                 }
                 alt="product-pic"
                 className="w-10 z-0"
-              />{" "}
+              /> */}
               <h4 className="w-36 text-clip font-secondaryFont">
                 {product.model}
               </h4>
