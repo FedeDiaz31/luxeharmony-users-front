@@ -7,7 +7,20 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct(state, action) {
-      return [...state, action.payload];
+      const matchInCart = state.some(
+        (product) => product._id === action.payload._id
+      );
+      if (matchInCart) {
+        state.map((product) => {
+          if (product._id === action.payload._id) {
+            return { ...action.payload, quantity: action.payload.quantity + 1 };
+          } else {
+            return product;
+          }
+        });
+      }
+
+      return [...state, { ...action.payload, quantity: 1 }];
     },
     removeProduct(state, action) {
       state.splice(state.indexOf(action.payload), 1);

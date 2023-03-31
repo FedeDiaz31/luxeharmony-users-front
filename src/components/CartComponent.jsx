@@ -7,19 +7,26 @@ import {
   removeProduct,
   removeAllThisProducts,
 } from "../redux/cartReducer";
+import { useState, useEffect } from "react";
 
 function CartComponent({ setShowCart }) {
   const dispatch = useDispatch();
-
   const cart = useSelector((state) => state.cart);
 
   const handleCloseCart = () => {
     setShowCart(false);
   };
 
-  const showRowProduct = cart.filter((item, index) => {
-    return cart.indexOf(item) === index;
-  }); //Esta constante filtra los productos repetidos. (Para no tener lineas repetidas)
+  // useEffect(() => {
+  //   setShowRowProducts(
+  //     cart.filter((item, index) => {
+  //       return cart.indexOf(item) === index;
+  //     })
+  //   );
+  //   console.log(cart);
+  // }, [cart]);
+
+  //Este efecto filtra los productos repetidos. (Para no tener lineas repetidas)
 
   function quantityProduct(cartProducts, product) {
     const arrayProduct = cartProducts.filter(
@@ -27,16 +34,17 @@ function CartComponent({ setShowCart }) {
     );
     return arrayProduct.length;
   }
+  console.log(cart);
 
   return (
     <>
       <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
-        {showRowProduct.length === 0 ? (
+        {cart.length === 0 ? (
           <div>
             <h3 className="font-light text-2xl text-center">Empty cart...</h3>
           </div>
         ) : (
-          showRowProduct.map((product) => (
+          cart.map((product) => (
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <img
