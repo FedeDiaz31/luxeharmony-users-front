@@ -1,7 +1,7 @@
 // Dependencies
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addProduct } from "../redux/cartReducer";
 import { useNavigate } from "react-router-dom";
@@ -14,11 +14,13 @@ import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
 
 const Product = () => {
+  const cart = useSelector((state) => state.cart);
   const [product, setProduct] = useState(null);
   const { slug } = useParams();
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   document.title = `${product ? product.model : "cargando..."} | LuxeHarmony `;
 
   useEffect(() => {
@@ -49,7 +51,14 @@ const Product = () => {
   }, [product]);
 
   const handleAddProduct = () => {
-    dispatch(addProduct(product));
+    if (cart.some((productCart) => productCart.slug === product.slug)) {
+      const productCart = cart.filter(
+        (productCart) => productCart.slug === product.slug
+      );
+      dispatch(addProduct(productCart[0]));
+    } else {
+      dispatch(addProduct(product));
+    }
   };
 
   const thumbnailClass = {

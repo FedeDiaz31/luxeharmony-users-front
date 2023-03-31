@@ -25,12 +25,6 @@ function Cart() {
     return totalPrice;
   }
 
-  function quantityProduct(cartProducts, product) {
-    const arrayProduct = cartProducts.filter(
-      (prod) => prod._id === product._id
-    );
-    return arrayProduct.length;
-  }
   return (
     <div className="pt-[70px]">
       <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
@@ -39,7 +33,7 @@ function Cart() {
       <div className="flex m-10 justify-center gap-5">
         {/*      Items Cart */}
         <div className="bg-bgPrimaryColorgrid gap-3 grid">
-          {showRowProduct.map((product, i) => {
+          {cart.map((product, i) => {
             return (
               <div key={i}>
                 <div className="flex gap-3 px-25 mr-52">
@@ -65,9 +59,7 @@ function Cart() {
                         </h3>
                         <h3 className=" font-light ml-5">
                           <span>Total </span> $
-                          {(
-                            product.price * quantityProduct(cart, product)
-                          ).toFixed(1)}
+                          {(product.price * product.quantity).toFixed(1)}
                         </h3>
                       </div>
                     </div>
@@ -80,7 +72,7 @@ function Cart() {
                           -
                         </button>
                         <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                          {quantityProduct(cart, product)}
+                          {product.quantity}
                         </h4>
                         <button
                           className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"

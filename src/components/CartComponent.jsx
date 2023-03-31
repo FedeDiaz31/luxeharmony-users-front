@@ -28,14 +28,6 @@ function CartComponent({ setShowCart }) {
 
   //Este efecto filtra los productos repetidos. (Para no tener lineas repetidas)
 
-  function quantityProduct(cartProducts, product) {
-    const arrayProduct = cartProducts.filter(
-      (prod) => prod._id === product._id
-    );
-    return arrayProduct.length;
-  }
-  console.log(cart);
-
   return (
     <>
       <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
@@ -62,8 +54,7 @@ function CartComponent({ setShowCart }) {
               </div>
               <div className="flex gap-3 items-center">
                 <h4 className="font-light">
-                  USD{" "}
-                  {(product.price * quantityProduct(cart, product)).toFixed(2)}
+                  USD {(product.price * product.quantity).toFixed(2)}
                 </h4>
                 <div className="flex gap-3">
                   <div className="flex items-center w-[110px] justify-between">
@@ -75,7 +66,7 @@ function CartComponent({ setShowCart }) {
                     </button>
 
                     <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                      {quantityProduct(cart, product)}
+                      {product.quantity}
                     </h4>
                     <button
                       className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
