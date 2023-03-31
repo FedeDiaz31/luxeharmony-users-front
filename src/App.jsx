@@ -13,7 +13,7 @@ import Brand from "./routes/Brands";
 import About from "./routes/About";
 import { useEffect, useState } from "react";
 import Splash from "./components/Splash";
-import Profile from "./routes/Profile";
+import EditUser from "./routes/EditUser";
 import Orders from "./routes/Orders";
 import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
@@ -46,7 +46,7 @@ function App() {
               <Route path="/categories/:slug" element={<Category />} />
               <Route path="/brands/:slug" element={<Brand />} />
               <Route element={<AuthRequire />}>
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile" element={<EditUser />} />
                 <Route path="/orders" element={<Orders />} />
               </Route>
               <Route path="/about" element={<About />} />

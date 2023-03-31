@@ -28,11 +28,9 @@ function Brand() {
     getProducts();
   }, [name]);
 
-  console.log(products);
-
   return (
-    <div className="">
-      <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary px-32">
+    <div>
+      <div className="pl-10 tablet:px-32 w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary px-32">
         <button
           onClick={() => navigate(-1)}
           className="bg-bgTertiaryColor px-3"

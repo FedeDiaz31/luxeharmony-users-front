@@ -18,15 +18,7 @@ function BrandsContainer() {
 
   return (
     <>
-      <div className="bg-bgSecondaryColor tablet:pt-10 py-5">
-        <div className="w-full text-lg items-center text-textPrimary flex flex-col">
-          <h3 className="font-bold">ALIANCE IS THE NAME</h3>
-          <p className="max-w-[500px] text-center text-sm font-light">
-            Collaborating with elite music brands creates a perfect symphony of
-            creativity and technology, producing unforgettable musical
-            experiences.
-          </p>
-        </div>
+      <div className="bg-bgSecondaryColor pt-10 pb-7">
         <div
           id="categories-container"
           className="bg-bgSecondaryColor min-h-[200px] px-5 grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 w-full "
@@ -36,7 +28,7 @@ function BrandsContainer() {
               return (
                 <div className="flex items-center justify-center">
                   <img
-                    className="w-[180px]"
+                    className="w-36 tablet:w-[180px]"
                     src={
                       brand.logo.includes("http")
                         ? brand.logo

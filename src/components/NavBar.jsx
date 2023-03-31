@@ -8,6 +8,8 @@ import axios from "axios";
 const NavBar = () => {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [showBrands, setShowBrands] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -32,49 +34,33 @@ const NavBar = () => {
   }, []);
 
   return (
-    <Nav className="gap-5 w-[350px] mx-auto mt-auto h-1/2 relative items-start m-2 flex">
-      <Nav.Menu title="CATEGORIES" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-[100px] rounded p-3 absolute">
-          {categories.map((category) => (
-            <NavLink to={`categories/${category.slug}`}>
-              <div className="flex">
-                <img
-                  className="w-5 my-1 object-contain mr-3"
-                  src={
-                    category.products[0].image[0].includes("http")
-                      ? `${category.products[0].image[0]}`
-                      : `${process.env.REACT_APP_API_URL}/img/products/${category.products[0].image[0]}`
-                  }
-                  alt="image"
-                />
+    <div className="gap-5 z-10 w-[350px] mx-auto mt-auto h-1/2 relative items-start m-2 flex">
+      {/*       Categories Button & Menu */}
+      <button
+        onClick={() => {
+          setShowCategories(!showCategories);
+          setShowBrands(false);
+        }}
+        className="w-full px-2 pb-1"
+      >
+        CATEGORIES
+      </button>
 
-                <span className="mt-3"> {category.name}</span>
-              </div>
-            </NavLink>
-          ))}
-        </div>
-      </Nav.Menu>
-      <Nav.Menu title="BRANDS" className="w-full  px-2 pb-1">
-        <div className="bg-bgFourthColor w-[130px] rounded p-1 absolute">
-          {brands.map((brand) => (
-            <NavLink to={`brands/${brand.slug}`}>
-              <div className="flex">
-                <img
-                  className="w-5 my-1 object-contain mr-3"
-                  src={`${process.env.REACT_APP_API_URL}/img/${brand.logo2}`}
-                  alt="logo"
-                />
+      {/*       Brands Button & Menu */}
+      <button
+        onClick={() => {
+          setShowBrands(!showBrands);
+          setShowCategories(false);
+        }}
+        className="w-full px-2 pb-1"
+      >
+        BRANDS
+      </button>
 
-                <span>{brand.name}</span>
-              </div>
-            </NavLink>
-          ))}
-        </div>
-      </Nav.Menu>
-      <Nav.Item className="w-full  px-2 pb-1">
+      <div className="w-full  px-2 pb-1">
         <Link to="/about">ABOUT</Link>
-      </Nav.Item>
-    </Nav>
+      </div>
+    </div>
   );
 };
 

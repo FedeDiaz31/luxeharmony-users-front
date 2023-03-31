@@ -66,7 +66,7 @@ const Product = () => {
     return (
       <>
         <main className="">
-          <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary px-32">
+          <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
             <button
               onClick={() => navigate(-1)}
               className="bg-bgTertiaryColor px-3"
@@ -75,7 +75,7 @@ const Product = () => {
             </button>
             <h3 className="text-2xl font-light">{product.model}</h3>
           </div>
-          <div className="m-auto mt-5 mx-10 tablet:mx-20 laptop:mx-48 fade-in">
+          <div className="m-auto mt-14 mx-10 tablet:mx-20 laptop:mx-48 fade-in">
             <div className="grid grid-cols-1 tablet:grid-cols-2">
               <div className="tablet:mr-16 min-h-[300px]">
                 {images.length > 0 ? (
@@ -146,7 +146,7 @@ const Product = () => {
               {product ? <Tabs product={product} /> : null}
             </div>
           </div>
-          <hr className="mx-[18%] mt-4" />
+          <hr className="mt-4" />
           <Subscribe />
         </main>
       </>
