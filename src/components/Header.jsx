@@ -14,6 +14,7 @@ import axios from "axios";
 import { Button } from "rsuite";
 import MenuIcon from "@mui/icons-material/Menu";
 // import { motion } from "framer-motion"
+import logoLuxeHarmony from '../assets/img/logoBlack.png'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -223,7 +224,7 @@ function Header() {
             className="h-full bg-bgPrimaryColor p-1 flex items-center shadow"
             to={"/"}
           >
-            <img className="w-20" src="LOGO-BLACK-LUXE-HARMONY2.png" />
+            <img className="w-20" src={logoLuxeHarmony} />
           </Link>
           <div className="hidden laptop:flex h-full items-center z-10">
             <div className="gap-5 z-10 w-[350px] h-full justify-center mx-auto relative items-start flex">

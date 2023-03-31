@@ -17,6 +17,7 @@ function Brand() {
   document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
   window.scrollTo({ top: 0 });
 
+
   useEffect(() => {
     const getProducts = async () => {
       const response = await axios({

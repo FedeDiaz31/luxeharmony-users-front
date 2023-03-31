@@ -12,6 +12,7 @@ import Tabs from "../components/Tabs";
 import ImageGallery from "react-image-gallery";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
+import chevronBack from '../assets/img/chevronBack.svg'
 
 const Product = () => {
   const cart = useSelector((state) => state.cart);
@@ -76,12 +77,7 @@ const Product = () => {
       <>
         <main className="">
           <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
-            <button
-              onClick={() => navigate(-1)}
-              className="bg-bgTertiaryColor px-3"
-            >
-              Back
-            </button>
+          <img className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"  onClick={() => navigate(-1)} src={chevronBack} alt="" />
             <h3 className="text-2xl font-light">{product.model}</h3>
           </div>
           <div className="m-auto mt-14 mx-10 tablet:mx-20 laptop:mx-48 fade-in">

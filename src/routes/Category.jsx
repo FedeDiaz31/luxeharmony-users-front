@@ -10,6 +10,7 @@ import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
 import Skeleton from "../components/Skeleton";
+import chevronBack from '../assets/img/chevronBack.svg'
 
 function Category() {
   const name = useParams().slug;
@@ -36,12 +37,8 @@ function Category() {
     return (
       <div className="">
         <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary pl-10 tablet:px-32">
-          <button
-            onClick={() => navigate(-1)}
-            className="bg-bgTertiaryColor px-3"
-          >
-            Back
-          </button>
+          <img className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"  onClick={() => navigate(-1)} src={chevronBack} alt="" />
+  
           <h3 className="text-3xl font-light">
             {name[0].toUpperCase() + name.substring(1)}
           </h3>
