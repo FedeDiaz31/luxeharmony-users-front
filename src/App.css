@@ -197,3 +197,19 @@ label {
     box-shadow: inset 0px 0px 0px 30px #7ac142;
   }
 }
+
+
+/* PROFILE */
+
+
+.background-profile {
+  background-image: url('../src/assets/img/bgUserProfile.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+/* CATEGORY */
+
+
