@@ -39,6 +39,7 @@ function Header() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
 
+  
   useEffect(() => {
     const getCategories = async () => {
       const response = await axios({
@@ -60,7 +61,7 @@ function Header() {
     };
     getBrands();
   }, []);
-
+  
   useEffect(() => {
     window.onscroll = function (e) {
       if (Math.ceil(window.pageYOffset) > 100) {
@@ -70,15 +71,15 @@ function Header() {
       }
     };
   }, [userHasScrolled]);
-
+  
   return (
     <>
       {user ? (
         <div
           className={
             showUser
-              ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-              : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+              ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
+              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
           }
         >
           <UserComponent setShowUser={setShowUser} />
@@ -87,8 +88,8 @@ function Header() {
         <div
           className={
             showLogin
-              ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-              : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+              ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
+              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
           }
         >
           <LoginComponent setShowLogin={setShowLogin} />
@@ -109,7 +110,7 @@ function Header() {
         <div
           className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-3 items-center rounded text-textPrimary px-3 pb-1 absolute transition-all duration-200 ${
             showCategories
-              ? "pt-[80px] tablet:pt-[180px] left-[100px] tablet:left-auto"
+              ? "pt-[80px] tablet:pt-[180px] left-[300px] tablet:left-auto"
               : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
@@ -144,7 +145,7 @@ function Header() {
         <div
           className={`bg-headerAndFooterColor tablet:top-[-90px] z-0 gap-3 grid tablet:flex rounded pb-5 absolute px-4 transition-all duration-200 ${
             showBrands
-              ? "pt-[90px] tablet:pt-[180px] left-[100px] tablet:left-auto"
+              ? "pt-[90px] tablet:pt-[180px] left-[300px] tablet:left-auto"
               : "left-[-100px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
@@ -170,18 +171,18 @@ function Header() {
       </div>
       {/*       Burguer Menu */}
       <div
-        className={`fixed h-[100vh] w-[100px] bg-headerAndFooterColor transition-all duration-200 ${
-          showBurguerMenu ? "left-0" : "left-[-100px]"
+        className={`fixed h-[100vh] w-[300px] bg-headerAndFooterColor shadow-lg shadow-bgSecondaryColor transition-all duration-200 tablet:hidden ${
+          showBurguerMenu ? "left-0" : "left-[-300px]"
         }`}
       >
-        <div className="gap-5 flex flex-col text-textPrimary font-primaryFont h-full mx-auto mt-[100px] items-start m-2">
+        <div className="gap-5 flex flex-col  text-textPrimary font-primaryFont h-full mx-auto mt-[100px]  m-2">
           {/*       Categories Button & Menu */}
           <button
             onClick={() => {
               setShowCategories(!showCategories);
               setShowBrands(false);
             }}
-            className="w-full flex justify-center  px-2 pb-1"
+            className="w-full flex justify-center text-[24px] desktop:text-[16px] px-2 pb-1 "
           >
             CATEGORIES
           </button>
@@ -191,13 +192,37 @@ function Header() {
               setShowBrands(!showBrands);
               setShowCategories(false);
             }}
-            className="w-full flex justify-center  px-2 pb-1"
+            className="w-full flex justify-center text-[24px] desktop:text-[20px]  px-2 pb-1"
           >
             BRANDS
           </button>
-          <div className="w-full justify-center flex  px-2 pb-1">
+          <div className="w-full justify-center flex text-[24px] desktop:text-[20px]  px-2 pb-1">
             <Link to="/about">ABOUT</Link>
           </div>
+          {user ? (
+              <button
+                onClick={() => {
+                  setShowUser(!showUser);
+                  setShowCart(false);
+                  setShowLogin(false);
+                }}
+                className="w-full bg-bgSecondaryColor py-1 px-3"
+              >
+                <h2>{user.firstname}</h2>
+              </button>
+            ) : (
+              <div className="w-full bg-bgSecondaryColor py-1 px-3">
+                <button
+                  onClick={() => {
+                    setShowLogin(!showLogin);
+                    setShowCart(false);
+                    setShowUser(false);
+                  }}
+                >
+                  LOGIN
+                </button>
+              </div>
+            )}
         </div>
       </div>
       <header
@@ -269,37 +294,14 @@ function Header() {
                   setShowBrands(false);
                   setShowCategories(false);
                 }}
-                className="relative w-full h-full flex flex-col justify-center items-center px-2"
+                className="relative w-full h-full flex flex-col justify-center items-center px-2 "
               >
                 <Link to="/about">ABOUT</Link>
+
               </div>
             </div>
           </div>
           <div className="flex h-full items-center gap-5">
-            {user ? (
-              <button
-                onClick={() => {
-                  setShowUser(!showUser);
-                  setShowCart(false);
-                  setShowLogin(false);
-                }}
-                className="w-full bg-bgSecondaryColor py-1 px-3"
-              >
-                <h2>{user.firstname}</h2>
-              </button>
-            ) : (
-              <div className="w-full bg-bgSecondaryColor py-1 px-3">
-                <button
-                  onClick={() => {
-                    setShowLogin(!showLogin);
-                    setShowCart(false);
-                    setShowUser(false);
-                  }}
-                >
-                  LOGIN
-                </button>
-              </div>
-            )}
             <div className="relative w-full h-full flex flex-col justify-center items-center">
               <button
                 className="cursos-pointer"
