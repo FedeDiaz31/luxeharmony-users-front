@@ -17,7 +17,7 @@ function Cart() {
   }); //Esta constante filtra los productos repetidos. (Para no tener visualment lineas repetidas en el carrito)
 
   function subTotalPrice(products) {
-    const prices = products.map((product) => product.price);
+    const prices = products.map((product) => product.price * product.quantity);
     let totalPrice = 0;
     for (let price of prices) {
       totalPrice += price;
