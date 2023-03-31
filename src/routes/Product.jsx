@@ -12,7 +12,7 @@ import Tabs from "../components/Tabs";
 import ImageGallery from "react-image-gallery";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
-import chevronBack from '../assets/img/chevronBack.svg'
+import chevronBack from "../assets/img/chevronBack.svg";
 
 const Product = () => {
   const cart = useSelector((state) => state.cart);
@@ -77,7 +77,12 @@ const Product = () => {
       <>
         <main className="">
           <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
-          <img className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"  onClick={() => navigate(-1)} src={chevronBack} alt="" />
+            <img
+              className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"
+              onClick={() => navigate(-1)}
+              src={chevronBack}
+              alt=""
+            />
             <h3 className="text-2xl font-light">{product.model}</h3>
           </div>
           <div className="m-auto mt-14 mx-10 tablet:mx-20 laptop:mx-48 fade-in">
@@ -106,23 +111,17 @@ const Product = () => {
                   <h1 className="model-title text-3xl pb-5">{product.model}</h1>
                 </div> */}
                 <div>
-                  <div className="w-[25vw] options columns-2 flex-row">
-                    <ul>
-                      <div className="py-3">
-                        <li className=" font-bold">Finish:</li>
-                        <li className=" font-bold">Material:</li>
-                      </div>
-                      <div className="py-3 whitespace-nowrap">
-                        <li>
-                          {product ? product.detail.bodyFinish : "cargando..."}
-                        </li>
-                        <li>
-                          {product
-                            ? product.detail.bodyMaterial
-                            : "cargando..."}
-                        </li>
-                      </div>
-                    </ul>
+                  <div className="w-[50%] grid grid-cols-2 font-bold mb-2">
+                    <div>Finish:</div>
+                    <div>
+                      {product ? product.detail.bodyFinish : "cargando..."}
+                    </div>
+                  </div>
+                  <div className="w-[50%] grid grid-cols-2 font-bold mb-2">
+                    <div>Material:</div>{" "}
+                    <div>
+                      {product ? product.detail.bodyMaterial : "cargando..."}
+                    </div>
                   </div>
                   <div className="column-1 ">
                     <p className="product-price text-3xl pt-8">

@@ -56,7 +56,7 @@ export default function BasicTabs({ product }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4">
+        <div className="grid grid-cols-2  tablet:grid-cols-4  ">
           <div>
             <div className="font-semibold ">Body Style </div>
             {product.detail.bodyStyle}
@@ -65,18 +65,18 @@ export default function BasicTabs({ product }) {
             <div className="font-semibold ">Body Shape </div>
             <div>{product.detail.bodyShape}</div>
           </div>
-          <div>
+          <div className="mt-4 tablet:mt-0">
             <div className="font-semibold ">Body Material </div>
             <div>{product.detail.bodyMaterial}</div>
           </div>
-          <div>
+          <div className="mt-4 tablet:mt-0">
             <div className="font-semibold ">Body Finish </div>
             <div>{product.detail.bodyFinish}</div>
           </div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4 mb-4">
+        <div className="grid grid-cols-2 tablet:grid-cols-3 pb-4">
           <div>
             <div className="font-semibold ">Profile </div>
             {product.detail.profile}
@@ -89,12 +89,8 @@ export default function BasicTabs({ product }) {
             <div className="font-semibold ">Nut Material </div>
             <div>{product.detail.nutMaterial}</div>
           </div>
-          <div>
-            <div className="font-semibold ">Inalys </div>
-            <div>{product.detail.inlays}</div>
-          </div>
         </div>{" "}
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4 mb-4">
+        <div className="grid grid-cols-2 tablet:grid-cols-3 pb-4 ">
           <div>
             <div className="font-semibold ">Scale Length </div>
             <div>628.65 mm / 24.75 in</div>
@@ -107,12 +103,8 @@ export default function BasicTabs({ product }) {
             <div className="font-semibold ">Nut Width </div>
             <div>{product.detail.nutWidth}</div>
           </div>
-          <div>
-            <div className="font-semibold ">Joint </div>
-            <div>{product.detail.joint}</div>
-          </div>
         </div>{" "}
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4 mb-4">
+        <div className="grid grid-cols-2 pb-4 tablet:grid-cols-3 ">
           <div>
             <div className="font-semibold ">fingerboard Material </div>
             {product.detail.fingerBoardMaterial}
@@ -128,14 +120,14 @@ export default function BasicTabs({ product }) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4 mb-4">
-          <div>
+        <div className="grid grid-cols-2 pb-4 tablet:grid-cols-4">
+          <div className="mb-4">
             <div className="font-semibold ">Finish</div>
             {product.detail.finish}
           </div>
-          <div>
+          <div className="mb-4">
             <div className="font-semibold ">Pickguard </div>
-            <div>{product.detail.pickguard}</div>
+            <div className="w-[80%]">{product.detail.pickguard}</div>
           </div>
           <div>
             <div className="font-semibold ">Control Knobs </div>
@@ -146,12 +138,12 @@ export default function BasicTabs({ product }) {
             <div>{product.detail.bridge}</div>
           </div>
         </div>{" "}
-        <div className="columns-2 tablet:columns-3 grid grid-cols-4 mb-4">
+        <div className="grid grid-cols-2 pb-4 tablet:grid-cols-4 ">
           <div>
             <div className="font-semibold ">Truss Rod </div>
             {product.detail.trussRod}
           </div>
-          <div>
+          <div className="mb-4">
             <div className="font-semibold ">Strap Buttons </div>
             <div>{product.detail.strapButtons}</div>
           </div>

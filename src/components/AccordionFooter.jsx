@@ -3,7 +3,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Link } from "react-router-dom";
 
 export default function AccordionFooter() {
   return (
@@ -18,7 +17,6 @@ export default function AccordionFooter() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li className="font-bold py-2 text-base">SHOP</li>
             <li>Electric Guitars</li>
             <li>Acoustic Guitars</li>
             <li>Basses</li>
@@ -39,7 +37,6 @@ export default function AccordionFooter() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li className="font-bold py-2 text-base">SUPPORT</li>
             <li>Customer Service</li>
             <li>Virtual Guitar Tech</li>
             <li>Warranty Registration & Info</li>
@@ -64,7 +61,7 @@ export default function AccordionFooter() {
                 rel="noreferrer"
                 href="https://www.linkedin.com/in/magguer/"
               >
-                Martin Aguerre
+                Martin Telechea
               </a>
             </li>
             <li>
