@@ -267,7 +267,6 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   // HANDLE COUNTRY
 
   const handleCountry = (e) => {
-    console.log(e.target.value);
     if (regexCountry.test(e.target.value)) {
       setCountry((prevState) => e.target.value.trim());
       setCountryError(false);

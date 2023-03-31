@@ -11,8 +11,12 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
   const [checked, setChecked] = useState(false);
 
   const [cardNumber, setCardNumber] = useState(null);
-  const [cvc, setCvv] = useState(null);
+  const [cvv, setCvv] = useState(null);
   const [date, setDate] = useState(null);
+
+  const [cardNumberError, setCardNumberError] = useState(null);
+  const [cvvError, setCvvError] = useState(null);
+  const [dateError, setDateError] = useState(null);
 
   const [disabled, setDisabled] = useState(false);
 
@@ -20,21 +24,25 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
 
   const classToAddAlert = [
     "border-[red]",
-    "border-2",
+    "border-1",
     "active:border-[red]",
-    'active:border-2"',
+    "bg-[red]",
+    "text-textPrimary",
+    "focus-visible:border-0",
   ];
+  const spanClasses = "bg-[#F91C20] text-textPrimary text-sm px-2 block my-2";
 
   const handleCardNumber = (e) => {
     if (regexCardNumber.test(e.target.value)) {
-      console.log(e.target.value);
       setCardNumber(e.target.value);
+      setCardNumberError(false);
+
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setCardNumber(e.target.value);
-
+      setCardNumberError(true);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
@@ -44,12 +52,13 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
   const handleDate = (e) => {
     if (regexDate.test(e.target.value)) {
       setDate(e.target.value);
+      setDateError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setDate(e.target.value);
-
+      setDateError(true);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
@@ -59,12 +68,13 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
   const handleCvv = (e) => {
     if (regexCvv.test(e.target.value)) {
       setCvv(e.target.value);
+      setCvvError(false);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.remove(classToAdd);
       }
     } else {
       setCvv(e.target.value);
-
+      setCvvError(true);
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }
@@ -79,12 +89,12 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
     // CREATE AN OBJECT WITH THE ACTUAL FORM VALUES
     let data = {
       cardNumber: cardNumber,
-      cvc: cvc,
+      cvv: cvv,
       date: date,
     };
 
     let checkCardNumber = regexCardNumber.test(data.cardNumber);
-    let checkCvv = regexCvv.test(data.cvc);
+    let checkCvv = regexCvv.test(data.cvv);
     let checkDate = regexDate.test(data.date);
 
     if (checkCardNumber && checkCvv && checkDate) {
@@ -111,26 +121,37 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
       <div>
         <h4>Pay With Card</h4>
         <div>
-          <input
-            onChange={(e) => handleCardNumber(e)}
-            className="w-2/3"
-            type="number"
-            placeholder="Card number // mastercard"
-          />
-          <input
-            onChange={(e) => handleDate(e)}
-            className="w-1/6"
-            type="text"
-            placeholder="MM/YY"
-          />
-          <input
-            onChange={(e) => handleCvv(e)}
-            className="w-1/6"
-            type="text"
-            placeholder="CVC"
-          />
+          <div className="w-full">
+            <input
+              onChange={(e) => handleCardNumber(e)}
+              className="w-full"
+              type="number"
+              placeholder="Card number // mastercard"
+            />
+            {cardNumberError ? (
+              <span className={spanClasses}>Error</span>
+            ) : null}
+          </div>
+          <div className="columns-2">
+            <div className="w-1/2">
+              <input
+                onChange={(e) => handleDate(e)}
+                type="text"
+                placeholder="MM/YY"
+              />
+              {dateError ? <span className={spanClasses}>Error</span> : null}
+            </div>
+            <div className="w-1/2">
+              <input
+                onChange={(e) => handleCvv(e)}
+                type="text"
+                placeholder="CVV"
+              />
+              {cvvError ? <span className={spanClasses}>Error</span> : null}
+            </div>
+          </div>
         </div>
-        <div className="flex columns-2 justify-between items-center py-2">
+        <div className="flex grid-cols-2 grid justify-between items-center py-2">
           <label htmlFor="chechboxPayment" className="w-10/12">
             I am over age 18 agree to the following: Privacy, Terms &
             Conditions.
@@ -142,6 +163,7 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
             onChange={(e) => setChecked(!checked)}
           />
         </div>
+
         <button
           onClick={(e) => {
             e.preventDefault();

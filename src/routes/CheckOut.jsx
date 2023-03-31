@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { redirect } from "react-router-dom";
+import { Navigate, redirect } from "react-router-dom";
 
 import axios from "axios";
 
@@ -16,6 +16,8 @@ const CheckOut = () => {
   const [bill, setBill] = useState({});
   const [data, setData] = useState(null);
   const [process, setProcess] = useState("shippingInfo");
+
+  const [orderIsSend, setOrderIsSend] = useState(false);
 
   const user = useSelector((state) => state.user);
 
@@ -36,8 +38,6 @@ const CheckOut = () => {
       url: `http://localhost:8000/orders`,
       data: createOrder(),
     });
-
-    return redirect("/");
   };
 
   const sendBill = async () => {
@@ -49,6 +49,7 @@ const CheckOut = () => {
       url: `http://localhost:8000/bills`,
       data: createBill(),
     });
+    setOrderIsSend(true);
   };
 
   //CREATE ORDER - THIS CREATE THE ORDER ONCE THE DATA WAS VALIDATE
@@ -193,6 +194,7 @@ const CheckOut = () => {
             />
           </div>
         ) : null}
+        {orderIsSend ? <Navigate to="/" replace={true} /> : null}
       </div>
     </div>
   );
