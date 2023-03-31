@@ -112,7 +112,7 @@ function Cart() {
           <div className="mt-10 w-full flex flex-col items-center">
             <Link to="/chekout">
               <button
-                disabled={!user || cart.lenght === 0 ? true : false}
+                disabled={!user || cart.length === 0 ? true : false}
                 className={`bg-bgTertiaryColor ${
                   !user && "opacity-50"
                 }  text-textPrimary px-20 py-2 rounded text-sm`}
@@ -120,11 +120,13 @@ function Cart() {
                 Checkout
               </button>
             </Link>
-            <div>
-              <h3 className="text-textSecondary font-light text-sm mt-2">
-                Login to checkout.
-              </h3>
-            </div>
+            {!user && (
+              <div>
+                <h3 className="text-textSecondary font-light text-sm mt-2">
+                  Login to checkout.
+                </h3>
+              </div>
+            )}
           </div>
         </div>
       </div>
