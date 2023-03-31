@@ -27,7 +27,7 @@ function Cart() {
 
   return (
     <div className="pt-[70px]">
-      <div className="bg-bgFourthColor h-[100px] w-full pl-32 flex items-center">
+      <div className="bg-bgFourthColor h-[100px] w-full pl-10 tablet:pl-32 flex items-center">
         <h3 className="text-4xl">Shopping Cart</h3>
       </div>
       <div className="flex m-10 justify-center gap-5">
@@ -109,7 +109,7 @@ function Cart() {
             This order is in USD. Applicable taxes, shipping, coupons or special
             offers will be applied at Checkout.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 w-full flex flex-col items-center">
             <Link to="/chekout">
               <button
                 disabled={!user || cart.lenght === 0 ? true : false}
@@ -120,6 +120,11 @@ function Cart() {
                 Checkout
               </button>
             </Link>
+            <div>
+              <h3 className="text-textSecondary font-light text-sm mt-2">
+                Login to checkout.
+              </h3>
+            </div>
           </div>
         </div>
       </div>
