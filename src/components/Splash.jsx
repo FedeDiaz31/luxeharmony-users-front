@@ -1,8 +1,5 @@
-import { duration } from "@mui/material";
 import { motion } from "framer-motion";
-import { initial } from "lodash";
 import React from "react";
-import logo from "../assets/img/logoWhite.png";
 
 function Splash() {
   return (

@@ -112,13 +112,14 @@ function Header() {
               : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
-          {categories.map((category) => (
+          {categories.map((category, i) => (
             <NavLink
               onClick={() => {
                 setShowBurguerMenu(false);
                 setShowCategories(false);
               }}
               to={`categories/${category.slug}`}
+              key={i}
             >
               <div className="flex items-center gap-2">
                 <img
@@ -146,13 +147,14 @@ function Header() {
               : "left-[-100px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
-          {brands.map((brand) => (
+          {brands.map((brand, i) => (
             <NavLink
               onClick={() => {
                 setShowBurguerMenu(false);
                 setShowBrands(false);
               }}
               to={`brands/${brand.slug}`}
+              key={i}
             >
               <div className="flex">
                 <img

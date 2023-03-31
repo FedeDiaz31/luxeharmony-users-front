@@ -69,14 +69,14 @@ function LoginComponent({ setShowLogin }) {
           </div>
         </div>
         <div className="mt-5">
-          <button className="w-full" onClick={handleCloseLogin}>
+          <div className="w-full" onClick={handleCloseLogin}>
             <button
               onClick={handleLogin}
               className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1"
             >
               Login
             </button>
-          </button>
+          </div>
         </div>
         <div className="w-full">
           <Link

@@ -42,10 +42,10 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/product/:slug" element={<Product />} />
-              <Route path="/chekout" element={<CheckOut />} />
               <Route path="/categories/:slug" element={<Category />} />
               <Route path="/brands/:slug" element={<Brand />} />
               <Route element={<AuthRequire />}>
+                <Route path="/chekout" element={<CheckOut />} />
                 <Route path="/profile" element={<EditUser />} />
                 <Route path="/orders" element={<Orders />} />
               </Route>

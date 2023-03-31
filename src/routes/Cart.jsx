@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -10,6 +9,7 @@ import {
 function Cart() {
   document.title = ` Cart | LuxeHarmony `;
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const showRowProduct = cart.filter((item, index) => {
@@ -111,7 +111,12 @@ function Cart() {
           </p>
           <div className="mt-10">
             <Link to="/chekout">
-              <button className="bg-bgTertiaryColor text-textPrimary px-20 py-2 rounded text-sm">
+              <button
+                disabled={!user || cart.lenght === 0 ? true : false}
+                className={`bg-bgTertiaryColor ${
+                  !user && "opacity-50"
+                }  text-textPrimary px-20 py-2 rounded text-sm`}
+              >
                 Checkout
               </button>
             </Link>
