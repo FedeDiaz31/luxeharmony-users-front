@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import chevron from "../assets/img/chevronUp.png";
 import chevronDown from "../assets/img/chevronDown.png";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-function AboutCard({ linkedin, img, title, paragraph }) {
+function AboutCard({ linkedin, img, title, paragraph, github }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="relative overflow-hidden" target={"blank"}>
@@ -36,12 +38,25 @@ function AboutCard({ linkedin, img, title, paragraph }) {
           )}
         </div>
         <p className="text-left px-3 text-sm">{paragraph}</p>
-        <Link
-          className="link-about-linkedin ml-3"
-          to={`https://www.linkedin.com/in/${linkedin}`}
-        >
-          Github
-        </Link>
+        <div className="mt-6 flex justify-around">
+          <div>
+            <Link
+              className="  "
+              to={`https://www.linkedin.com/in/${linkedin}`}
+              target="_blank"
+            >
+              Linked
+            </Link>
+            <LinkedInIcon className="mt-[-4px]" />
+          </div>
+
+          <div>
+            <Link to={`https://www.github.com/${github}`} target="_blank">
+              Github
+            </Link>
+            <GitHubIcon className="mt-[-4px]" />
+          </div>
+        </div>
       </div>
     </div>
   );

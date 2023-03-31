@@ -3,6 +3,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link } from "react-router-dom";
 
 export default function AccordionFooter() {
   return (
@@ -17,23 +18,13 @@ export default function AccordionFooter() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li>Les Paul Models</li>
-            <li>SG Models</li>
-            <li>ES Models</li>
+            <li className="font-bold py-2 text-base">SHOP</li>
+            <li>Electric Guitars</li>
+            <li>Acoustic Guitars</li>
             <li>Basses</li>
-            <li>Designer Models</li>
-            <li>Gibson Custom Shop</li>
-            <li>Super Jumbo Models</li>
-            <li>Square Shoulder Models</li>
-            <li>Small Body Models</li>
-            <li>Songwritter Models</li>
-            <li>Accesories</li>
-            <li>Hardware</li>
-            <li>Merchandise</li>
-            <li> </li>
-            <li>The Gibson Garage</li>
-            <li>Find A Dealer Near You</li>
-            <li>Online Dealers</li>
+            <li>Studio Monitors</li>
+            <li>Studio Microphones</li>
+            <li>Pre Amps</li>
           </ul>
         </AccordionDetails>
       </Accordion>
@@ -48,16 +39,12 @@ export default function AccordionFooter() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
+            <li className="font-bold py-2 text-base">SUPPORT</li>
             <li>Customer Service</li>
             <li>Virtual Guitar Tech</li>
             <li>Warranty Registration & Info</li>
             <li>Repair and Restoration</li>
             <li>Report Counterfeits</li>
-            <li>Serial Number FAQ</li>
-            <li>Online Store Policies & FAQ</li>
-            <li>Promotional Terms and Conditions</li>
-            <li>Gibson Garage Store Pilicies</li>
-            <li>Gibson Guitar Specs (2015 - 2019)</li>
           </ul>
         </AccordionDetails>
       </Accordion>
@@ -71,13 +58,55 @@ export default function AccordionFooter() {
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li>Leadership</li>
-            <li>Careers</li>
-            <li>Contact Us</li>
-            <li>News</li>
-            <li>Gibson TV</li>
-            <li>Gibson Gives</li>
-            <li>Gibson Generation Group</li>
+            <li className="font-bold py-2 text-base">
+              <Link to="/about">OUR DEVELOPMENT TEAM</Link>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/magguer/"
+              >
+                Martin Aguerre
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/juan-manuel-ottado/"
+              >
+                Juan Manuel Ottado
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/alan-torino/"
+              >
+                Alan Torino
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/federico-d%C3%ADaz-morel-810a73202/"
+              >
+                {" "}
+                Federico Diaz
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/ignacio-vidal-856627236/"
+              >
+                Ignacio Vidal
+              </a>
+            </li>
           </ul>
         </AccordionDetails>
       </Accordion>
