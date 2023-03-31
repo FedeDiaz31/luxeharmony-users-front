@@ -114,7 +114,7 @@ function Cart() {
               <button
                 disabled={!user || cart.length === 0 ? true : false}
                 className={`bg-bgTertiaryColor ${
-                  !user && "opacity-50"
+                  !user || cart.length === 0 ? "opacity-50" : "opacity-100"
                 }  text-textPrimary px-20 py-2 rounded text-sm`}
               >
                 Checkout
