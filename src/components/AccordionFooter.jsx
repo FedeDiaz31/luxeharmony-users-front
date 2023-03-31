@@ -14,7 +14,7 @@ export default function AccordionFooter() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <li className="font-bold list-none">SHOP</li>
+          <h2 className="font-bold list-none">SHOP</h2>
         </AccordionSummary>
         <AccordionDetails>
           <ul>
@@ -35,7 +35,7 @@ export default function AccordionFooter() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <li className="font-bold list-none">SUPPORT</li>
+          <h2 className="font-bold list-none">SUPPORT</h2>
         </AccordionSummary>
         <AccordionDetails>
           <ul>
@@ -52,15 +52,12 @@ export default function AccordionFooter() {
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
-          id="panel1a-header"
+          id="panel3a-header"
         >
-          <li className="font-bold list-none">OUR COMPANY</li>
+          <h2 className="font-bold py-2 text-base ">OUR DEVELOPMENT TEAM</h2>
         </AccordionSummary>
         <AccordionDetails>
           <ul>
-            <li className="font-bold py-2 text-base">
-              <Link to="/about">OUR DEVELOPMENT TEAM</Link>
-            </li>
             <li>
               <a
                 target="_blank"
