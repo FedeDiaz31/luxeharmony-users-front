@@ -21,7 +21,7 @@ function LoginComponent({ setShowLogin }) {
       method: "post",
     });
     dispatch(login(response.data.user));
-    if (response.data) {
+    if (response.data.user.token) {
       handleCloseLogin();
     }
   };
