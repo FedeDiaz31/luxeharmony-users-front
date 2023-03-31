@@ -35,7 +35,7 @@ function LoginComponent({ setShowLogin }) {
           </h3>
           <div>
             <a
-              href="http://localhost:3001"
+              href="admin-luxeharmony.vercel.app"
               target={"_blank"}
               className="text-textPrimary bg-bgFourthColor px-2"
             >
