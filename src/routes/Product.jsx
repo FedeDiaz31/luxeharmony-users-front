@@ -66,7 +66,7 @@ const Product = () => {
     return (
       <>
         <main className="">
-          <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary px-32">
+          <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
             <button
               onClick={() => navigate(-1)}
               className="bg-bgTertiaryColor px-3"
