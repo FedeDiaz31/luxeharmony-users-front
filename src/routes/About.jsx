@@ -5,9 +5,8 @@ import ottaPic from "../assets/img/otta.jpg";
 import fede from "../assets/img/fede.jpg";
 import magguerPic from "../assets/img/fotomagguer.png";
 import nachoPic from "../assets/img/nachoPic.jpg";
-// Animations
+import alanPic from "../assets/img/alan.jpg";
 import "../animation/animations.css";
-// Components
 import AboutCard from "../components/AboutCard";
 
 function About() {
@@ -44,14 +43,16 @@ function About() {
             linkedin={"magguer"}
             img={magguerPic}
             title={"Martin Telechea"}
+            github={"magguer"}
             paragraph={
               "Full Stack Developer Jr. || ReactJs · NodeJs · TailwindCss"
             }
           />
           <AboutCard
             linkedin={"alan-torino"}
-            img={ottaPic}
+            img={alanPic}
             title={"Alan Torino"}
+            github={"Alan08t"}
             paragraph={
               "Full Stack Developer | JavaScript | React | Redux | NodeJs | Express"
             }
@@ -60,6 +61,7 @@ function About() {
             linkedin={"federico-díaz-morel-810a73202"}
             img={fede}
             title={"Federico Díaz"}
+            github={"FedeDiaz31"}
             paragraph={"Junior Developer & Contador Público"}
           />
         </div>
@@ -68,6 +70,7 @@ function About() {
             linkedin={"ignacio-vidal-856627236"}
             img={nachoPic}
             title={"Ignacio Vidal"}
+            github={"NachoVidal27"}
             paragraph={
               "Full Stack Developer Jr | HTML | CSS | Java Script | Node.js | MySQL | MongoDB | React"
             }
@@ -76,6 +79,7 @@ function About() {
             linkedin={"juan-manuel-ottado"}
             img={ottaPic}
             title={"Juan M. Ottado"}
+            github={"Otta25"}
             paragraph={
               "Full Stack Developer & Web Designer | NodeJS | React | Adobe"
             }
