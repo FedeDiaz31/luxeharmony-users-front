@@ -11,7 +11,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     /^[a-zA-Z0-9\s.,#-]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+\s)?\d{1,}[a-zA-Z]*$/;
   const regexCity = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   const regexCountry = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
-  const regexProvince = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
+  const regexProvince = /^([a-zA-ZáéíóúÁÉÍÓÚñÑ]+\s)*[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/;
 
   // FORM STATES
 

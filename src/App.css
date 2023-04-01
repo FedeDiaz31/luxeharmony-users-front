@@ -113,13 +113,27 @@ header ul li {
 
 input:focus-visible {
   border: 0;
-  outline: none;
+  outline-color: #f2e39f;
+}
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select {
+  -webkit-box-shadow: 0 0 0 30px #f5f0d9 inset !important;
 }
 
+input:fill input,
+select {
+  background: #f2e39f;
+}
+select {
+  color: black;
+}
 
-input, select {
-  /* border-bottom: .1px solid rgb(83, 83, 83)!important; */
-  background: #bfbebe;
+input {
+  background-color: #fff8d6;
 }
 
 label {
@@ -198,18 +212,12 @@ label {
   }
 }
 
-
 /* PROFILE */
 
-
 .background-profile {
-  background-image: url('../src/assets/img/bgUserProfile.jpg');
+  background-image: url("../src/assets/img/bgUserProfile.jpg");
   background-position: center;
   background-size: cover;
 }
 
-
-
 /* CATEGORY */
-
-

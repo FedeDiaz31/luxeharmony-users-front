@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import ShippingInfo from "../components/ShippingInfo";
 import ShippingOptions from "../components/ShippingOptions";
 import PaymentOptions from "../components/PaymentOptions";
+const url = process.env.REACT_APP_API_URL;
 
 const CheckOut = () => {
   // POSIBLE USO FUTURO
@@ -130,15 +131,15 @@ const CheckOut = () => {
         <div className=" columns-1 flex-col">
           {cart.map((product) => (
             <div className="flex justify-around  w-full py-2 border-b  border-l-0 border-r-0">
-              {/* <img
+              <img
                 src={
                   product.image[0].includes("http")
                     ? product.image[0]
-                    : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
+                    : `${url}/img/products/${product.image[0]}`
                 }
                 alt="product-pic"
                 className="w-10 z-0"
-              /> */}
+              />
               <h4 className="w-36 text-clip font-secondaryFont">
                 {product.model}
               </h4>

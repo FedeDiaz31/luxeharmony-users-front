@@ -14,7 +14,7 @@ import axios from "axios";
 import { Button } from "rsuite";
 import MenuIcon from "@mui/icons-material/Menu";
 // import { motion } from "framer-motion"
-import logoLuxeHarmony from '../assets/img/logoBlack.png'
+import logoLuxeHarmony from "../assets/img/logoBlack.png";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -39,7 +39,6 @@ function Header() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
 
-  
   useEffect(() => {
     const getCategories = async () => {
       const response = await axios({
@@ -61,7 +60,7 @@ function Header() {
     };
     getBrands();
   }, []);
-  
+
   useEffect(() => {
     window.onscroll = function (e) {
       if (Math.ceil(window.pageYOffset) > 100) {
@@ -71,7 +70,7 @@ function Header() {
       }
     };
   }, [userHasScrolled]);
-  
+
   return (
     <>
       {user ? (
@@ -79,7 +78,7 @@ function Header() {
           className={
             showUser
               ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
+              : "absolute top-[250px] left-[-300px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
           }
         >
           <UserComponent setShowUser={setShowUser} />
@@ -200,29 +199,29 @@ function Header() {
             <Link to="/about">ABOUT</Link>
           </div>
           {user ? (
+            <button
+              onClick={() => {
+                setShowUser(!showUser);
+                setShowCart(false);
+                setShowLogin(false);
+              }}
+              className="w-full bg-bgSecondaryColor py-1 px-3"
+            >
+              <h2>{user.firstname}</h2>
+            </button>
+          ) : (
+            <div className="w-full bg-bgSecondaryColor py-1 px-3">
               <button
                 onClick={() => {
-                  setShowUser(!showUser);
+                  setShowLogin(!showLogin);
                   setShowCart(false);
-                  setShowLogin(false);
+                  setShowUser(false);
                 }}
-                className="w-full bg-bgSecondaryColor py-1 px-3"
               >
-                <h2>{user.firstname}</h2>
+                LOGIN
               </button>
-            ) : (
-              <div className="w-full bg-bgSecondaryColor py-1 px-3">
-                <button
-                  onClick={() => {
-                    setShowLogin(!showLogin);
-                    setShowCart(false);
-                    setShowUser(false);
-                  }}
-                >
-                  LOGIN
-                </button>
-              </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
       <header
@@ -297,7 +296,6 @@ function Header() {
                 className="relative w-full h-full flex flex-col justify-center items-center px-2 "
               >
                 <Link to="/about">ABOUT</Link>
-
               </div>
             </div>
           </div>
