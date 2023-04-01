@@ -99,7 +99,7 @@ function Header() {
         className={
           showCart
             ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-            : "absolute top-[-200px] transition-all duration-200 z-10 right-[20px] opacity-0"
+            : "absolute   transition-all duration-200 z-10 -top-[500px] right-[20px] opacity-0"
         }
       >
         <CartComponent setShowCart={setShowCart} />
