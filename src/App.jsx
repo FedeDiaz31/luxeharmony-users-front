@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Cart from "./routes/Cart";
 import Product from "./routes/Product";
-import SignUp from "./routes/SignUp";
+// import SignUpGoogle from "./routes/SignUpGoogle";
 import CheckOut from "./routes/CheckOut";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,6 +17,7 @@ import EditUser from "./routes/EditUser";
 import Orders from "./routes/Orders";
 import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
+import SignUp from "./routes/SignUp";
 
 function App() {
   const [splash, setSplash] = useState(true);
