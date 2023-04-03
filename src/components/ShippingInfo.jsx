@@ -3,12 +3,11 @@ import axios from "axios";
 
 const FormCheckOut = ({ handleProcess, user, handleData }) => {
   // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
-  const regexFirstName = /^[A-Za-z]+$/;
-  const regexLastName = /^[a-zA-Z'-]+$/;
+  const regexFirstName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
+  const regexLastName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
   const regexEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
   const regexPhoneNumber = /^\+?\d{7,15}$/;
-  const regexStreetAddress =
-    /^[a-zA-Z0-9\s.,#-]+(\s[a-zA-ZñÑáéíóúÁÉÍÓÚ]+\s)?\d{1,}[a-zA-Z]*$/;
+  const regexStreetAddress = /^[a-zA-ZñÑ]+(?:\s[a-zA-ZñÑ]+)*$/;
   const regexCity = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   const regexCountry = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   const regexProvince = /^([a-zA-ZáéíóúÁÉÍÓÚñÑ]+\s)*[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/;
@@ -50,14 +49,16 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   // FORM STYLES
 
   const classToAddAlert = [
-    "border-[red]",
-    "border-1",
-    "active:border-[red]",
-    "bg-[red]",
-    "text-textPrimary",
-    "focus-visible:border-0",
+    "bg-[#fcc2c2]",
+    "border-2",
+    "border[red]",
+    "transition-all",
+    "text-[black]",
   ];
-  const spanClasses = "bg-[#F91C20] text-textPrimary text-sm px-2 block my-2";
+  const spanClasses =
+    "bg-[#F91C20] text-textPrimary text-xs mx-2 px-2 py-1 inline-block duration-300 whitespace-nowrap";
+  const spanClassesDefault =
+    "bg-[#fff] text-textPrimary text-xs mx-2 px-2 py-1 inline-block   duration-300 whitespace-nowrap";
 
   // CHECK DATA FROM DE FORM - IF SOME FIELD IS NOT VALID THIS FUNCTION PREVENT THE USER TO CONTINUE
   const checkData = () => {
@@ -99,6 +100,12 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
       setDisabled(true);
     }
   };
+
+  document.addEventListener("wheel", function (event) {
+    if (document.activeElement.type === "number") {
+      document.activeElement.blur();
+    }
+  });
 
   // FORM STATES HANDLES
 
@@ -341,15 +348,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
           </h2>
           <hr />
           <div className="grid-cols-2 grid gap-2 ">
-            <div className="">
-              <label className="text-xs" htmlFor="firstname">
+            <div className="mt-1">
+              <label className="text-xs inline" htmlFor="firstname">
                 First Name
-              </label>{" "}
-              {firstNameError ? (
-                <span className={spanClasses}>Error</span>
-              ) : null}
+              </label>
+              <span
+                className={firstNameError ? spanClasses : spanClassesDefault}
+              >
+                Invalid entry.
+              </span>
               <input
-                className="py-2 pl-2 w-full"
+                className="py-1 mt-1 pl-2 w-full"
                 type="text"
                 name="firstname"
                 placeholder={firstName}
@@ -358,15 +367,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
                 required
               />
             </div>
-            <div>
+            <div className="mt-1">
               <label className="text-xs" htmlFor="firstname">
                 Last Name
-              </label>{" "}
-              {lastNameError ? (
-                <span className={spanClasses}>Error</span>
-              ) : null}
+              </label>
+              <span
+                className={lastNameError ? spanClasses : spanClassesDefault}
+              >
+                Invalid entry.
+              </span>
               <input
-                className="py-2 pl-2 w-full"
+                className="py-1 mt-1 pl-2 w-full"
                 type="text"
                 name="lastname"
                 placeholder={lastName}
@@ -375,13 +386,15 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               />
             </div>
           </div>
-          <div>
-            <label className="text-xs block" htmlFor="email">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="email">
               Email
             </label>
-            {emailError ? <span className={spanClasses}>Error</span> : null}
+            <span className={emailError ? spanClasses : spanClassesDefault}>
+              Invalid entry.
+            </span>
             <input
-              className="py-2 pl-2 w-full"
+              className="py-1 mt-1 pl-2 w-full"
               type="text"
               name="email"
               placeholder={email}
@@ -390,15 +403,17 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <div>
-            <label className="block text-xs " htmlFor="phoneNumber">
+          <div className="mt-1">
+            <label className=" text-xs " htmlFor="phoneNumber">
               Phone Number
             </label>
-            {phoneNumberError ? (
-              <span className={spanClasses}>Error</span>
-            ) : null}
+            <span
+              className={phoneNumberError ? spanClasses : spanClassesDefault}
+            >
+              Invalid entry.
+            </span>
             <input
-              className="py-2 pl-2 w-full"
+              className="py-2 mt-1 pl-2 w-full"
               type="number"
               name="phoneNumber"
               placeholder="Phone Number"
@@ -408,18 +423,20 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <h2 className="mb-2  text-xl font-terciaryFont">Shipping Address</h2>
+          <h2 className="my-2  text-xl font-terciaryFont">Shipping Address</h2>
           <hr />
 
-          <div>
-            <label className="text-xs block" htmlFor="streetAddres">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="streetAddres">
               Street Address
             </label>
-            {streetAddressError ? (
-              <span className={spanClasses}>Error</span>
-            ) : null}
+            <span
+              className={streetAddressError ? spanClasses : spanClassesDefault}
+            >
+              Invalid entry.
+            </span>
             <input
-              className="py-2 pl-2 w-full"
+              className="py-2 mt-1 pl-2 w-full"
               type="text"
               name="streetAddress"
               placeholder="Street Adress"
@@ -428,8 +445,8 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <div>
-            <label className="text-xs block" htmlFor="reference">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="reference">
               Reference
             </label>
             <input
@@ -441,15 +458,18 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               onChange={(e) => handleReference(e)}
               required
             />
+            <div className="h-[12px]"></div>
           </div>
-          <div>
-            <label className="text-xs block" htmlFor="city">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="city">
               City
             </label>
-            {cityError ? <span className={spanClasses}>Error</span> : null}
+            <span className={cityError ? spanClasses : spanClassesDefault}>
+              Invalid entry.
+            </span>
             <input
               className="py-2 pl-2 w-full"
-              type="select"
+              type="text"
               name="city"
               placeholder="City"
               value={city}
@@ -457,11 +477,13 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <div>
-            <label className="text-xs block" htmlFor="country">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="country">
               Country
             </label>
-            {countryError ? <span className={spanClasses}>Error</span> : null}
+            <span className={countryError ? spanClasses : spanClassesDefault}>
+              Invalid entry.
+            </span>
             <select
               className="py-2 w-full"
               name="country"
@@ -469,6 +491,9 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               onChange={(e) => handleCountry(e)}
               required
             >
+              <option disabled selected>
+                -- SELECT AN OPTION --
+              </option>
               {countrys?.map((country) => (
                 <option value={country.name} id={country.id} key={country.id}>
                   {country.name}
@@ -476,11 +501,13 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               ))}
             </select>
           </div>
-          <div>
-            <label className="text-xs block" htmlFor="state">
+          <div className="mt-1">
+            <label className="text-xs " htmlFor="state">
               State/Province
             </label>
-            {provinceError ? <span className={spanClasses}>Error</span> : null}
+            <span className={provinceError ? spanClasses : spanClassesDefault}>
+              Invalid entry.
+            </span>
             <select
               onChange={(e) => handleProvince(e)}
               className="py-2 w-full"
@@ -489,21 +516,27 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               value={province}
               required
             >
+              <option disabled selected>
+                -- SELECT AN OPTION --
+              </option>
               {states?.map((state) => {
                 return <option>{state.name}</option>;
               })}
             </select>
           </div>
-          <div className="my-2">
+          <div className="mt-1 tablet:mt-3 flex columns-2 itemx-center justify-center">
             <input
               type="checkbox"
               name="newsletter"
               onChange={(e) => handleNewsletter(e)}
               checked={newsletter}
               required
-              className="scale-150 mx-2"
+              className="scale-150 mx-2 w-full max-w-[24px]"
             />
-            <label htmlFor="newsletter" className="text-textSecondary px-2">
+            <label
+              htmlFor="newsletter"
+              className="text-textSecondary px-2 text-left my-0"
+            >
               Get updates about new products and other exciting news from Gibson
               Brands.
             </label>

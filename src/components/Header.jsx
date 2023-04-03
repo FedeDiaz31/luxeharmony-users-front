@@ -78,7 +78,7 @@ function Header() {
           className={
             showUser
               ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] left-[-300px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
+              : "absolute top-[250px] left-[200]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
           }
         >
           <UserComponent setShowUser={setShowUser} />

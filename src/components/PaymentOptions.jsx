@@ -23,14 +23,16 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
   // FORM STYLES
 
   const classToAddAlert = [
-    "border-[red]",
-    "border-1",
-    "active:border-[red]",
-    "bg-[red]",
-    "text-textPrimary",
-    "focus-visible:border-0",
+    "bg-[#fcc2c2]",
+    "border-2",
+    "border[red]",
+    "transition-all",
+    "text-[black]",
   ];
-  const spanClasses = "bg-[#F91C20] text-textPrimary text-sm px-2 block my-2";
+  const spanClasses =
+    "bg-[#F91C20] text-textPrimary text-xs mx-2 px-2 py-1 inline-block duration-300 whitespace-nowrap";
+  const spanClassesDefault =
+    "bg-[#fff] text-textPrimary text-xs mx-2 px-2 py-1 inline-block   duration-300 whitespace-nowrap";
 
   const handleCardNumber = (e) => {
     if (regexCardNumber.test(e.target.value)) {
@@ -113,7 +115,7 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
           e.preventDefault();
           handleBackButton();
         }}
-        className="border border-1 px-1"
+        className="border border-1 px-1 tablet:py-2 rounded font-bold tablet:px-2"
       >
         <ArrowBackIcon />
         BACK
@@ -122,46 +124,63 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
         <h4>Pay With Card</h4>
         <div>
           <div className="w-full">
+            <label className="text-xs inline" htmlFor="firstname">
+              Card Number
+            </label>
+            <span
+              className={cardNumberError ? spanClasses : spanClassesDefault}
+            >
+              Invalid entry.
+            </span>
+
             <input
               onChange={(e) => handleCardNumber(e)}
-              className="w-full"
+              className="py-1 mt-1 pl-2 w-full"
               type="number"
               placeholder="Card number // mastercard"
             />
-            {cardNumberError ? (
-              <span className={spanClasses}>Error</span>
-            ) : null}
           </div>
           <div className="columns-2">
-            <div className="w-1/2">
+            <div className="w-full">
+              <label className="text-xs inline" htmlFor="firstname">
+                Expire Date
+              </label>
+              <span className={dateError ? spanClasses : spanClassesDefault}>
+                Invalid entry.
+              </span>
               <input
+                className="py-1 mt-1 pl-2 w-full"
                 onChange={(e) => handleDate(e)}
                 type="text"
                 placeholder="MM/YY"
               />
-              {dateError ? <span className={spanClasses}>Error</span> : null}
             </div>
-            <div className="w-1/2">
+            <div className="w-full">
+              <label className="text-xs inline" htmlFor="firstname">
+                CVV
+              </label>
+              <span className={cvvError ? spanClasses : spanClassesDefault}>
+                Invalid entry.
+              </span>
               <input
+                className="py-1 mt-1 pl-2 w-full"
                 onChange={(e) => handleCvv(e)}
                 type="text"
                 placeholder="CVV"
               />
-              {cvvError ? <span className={spanClasses}>Error</span> : null}
             </div>
           </div>
         </div>
-        <div className="flex grid-cols-2 grid justify-between items-center py-2">
-          <label htmlFor="chechboxPayment" className="w-10/12">
+        <div className="flex py-2">
+          <label className="w-10/12">
+            <input
+              className="m-3 scale-150"
+              type="checkbox"
+              onChange={(e) => setChecked(!checked)}
+            />
             I am over age 18 agree to the following: Privacy, Terms &
             Conditions.
           </label>
-          <input
-            className="block scale-150 w-2/12"
-            type="checkbox"
-            name="checkboxPayment"
-            onChange={(e) => setChecked(!checked)}
-          />
         </div>
 
         <button
