@@ -303,7 +303,7 @@ function Header() {
             </div>
           </div>
           <div className="flex h-full items-center gap-5">
-            <div className="relative w-full h-full flex flex-row justify-center items-center">
+            <div className="relative w-full h-full flex justify-center items-center">
               <button
                 className="cursos-pointer"
                 onClick={() => {
@@ -328,7 +328,7 @@ function Header() {
               <h2>{user.firstname}</h2>
             </button>
           ) : (
-            <div className="w-full ml-10 bg-bgSecondaryColor hidden desktop:flex py-1 px-3">
+            <div className="w-full ml-10 bg-bgSecondaryColor hidden tablet:flex py-1 px-3">
               <button
                 onClick={() => {
                   setShowLogin(!showLogin);
