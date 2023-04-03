@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
 import Slider from "react-slick";
+import arrowBack from "../assets/img/arrowBack.svg";
+import arrowForward from "../assets/img/arrowForward.svg";
 
 function CardCarousel() {
   const [products, setProducts] = useState([]);
@@ -17,28 +19,42 @@ function CardCarousel() {
     getProducts();
   }, []);
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return <img src={arrowForward} className={className} onClick={onClick} />;
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return <img src={arrowBack} className={className} onClick={onClick} />;
+  }
+
   const settings = {
-    infinite: true,
+    slidesToShow: 5,
     speed: 500,
-    initialSlide: 3,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    dots: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          initialSlide: 3,
           slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          initialSlide: 3,
           slidesToScroll: 1,
         },
       },
@@ -46,17 +62,24 @@ function CardCarousel() {
   };
 
   return (
-    <div>
-      <Slider {...settings}>
-        {products.map((product) => (
-          <CardProduct
-            key={product._id}
-            image={product.image[0]}
-            slug={product.slug}
-          />
-        ))}
-      </Slider>
-    </div>
+    <>
+      <div>
+        <h2 className="category-title text-textSecondary text-center pb-14">
+          HILIGHTS
+        </h2>
+      </div>
+      <div>
+        <Slider {...settings}>
+          {products.map((product) => (
+            <CardProduct
+              key={product._id}
+              image={product.image[0]}
+              slug={product.slug}
+            />
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 }
 

@@ -133,7 +133,7 @@ function Home() {
       <div ref={brands} className="mt-14">
         <BrandsContainer />
       </div>
-      <div className="my-14">
+      <div className="my-14 px-10 tablet:px-20">
         <CardCarousel />
       </div>
     </div>

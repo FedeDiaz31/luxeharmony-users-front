@@ -1,22 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CardProduct({ brand, image, model, slug }) {
+function CardProduct({ brand, image, slug }) {
   return (
-    <Link
-      to={`/product/${slug}`}
-      className="cardProduct h-[300px] min-w-0 p-5 gap-2 flex justify-center"
-    >
-      <h1>{model}</h1>
+    <Link to={`/product/${slug}`}>
       <img
-        className="object-cover"
         src={
           image.includes("http")
             ? image
             : `${process.env.REACT_APP_API_URL}/img/products/${image}`
         }
       />
-      <img src={brand} alt="" />
+      <img className="w-[300px] object-contain" src={brand} alt="" />
     </Link>
   );
 }
