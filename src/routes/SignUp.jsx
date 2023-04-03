@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import slashImg from "../assets/img/slash.jpg";
 
 function SignUp() {
   const [firstname, setFirstname] = useState("");
