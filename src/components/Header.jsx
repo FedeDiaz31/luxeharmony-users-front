@@ -73,15 +73,15 @@ function Header() {
 
   return (
     <>
+      {/*      Login / User Component */}
       {user ? (
         <div
           className={
             showUser
-              ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
+              ? "absolute top-[250px] tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
+              : "absolute top-[250px] tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
           }
         >
-          
           <UserComponent setShowUser={setShowUser} />
         </div>
       ) : (
@@ -95,9 +95,7 @@ function Header() {
           <LoginComponent setShowLogin={setShowLogin} />
         </div>
       )}
-      
-      {/*      Cart */}
-      
+      {/*      Cart Component */}
       <div
         className={
           showCart
@@ -107,12 +105,12 @@ function Header() {
       >
         <CartComponent setShowCart={setShowCart} />
       </div>
-      {/*       Categories */}
+      {/*       Categories Component */}
       <div className="w-full flex tablet:justify-center">
         <div
           className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-3 items-center rounded text-textPrimary px-3 pb-1 absolute transition-all duration-200 ${
             showCategories
-              ? "pt-[80px] tablet:pt-[180px] left-[300px] tablet:left-auto"
+              ? "pt-[80px] tablet:pt-[180px] left-[200px] tablet:left-auto"
               : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
@@ -142,12 +140,12 @@ function Header() {
           ))}
         </div>
       </div>
-      {/*       Brands */}
+      {/*       Brands Component */}
       <div className="w-full flex tablet:justify-center">
         <div
           className={`bg-headerAndFooterColor tablet:top-[-90px] z-0 gap-3 grid tablet:flex rounded pb-5 absolute px-4 transition-all duration-200 ${
             showBrands
-              ? "pt-[90px] tablet:pt-[180px] left-[300px] tablet:left-auto"
+              ? "pt-[90px] tablet:pt-[180px] left-[200px] tablet:left-auto"
               : "left-[-100px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
@@ -171,9 +169,9 @@ function Header() {
           ))}
         </div>
       </div>
-      {/*       Burguer Menu */}
+      {/*       Burguer Menu Component */}
       <div
-        className={`fixed h-[100vh] w-[300px] bg-headerAndFooterColor shadow-lg shadow-bgSecondaryColor transition-all duration-200 tablet:hidden ${
+        className={`fixed h-[100vh] w-[200px] bg-headerAndFooterColor shadow-lg shadow-bgSecondaryColor transition-all duration-200 laptop:hidden ${
           showBurguerMenu ? "left-0" : "left-[-300px]"
         }`}
       >
@@ -227,14 +225,15 @@ function Header() {
           )}
         </div>
       </div>
+      {/*      HEADER BODY */}
       <header
         className={
           userHasScrolled
-            ? "z-50 relative w-full h-10 bg-opacity-[98%] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200 "
+            ? "z-50 relative w-full h-10 bg-opacity-[98%] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center  duration-200"
             : "z-50 absolute w-full h-[70px] bg-headerAndFooterColor text-textPrimary font-primaryFont flex justify-around items-center duration-200 px-2 tablet:px-20"
         }
       >
-        <div className="flex justify-between laptop:justify-around items-center h-full w-full mx-5 mobilXS:mx-10">
+        <div className="flex justify-between laptop:justify-around items-center h-full w-full px-10">
           <div className="laptop:hidden">
             <Button
               onClick={() => {
@@ -302,51 +301,56 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className="flex h-full items-center gap-5">
-            <div className="relative w-full h-full flex justify-center items-center">
-              <button
-                className="cursos-pointer"
-                onClick={() => {
-                  setShowCart(!showCart);
-                  setShowLogin(false);
-                  setShowUser(false);
-                }}
-              >
-                <StyledBadge badgeContent={cart.length}>
-                  <ShoppingCartIcon />
-                </StyledBadge>
-              </button>
+          <div className="flex items-center gap-7 h-full">
+            {/*           Login / User Options */}
+            <div className="hidden tablet:block">
               {user ? (
-            <button
-              onClick={() => {
-                setShowUser(!showUser);
-                setShowCart(false);
-                setShowLogin(false);
-              }}
-              className="w-full bg-bgSecondaryColor py-1 px-3"
-            >
-              <h2>{user.firstname}</h2>
-            </button>
-          ) : (
-            <div className="w-full ml-10 bg-bgSecondaryColor hidden tablet:flex py-1 px-3">
-              <button
-                onClick={() => {
-                  setShowLogin(!showLogin);
-                  setShowCart(false);
-                  setShowUser(false);
-                }}
-              >
-                LOGIN
-              </button>
+                <button
+                  onClick={() => {
+                    setShowUser(!showUser);
+                    setShowCart(false);
+                    setShowLogin(false);
+                  }}
+                  className="w-full bg-bgSecondaryColor py-1 px-3"
+                >
+                  <h2>{user.firstname}</h2>
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setShowLogin(!showLogin);
+                    setShowCart(false);
+                    setShowUser(false);
+                  }}
+                  className="w-full bg-bgSecondaryColor py-1 px-3"
+                >
+                  LOGIN
+                </button>
+              )}
             </div>
-          )}
-              <div
-                className={`${
-                  showCart
-                    ? "bg-bgTertiaryColor bg-opacity-100 absolute bottom-0 w-full h-[3px] transition-all duration-200"
-                    : "bg-opacity-0 absolute bottom-0 w-full h-[3px] transition-all duration-200"
-                }`}
-              ></div>
+            {/*           Cart Button */}
+            <div className="flex h-full">
+              <div className="relative w-full h-full flex justify-center items-center">
+                <button
+                  className="cursos-pointer"
+                  onClick={() => {
+                    setShowCart(!showCart);
+                    setShowLogin(false);
+                    setShowUser(false);
+                  }}
+                >
+                  <StyledBadge badgeContent={cart.length}>
+                    <ShoppingCartIcon />
+                  </StyledBadge>
+                </button>
+                <div
+                  className={`${
+                    showCart
+                      ? "bg-bgTertiaryColor bg-opacity-100 absolute bottom-0 w-full h-[3px] transition-all duration-200"
+                      : "bg-opacity-0 absolute bottom-0 w-full h-[3px] transition-all duration-200"
+                  }`}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
