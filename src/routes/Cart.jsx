@@ -106,7 +106,7 @@ function Cart() {
             offers will be applied at Checkout.
           </p>
           <div className="mt-10 w-full flex flex-col items-center">
-            <Link to="/chekout">
+            <Link to="/checkout">
               <button
                 disabled={!user || cart.length === 0 ? true : false}
                 className={`bg-bgTertiaryColor ${
