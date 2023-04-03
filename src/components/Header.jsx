@@ -78,23 +78,26 @@ function Header() {
           className={
             showUser
               ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] left-[200]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
+              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px]  opacity-0"
           }
         >
+          
           <UserComponent setShowUser={setShowUser} />
         </div>
       ) : (
         <div
           className={
             showLogin
-              ? "absolute top-[250px] left-[300px]  tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] left-[200px]  tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
+              ? "absolute top-[250px] right-[10px] desktop:right-[20px] tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
+              : "absolute top-[250px] right-[-100px] desktop:right-[20px] tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
           }
         >
           <LoginComponent setShowLogin={setShowLogin} />
         </div>
       )}
+      
       {/*      Cart */}
+      
       <div
         className={
           showCart
@@ -300,7 +303,7 @@ function Header() {
             </div>
           </div>
           <div className="flex h-full items-center gap-5">
-            <div className="relative w-full h-full flex flex-col justify-center items-center">
+            <div className="relative w-full h-full flex flex-row justify-center items-center">
               <button
                 className="cursos-pointer"
                 onClick={() => {
@@ -313,6 +316,30 @@ function Header() {
                   <ShoppingCartIcon />
                 </StyledBadge>
               </button>
+              {user ? (
+            <button
+              onClick={() => {
+                setShowUser(!showUser);
+                setShowCart(false);
+                setShowLogin(false);
+              }}
+              className="w-full bg-bgSecondaryColor py-1 px-3"
+            >
+              <h2>{user.firstname}</h2>
+            </button>
+          ) : (
+            <div className="w-full ml-10 bg-bgSecondaryColor hidden desktop:flex py-1 px-3">
+              <button
+                onClick={() => {
+                  setShowLogin(!showLogin);
+                  setShowCart(false);
+                  setShowUser(false);
+                }}
+              >
+                LOGIN
+              </button>
+            </div>
+          )}
               <div
                 className={`${
                   showCart
