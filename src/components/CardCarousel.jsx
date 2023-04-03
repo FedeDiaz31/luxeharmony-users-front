@@ -4,6 +4,8 @@ import forwardChevron from "../assets/img/arrowForward.svg";
 import axios from "axios";
 import CardProduct from "./CardProduct";
 import { useNavigate } from "react-router";
+import Slider from "react-slick";
+
 
 function CardCarousel() {
   const containerRef = useRef();
@@ -23,48 +25,21 @@ function CardCarousel() {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    setContainerWidth(containerRef.current.scrollWidth);
-  }, [products]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    adaptiveHeight:true,
+    adaptiveWidth:true,
+    arrows:true,
+  };
 
   return (
-    <>
-      {" "}
-      <h2 className="category-title text-textSecondary text-center py-5">
-        HIGHLIGHTS
-      </h2>
-      <div
-        ref={containerRef}
-        className="w-[80vw] h-[50vh] desktop:w-[60vw] desktop:h-[50vh]  m-auto mb-10 pl-5 pr-5 mt-5 overflow-hidden flex flex-row gap-5 items-center scroll-smooth ease-in-out duration-300  "
-      >
-        <img
-          onClick={() =>
-            (containerRef.current.scrollLeft -=
-              containerWidth / products.length)
-          }
-          className="absolute left-[4vw]  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
-          src={backChevron}
-          alt=""
-        />
-        {products.map((product) => (
-          <CardProduct
-            key={product._id}
-            slug={product.slug}
-            brand={product.brand}
-            image={product.image[0]}
-          ></CardProduct>
-        ))}
-        <img
-          onClick={() =>
-            (containerRef.current.scrollLeft +=
-              window.screen.availWidth / 7)
-          }
-          className="absolute right-[1vw] z-40  cursor-pointer scale-50 hover:scale-100 ease-in-out duration-150"
-          src={forwardChevron}
-          alt=""
-        />
-      </div>
-    </>
+    <Slider className=" text-bgSecondaryColor laptop:w-[50vw] desktop:w-[50vw] desktop:h-[50vh] m-auto  " {...settings}>
+      {products.map(product => <CardProduct key={product._id} image={product.image[0]} slug={product.slug} />)}
+    </Slider>
   );
 }
 

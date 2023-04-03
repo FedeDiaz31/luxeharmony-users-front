@@ -5,11 +5,11 @@ function CardProduct({ brand, image, model, slug }) {
   return (
     <Link
       to={`/product/${slug}`}
-      className="cardProduct w-[70vw] h-[90%] desktop:w-[20vw] desktop:h-[100%] flex flex-shrink-0 items-center justify-center"
+      className="cardProduct w-[200px] h-[300px] min-w-0 p-5 gap-2  desktop:w-[15vw] desktop:h-[50vh] flex  justify-center "
     >
       <h1>{model}</h1>
       <img
-        className="w-[30vw] h-[50vh] object-cover overflow-visible"
+        className="w-[100%] h-[100%] object-cover"
         src={
           image.includes("http")
             ? image
