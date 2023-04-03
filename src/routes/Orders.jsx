@@ -25,7 +25,7 @@ function Orders() {
 
   return (
     <>
-      <div className="bg-bgSecondaryColor pt-[100px] px-40 pb-10">
+      <div className="bg-bgSecondaryColor pt-[100px] pl-10 tablet:px-40 pb-10">
         <h3 className="text-textPrimary font-light text-3xl">Your Orders</h3>
       </div>
       {orders ? (

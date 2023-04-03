@@ -1,18 +1,10 @@
-import { useRef, useState, useEffect } from "react";
-import backChevron from "../assets/img/arrowBack.svg";
-import forwardChevron from "../assets/img/arrowForward.svg";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
-import { useNavigate } from "react-router";
 import Slider from "react-slick";
 
-
 function CardCarousel() {
-  const containerRef = useRef();
   const [products, setProducts] = useState([]);
-  const [containerWidth, setContainerWidth] = useState(null);
-  const navigate = useNavigate();
-  const highlight = true;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -26,20 +18,45 @@ function CardCarousel() {
   }, []);
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    initialSlide: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    adaptiveHeight:true,
-    adaptiveWidth:true,
-    arrows:true,
+    swipeToSlide: true,
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          initialSlide: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          initialSlide: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <Slider className=" text-bgSecondaryColor laptop:w-[50vw] desktop:w-[50vw] desktop:h-[50vh] m-auto  " {...settings}>
-      {products.map(product => <CardProduct key={product._id} image={product.image[0]} slug={product.slug} />)}
-    </Slider>
+    <div>
+      <Slider {...settings}>
+        {products.map((product) => (
+          <CardProduct
+            key={product._id}
+            image={product.image[0]}
+            slug={product.slug}
+          />
+        ))}
+      </Slider>
+    </div>
   );
 }
 
