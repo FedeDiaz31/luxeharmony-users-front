@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import background from '../assets/img/bgUserProfile.jpg'
 
 function EditUser() {
   const user = useSelector((state) => state.user);
@@ -38,7 +37,6 @@ function EditUser() {
     axios({
       method: "put",
       url: `${process.env.REACT_APP_API_URL}/users/${user.id}`,
-
       headers: {
         Authorization: `Bearer ${user.token}`,
       },

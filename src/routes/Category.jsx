@@ -10,13 +10,15 @@ import CardProductCategory from "../components/CardProductCategory";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
 import Skeleton from "../components/Skeleton";
-import chevronBack from '../assets/img/chevronBack.svg'
+import chevronBack from "../assets/img/chevronBack.svg";
 
 function Category() {
   const name = useParams().slug;
   const [products, setProducts] = useState(null);
   const navigate = useNavigate();
-  document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
+  document.title = ` ${
+    name[0].toUpperCase() + name.substring(1)
+  } | LuxeHarmony`;
   window.scrollTo({ top: 0 });
   const hola = false;
 
@@ -37,8 +39,13 @@ function Category() {
     return (
       <div className="">
         <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[90px] pb-5 text-textPrimary pl-10 tablet:px-32">
-          <img className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"  onClick={() => navigate(-1)} src={chevronBack} alt="" />
-  
+          <img
+            className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"
+            onClick={() => navigate(-1)}
+            src={chevronBack}
+            alt=""
+          />
+
           <h3 className="text-3xl font-light">
             {name[0].toUpperCase() + name.substring(1)}
           </h3>

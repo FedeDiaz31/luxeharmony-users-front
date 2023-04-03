@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
@@ -10,6 +9,8 @@ import ShippingInfo from "../components/ShippingInfo";
 import ShippingOptions from "../components/ShippingOptions";
 import PaymentOptions from "../components/PaymentOptions";
 import Summary from "../components/Summary";
+
+const URL = process.env.REACT_APP_API_URL;
 
 const CheckOut = () => {
   // POSIBLE USO FUTURO
@@ -35,7 +36,7 @@ const CheckOut = () => {
         Authorization: `Bearer ${user.token}`,
       },
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}/orders`,
+      url: `${URL}/orders`,
       data: createOrder(),
     });
   };
@@ -46,7 +47,7 @@ const CheckOut = () => {
         Authorization: `Bearer ${user.token}`,
       },
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}/bills`,
+      url: `${URL}/bills`,
       data: createBill(),
     });
     setOrderIsSend(true);
@@ -109,6 +110,7 @@ const CheckOut = () => {
     }
     return totalPrice.toFixed(2);
   }
+
   document.title = ` Chekout | LuxeHarmony `;
 
   return (

@@ -15,7 +15,9 @@ function Brand() {
   const name = useParams().slug;
   const [products, setProducts] = useState(null);
   const navigate = useNavigate();
-  document.title = ` Home | ${name[0].toUpperCase() + name.substring(1)} `;
+  document.title = `${
+    name[0].toUpperCase() + name.substring(1)
+  }  | LuxeHarmony `;
   window.scrollTo({ top: 0 });
 
   useEffect(() => {
