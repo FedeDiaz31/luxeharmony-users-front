@@ -157,6 +157,10 @@ label {
   margin: auto;
 }
 
+#signUpImg {
+  height: 60%;
+}
+
 .skeleton > div > div {
   clip-path: stroke-box;
   background-color: #dfdfdf;
