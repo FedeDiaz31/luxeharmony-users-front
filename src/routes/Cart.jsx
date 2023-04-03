@@ -12,10 +12,6 @@ function Cart() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const showRowProduct = cart.filter((item, index) => {
-    return cart.indexOf(item) === index;
-  }); //Esta constante filtra los productos repetidos. (Para no tener visualment lineas repetidas en el carrito)
-
   function subTotalPrice(products) {
     const prices = products.map((product) => product.price * product.quantity);
     let totalPrice = 0;

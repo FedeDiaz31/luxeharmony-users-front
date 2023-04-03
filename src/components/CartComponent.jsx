@@ -1,4 +1,3 @@
-import { dividerClasses } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -7,7 +6,6 @@ import {
   removeProduct,
   removeAllThisProducts,
 } from "../redux/cartReducer";
-import { useState, useEffect } from "react";
 
 function CartComponent({ setShowCart }) {
   const dispatch = useDispatch();
