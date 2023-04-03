@@ -1,11 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
+import slashImg from "../assets/img/slash.jpg";
 
 function SignUp() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [street, setStreet] = useState("");
+  const [reference, setReference] = useState("");
 
   const [saveDataButton, setSaveDataButton] = useState(true);
   const [formError, setFormError] = useState("");
@@ -30,6 +36,31 @@ function SignUp() {
     setEmail(value);
   };
 
+  const handleCountry = (event) => {
+    const value = event.target.value;
+    setCountry(value);
+  };
+
+  const handleState = (event) => {
+    const value = event.target.value;
+    setState(value);
+  };
+
+  const handleCity = (event) => {
+    const value = event.target.value;
+    setCity(value);
+  };
+
+  const handleStreet = (event) => {
+    const value = event.target.value;
+    setStreet(value);
+  };
+
+  const handleReference = (event) => {
+    const value = event.target.value;
+    setReference(value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -45,6 +76,11 @@ function SignUp() {
         lastname,
         password,
         email,
+        country,
+        state,
+        city,
+        street,
+        reference,
       });
 
       setSaveDataButton(false);
@@ -56,68 +92,140 @@ function SignUp() {
 
   if (saveDataButton) {
     return (
-      <div className="pl-6 pt-[70px] w-[70vw] h-[100vh] mb-10 bg-bgSecondaryColor text-bgPrimaryColor m-auto flex items-center justify-center">
-        <form className=" text-center" onSubmit={handleSubmit}>
+      <>
+        <div className="grid grid-cols-2">
           <div>
-            <h1 className="text-[35px] mb-3 mt-6 font-primaryFont">Sign Up</h1>
-            <label className="text-sm block" htmlFor="firstname">
-              Firstname
-            </label>
-            <input
-              className="py-2 pl-2 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="firstname"
-              placeholder="Enter firstname"
-              value={firstname}
-              onChange={handleFirstname}
-            />
-
-            <label className="text-sm block" htmlFor="lastname">
-              Lastname
-            </label>
-            <input
-              className="py-2 pl-2 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="lastName"
-              placeholder="Enter lastname"
-              value={lastname}
-              onChange={handleLastname}
-            />
-
-            <label className="text-sm block" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="py-2 pl-2 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={handleEmail}
-            />
-            <label className="text-sm block" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="py-2 pl-2 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={handlePassword}
-            />
+            <form
+              className=" mx-auto font-terciaryFont text-[#737373]"
+              onSubmit={handleSubmit}
+            >
+              <div className="columns-1 px-6">
+                <h1 className="text-xl mt-[120px] font-teciaryFont">Sign Up</h1>
+                <hr className="mt-2" />
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="mt-1">
+                    <label className="text-xs inline" htmlFor="firstname">
+                      Firstname
+                    </label>
+                    <input
+                      className="py-1 mt-1 pl-2 w-full"
+                      type="text"
+                      name="firstname"
+                      placeholder="Enter firstname"
+                      value={firstname}
+                      onChange={handleFirstname}
+                    />
+                  </div>
+                  <div className="mt-1">
+                    <label className="text-xs inline" htmlFor="lastname">
+                      Lastname
+                    </label>
+                    <input
+                      className="py-1 mt-1 pl-2 w-full"
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter lastname"
+                      value={lastname}
+                      onChange={handleLastname}
+                    />
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <label className="text-xs inline" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="email"
+                    placeholder="Enter email"
+                    value={email}
+                    onChange={handleEmail}
+                  />
+                  <label className="text-xs inline" htmlFor="password">
+                    Password
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={handlePassword}
+                  />
+                  <label className="text-xs inline" htmlFor="country">
+                    Country
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="country"
+                    placeholder="Enter country"
+                    value={country}
+                    onChange={handleCountry}
+                  />
+                  <label className="text-xs inline" htmlFor="state">
+                    State
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="state"
+                    placeholder="Enter state"
+                    value={state}
+                    onChange={handleState}
+                  />
+                  <label className="text-xs inline" htmlFor="city">
+                    City
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="city"
+                    placeholder="Enter city"
+                    value={city}
+                    onChange={handleCity}
+                  />
+                  <label className="text-xs inline" htmlFor="street">
+                    Street
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="street"
+                    placeholder="Enter street"
+                    value={street}
+                    onChange={handleStreet}
+                  />
+                  <label className="text-xs inline" htmlFor="reference">
+                    Reference
+                  </label>
+                  <input
+                    className="py-1 mt-1 pl-2 w-full"
+                    type="text"
+                    name="reference"
+                    placeholder="Enter reference"
+                    value={reference}
+                    onChange={handleReference}
+                  />
+                </div>
+                <button className="bg-bgTertiaryColor text-textPrimary p-2   mt-4 font-primaryFont">
+                  SAVE DATA
+                </button>
+              </div>
+              {formError && <div className="text-red-600">{formError}</div>}
+            </form>
           </div>
-          {formError && <div className="text-red-600">{formError}</div>}
-          <button className="bg-bgTertiaryColor ml-4 text-textPrimary p-2 my-1 mr-8 mt-8 font-primaryFont">
-            SAVE DATA
-          </button>
-        </form>
-      </div>
+          <div className="[mt-[120px]">
+            <h1 className="text-xl">una imagen</h1>
+          </div>
+        </div>
+      </>
     );
   } else {
     return (
-      <div>
-        <h2>FALSE</h2>
+      <div className="mt-[250px]">
+        <h2>Enviado</h2>
       </div>
     );
   }

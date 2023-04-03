@@ -1,11 +1,11 @@
-/* import {GoogleLogin,GoogleLogout, useGoogleLogout} from "react-google-login";
- */
-import { useEffect, useState } from "react";
-/* import { gapi } from "gapi-script"; */
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { login } from "../redux/userReducer";
+// /* import {GoogleLogin,GoogleLogout, useGoogleLogout} from "react-google-login";
+//  */
+// import { useEffect, useState } from "react";
+// /* import { gapi } from "gapi-script"; */
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { login } from "../redux/userReducer";
 
 function SignUp() {
   /*   const clientId =
