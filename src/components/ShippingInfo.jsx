@@ -7,7 +7,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const regexLastName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
   const regexEmail = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
   const regexPhoneNumber = /^\+?\d{7,15}$/;
-  const regexStreetAddress = /^[a-zA-ZñÑ]+(?:\s[a-zA-ZñÑ]+)*$/;
+  const regexStreetAddress = /^[a-zA-ZñÑ\d]+(?:\s[a-zA-ZñÑ\d]+)*$/;
   const regexCity = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   const regexCountry = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   const regexProvince = /^([a-zA-ZáéíóúÁÉÍÓÚñÑ]+\s)*[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/;
@@ -381,6 +381,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
                 type="text"
                 name="lastname"
                 placeholder={lastName}
+                value={lastName}
                 onChange={(e) => handleLastname(e)}
                 required
               />
