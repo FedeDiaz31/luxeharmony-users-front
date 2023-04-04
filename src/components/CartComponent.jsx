@@ -35,7 +35,7 @@ function CartComponent({ setShowCart }) {
           </div>
         ) : (
           cart.map((product) => (
-            <div key={product._id} className="flex justify-between items-center">
+            <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <img
                   src={

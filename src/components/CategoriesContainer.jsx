@@ -1,5 +1,22 @@
+import axios from "axios";
+import { React, useEffect, useState } from "react";
 import CategoryHome from "./CategoryHome";
+import { Link } from "react-router-dom";
+
 function CategoriesContainer() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}/categories`,
+      });
+      setCategories(response.data);
+    };
+    getCategories();
+  }, []);
+
   return (
     <div
       className="w-full px-5 pb-10 text-center bg-bgPrimaryColor"
