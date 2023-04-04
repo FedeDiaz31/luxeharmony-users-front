@@ -13,7 +13,9 @@ function Cart() {
   const dispatch = useDispatch();
 
   function subTotalPrice(products) {
-    const prices = products.map((product) => product.price * product.quantity);
+    const prices = products.map(
+      (details) => details.product.price * details.quantity
+    );
     let totalPrice = 0;
     for (let price of prices) {
       totalPrice += price;
@@ -29,7 +31,7 @@ function Cart() {
       <div className="grid grid-cols-1 tablet:grid-cols-2 mx-10">
         {/*      Items Cart */}
         <div className="bg-bgPrimaryColorgrid gap-3 grid mx-4 mt-6">
-          {cart.map((product, i) => {
+          {cart.map((detail, i) => {
             return (
               <div key={i}>
                 <div className="p-5 grid grid-cols-1 tablet:grid-cols-2">
@@ -37,9 +39,9 @@ function Cart() {
                     <img
                       className="w-fit"
                       src={
-                        product.image[0].includes("http")
-                          ? product.image[0]
-                          : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
+                        detail.product.image[0].includes("http")
+                          ? detail.product.image[0]
+                          : `${process.env.REACT_APP_API_URL}/img/products/${detail.product.image[0]}`
                       }
                       alt=""
                     />
@@ -47,15 +49,15 @@ function Cart() {
                   <div className="grid items-center">
                     <div>
                       <h3 className="font-medium mt-4">
-                        {product.model}, {product.brand.name}
+                        {detail.product.model}, {detail.product.brand.name}
                       </h3>
                       <div className="flex mt-3">
                         <h3 className=" font-light">
-                          <span>Unit </span> ${product.price.toFixed(1)}
+                          <span>Unit </span> ${detail.product.price.toFixed(1)}
                         </h3>
                         <h3 className=" font-light ml-5">
                           <span>Total </span> $
-                          {(product.price * product.quantity).toFixed(1)}
+                          {(detail.product.price * detail.quantity).toFixed(1)}
                         </h3>
                       </div>
                     </div>
@@ -63,16 +65,16 @@ function Cart() {
                       <div className="flex items-center w-[150px] justify-between">
                         <button
                           className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
-                          onClick={() => dispatch(removeProduct(product))}
+                          onClick={() => dispatch(removeProduct(detail))}
                         >
                           -
                         </button>
                         <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                          {product.quantity}
+                          {detail.quantity}
                         </h4>
                         <button
                           className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
-                          onClick={() => dispatch(addProduct(product))}
+                          onClick={() => dispatch(addProduct(detail))}
                         >
                           +
                         </button>
@@ -80,7 +82,7 @@ function Cart() {
                       <div>
                         <button
                           onClick={() =>
-                            dispatch(removeAllThisProducts(product))
+                            dispatch(removeAllThisProducts(detail))
                           }
                           className="border-bgFourthColor border rounded px-3"
                         >

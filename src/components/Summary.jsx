@@ -7,7 +7,7 @@ const Summary = () => {
   const cart = useSelector((state) => state.cart);
 
   function subTotalPrice() {
-    const prices = cart.map((product) => product.price);
+    const prices = cart.map((detail) => detail.product.price);
     let totalPrice = 0;
     for (let price of prices) {
       totalPrice += price;
@@ -24,22 +24,22 @@ const Summary = () => {
         Summary
       </h2>
       <div className=" columns-1 flex-col">
-        {cart.map((product) => (
+        {cart.map((detail) => (
           <div className="flex justify-around  w-full py-2  border-b  my-2 ">
             <img
               src={
-                product.image[0].includes("http")
-                  ? product.image[0]
-                  : `${url}/img/products/${product.image[0]}`
+                detail.product.image[0].includes("http")
+                  ? detail.product.image[0]
+                  : `${url}/img/products/${detail.product.image[0]}`
               }
               alt="product-pic"
               className="w-10 z-0"
             />
             <h4 className="w-36 text-clip font-secondaryFont">
-              {product.model}
+              {detail.product.model}
             </h4>
             <div className="font-secondaryFont">
-              ${product.price.toFixed(2)}
+              ${detail.product.price.toFixed(2)}
             </div>
           </div>
         ))}

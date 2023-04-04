@@ -52,9 +52,9 @@ const Product = () => {
   }, [product]);
 
   const handleAddProduct = () => {
-    if (cart.some((productCart) => productCart.slug === product.slug)) {
+    if (cart.some((productCart) => productCart.product.slug === product.slug)) {
       const productCart = cart.filter(
-        (productCart) => productCart.slug === product.slug
+        (productCart) => productCart.product.slug === product.slug
       );
       dispatch(addProduct(productCart[0]));
     } else {

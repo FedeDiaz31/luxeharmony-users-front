@@ -34,51 +34,51 @@ function CartComponent({ setShowCart }) {
             <h3 className="font-light text-2xl text-center">Empty cart...</h3>
           </div>
         ) : (
-          cart.map((product) => (
+          cart.map((detail) => (
             <div
-              key={product._id}
+              key={detail.product._id}
               className="flex justify-between items-center"
             >
               <div className="flex items-center gap-2">
                 <img
                   src={
-                    product.image[0].includes("http")
-                      ? product.image[0]
-                      : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
+                    detail.product.image[0].includes("http")
+                      ? detail.product.image[0]
+                      : `${process.env.REACT_APP_API_URL}/img/products/${detail.product.image[0]}`
                   }
                   alt="product-pic"
                   className="w-10 z-0"
                 />
                 <h2 className="text-bgSecondaryColor hidden tablet:block max-w-[160px] text-ellipsis overflow-hidden">
-                  {product.model}
+                  {detail.product.model}
                 </h2>
               </div>
               <div className="flex gap-3 items-center">
                 <h4 className="font-light">
-                  USD {(product.price * product.quantity).toFixed(2)}
+                  USD {(detail.product.price * detail.quantity).toFixed(2)}
                 </h4>
                 <div className="flex gap-3">
                   <div className="flex items-center w-[110px] justify-between">
                     <button
                       className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
-                      onClick={() => dispatch(removeProduct(product))}
+                      onClick={() => dispatch(removeProduct(detail))}
                     >
                       -
                     </button>
 
                     <h4 className="border-bgFourthColor border-t border-b w-full justify-center flex">
-                      {product.quantity}
+                      {detail.quantity}
                     </h4>
                     <button
                       className="bg-bgTertiaryColor px-3 text-textPrimary rounded-r"
-                      onClick={() => dispatch(addProduct(product))}
+                      onClick={() => dispatch(addProduct(detail))}
                     >
                       +
                     </button>
                   </div>
                 </div>
                 <DeleteIcon
-                  onClick={() => dispatch(removeAllThisProducts(product))}
+                  onClick={() => dispatch(removeAllThisProducts(detail))}
                 />
               </div>
             </div>

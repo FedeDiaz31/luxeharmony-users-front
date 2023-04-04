@@ -6,37 +6,42 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+
     addProduct(state, action) {
+
       const matchInCart = state.some(
-        (product) => product.slug === action.payload.slug
+        (detail) => detail.product.slug === action.payload.product.slug
       );
+
+      console.log(current(state));
       if (matchInCart) {
-        return state.map((product) => {
-          if (product.slug === action.payload.slug) {
-            return { ...action.payload, quantity: action.payload.quantity + 1 };
+        return state.map((detail) => {
+          if (detail.product.slug === action.payload.product.slug) {
+            return { product: action.payload.product, quantity: action.payload.quantity + 1, fixedPrice: action.payload.fixedPrice };
           } else {
-            return product;
+            return detail;
           }
         });
       } else {
-        return [...state, { ...action.payload, quantity: 1 }];
+        return [...state, { product: action.payload, quantity: 1, fixedPrice: action.payload.price }];
       }
+
     },
     removeProduct(state, action) {
       if (action.payload.quantity > 1) {
-        return state.map((product) => {
-          if (product.slug === action.payload.slug) {
-            return { ...action.payload, quantity: action.payload.quantity - 1 };
+        return state.map((detail) => {
+          if (detail.product.slug === action.payload.product.slug) {
+            return { product: action.payload.product, quantity: action.payload.quantity - 1 };
           } else {
-            return product;
+            return detail.product;
           }
         });
       } else {
-        return state.filter((product) => product._id !== action.payload._id);
+        return state.filter((detail) => detail.product._id !== action.payload.product._id);
       }
     },
     removeAllThisProducts(state, action) {
-      return state.filter((product) => product._id !== action.payload._id);
+      return state.filter((detail) => detail.product._id !== action.payload.product._id);
     },
   },
 });

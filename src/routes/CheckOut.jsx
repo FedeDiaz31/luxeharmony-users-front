@@ -104,7 +104,7 @@ const CheckOut = () => {
   };
 
   function subTotalPrice() {
-    const prices = cart.map((product) => product.price);
+    const prices = cart.map((detail) => detail.product.price);
     let totalPrice = 0;
     for (let price of prices) {
       totalPrice += price;

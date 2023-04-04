@@ -49,19 +49,19 @@ function Orders() {
                   <h3 className="font-light  text-sm tablet:text-lg">
                     Products:
                   </h3>
-                  {order.details.map((product, i) => {
+                  {order.products.map((product, i) => {
                     return (
                       <div
                         key={i}
                         className="flex items-center gap-1 tablet:gap-3"
                       >
                         <h3 className=" text-sm tablet:text-lg">
-                          {product.model}
+                          {product.product.model}
                         </h3>
                         <div className="hidden mobilXS:flex items-center gap-3">
                           <h3 className="text-sm tablet:text-lg">⦾</h3>
                           <h3 className="text-sm tablet:text-lg font-light">
-                            U$D {product.price.toFixed(2)}
+                            U$D {product.product.price.toFixed(2)}
                           </h3>
                         </div>
                       </div>
