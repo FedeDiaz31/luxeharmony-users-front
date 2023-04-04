@@ -139,7 +139,7 @@ function Header() {
               : "left-[-100px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
-          {brands.map((brand, i) => (
+          {brands?.map((brand, i) => (
             <NavLink
               onClick={() => {
                 setShowBurguerMenu(false);
