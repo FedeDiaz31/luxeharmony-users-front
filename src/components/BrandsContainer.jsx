@@ -22,27 +22,28 @@ function BrandsContainer() {
 
   return (
     <>
-      <div className="bg-bgSecondaryColor pt-10 pb-7">
+      <div className="bg-bgSecondaryColor py-10 tablet:pl-10 w-full tablet:pr-6">
         <div
           id="categories-container"
-          className="bg-bgSecondaryColor min-h-[200px] px-5 grid grid-cols-1 tablet:grid-cols-3 laptop:grid-cols-5 gap-5 w-full "
+          className="bg-bgSecondaryColor px-5 grid grid-cols-1 mobilXS:grid-cols-3 tablet:grid-cols-5 gap-10 tablet:gap-5 w-full"
         >
           {brands &&
             brands.map((brand, i) => {
               return (
-                <div>
-                  <Link to={`/brands/${brand.slug}`}>
-                    <img
-                      className="w-36 tablet:w-[180px]"
-                      src={
-                        brand.logo.includes("http")
-                          ? brand.logo
-                          : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
-                      }
-                      alt=""
-                    />
-                  </Link>
-                </div>
+                <Link
+                  className="w-full flex justify-center"
+                  to={`/brands/${brand.slug}`}
+                >
+                  <img
+                    className="w-36 tablet:w-[180px] "
+                    src={
+                      brand.logo.includes("http")
+                        ? brand.logo
+                        : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
+                    }
+                    alt=""
+                  />
+                </Link>
               );
             })}
         </div>

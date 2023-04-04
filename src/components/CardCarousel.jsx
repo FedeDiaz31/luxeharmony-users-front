@@ -33,7 +33,7 @@ function CardCarousel() {
   }
 
   const settings = {
-    slidesToShow: 5,
+    slidesToShow: 4,
     speed: 500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
