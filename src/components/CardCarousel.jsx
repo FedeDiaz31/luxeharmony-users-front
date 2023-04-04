@@ -68,7 +68,7 @@ function CardCarousel() {
     <>
       <div>
         <h2 className="category-title text-textSecondary text-center pb-14">
-          HILIGHTS
+          HIGHLIGHTS
         </h2>
       </div>
       <div>

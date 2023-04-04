@@ -92,7 +92,7 @@ function SignUp() {
   if (saveDataButton) {
     return (
       <>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 tablet:grid-cols-2">
           <div>
             <form
               className=" mx-auto font-terciaryFont text-[#737373]"

@@ -23,19 +23,19 @@ function Cart() {
 
   return (
     <div className="pt-[70px]">
-      <div className="bg-bgFourthColor h-[100px] w-full pl-10 tablet:pl-32 flex items-center">
+      <div className="bg-bgFourthColor h-[100px] w-full pl-10 tablet:pl-14 flex items-center">
         <h3 className="text-4xl">Shopping Cart</h3>
       </div>
-      <div className="flex m-10 justify-center gap-5">
+      <div className="grid grid-cols-1 tablet:grid-cols-2 mx-10">
         {/*      Items Cart */}
-        <div className="bg-bgPrimaryColorgrid gap-3 grid">
+        <div className="bg-bgPrimaryColorgrid gap-3 grid mx-4 mt-6">
           {cart.map((product, i) => {
             return (
               <div key={i}>
-                <div className="flex gap-3 px-25 mr-52">
-                  <div className="border border-bgFourthColor rounded p-3 px-5">
+                <div className="p-5 grid grid-cols-1 tablet:grid-cols-2">
+                  <div className="   tablet:w-[50%] ">
                     <img
-                      className="w-20"
+                      className="w-fit"
                       src={
                         product.image[0].includes("http")
                           ? product.image[0]
@@ -46,7 +46,7 @@ function Cart() {
                   </div>
                   <div className="grid items-center">
                     <div>
-                      <h3 className="font-medium">
+                      <h3 className="font-medium mt-4">
                         {product.model}, {product.brand.name}
                       </h3>
                       <div className="flex mt-3">
@@ -59,7 +59,7 @@ function Cart() {
                         </h3>
                       </div>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 mt-2 ">
                       <div className="flex items-center w-[150px] justify-between">
                         <button
                           className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
@@ -95,21 +95,24 @@ function Cart() {
             );
           })}
         </div>
-        <div className="bg-bgFourthColor h-[200px] w-[1px]"></div>
-        <div className="">
-          <div className="flex w-full justify-between items-center mb-5">
-            <h3 className="text-sm font-semibold">Subtotal</h3>
-            <h4 className="font-bold">${subTotalPrice(cart).toFixed(2)}</h4>
+        <div className="px-4 mt-4">
+          {/*      Subtotal */}
+          <div className="flex w-full justify-between mx-2 tablet:justify-start mb-5 mt-6">
+            <h4 className="text-xl font-semibold ">Subtotal</h4>
+
+            <h4 className="text-xl font-semibold pr-2 tablet:mr-[25%] tablet:ml-4">
+              ${subTotalPrice(cart).toFixed(2)}
+            </h4>
           </div>
-          <p className="max-w-[300px]">
+          <p className="w-full px-2 tablet:w-[75%]">
             This order is in USD. Applicable taxes, shipping, coupons or special
             offers will be applied at Checkout.
           </p>
-          <div className="mt-10 w-full flex flex-col items-center">
-            <Link to="/checkout">
+          <div className=" w-full flex justify-center mt-4 mb-10">
+            <Link to="/checkout" className="tablet:mr-[25%]">
               <button
                 disabled={!user || cart.length === 0 ? true : false}
-                className={`bg-bgTertiaryColor ${
+                className={`bg-bgTertiaryColor  ${
                   !user || cart.length === 0 ? "opacity-50" : "opacity-100"
                 }  text-textPrimary px-20 py-2 rounded text-sm`}
               >

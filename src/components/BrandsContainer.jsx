@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrands } from "../redux/brandsReducer";
 import "../animation/animations.css";
+import { Link } from "react-router-dom";
 
 function BrandsContainer() {
   const dispatch = useDispatch();
@@ -29,16 +30,18 @@ function BrandsContainer() {
           {brands &&
             brands.map((brand, i) => {
               return (
-                <div key={i} className="flex items-center justify-center">
-                  <img
-                    className="w-36 tablet:w-[180px]"
-                    src={
-                      brand.logo.includes("http")
-                        ? brand.logo
-                        : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
-                    }
-                    alt=""
-                  />
+                <div>
+                  <Link to={`/brands/${brand.slug}`}>
+                    <img
+                      className="w-36 tablet:w-[180px]"
+                      src={
+                        brand.logo.includes("http")
+                          ? brand.logo
+                          : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
+                      }
+                      alt=""
+                    />
+                  </Link>
                 </div>
               );
             })}
