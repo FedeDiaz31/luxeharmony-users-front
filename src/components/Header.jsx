@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import CartComponent from "./CartComponent";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategories } from "../redux/categoriesReducer";
+import axios from "axios";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
-
-import NavMenu from "./NavMenu";
-import LoginComponent from "./LoginComponent";
-import UserComponent from "./UserComponent";
-import axios from "axios";
-import { Button } from "rsuite";
 import MenuIcon from "@mui/icons-material/Menu";
-// import { motion } from "framer-motion"
+
+import LoginComponent from "./LoginComponent";
+import CartComponent from "./CartComponent";
+import UserComponent from "./UserComponent";
+import { Button } from "rsuite";
+
 import logoLuxeHarmony from "../assets/img/logoBlack.png";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -26,39 +26,29 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Header() {
+  const dispatch = useDispatch();
   const [userHasScrolled, setUserHasScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showUser, setShowUser] = useState(false);
-  const [categories, setCategories] = useState([]);
-  const [brands, setBrands] = useState([]);
   const [showBrands, setShowBrands] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [showBurguerMenu, setShowBurguerMenu] = useState(false);
 
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
+  const brands = useSelector((state) => state.brands);
+  const categories = useSelector((state) => state.categories);
 
   useEffect(() => {
-    const getCategories = async () => {
+    const callCategories = async () => {
       const response = await axios({
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/categories`,
       });
-      setCategories(response.data);
+      dispatch(getCategories(response.data));
     };
-    getCategories();
-  }, []);
-
-  useEffect(() => {
-    const getBrands = async () => {
-      const response = await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}/brands`,
-      });
-      setBrands(response.data);
-    };
-    getBrands();
+    callCategories();
   }, []);
 
   useEffect(() => {
@@ -114,7 +104,7 @@ function Header() {
               : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
-          {categories.map((category, i) => (
+          {categories?.map((category, i) => (
             <NavLink
               onClick={() => {
                 setShowBurguerMenu(false);

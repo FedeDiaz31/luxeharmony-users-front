@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
+import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import arrowBack from "../assets/img/arrowBack.svg";
 import arrowForward from "../assets/img/arrowForward.svg";
+import { getHighlights } from "../redux/highlightsReducer";
 
 function CardCarousel() {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const highlights = useSelector((state) => state.highlights);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -14,7 +17,7 @@ function CardCarousel() {
         method: "get",
         url: `${process.env.REACT_APP_API_URL}/products`,
       });
-      setProducts(response.data);
+      dispatch(getHighlights(response.data));
     };
     getProducts();
   }, []);
@@ -70,7 +73,7 @@ function CardCarousel() {
       </div>
       <div>
         <Slider {...settings}>
-          {products.map((product) => (
+          {highlights?.map((product) => (
             <CardProduct
               key={product._id}
               image={product.image[0]}
