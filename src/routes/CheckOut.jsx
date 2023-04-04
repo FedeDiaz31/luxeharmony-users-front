@@ -28,6 +28,7 @@ const CheckOut = () => {
     firstname: user.firstname,
     lastname: user.lastname,
     email: user.email,
+    address: user.address,
   };
 
   const sendOrder = async () => {
