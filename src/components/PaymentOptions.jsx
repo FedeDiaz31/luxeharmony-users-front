@@ -115,13 +115,13 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
           e.preventDefault();
           handleBackButton();
         }}
-        className="border border-1 px-1 tablet:py-2 rounded font-bold tablet:px-2"
+        className="border border-1 px-1 tablet:py-2 rounded font-bold tablet:px-2 m-2"
       >
         <ArrowBackIcon />
         BACK
       </button>
-      <div>
-        <h4>Pay With Card</h4>
+      <div className="mx-1">
+        <h4 className="m-2">Pay With Card</h4>
         <div>
           <div className="w-full">
             <label className="text-xs inline" htmlFor="firstname">
@@ -190,7 +190,7 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
               checkData();
             }
           }}
-          className="bg-bgTertiaryColor w-full text-textPrimary py-1 my-2"
+          className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"
         >
           Complete Order
         </button>

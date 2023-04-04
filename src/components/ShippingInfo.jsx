@@ -549,7 +549,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               e.preventDefault();
               checkData();
             }}
-            className="bg-bgTertiaryColor w-full text-textPrimary py-1 my-2"
+            className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"
           >
             Continue to Shipping Options
           </button>
