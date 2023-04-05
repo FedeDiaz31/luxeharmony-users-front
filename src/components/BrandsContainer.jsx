@@ -31,6 +31,7 @@ function BrandsContainer() {
             brands.map((brand, i) => {
               return (
                 <Link
+                  key={i}
                   className="w-full flex justify-center"
                   to={`/brands/${brand.slug}`}
                 >

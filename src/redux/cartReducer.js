@@ -13,8 +13,9 @@ const cartSlice = createSlice({
         (detail) => detail.product.slug === action.payload.product.slug
       );
 
-      console.log(current(state));
+
       if (matchInCart) {
+        /*   console.log(current(state)); */
         return state.map((detail) => {
           if (detail.product.slug === action.payload.product.slug) {
             return { product: action.payload.product, quantity: action.payload.quantity + 1, fixedPrice: action.payload.fixedPrice };
@@ -23,7 +24,8 @@ const cartSlice = createSlice({
           }
         });
       } else {
-        return [...state, { product: action.payload, quantity: 1, fixedPrice: action.payload.price }];
+        console.log(current(state));
+        return [...state, action.payload];
       }
 
     },
@@ -31,9 +33,9 @@ const cartSlice = createSlice({
       if (action.payload.quantity > 1) {
         return state.map((detail) => {
           if (detail.product.slug === action.payload.product.slug) {
-            return { product: action.payload.product, quantity: action.payload.quantity - 1 };
+            return { product: action.payload.product, quantity: action.payload.quantity - 1, fixedPrice: action.payload.fixedPrice };
           } else {
-            return detail.product;
+            return detail;
           }
         });
       } else {

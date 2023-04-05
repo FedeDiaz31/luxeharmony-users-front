@@ -53,8 +53,8 @@ function Category() {
         {products ? (
           <div className="w-full justify-center flex">
             <div className="mx-10 mobilXS:mx-42 desktop:mx-72 m-auto py-10 grid grid-cols-1 mobilXS:grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 gap-8  fade-in">
-              {products.map((product) => {
-                return <CardProductCategory product={product} />;
+              {products.map((product, i) => {
+                return <CardProductCategory key={i} product={product} />;
               })}
             </div>
           </div>

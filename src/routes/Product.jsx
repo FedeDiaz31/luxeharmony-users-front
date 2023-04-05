@@ -58,7 +58,13 @@ const Product = () => {
       );
       dispatch(addProduct(productCart[0]));
     } else {
-      dispatch(addProduct(product));
+      dispatch(
+        addProduct({
+          product: product,
+          quantity: 1,
+          fixedPrice: product.price,
+        })
+      );
     }
   };
 

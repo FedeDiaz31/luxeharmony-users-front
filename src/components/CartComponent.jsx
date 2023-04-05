@@ -15,17 +15,6 @@ function CartComponent({ setShowCart }) {
     setShowCart(false);
   };
 
-  // useEffect(() => {
-  //   setShowRowProducts(
-  //     cart.filter((item, index) => {
-  //       return cart.indexOf(item) === index;
-  //     })
-  //   );
-  //   console.log(cart);
-  // }, [cart]);
-
-  //Este efecto filtra los productos repetidos. (Para no tener lineas repetidas)
-
   return (
     <>
       <div className="w-full tablet:w-[500px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
@@ -34,7 +23,7 @@ function CartComponent({ setShowCart }) {
             <h3 className="font-light text-2xl text-center">Empty cart...</h3>
           </div>
         ) : (
-          cart.map((detail) => (
+          cart.map((detail, i) => (
             <div
               key={detail.product._id}
               className="flex justify-between items-center"
