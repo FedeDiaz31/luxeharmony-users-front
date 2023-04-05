@@ -24,20 +24,20 @@ function Cart() {
   }
 
   return (
-    <div className="pt-[70px]">
-      <div className="bg-bgFourthColor h-[100px] w-full pl-10 tablet:pl-14 flex items-center">
-        <h3 className="text-4xl">Shopping Cart</h3>
+    <div>
+      <div className="bg-bgSecondaryColor pt-[100px] pl-10 tablet:px-40 pb-10">
+        <h3 className="text-textPrimary font-light text-3xl">Shopping Cart</h3>
       </div>
-      <div className="grid grid-cols-1 tablet:grid-cols-2 mx-10">
+      <div className="grid grid-cols-1 gap-5 laptop:gap-20 tablet:grid-cols-2 px-10 laptop:px-32 mt-6">
         {/*      Items Cart */}
-        <div className="bg-bgPrimaryColorgrid gap-3 grid mx-4 mt-6">
+        <div className="bg-bgPrimaryColorgrid gap-3 grid">
           {cart.map((detail, i) => {
             return (
               <div key={i}>
-                <div className="p-5 grid grid-cols-1 tablet:grid-cols-2">
-                  <div className="   tablet:w-[50%] ">
+                <div className="grid justify-center tablet:flex gap-10">
+                  <div className="flex justify-center">
                     <img
-                      className="w-fit"
+                      className="w-[130px] object-contain"
                       src={
                         detail.product.image[0].includes("http")
                           ? detail.product.image[0]
@@ -61,8 +61,8 @@ function Cart() {
                         </h3>
                       </div>
                     </div>
-                    <div className="flex gap-3 mt-2 ">
-                      <div className="flex items-center w-[150px] justify-between">
+                    <div className="flex gap-3 mt-2">
+                      <div className="flex items-center w-[110px] laptop:w-[150px] justify-between">
                         <button
                           className="bg-bgTertiaryColor px-3 text-textPrimary rounded-l"
                           onClick={() => dispatch(removeProduct(detail))}
@@ -97,21 +97,21 @@ function Cart() {
             );
           })}
         </div>
-        <div className="px-4 mt-4">
+        <div className="">
           {/*      Subtotal */}
-          <div className="flex w-full justify-between mx-2 tablet:justify-start mb-5 mt-6">
+          <div className="flex w-full justify-between tablet:justify-start mb-5 mt-6">
             <h4 className="text-xl font-semibold ">Subtotal</h4>
 
-            <h4 className="text-xl font-semibold pr-2 tablet:mr-[25%] tablet:ml-4">
+            <h4 className="text-xl font-semibold tablet:pl-4">
               ${subTotalPrice(cart).toFixed(2)}
             </h4>
           </div>
-          <p className="w-full px-2 tablet:w-[75%]">
+          <p className="w-full">
             This order is in USD. Applicable taxes, shipping, coupons or special
             offers will be applied at Checkout.
           </p>
-          <div className=" w-full flex justify-center mt-4 mb-10">
-            <Link to="/checkout" className="tablet:mr-[25%]">
+          <div className=" w-full flex flex-col justify-center mt-4 mb-10">
+            <Link to="/checkout" className="">
               <button
                 disabled={!user || cart.length === 0 ? true : false}
                 className={`bg-bgTertiaryColor  ${
