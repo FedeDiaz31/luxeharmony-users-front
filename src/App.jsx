@@ -18,6 +18,7 @@ import Orders from "./routes/Orders";
 import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
 import SignUp from "./routes/SignUp";
+import Profile from "./routes/Profile";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -47,7 +48,8 @@ function App() {
               <Route path="/brands/:slug" element={<Brand />} />
               <Route element={<AuthRequire />}>
                 <Route path="/checkout" element={<CheckOut />} />
-                <Route path="/profile" element={<EditUser />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/edit" element={<EditUser />} />
                 <Route path="/orders" element={<Orders />} />
               </Route>
               <Route path="/about" element={<About />} />
