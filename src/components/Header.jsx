@@ -68,8 +68,8 @@ function Header() {
         <div
           className={
             showUser
-              ? "absolute top-[250px] tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
+              ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[20px] laptop:top-[40px] transition-all duration-200"
+              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[20px] laptop:top-[-300px] transition-all duration-200"
           }
         >
           <UserComponent setShowUser={setShowUser} />
@@ -78,8 +78,8 @@ function Header() {
         <div
           className={
             showLogin
-              ? "absolute top-[250px] right-[10px] desktop:right-[20px] tablet:top-[40px] transition-all duration-200 z-10 tablet:right-[20px] opacity-100"
-              : "absolute top-[250px] right-[-100px] desktop:right-[20px] tablet:top-[-100px] transition-all duration-200 z-10 tablet:right-[20px] opacity-0"
+              ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[20px] laptop:top-[40px] transition-all duration-200"
+              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[20px] laptop:top-[-300px] transition-all duration-200"
           }
         >
           <LoginComponent setShowLogin={setShowLogin} />
@@ -186,6 +186,7 @@ function Header() {
           >
             BRANDS
           </button>
+          {/*       About Button & Menu */}
           <div className="w-full justify-center flex text-[24px] desktop:text-[20px]  px-2 pb-1">
             <Link to="/about">ABOUT</Link>
           </div>
@@ -196,12 +197,12 @@ function Header() {
                 setShowCart(false);
                 setShowLogin(false);
               }}
-              className="w-full bg-bgSecondaryColor py-1 px-3"
+              className="w-full bg-bgSecondaryColor justify-center flex text-[24px] desktop:text-[20px]  px-2 py-1"
             >
               <h2>{user.firstname}</h2>
             </button>
           ) : (
-            <div className="w-full bg-bgSecondaryColor py-1 px-3">
+            <div className="w-full bg-bgSecondaryColor justify-center flex text-[24px] desktop:text-[20px] px-2 py-1">
               <button
                 onClick={() => {
                   setShowLogin(!showLogin);
@@ -293,7 +294,7 @@ function Header() {
           </div>
           <div className="flex items-center gap-7 h-full">
             {/*           Login / User Options */}
-            <div className="hidden tablet:block">
+            <div className="hidden laptop:block">
               {user ? (
                 <button
                   onClick={() => {

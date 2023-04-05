@@ -17,7 +17,6 @@ function Orders() {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      console.log(response.data.orders);
       setOrders(response.data.orders);
     };
     getOrder();
