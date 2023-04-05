@@ -19,6 +19,8 @@ import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
+import InfoModal from "./components/InfoModal";
+
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -57,6 +59,7 @@ function App() {
             </Routes>
           </ScrollToTop>
         </div>
+        <InfoModal/> 
         <div>
           <Footer />
         </div>
