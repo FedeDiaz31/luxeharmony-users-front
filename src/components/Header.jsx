@@ -187,7 +187,10 @@ function Header() {
             BRANDS
           </button>
           {/*       About Button & Menu */}
-          <div className="w-full justify-center flex text-[24px] desktop:text-[20px]  px-2 pb-1">
+          <div
+            onClick={() => setShowBurguerMenu(false)}
+            className="w-full justify-center flex text-[24px] desktop:text-[20px]  px-2 pb-1"
+          >
             <Link to="/about">ABOUT</Link>
           </div>
           {user ? (
