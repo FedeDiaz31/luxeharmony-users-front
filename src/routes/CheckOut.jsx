@@ -3,12 +3,14 @@ import { Navigate } from "react-router-dom";
 
 import axios from "axios";
 
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 
 import ShippingInfo from "../components/ShippingInfo";
 import ShippingOptions from "../components/ShippingOptions";
 import PaymentOptions from "../components/PaymentOptions";
 import Summary from "../components/Summary";
+import {removeEveryProducts} from "../redux/cartReducer";
+
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -18,12 +20,12 @@ const CheckOut = () => {
   const [bill, setBill] = useState({});
   const [data, setData] = useState(null);
   const [process, setProcess] = useState("shippingInfo");
-
+ 
   const [orderIsSend, setOrderIsSend] = useState(false);
 
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-
+  const dispatch = useDispatch();
   const userData = {
     firstname: user.firstname,
     lastname: user.lastname,
@@ -40,6 +42,7 @@ const CheckOut = () => {
       url: `${URL}/orders`,
       data: createOrder(),
     });
+   dispatch(removeEveryProducts())
   };
 
   const sendBill = async () => {

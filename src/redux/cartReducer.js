@@ -12,10 +12,7 @@ const cartSlice = createSlice({
       const matchInCart = state.some(
         (detail) => detail.product.slug === action.payload.product.slug
       );
-
-
       if (matchInCart) {
-        /*   console.log(current(state)); */
         return state.map((detail) => {
           if (detail.product.slug === action.payload.product.slug) {
             return { product: action.payload.product, quantity: action.payload.quantity + 1, fixedPrice: action.payload.fixedPrice };
@@ -45,9 +42,12 @@ const cartSlice = createSlice({
     removeAllThisProducts(state, action) {
       return state.filter((detail) => detail.product._id !== action.payload.product._id);
     },
+    removeEveryProducts(){
+      return []
+    }
   },
 });
 
-export const { addProduct, removeProduct, removeAllThisProducts } =
+export const { addProduct, removeProduct, removeAllThisProducts,removeEveryProducts } =
   cartSlice.actions;
 export default cartSlice.reducer;
