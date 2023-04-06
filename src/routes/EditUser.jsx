@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +39,7 @@ function EditUser() {
 
   const handleCountry = (event) => {
     const value = event.target.value;
+
     setCountry(value);
   };
 
@@ -88,6 +89,7 @@ function EditUser() {
       });
       navigate("/profile");
       dispatch(edit(response.data));
+      console.log("response" + response.data);
     } catch (error) {
       setFormError("An error occurred while submitting the form.");
     }
@@ -203,7 +205,7 @@ function EditUser() {
           </div>
         </div>
         <button
-          className="bg-bgTertiaryColor ml-4 text-textPrimary p-2 my-1 mr-8 mt-8  font-primaryFont"
+          className="bg-bgTertiaryColor w-[200px] text-textPrimary p-2 mt-3 tablet:mt-8 text-center font-primaryFont"
           // type="submit"
           onClick={() => setChangeInfoButton(false)}
         >

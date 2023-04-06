@@ -32,7 +32,7 @@ function CardProductCategory({ product }) {
           }
           alt=""
         />
-        <h1 className="title-card-category">{product.model}</h1>
+        <h1 className="title-card-category truncate">{product.model}</h1>
         <span className="font-light">U$D {product.price.toFixed(2)}</span>
       </div>
     </Link>
