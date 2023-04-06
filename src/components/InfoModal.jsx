@@ -60,7 +60,7 @@ function InfoModal() {
                     <div className="mb-1 tablet:mb-3">
                       <div className="flex justify-center tablet:justify-start gap-2">
                         <h3 className="font-light">E-mail:</h3>
-                        <h3>admin@hack.com</h3>
+                        <h3>luxe@admin.com</h3>
                       </div>
                       <div className="flex justify-center tablet:justify-start gap-2">
                         <h3 className="font-light">Password:</h3>
@@ -111,7 +111,7 @@ function InfoModal() {
   } else {
     return (
       <button
-        className="fixed bottom-5 tablet:bottom-10 right-5 tablet:right-10 bg-bgTertiaryColor p-2 tablet:p-3 rounded-full text-textPrimary"
+        className="bg-opacity-70 hover:bg-opacity-100 transition-all duration-200 fixed bottom-5 tablet:bottom-10 right-5 tablet:right-10 bg-bgTertiaryColor p-2 tablet:p-3 rounded-full text-textPrimary"
         onClick={() => setIsOpen(true)}
       >
         <img className="w-5 tablet:w-8" src={info} alt="" />

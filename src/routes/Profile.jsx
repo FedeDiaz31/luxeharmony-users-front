@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -5,23 +6,25 @@ import { Link } from "react-router-dom";
 function Profile() {
   const user = useSelector((state) => state.user);
 
-  const [firstname, setFirstname] = useState(user.firstname);
-  const [lastname, setLastname] = useState(user.lastname);
-  const [email, setEmail] = useState(user.email);
+  const firstname = user.firstname;
+  const lastname = user.lastname;
+  const email = user.email;
   const [address] = useState(user.address);
   const [processingStatus, setProcessingStatus] = useState(0);
   const [sendStatus, setSendStatus] = useState(0);
   const [deliveredStatus, setDeliveredStatus] = useState(0);
 
-  // useEffect(() => {
-  //   for (let order of user.orders) {
-  //     order.status.name === "Processing" &&
-  //       setProcessingStatus(processingStatus + 1);
-  //     order.status.name === "Send" && setSendStatus(sendStatus + 1);
-  //     order.status.name === "Delivered" &&
-  //       setDeliveredStatus(deliveredStatus + 1);
-  //   }
-  // }, []);
+  useEffect(() => {
+    for (let order of user.orders) {
+      if (order.status.name === "Processing") {
+        setProcessingStatus(processingStatus + 1);
+      } else if (order.status.name === "Send") {
+        setSendStatus(sendStatus + 1);
+      } else if (order.status.name === "Delivered") {
+        setDeliveredStatus(deliveredStatus + 1);
+      }
+    }
+  }, []);
 
   return (
     <>
