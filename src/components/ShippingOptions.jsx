@@ -24,7 +24,7 @@ const ShippingOptions = ({ handleProcess }) => {
       </button>
       <h2 className="mb-2  text-xl font-terciaryFont m-2">Shipping Options</h2>
       <hr />
-      <div className="bg-[#1d9219c4] relative w-80 py-3 pl-1 mx-auto rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
+      <div className="bg-[#1d9219c4] relative w-80 py-3 pl-1 mx-auto laptop:m-2 rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
         <label className="text-textPrimary hover:cursor-pointer select-none labelCheckbox w-full flex justify-around columns-2 mt-0">
           <input
             type="radio"
@@ -36,7 +36,7 @@ const ShippingOptions = ({ handleProcess }) => {
           </h3>
         </label>
       </div>
-      <div className=" bg-[#c5c5c5ae] relative w-80 py-3 pl-1 mx-auto rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
+      <div className=" bg-[#c5c5c5ae] relative w-80 py-3 pl-1 mx-auto laptop:m-2 rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
         <label className="p-2 text-textPrimary hover:cursor-pointer select-none labelCheckbox w-full flex justify-around columns-2 mt-0">
           <input
             type="radio"
@@ -48,7 +48,7 @@ const ShippingOptions = ({ handleProcess }) => {
           </h3>
         </label>
       </div>
-      <div className=" bg-[#d7d362d8] relative w-80 py-3 pl-1 mx-auto rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
+      <div className=" bg-[#d7d362d8] relative w-80 py-3 pl-1 mx-auto laptop:m-2 rounded hover:cursor-pointer my-3 opacity-95 shadow hover:shadow-lg transition-all">
         <label className="p-2 text-textPrimary hover:cursor-pointer select-none labelCheckbox w-full flex justify-around columns-2 mt-0">
           <input
             type="radio"

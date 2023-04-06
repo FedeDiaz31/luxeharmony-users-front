@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion"; // Importar los componentes de animación de framer-motion
 
 import axios from "axios";
 
@@ -128,33 +129,67 @@ const CheckOut = () => {
       </div>
       <Summary />
       <div className="laptop:order-first laptop:w-1/2">
-        {process === "shippingInfo" ? (
-          <div className="columns-1">
-            <div>
-              <ShippingInfo
-                user={userData}
-                handleProcess={handleProcess}
-                handleData={handleData}
-              />
-            </div>
-          </div>
-        ) : null}
-        {process === "shippingOptions" ? (
-          <div className="columns-1">
-            <ShippingOptions handleProcess={handleProcess} />
-          </div>
-        ) : null}
-        {process === "paymentOptions" ? (
-          <div className="columns-1">
-            <PaymentOptions
-              handleProcess={handleProcess}
-              handleData={handleData}
-              sendBill={sendBill}
-              sendOrder={sendOrder}
-            />
-          </div>
-        ) : null}
-        {orderIsSend ? <Navigate to="/" replace={true} /> : null}
+        <AnimatePresence>
+          <motion.div
+            key={process} // Especificar una clave única para que framer-motion pueda gestionar la animación correctamente
+            initial={{ opacity: 0 }} // Configurar las animaciones de entrada y salida
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }} // Configurar la duración de la animación
+          >
+            {process === "shippingInfo" ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, display: "none" }}
+                transition={{ duration: 0.3 }}
+                className="columns-1"
+              >
+                <div className="columns-1">
+                  <div>
+                    <ShippingInfo
+                      user={userData}
+                      handleProcess={handleProcess}
+                      handleData={handleData}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ) : null}
+            {process === "shippingOptions" ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, display: "none" }}
+                transition={{ duration: 0.3 }}
+                className="columns-1"
+              >
+                <div className="columns-1">
+                  <ShippingOptions handleProcess={handleProcess} />
+                </div>
+              </motion.div>
+            ) : null}
+            {process === "paymentOptions" ? (
+              <div className="columns-1">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, display: "none" }}
+                  transition={{ duration: 0.3 }}
+                  className="columns-1"
+                >
+                  <PaymentOptions
+                    handleProcess={handleProcess}
+                    handleData={handleData}
+                    sendBill={sendBill}
+                    sendOrder={sendOrder}
+                  />
+                </motion.div>
+              </div>
+            ) : null}
+            {orderIsSend ? <Navigate to="/" replace={true} /> : null}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
