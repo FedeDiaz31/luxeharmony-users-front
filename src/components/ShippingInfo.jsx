@@ -341,9 +341,12 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
 
   return (
     <>
-      <form method="post" className=" mx-auto font-terciaryFont text-[#737373]">
+      <form
+        method="post"
+        className="pb-10 mx-auto font-terciaryFont text-[#737373]"
+      >
         <div className="columns-1 px-1">
-          <h2 className="mb-2  text-xl font-terciaryFont">
+          <h2 className="mb-2 text-xl font-terciaryFont">
             Contact Information
           </h2>
           <hr />
@@ -424,10 +427,12 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               required
             />
           </div>
-          <h2 className="my-2  text-xl font-terciaryFont">Shipping Address</h2>
+          <h2 className="mt-7 mb-2 text-xl font-terciaryFont">
+            Shipping Address
+          </h2>
           <hr />
 
-          <div className="mt-1">
+          <div className="mt-2">
             <label className="text-xs " htmlFor="streetAddres">
               Street Address
             </label>
@@ -492,9 +497,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               onChange={(e) => handleCountry(e)}
               required
             >
-              <option disabled selected>
-                -- SELECT AN OPTION --
-              </option>
+              <option selected>Uruguay</option>
               {countrys?.map((country) => (
                 <option value={country.name} id={country.id} key={country.id}>
                   {country.name}
@@ -517,26 +520,24 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
               value={province}
               required
             >
-              <option disabled selected>
-                -- SELECT AN OPTION --
-              </option>
+              <option selected>Montevideo</option>
               {states?.map((state) => {
                 return <option>{state.name}</option>;
               })}
             </select>
           </div>
-          <div className="mt-1 tablet:mt-3 flex columns-2 itemx-center justify-center">
+          <div className="mt-1 tablet:mt-3 flex py-5 columns-2 itemx-center justify-center">
             <input
               type="checkbox"
               name="newsletter"
               onChange={(e) => handleNewsletter(e)}
               checked={newsletter}
               required
-              className="scale-150 mx-2 w-full max-w-[24px]"
+              className="mx-2 w-full max-w-[22px]"
             />
             <label
               htmlFor="newsletter"
-              className="text-textSecondary px-2 text-left my-0"
+              className="text-textSecondary px-2 text-left m-0"
             >
               Get updates about new products and other exciting news from Gibson
               Brands.

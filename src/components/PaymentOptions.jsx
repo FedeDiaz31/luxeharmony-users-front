@@ -121,7 +121,11 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
         BACK
       </button>
       <div className="mx-1">
-        <h4 className="m-2">Pay With Card</h4>
+        <h4 className="mb-2 text-[#737373]  text-xl font-terciaryFont m-2">
+          Pay With Card
+        </h4>
+
+        <hr className="pb-3 opacity-30" />
         <div>
           <div className="w-full">
             <label className="text-xs inline" htmlFor="firstname">
@@ -171,16 +175,16 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
             </div>
           </div>
         </div>
-        <div className="flex py-2">
-          <label className="w-10/12">
-            <input
-              className="m-3 scale-150"
-              type="checkbox"
-              onChange={(e) => setChecked(!checked)}
-            />
+        <div className="flex py-4 items-center gap-2 w-full justify-center">
+          <input
+            className=""
+            type="checkbox"
+            onChange={(e) => setChecked(!checked)}
+          />
+          <h3>
             I am over age 18 agree to the following: Privacy, Terms &
             Conditions.
-          </label>
+          </h3>
         </div>
 
         <button
