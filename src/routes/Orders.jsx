@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
 
 function Orders() {
   const user = useSelector((state) => state.user);
@@ -54,7 +55,7 @@ function Orders() {
                         key={i}
                         className="flex items-center gap-1 tablet:gap-3"
                       >
-                        <h3 className=" text-sm tablet:text-lg">
+                        <h3 className=" text-sm tablet:text-lg truncate">
                           {product.product.model}
                         </h3>
                         <div className="hidden mobilXS:flex items-center gap-3">
@@ -67,23 +68,34 @@ function Orders() {
                     );
                   })}
                 </div>
+
                 <hr className="opacity-20" />
-                <div className="flex flex-col items-end w-full mt-5">
-                  <div className="flex gap-3 items-center">
-                    <h3 className="font-light  text-sm tablet:text-lg">
-                      Total Price:
-                    </h3>
-                    <h3 className="font-normal  text-sm tablet:text-lg">
-                      U$D {order.totalPrice.toFixed(2)}
-                    </h3>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <h3 className="font-light  text-sm tablet:text-lg">
-                      Status:
-                    </h3>
-                    <h3 className="font-normal  text-sm tablet:text-lg">
-                      {order.status.name}
-                    </h3>
+
+                <div className="grid grid-cols-1 tablet:flex tablet:flex-row justify-between w-full">
+                  <Link
+                    className="bg-bgTertiaryColor px-3 h-10 mt-4 flex items-center text-textPrimary "
+                    to={`/orders/${order._id}`}
+                  >
+                    View order
+                  </Link>
+
+                  <div className="flex flex-col">
+                    <div className="flex gap-3 mt-2 items-center">
+                      <h3 className="font-light  text-sm tablet:text-lg">
+                        Total Price:
+                      </h3>
+                      <h3 className="font-normal  text-sm tablet:text-lg">
+                        U$D {order.totalPrice.toFixed(2)}
+                      </h3>
+                    </div>
+                    <div className="flex gap-3 items-center">
+                      <h3 className="font-light  text-sm tablet:text-lg">
+                        Status:
+                      </h3>
+                      <h3 className="font-normal  text-sm tablet:text-lg">
+                        {order.status.name}
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </div>

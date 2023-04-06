@@ -15,12 +15,12 @@ import { useEffect, useState } from "react";
 import Splash from "./components/Splash";
 import EditUser from "./routes/EditUser";
 import Orders from "./routes/Orders";
+import Order from "./routes/Order";
 import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
 import InfoModal from "./components/InfoModal";
-
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -53,13 +53,14 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/edit" element={<EditUser />} />
                 <Route path="/orders" element={<Orders />} />
+                <Route path="/orders/:id" element={<Order />} />
               </Route>
               <Route path="/about" element={<About />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </ScrollToTop>
         </div>
-        <InfoModal/> 
+        <InfoModal />
         <div>
           <Footer />
         </div>
