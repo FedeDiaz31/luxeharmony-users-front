@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCategories } from "../redux/categoriesReducer";
+import { toggle } from "../redux/showLoginReducer";
 import axios from "axios";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -29,12 +30,13 @@ function Header() {
   const dispatch = useDispatch();
   const [userHasScrolled, setUserHasScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+
   const [showUser, setShowUser] = useState(false);
   const [showBrands, setShowBrands] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const [showBurguerMenu, setShowBurguerMenu] = useState(false);
 
+  const showLogin = useSelector((state) => state.showLogin);
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
   const brands = useSelector((state) => state.brands);
@@ -78,11 +80,11 @@ function Header() {
         <div
           className={
             showLogin
-              ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[20px] laptop:top-[40px] transition-all duration-200"
-              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[20px] laptop:top-[-400px] transition-all duration-200"
+              ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[60px] laptop:top-[40px] transition-all duration-200"
+              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[60px] laptop:top-[-400px] transition-all duration-200"
           }
         >
-          <LoginComponent setShowLogin={setShowLogin} />
+          <LoginComponent />
         </div>
       )}
       {/*      Cart Component */}
@@ -198,7 +200,7 @@ function Header() {
               onClick={() => {
                 setShowUser(!showUser);
                 setShowCart(false);
-                setShowLogin(false);
+                dispatch(toggle());
               }}
               className="w-full bg-bgSecondaryColor justify-center flex text-[24px] desktop:text-[20px]  px-2 py-1"
             >
@@ -208,7 +210,7 @@ function Header() {
             <div className="w-full bg-bgSecondaryColor justify-center flex text-[24px] desktop:text-[20px] px-2 py-1">
               <button
                 onClick={() => {
-                  setShowLogin(!showLogin);
+                  dispatch(toggle());
                   setShowCart(false);
                   setShowUser(false);
                 }}
@@ -303,7 +305,7 @@ function Header() {
                   onClick={() => {
                     setShowUser(!showUser);
                     setShowCart(false);
-                    setShowLogin(false);
+                    dispatch(toggle());
                   }}
                   className="w-full bg-bgSecondaryColor py-1 px-3"
                 >
@@ -312,7 +314,7 @@ function Header() {
               ) : (
                 <button
                   onClick={() => {
-                    setShowLogin(!showLogin);
+                    dispatch(toggle());
                     setShowCart(false);
                     setShowUser(false);
                   }}
@@ -329,7 +331,7 @@ function Header() {
                   className="cursos-pointer"
                   onClick={() => {
                     setShowCart(!showCart);
-                    setShowLogin(false);
+
                     setShowUser(false);
                   }}
                 >

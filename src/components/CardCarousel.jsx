@@ -33,7 +33,7 @@ function CardCarousel() {
   }
 
   const settings = {
-    slidesToShow: 4,
+    slidesToShow: 3,
     speed: 500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -76,7 +76,7 @@ function CardCarousel() {
           {highlights?.map((product) => (
             <CardProduct
               key={product._id}
-              image={product.image[0]}
+              product={product}
               slug={product.slug}
             />
           ))}
