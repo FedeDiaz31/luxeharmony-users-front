@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { signInWithGoogle } from "../Firebase";
+import GoogleIcon from "@mui/icons-material/Google";
 
 function LoginComponent({ setShowLogin }) {
   const [email, setEmail] = useState("");
@@ -101,9 +102,9 @@ function LoginComponent({ setShowLogin }) {
             </button>
             <button
               onClick={handleLoginWithGoogle}
-              className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1 my-1"
+              className=" bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1 my-1"
             >
-              Login whith Google
+              <GoogleIcon className="mr-1" /> Login Whith Google
             </button>
           </div>
         </div>
