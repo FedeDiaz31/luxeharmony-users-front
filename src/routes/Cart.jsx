@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggle } from "../redux/showLoginReducer";
 import {
   addProduct,
   removeProduct,
@@ -116,16 +117,20 @@ function Cart() {
                 disabled={!user || cart.length === 0 ? true : false}
                 className={`bg-bgTertiaryColor  ${
                   !user || cart.length === 0 ? "opacity-50" : "opacity-100"
-                }  text-textPrimary px-20 py-2 rounded text-sm`}
+                }  text-textPrimary px-20 py-2 text-sm`}
               >
                 Checkout
               </button>
             </Link>
             {!user && (
-              <div>
-                <h3 className="text-textSecondary font-light text-sm mt-2">
-                  Login to checkout.
-                </h3>
+              <div className="text-textSecondary font-light text-sm gap-2 flex items-center mt-2">
+                <button
+                  onClick={() => dispatch(toggle())}
+                  className="bg-bgTertiaryColor text-textPrimary px-2 py-1"
+                >
+                  Login
+                </button>
+                <h3 className="">to checkout.</h3>
               </div>
             )}
           </div>

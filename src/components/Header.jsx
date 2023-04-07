@@ -80,7 +80,7 @@ function Header() {
         <div
           className={
             showLogin
-              ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[60px] laptop:top-[40px] transition-all duration-200"
+              ? "absolute top-[70px] left-[10px] laptop:left-auto laptop:right-[60px] laptop:top-[40px] transition-all duration-200"
               : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[60px] laptop:top-[-400px] transition-all duration-200"
           }
         >
@@ -211,6 +211,7 @@ function Header() {
               <button
                 onClick={() => {
                   dispatch(toggle());
+                  setShowBurguerMenu(false);
                   setShowCart(false);
                   setShowUser(false);
                 }}

@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { login } from "../redux/userReducer";
+import { toggle } from "../redux/showLoginReducer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import cross from "../assets/icons/closeIcon.svg";
 import { signInWithGoogle } from "../Firebase";
 import GoogleIcon from "@mui/icons-material/Google";
 
@@ -53,6 +54,12 @@ function LoginComponent({ setShowLogin }) {
 
   return (
     <>
+      <img
+        onClick={() => dispatch(toggle())}
+        className="laptop:hidden absolute right-4 top-3 cursor-pointer w-[20px]"
+        src={cross}
+        alt=""
+      />
       <div className="w-full tablet:w-[300px] bg-bgPrimaryColor border border-bgFourthColor rounded-b mb-10 pb-3 px-5 pt-12 grid gap-2">
         <div className="flex justify-between w-full items-center">
           <h3 className="font-light text-lg tablet:text-2xl">
