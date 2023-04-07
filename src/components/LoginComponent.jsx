@@ -4,6 +4,7 @@ import { login } from "../redux/userReducer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { signInWithGoogle } from "../Firebase";
 
 function LoginComponent({ setShowLogin }) {
   const [email, setEmail] = useState("");
@@ -25,6 +26,28 @@ function LoginComponent({ setShowLogin }) {
       handleCloseLogin();
     }
   };
+
+  const handleLoginWithGoogle = async () => {
+    try {
+      signInWithGoogle().then((response) => {
+        dispatch(login(response.data.user));
+        if (response.data.user.token) {
+          handleCloseLogin();
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const { email, displayName, uid } = result.user;
+
+  // async function handleCalle() {
+  //   const response = await axios({
+  //     url: `${process.env.REACT_APP_API_URL}/users/google-login`,
+  //     data: { name: displayName, email, password: uid, userId: uid },
+  //     method: "post",
+  //   });
 
   return (
     <>
@@ -75,6 +98,12 @@ function LoginComponent({ setShowLogin }) {
               className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1"
             >
               Login
+            </button>
+            <button
+              onClick={handleLoginWithGoogle}
+              className="bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1 my-1"
+            >
+              Login whith Google
             </button>
           </div>
         </div>
