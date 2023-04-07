@@ -234,3 +234,11 @@ label {
 }
 
 /* CATEGORY */
+
+
+
+/* STATUS BAR ORDER DETAIL */
+
+.statusbar>div{
+  transition: ease-in-out 2s;
+}
