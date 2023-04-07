@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function AccordionFooter() {
   return (
-    <div className="bg-headerAndFooterColor tablet:hidden">
+    <div className="bg-headerAndFooterColor tablet:hidden m-3">
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

@@ -86,10 +86,14 @@ const Footer = () => {
             </div>
             <div className="py-4"></div>
           </div>
-          <h4 className="text-textPrimary text-center text-sm pt-2 pb-5">
-            Customer Support (US & Uruguay):{" "}
-            <strong> 1-800-LUXE-HARMONY</strong>
-          </h4>
+          <div className="pb-4">
+            <h4 className="text-textPrimary text-center text-sm pt-4">
+              Customer Support (US & Uruguay):
+            </h4>
+            <h3 className="text-textPrimary text-center ">
+              1-800-LUXE-HARMONY
+            </h3>
+          </div>
         </div>
       </div>
     </footer>

@@ -21,7 +21,6 @@ const cartSlice = createSlice({
           }
         });
       } else {
-        console.log(current(state));
         return [...state, action.payload];
       }
 
@@ -42,12 +41,12 @@ const cartSlice = createSlice({
     removeAllThisProducts(state, action) {
       return state.filter((detail) => detail.product._id !== action.payload.product._id);
     },
-    removeEveryProducts(){
+    removeEveryProducts() {
       return []
     }
   },
 });
 
-export const { addProduct, removeProduct, removeAllThisProducts,removeEveryProducts } =
+export const { addProduct, removeProduct, removeAllThisProducts, removeEveryProducts } =
   cartSlice.actions;
 export default cartSlice.reducer;
