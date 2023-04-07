@@ -17,8 +17,6 @@ const FormCheckOut = ({ handleProcess }) => {
         },
         method: "get",
       });
-
-      console.log(response);
     }
     fetchCountrys();
   }, []);

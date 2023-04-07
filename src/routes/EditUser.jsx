@@ -89,7 +89,6 @@ function EditUser() {
       });
       navigate("/profile");
       dispatch(edit(response.data));
-      console.log("response" + response.data);
     } catch (error) {
       setFormError("An error occurred while submitting the form.");
     }
