@@ -112,35 +112,43 @@ const Product = () => {
                   </div>
                 )}
               </div>
-              <div className="mt-10 tablet:m-0">
-                {/* <div>
-                  <h1 className="model-title text-3xl pb-5">{product.model}</h1>
-                </div> */}
+              <div className="mt-10 tablet:mt-6">
                 <div>
-                  <div className="w-[50%] grid grid-cols-2 font-bold mb-2">
-                    <div>Finish:</div>
+                  <div className="flex gap-3 font-bold mb-1">
                     <div>
-                      {product ? product.detail.bodyFinish : "cargando..."}
+                      <h2 className="font-light">Finish:</h2>
+                    </div>
+                    <div>
+                      <h3 className="font-bold">
+                        {product ? product.detail.bodyFinish : "cargando..."}
+                      </h3>
                     </div>
                   </div>
-                  <div className="w-[50%] grid grid-cols-2 font-bold mb-2">
-                    <div>Material:</div>{" "}
+                  <div className=" flex gap-3 font-bold">
+                    <h2 className="font-light">Material:</h2>
                     <div>
-                      {product ? product.detail.bodyMaterial : "cargando..."}
+                      <h3 className="font-bold">
+                        {product ? product.detail.bodyMaterial : "cargando..."}
+                      </h3>
                     </div>
                   </div>
-                  <div className="column-1 ">
-                    <p className="product-price text-3xl pt-8">
-                      {product ? "$" + product.price : <h2>cargando...</h2>}
+                  <hr className="my-3" />
+                  <div className="column-1">
+                    <p className="font-primaryFont text-3xl">
+                      {product ? (
+                        "U$D " + product.price.toFixed(2)
+                      ) : (
+                        <h2>cargando...</h2>
+                      )}
                     </p>
                     <button
                       onClick={handleAddProduct}
-                      className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-10"
+                      className="add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-7"
                     >
                       ADD TO CART
                     </button>
-                    <div className="column-1 text-center">
-                      <p className=" text-xs text-left mt-1">
+                    <div className="column-1 w-full">
+                      <p className="text-xs text-end  mt-1">
                         SHIPPING & RETURN POLICY
                       </p>
                     </div>
@@ -150,7 +158,7 @@ const Product = () => {
             </div>
             <div className="column-1 mt-10 mb-10">
               <h2 className="text-2xl mb-2 font-bold">{product.subtitle}</h2>
-              <p>{product.description}</p>
+              <p className="font-light">{product.description}</p>
             </div>
             <div className="column-1 mt-20 mb-16 ">
               {product ? <Tabs product={product} /> : null}

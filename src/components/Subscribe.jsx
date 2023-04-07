@@ -107,31 +107,30 @@ function Subscribe() {
               SIGN UP FOR NEWS & OFFERS
             </h3>
             <form ref={form} onSubmit={sendEmail}>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full gap-2">
                 <input
                   type="text"
                   name="user_name"
-                  className="border mb-2 px-1 w-full"
+                  className="border px-2 py-1 w-full"
                   placeholder="Enter your name"
                 />
 
                 <input
                   type="email"
                   name="user_email"
-                  className="border mb-2 px-1"
+                  className="border px-2 py-1"
                   placeholder="example@email.com"
                 />
+                <button
+                  className="bg-buttonsSecondaryColor w-full py-2 text-textPrimary mt-1 font-semibold"
+                  type="submit"
+                  value="Send"
+                >
+                  SUBSCRIBE
+                </button>
               </div>
-
-              <button
-                className="bg-buttonsSecondaryColor w-full py-2 mb-2 text-textPrimary mt-1 font-semibold"
-                type="submit"
-                value="Send"
-              >
-                SUBSCRIBE
-              </button>
             </form>
-            <h6 className="text-xs max-w-[300px] tablet:w-full">
+            <h6 className="text-xs font-light max-w-[300px] tablet:w-full">
               By submitting this form, you agree to our Terms & Conditions and
               Privacy Policy.
             </h6>

@@ -79,7 +79,7 @@ function Header() {
           className={
             showLogin
               ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[20px] laptop:top-[40px] transition-all duration-200"
-              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[20px] laptop:top-[-300px] transition-all duration-200"
+              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[20px] laptop:top-[-400px] transition-all duration-200"
           }
         >
           <LoginComponent setShowLogin={setShowLogin} />

@@ -22,6 +22,7 @@ function LoginComponent({ setShowLogin }) {
       data: { password, email },
       method: "post",
     });
+
     dispatch(login(response.data.user));
     if (response.data.user.token) {
       handleCloseLogin();
@@ -102,9 +103,9 @@ function LoginComponent({ setShowLogin }) {
             </button>
             <button
               onClick={handleLoginWithGoogle}
-              className=" bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1 my-1"
+              className=" bg-bgPrimaryColor w-full flex justify-center text-center border border-bgFourthColor  py-1 mt-2"
             >
-              <GoogleIcon className="mr-1" /> Login Whith Google
+              <GoogleIcon className="mr-1" /> Login whith Google
             </button>
           </div>
         </div>
