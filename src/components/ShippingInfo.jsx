@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const FormCheckOut = ({ handleProcess, user, handleData }) => {
+const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
   // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
   const regexFirstName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
   const regexLastName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
@@ -23,8 +23,8 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
   const [streetAddress, setStreetAddress] = useState(user.address.street);
   const [reference, setReference] = useState(user.address.reference);
   const [city, setCity] = useState(user.address.city);
-  const [country, setCountry] = useState("");
-  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("Uruguay");
+  const [province, setProvince] = useState("Montevideo");
   const [newsletter, setNewsletter] = useState(true);
 
   // ERROR STATES
@@ -95,6 +95,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     ) {
       handleData(data);
       handleProcess("shippingOptions");
+      handleStep(1);
       setDisabled(false);
     } else {
       setDisabled(true);

@@ -1,14 +1,16 @@
 import React from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const ShippingOptions = ({ handleProcess }) => {
+const ShippingOptions = ({ handleProcess, handleStep }) => {
   //
   const handleBackButton = () => {
     handleProcess("shippingInfo");
+    handleStep(0);
   };
 
   const handlePaymentButton = () => {
     handleProcess("paymentOptions");
+    handleStep(2);
   };
   return (
     <>

@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion"; // Importar los componentes de animación de framer-motion
 
+import Stepper from "../components/Stepper";
+
 import axios from "axios";
 
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import ShippingInfo from "../components/ShippingInfo";
 import ShippingOptions from "../components/ShippingOptions";
 import PaymentOptions from "../components/PaymentOptions";
 import Summary from "../components/Summary";
-import {removeEveryProducts} from "../redux/cartReducer";
-
+import { removeEveryProducts } from "../redux/cartReducer";
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -20,8 +21,10 @@ const CheckOut = () => {
   const [order, setOrder] = useState(null);
   const [bill, setBill] = useState({});
   const [data, setData] = useState(null);
+
   const [process, setProcess] = useState("shippingInfo");
- 
+  const [step, setStep] = useState(0);
+
   const [orderIsSend, setOrderIsSend] = useState(false);
 
   const user = useSelector((state) => state.user);
@@ -43,7 +46,7 @@ const CheckOut = () => {
       url: `${URL}/orders`,
       data: createOrder(),
     });
-   dispatch(removeEveryProducts())
+    dispatch(removeEveryProducts());
   };
 
   const sendBill = async () => {
@@ -94,6 +97,10 @@ const CheckOut = () => {
     setProcess((prevProcess) => string);
   };
 
+  const handleStep = (num) => {
+    setStep((prevProcess) => num);
+  };
+
   const handleData = (data) => {
     setData((prevData) => {
       return {
@@ -119,58 +126,28 @@ const CheckOut = () => {
   document.title = ` Chekout | LuxeHarmony `;
 
   return (
-    <div className="container mx-auto pt-24 laptop:flex justify-around  laptop:columns-2 ">
-      <div
-        className="flex justify-between columns-2 p-2 hover:cursor-help laptop:hidden"
-        onClick={(e) => handleToggleSummary()}
-      >
-        <p className="w-1/2 text-[blue] underline">Toggle Cart Summary</p>
-        <p>${cart ? subTotalPrice() : null}</p>
-      </div>
-      <Summary />
-      <div className="laptop:order-first laptop:w-1/2">
-        <AnimatePresence>
-          <motion.div
-            key={process} // Especificar una clave única para que framer-motion pueda gestionar la animación correctamente
-            initial={{ opacity: 0 }} // Configurar las animaciones de entrada y salida
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }} // Configurar la duración de la animación
-          >
-            {process === "shippingInfo" ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, display: "none" }}
-                transition={{ duration: 0.3 }}
-                className="columns-1"
-              >
-                <div className="columns-1">
-                  <div>
-                    <ShippingInfo
-                      user={userData}
-                      handleProcess={handleProcess}
-                      handleData={handleData}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            ) : null}
-            {process === "shippingOptions" ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, display: "none" }}
-                transition={{ duration: 0.3 }}
-                className="columns-1"
-              >
-                <div className="columns-1">
-                  <ShippingOptions handleProcess={handleProcess} />
-                </div>
-              </motion.div>
-            ) : null}
-            {process === "paymentOptions" ? (
-              <div className="columns-1">
+    <div className="container mx-auto pt-24 justify-around  ">
+      <Stepper step={step} />
+
+      <div className=" laptop:flex justify-around laptop:columns-2">
+        <div
+          className="flex justify-between columns-2 p-2 hover:cursor-help laptop:hidden"
+          onClick={(e) => handleToggleSummary()}
+        >
+          <p className="w-1/2 text-[blue] underline">Toggle Cart Summary</p>
+          <p>${cart ? subTotalPrice() : null}</p>
+        </div>
+        <Summary />
+        <div className="laptop:order-first laptop:w-1/2">
+          <AnimatePresence>
+            <motion.div
+              key={process} // Especificar una clave única para que framer-motion pueda gestionar la animación correctamente
+              initial={{ opacity: 0 }} // Configurar las animaciones de entrada y salida
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }} // Configurar la duración de la animación
+            >
+              {process === "shippingInfo" ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -178,18 +155,57 @@ const CheckOut = () => {
                   transition={{ duration: 0.3 }}
                   className="columns-1"
                 >
-                  <PaymentOptions
-                    handleProcess={handleProcess}
-                    handleData={handleData}
-                    sendBill={sendBill}
-                    sendOrder={sendOrder}
-                  />
+                  <div className="columns-1">
+                    <div>
+                      <ShippingInfo
+                        user={userData}
+                        handleProcess={handleProcess}
+                        handleStep={handleStep}
+                        handleData={handleData}
+                      />
+                    </div>
+                  </div>
                 </motion.div>
-              </div>
-            ) : null}
-            {orderIsSend ? <Navigate to="/" replace={true} /> : null}
-          </motion.div>
-        </AnimatePresence>
+              ) : null}
+              {process === "shippingOptions" ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, display: "none" }}
+                  transition={{ duration: 0.3 }}
+                  className="columns-1"
+                >
+                  <div className="columns-1">
+                    <ShippingOptions
+                      handleProcess={handleProcess}
+                      handleStep={handleStep}
+                    />
+                  </div>
+                </motion.div>
+              ) : null}
+              {process === "paymentOptions" ? (
+                <div className="columns-1">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0, display: "none" }}
+                    transition={{ duration: 0.3 }}
+                    className="columns-1"
+                  >
+                    <PaymentOptions
+                      handleProcess={handleProcess}
+                      handleStep={handleStep}
+                      handleData={handleData}
+                      sendBill={sendBill}
+                      sendOrder={sendOrder}
+                    />
+                  </motion.div>
+                </div>
+              ) : null}
+              {orderIsSend ? <Navigate to="/" replace={true} /> : null}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

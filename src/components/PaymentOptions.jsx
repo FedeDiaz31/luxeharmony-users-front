@@ -2,7 +2,13 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React from "react";
 import { useState } from "react";
 
-const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
+const PaymentOptions = ({
+  handleProcess,
+  handleStep,
+  handleData,
+  sendOrder,
+  sendBill,
+}) => {
   // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
   const regexCardNumber = /5[1-5][0-9]{14}$/; // MASTERCARD
   const regexCvv = /^\D*\d{3}$/;
@@ -85,6 +91,7 @@ const PaymentOptions = ({ handleProcess, handleData, sendOrder, sendBill }) => {
 
   const handleBackButton = () => {
     handleProcess("shippingOptions");
+    handleStep(1);
   };
 
   const checkData = () => {
