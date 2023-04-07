@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const FormCheckOut = ({ handleProcess, user, handleData }) => {
+const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
   // REGEX EXPRESSIONS FOR FORM FIELDS VALIDATION
   const regexFirstName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
   const regexLastName = /^[A-Za-záéíóúñÁÉÍÓÚÑ]+([ ]?[A-Za-záéíóúñÁÉÍÓÚÑ]+)*$/;
@@ -95,6 +95,7 @@ const FormCheckOut = ({ handleProcess, user, handleData }) => {
     ) {
       handleData(data);
       handleProcess("shippingOptions");
+      handleStep(1);
       setDisabled(false);
     } else {
       setDisabled(true);
