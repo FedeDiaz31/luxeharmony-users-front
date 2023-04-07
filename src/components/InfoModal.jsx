@@ -13,26 +13,26 @@ function InfoModal() {
         className="w-full h-full fixed z-[200] top-0 left-0 bg-[rgba(0,0,0,0.67)] fade-in"
       >
         <div className="w-full h-[100vh] flex justify-center items-center">
-          <div className=" z-[250] bg-bgPrimaryColor text-bgSecondaryColor relative fade-in">
+          <div className="z-[250] bg-bgPrimaryColor text-bgSecondaryColor relative fade-in">
             <img
               onClick={() => setIsOpen(false)}
               className="absolute right-4 top-3 cursor-pointer w-[25px]"
               src={cross}
               alt=""
             />
-            <div className="w-full py-3 tablet:py-8 px-5">
+            <div className="w-full scrollbar py-3 tablet:py-5 px-5">
               <div className="w-full">
                 <div className="w-full flex">
                   <h2 className="font-primaryFont text-[26px]">
                     About this project
                   </h2>
                 </div>
-                <p className="text-sm tablet:text-base text-center tablet:text-start max-w-[500px]">
+                <p className="text-sm tablet:text-base text-center tablet:text-start max-w-[400px]">
                   This e-commerce was created as a culminating project by a
                   group of students from the Hack Academy.
                 </p>
 
-                <div className="w-full my-6  ml-[40%] tablet:justify-end">
+                <div className="w-full my-4 flex justify-end">
                   <Link
                     to={"/about"}
                     onClick={() => setIsOpen(false)}
@@ -43,16 +43,15 @@ function InfoModal() {
                 </div>
               </div>
               <hr className="my-2 opacity-40 tablet:my-3" />
-
               <div className="w-full flex">
                 <h2 className="font-primaryFont text-[26px]">Sample logins</h2>
               </div>
-              <p className="text-sm tablet:text-base text-center tablet:text-start max-w-[500px]">
+              <p className="text-sm tablet:text-base text-center tablet:text-start max-w-[400px]">
                 To simplify app access, you can use the following login
                 credentials:
               </p>
-              <div className="grid justify-center mt-4">
-                <div className="w-full grid grid-cols-1 tablet:grid-cols-2 gap-2 tablet:gap-10">
+              <div className="grid justify-center mt-3">
+                <div className="w-full grid grid-cols-1 mobilXS:grid-cols-2 gap-2 tablet:gap-10">
                   <div className="max-w-[300px]">
                     <h2 className="font-primaryFont text-center text-[26px]">
                       User
