@@ -23,8 +23,8 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
   const [streetAddress, setStreetAddress] = useState(user.address.street);
   const [reference, setReference] = useState(user.address.reference);
   const [city, setCity] = useState(user.address.city);
-  const [country, setCountry] = useState("");
-  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("Uruguay");
+  const [province, setProvince] = useState("Montevideo");
   const [newsletter, setNewsletter] = useState(true);
 
   // ERROR STATES
