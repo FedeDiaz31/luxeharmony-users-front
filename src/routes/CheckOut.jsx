@@ -134,7 +134,7 @@ const CheckOut = () => {
           className="flex justify-between columns-2 p-2 hover:cursor-help laptop:hidden"
           onClick={(e) => handleToggleSummary()}
         >
-          <p className="w-1/2 text-[blue] underline">Toggle Cart Summary</p>
+          <p className="w-1/2 underline">Expand Cart</p>
           <p>${cart ? subTotalPrice() : null}</p>
         </div>
         <Summary />
