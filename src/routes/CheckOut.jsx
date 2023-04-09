@@ -138,7 +138,7 @@ const CheckOut = () => {
           <p>${cart ? subTotalPrice() : null}</p>
         </div>
         <Summary />
-        <div className="laptop:order-first laptop:w-1/2">
+        <div className="laptop:order-first laptop:w-1/2 mx-5 tablet:mx-10">
           <AnimatePresence>
             <motion.div
               key={process} // Especificar una clave única para que framer-motion pueda gestionar la animación correctamente
