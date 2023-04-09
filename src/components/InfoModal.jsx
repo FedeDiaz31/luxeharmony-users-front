@@ -71,7 +71,7 @@ function InfoModal() {
                       <div className="mb-1 tablet:mb-3">
                         <div className="flex justify-center tablet:justify-start gap-2">
                           <h3 className="font-light">E-mail:</h3>
-                          <h3>user@random.com</h3>
+                          <h3>salvador_macias@gmail.com</h3>
                         </div>
                         <div className="flex justify-center tablet:justify-start gap-2">
                           <h3 className="font-light">Password:</h3>
