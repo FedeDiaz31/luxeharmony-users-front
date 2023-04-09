@@ -21,6 +21,7 @@ import AuthRequire from "./hooks/AuthRequire";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
 import InfoModal from "./components/InfoModal";
+import Ia from "./routes/Ia";
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -42,6 +43,7 @@ function App() {
         <div className="min-h-[100vh]">
           <ScrollToTop>
             <Routes>
+              <Route path="/ia" element={<Ia />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
