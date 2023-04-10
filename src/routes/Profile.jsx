@@ -119,7 +119,9 @@ function Profile() {
               <span className="text-sm semi-bold font-secondaryFont">
                 Reference:
               </span>
-              <h2 className="font-semibold">{address.reference}</h2>
+              <h2 className="font-semibold text-end  max-w-[150px] tablet:max-w-[250px]">
+                {address.reference}
+              </h2>
             </div>
           </div>
           <button className="bg-bgTertiaryColor w-[200px] text-textPrimary p-2 mt-3 tablet:mt-8 text-center font-primaryFont">
