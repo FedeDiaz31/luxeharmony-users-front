@@ -122,7 +122,6 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
     } else {
       setFirstName(e.target.value);
       setFirstNameError(true);
-
       for (let classToAdd of classToAddAlert) {
         e.target.classList.add(classToAdd);
       }

@@ -35,7 +35,7 @@ function Profile() {
       </div>
 
       <div className="py-10 w-full bg-bgPrimaryColor text-bgSecondaryColor gap-4 grid grid-cols-1 tablet:flex  justify-center">
-        <div className="flex flex-col gap-2  tablet:items-end tablet:text-end w-full">
+        <div className="flex flex-col gap-2 items-center tablet:items-end tablet:text-end w-full">
           <span className="font-light font-primaryFont text-xl mb-2">
             Your Orders
           </span>
@@ -65,55 +65,55 @@ function Profile() {
           <div className="h-[200px] w-[1px] bg-bgSecondaryColor"></div>
         </div>
 
-        <div className="flex flex-col  tablet:items-start gap-1 w-full">
+        <div className="flex flex-col items-center tablet:items-start gap-1 w-full">
           <span className="font-light font-primaryFont text-xl ">
             USER DATA
           </span>
-          <div className="grid grid-cols-2">
-            <div>
-              <span className=" font-light">Name:</span>
+          <div className="">
+            <div className="flex gap-5">
+              <span className="font-light">Name:</span>
+              <div className="mb-1">
+                <h2 className="font-semibold ">
+                  {firstname} {lastname}
+                </h2>
+              </div>
             </div>
-            <div className="mb-1">
-              <h2 className="font-semibold ">
-                {firstname} {lastname}
-              </h2>
+            <div className="flex gap-5">
+              <span className="font-light">E-Mail:</span>
+              <h2 className="font-semibold  ">{email}</h2>
             </div>
-
-            <span className="mr-3 font-light">E-Mail:</span>
-            <h2 className=" font-semibold  ">{email}</h2>
           </div>
           <span className="font-light font-primaryFont mt-4 text-xl">
             SHIPPING DATA
           </span>
-          <div className="grid grid-cols-2">
-            <div className="mb-1">
-              <span className="mr-3 font-light">Country:</span>
-            </div>
+
+          <div className="mb-1 gap-5 flex">
+            <span className="font-light">Country:</span>
             <div>
               <h2 className="font-semibold">{address.country}</h2>
             </div>
-            <div className="mb-1">
-              <span className="mr-3 font-light">State:</span>
-            </div>
+          </div>
+          <div className="mb-1 gap-5 flex">
+            <span className="font-light">State:</span>
             <div>
               <h2 className="font-semibold">{address.state}</h2>
             </div>
-            <div className="mb-1">
-              <span className="mr-3 font-light">City:</span>
-            </div>
+          </div>
+          <div className="mb-1 gap-5 flex">
+            <span className="font-light">City:</span>
             <div>
               <h2 className="font-semibold">{address.city}</h2>
             </div>
-            <div className="mb-1">
-              <span className="mr-3 font-light">Street:</span>
-            </div>
+          </div>
+          <div className="mb-1 gap-5 flex">
+            <span className="font-light">Street:</span>
             <div>
               <h2 className="font-semibold">{address.street}</h2>
             </div>
+          </div>
 
-            <div className="mb-1">
-              <span className="mr-3 font-light">Reference:</span>
-            </div>
+          <div className="mb-1 gap-5 flex">
+            <span className="font-light">Reference:</span>
             <div>
               <h2 className="font-semibold">{address.reference}</h2>
             </div>
