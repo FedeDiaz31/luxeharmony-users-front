@@ -69,56 +69,59 @@ function Profile() {
           <span className="font-light font-primaryFont text-xl ">
             USER DATA
           </span>
-          <div className="">
-            <div className="flex gap-5">
-              <span className="font-light">Name:</span>
+          <div className="flex flex-col">
+            <div className="flex gap-5 justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                Name:
+              </span>
               <div className="mb-1">
                 <h2 className="font-semibold ">
                   {firstname} {lastname}
                 </h2>
               </div>
             </div>
-            <div className="flex gap-5">
-              <span className="font-light">E-Mail:</span>
+            <div className="flex gap-5 justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                E-Mail:
+              </span>
               <h2 className="font-semibold  ">{email}</h2>
             </div>
           </div>
-          <span className="font-light font-primaryFont mt-4 text-xl">
-            SHIPPING DATA
-          </span>
-
-          <div className="mb-1 gap-5 flex">
-            <span className="font-light">Country:</span>
-            <div>
+          <div className="flex flex-col">
+            <span className="font-light text-center tablet:text-start font-primaryFont mt-4 text-xl">
+              SHIPPING DATA
+            </span>
+            <div className="mb-1 gap-5 flex justify-center tablet:justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                Country:
+              </span>
               <h2 className="font-semibold">{address.country}</h2>
             </div>
-          </div>
-          <div className="mb-1 gap-5 flex">
-            <span className="font-light">State:</span>
-            <div>
+            <div className="mb-1 gap-5 flex justify-center tablet:justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                State:
+              </span>
               <h2 className="font-semibold">{address.state}</h2>
             </div>
-          </div>
-          <div className="mb-1 gap-5 flex">
-            <span className="font-light">City:</span>
-            <div>
+            <div className="mb-1 gap-5 flex justify-center tablet:justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                City:
+              </span>
               <h2 className="font-semibold">{address.city}</h2>
             </div>
-          </div>
-          <div className="mb-1 gap-5 flex">
-            <span className="font-light">Street:</span>
-            <div>
+            <div className="mb-1 gap-5 flex justify-center tablet:justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                Street:
+              </span>
               <h2 className="font-semibold">{address.street}</h2>
             </div>
-          </div>
-
-          <div className="mb-1 gap-5 flex">
-            <span className="font-light">Reference:</span>
-            <div>
+            <div className="mb-1 gap-5 flex justify-center tablet:justify-between items-center">
+              <span className="text-sm semi-bold font-secondaryFont">
+                Reference:
+              </span>
               <h2 className="font-semibold">{address.reference}</h2>
             </div>
           </div>
-
           <button className="bg-bgTertiaryColor w-[200px] text-textPrimary p-2 mt-3 tablet:mt-8 text-center font-primaryFont">
             <Link to="/edit"> Edit user data </Link>
           </button>
