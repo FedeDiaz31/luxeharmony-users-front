@@ -34,7 +34,7 @@ const Product = () => {
       setProduct(response.data);
     };
     getProduct();
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     if (product) {

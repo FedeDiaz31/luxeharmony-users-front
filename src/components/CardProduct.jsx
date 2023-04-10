@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CardProduct({ product, slug }) {
+function CardProduct({ product }) {
   return (
-    <Link to={`/product/${slug}`} className="flex justify-center">
+    <Link to={`/product/${product.slug}`} className="flex justify-center">
       <img
         className="h-72"
         src={
