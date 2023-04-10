@@ -56,7 +56,7 @@ export default function BasicTabs({ product }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="grid grid-cols-2  tablet:grid-cols-4  ">
+        <div className="grid grid-cols-2 tablet:grid-cols-4  ">
           <div>
             <div className="font-semibold ">Body Style </div>
             {product.detail.bodyStyle}
@@ -96,7 +96,7 @@ export default function BasicTabs({ product }) {
             <div>628.65 mm / 24.75 in</div>
           </div>
           <div>
-            <div className="font-semibold ">Fret Count </div>
+            <div className="font-semibold">Fret Count </div>
             <div>{product.detail.fretCount}</div>
           </div>
           <div>
@@ -110,7 +110,7 @@ export default function BasicTabs({ product }) {
             {product.detail.fingerBoardMaterial}
           </div>
           <div>
-            <div className="font-semibold ">Frets </div>
+            <div className="font-semibold">Frets </div>
             <div>{product.detail.frets}</div>
           </div>
           <div>
@@ -126,7 +126,7 @@ export default function BasicTabs({ product }) {
             {product.detail.finish}
           </div>
           <div className="mb-4">
-            <div className="font-semibold ">Pickguard </div>
+            <div className="font-semibold">Pickguard </div>
             <div className="w-[80%]">{product.detail.pickguard}</div>
           </div>
           <div>
@@ -138,7 +138,7 @@ export default function BasicTabs({ product }) {
             <div>{product.detail.bridge}</div>
           </div>
         </div>{" "}
-        <div className="grid grid-cols-2 pb-4 tablet:grid-cols-4 ">
+        <div className="grid grid-cols-2 pb-4 tablet:grid-cols-4">
           <div>
             <div className="font-semibold ">Truss Rod </div>
             {product.detail.trussRod}
@@ -148,7 +148,7 @@ export default function BasicTabs({ product }) {
             <div>{product.detail.strapButtons}</div>
           </div>
           <div>
-            <div className="font-semibold ">Tunning Machines </div>
+            <div className="font-semibold">Tunning Machines </div>
             <div>{product.detail.tunningMachines}</div>
           </div>
           <div>

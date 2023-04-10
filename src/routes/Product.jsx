@@ -161,7 +161,7 @@ const Product = () => {
               <h2 className="text-2xl mb-2 font-bold">{product.subtitle}</h2>
               <p className="font-light">{product.description}</p>
             </div>
-            <div className="column-1 mt-20 mb-16 ">
+            <div className="column-1 tablet:h-[300px] mt-20 mb-16">
               {product ? <Tabs product={product} /> : null}
             </div>
           </div>
