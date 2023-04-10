@@ -38,18 +38,25 @@ function Order() {
   }, [order]);
 
   return (
-    <div className="w-[100vw] m-auto ">
+    <div className=" m-auto ">
       <div className="bg-bgSecondaryColor w-full h-[170px] pt-[100px] pl-10 tablet:px-40 pb-10">
         <div className="w-[70vw]">
           <h3 className="text-textPrimary font-light text-3xl">
             Order details
           </h3>
         </div>
-        <div className="pt-10">
-          <div className=" flex flex-col items-center justify-center w-full h-[170px] border-b-[1px] pb-3">
-            <h2 className=" font-primaryFont text-2xl mb-2">Status</h2>
-            {statusData && <StatusBar status={statusData.name}></StatusBar>}
-          </div>
+      </div>
+      <div className="pt-10">
+        <div className=" flex flex-col items-center justify-center w-full pb-10">
+          {statusData && (
+            <StatusBar
+              created={statusData.createdAt}
+              orderId={statusData._id}
+              status={statusData.name}
+            ></StatusBar>
+          )}
+        </div>
+        <div className="my-5 border-t-2 flex flex-col">
           {order ? (
             order.products.map((product) => (
               <OrderProduct

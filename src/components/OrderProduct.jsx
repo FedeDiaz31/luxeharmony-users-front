@@ -14,27 +14,27 @@ function OrderProduct({
   slug,
   description,
 }) {
-
   const params = useParams();
   const orderId = params.id;
   const user = useSelector((state) => state.user);
 
-
   return (
-    <div className="flex mt-2 desktop:mt-10  border-b-[1px] ">
+    <div className="flex mt-2 py-4 border-b-[1px]">
       <div className="flex">
         <img
           src={image}
-          className="w-[100px] h-[200px] desktop:w-20 desktop:h-full object-cover mr-3 overflow-visible"
+          className="w-[100px] h-[200px]  object-cover mr-3 overflow-visible"
           alt=""
         />
         <div className="flex flex-col">
-          <Link to={"/product/" + slug} className=" font-primaryFont text-lg">
+          <Link to={"/product/" + slug} className=" font-primaryFont text-lg hover:text-bgTertiaryColor">
             {model}
           </Link>
-          <p className=" text-xs desktop:w-[30%] h-[29%] mb-3 overflow-clip">
-            {description}
-          </p>
+          <div>
+            <p className=" text-xs text-justify w-[90%]  desktop:w-[30%] mb-3 ">
+              {description}
+            </p>
+          </div>
           <span className=" font-semibold">${price}</span>
         </div>
       </div>
