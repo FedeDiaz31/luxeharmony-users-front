@@ -4,12 +4,14 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { edit } from "../redux/userReducer";
+import chevronBack from "../assets/img/chevronBack.svg";
 
 function EditUser() {
   const user = useSelector((state) => state.user);
   const [firstname, setFirstname] = useState(user.firstname);
   const [lastname, setLastname] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
+  const [phone, setPhone] = useState(user.phone);
   const [country, setCountry] = useState(user.address.country);
   const [state, setState] = useState(user.address.state);
   const [city, setCity] = useState(user.address.city);
@@ -35,6 +37,11 @@ function EditUser() {
   const handleEmail = (event) => {
     const value = event.target.value;
     setEmail(value);
+  };
+
+  const handlePhone = (event) => {
+    const value = event.target.value;
+    setPhone(value);
   };
 
   const handleCountry = (event) => {
@@ -95,123 +102,185 @@ function EditUser() {
   };
 
   return (
-    <div className="pl-6 pt-[70px] w-[100vw] h-[100vh]  bg-bgSecondaryColor text-bgPrimaryColor m-auto flex items-center justify-center">
-      <form className=" text-center" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-40">
-          <div>
-            <h1 className="text-[35px] mb-3 mt-6 font-primaryFont">
-              Change user data
-            </h1>
-            <label className="text-sm semi-bold block mb-2" htmlFor="firstname">
-              Firstname
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="firstname"
-              value={firstname}
-              placeholder="Enter firstname"
-              onChange={handleFirstname}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="lastname">
-              Lastname
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="lastName"
-              value={lastname}
-              placeholder="Enter lastname"
-              onChange={handleLastname}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={handleEmail}
-            />
+    <>
+      {" "}
+      <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
+        <img
+          className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"
+          onClick={() => navigate(-1)}
+          src={chevronBack}
+          alt=""
+        />
+        <h2 className="text-textPrimary font-light text-3xl">
+          Edit your Profile, {firstname ? firstname : "loading"}
+        </h2>
+      </div>
+      <div className="pl-6 py-[30px] w-[100vw] bg-bgPrimaryColor text-textSecondary m-auto flex items-center justify-center">
+        <form className=" text-center" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-40">
+            <div className="flex flex-col gap-3">
+              <h1 className="text-2xl font-primaryFont">Change user data</h1>
+              <div className="flex items-center justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="firstname"
+                >
+                  Firstname
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 text-bgSecondaryColor "
+                  type="text"
+                  name="firstname"
+                  value={firstname}
+                  placeholder="Enter firstname"
+                  onChange={handleFirstname}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="lastname"
+                >
+                  Lastname
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="lastName"
+                  value={lastname}
+                  placeholder="Enter lastname"
+                  onChange={handleLastname}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="email"
+                >
+                  Email
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="email"
+                  value={email}
+                  placeholder="Enter email"
+                  onChange={handleEmail}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="email"
+                >
+                  Phone
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="number"
+                  name="number"
+                  value={phone}
+                  placeholder="Enter number of phone"
+                  onChange={handlePhone}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-3 ">
+              <h1 className="text-2xl font-primaryFont">
+                Change shipping data
+              </h1>
+              <div className="flex items-center justify-between gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="country"
+                >
+                  Country
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="country"
+                  value={country}
+                  placeholder="Enter country"
+                  onChange={handleCountry}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="state"
+                >
+                  State
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="state"
+                  value={state}
+                  placeholder="Enter state"
+                  onChange={handleState}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="city"
+                >
+                  City
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="city"
+                  value={city}
+                  placeholder="Enter city"
+                  onChange={handleCity}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="Street"
+                >
+                  Street
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="street"
+                  value={street}
+                  placeholder="Enter street"
+                  onChange={handleStreet}
+                />
+              </div>
+              <div className="flex items-center  justify-between  gap-3">
+                <h3
+                  className="text-sm semi-bold font-secondaryFont"
+                  htmlFor="referece"
+                >
+                  Reference
+                </h3>
+                <input
+                  className="py-2 pl-2 w-60  bg-bgPrimaryColor text-bgSecondaryColor "
+                  type="text"
+                  name="reference"
+                  value={reference}
+                  placeholder="Enter reference"
+                  onChange={handleReference}
+                />
+              </div>
+            </div>
           </div>
-          <div>
-            <h1 className="text-[35px] mb-3 mt-6 font-primaryFont">
-              Change shipping data
-            </h1>
-            <label className="text-sm semi-bold block mb-2" htmlFor="country">
-              Country
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="country"
-              value={country}
-              placeholder="Enter country"
-              onChange={handleCountry}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="state">
-              State
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="state"
-              value={state}
-              placeholder="Enter state"
-              onChange={handleState}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="city">
-              City
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="city"
-              value={city}
-              placeholder="Enter city"
-              onChange={handleCity}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="Street">
-              Street
-            </label>
-            <input
-              className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="street"
-              value={street}
-              placeholder="Enter street"
-              onChange={handleStreet}
-            />
-
-            <label className="text-sm semi-bold block mb-2" htmlFor="referece">
-              Reference
-            </label>
-            <input
-              className="py-2 pl-2 w-60  bg-bgPrimaryColor text-bgSecondaryColor "
-              type="text"
-              name="reference"
-              value={reference}
-              placeholder="Enter reference"
-              onChange={handleReference}
-            />
-          </div>
-        </div>
-        <button
-          className="bg-bgTertiaryColor w-[200px] text-textPrimary p-2 mt-3 tablet:mt-8 text-center font-primaryFont"
-          // type="submit"
-          onClick={() => setChangeInfoButton(false)}
-        >
-          SAVE DATA
-        </button>
-      </form>
-    </div>
+          <button
+            className="bg-bgTertiaryColor w-[200px] text-textPrimary p-2 mt-3 tablet:mt-10 text-center font-primaryFont"
+            // type="submit"
+            onClick={() => setChangeInfoButton(false)}
+          >
+            SAVE DATA
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
