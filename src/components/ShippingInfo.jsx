@@ -19,7 +19,7 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
   const [firstName, setFirstName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(user.phone);
   const [streetAddress, setStreetAddress] = useState(user.address.street);
   const [reference, setReference] = useState(user.address.reference);
   const [city, setCity] = useState(user.address.city);
