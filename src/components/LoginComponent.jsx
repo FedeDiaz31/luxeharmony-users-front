@@ -9,7 +9,7 @@ import { signInWithGoogle } from "../Firebase";
 import GoogleIcon from "@mui/icons-material/Google";
 
 function LoginComponent({ setShowLogin }) {
-  const [email, setEmail] = useState("salvador_macias@gmail.com");
+  const [email, setEmail] = useState("default@user.com");
   const [password, setPassword] = useState("1234");
   const dispatch = useDispatch();
   const handleCloseLogin = () => {
