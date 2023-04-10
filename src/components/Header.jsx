@@ -193,7 +193,7 @@ function Header() {
             onClick={() => setShowBurguerMenu(false)}
             className="w-full justify-center flex text-[24px] desktop:text-[20px]  px-2 pb-1"
           >
-            <Link to="/about">ABOUT</Link>
+            <Link to="/about">ABOUT US</Link>
           </div>
           {user ? (
             <button
@@ -294,7 +294,7 @@ function Header() {
                 }}
                 className="relative w-full h-full flex flex-col justify-center items-center px-2 "
               >
-                <Link to="/about">ABOUT</Link>
+                <Link to="/about">ABOUT US</Link>
               </div>
             </div>
           </div>

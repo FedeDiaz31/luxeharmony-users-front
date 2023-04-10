@@ -13,6 +13,7 @@ import ImageGallery from "react-image-gallery";
 import Spinner from "../components/Spinner";
 import Subscribe from "../components/Subscribe";
 import chevronBack from "../assets/img/chevronBack.svg";
+import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
   const cart = useSelector((state) => state.cart);
@@ -164,7 +165,11 @@ const Product = () => {
               {product ? <Tabs product={product} /> : null}
             </div>
           </div>
-          <hr className="mt-4" />
+
+          <div id="relatedProducts" className="mb-[8rem]">
+            <RelatedProducts product={product} />
+          </div>
+          <hr className="mx-60 opacity-25" />
           <Subscribe />
         </main>
       </>
