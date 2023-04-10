@@ -5,7 +5,7 @@ function CardProduct({ product, slug }) {
   return (
     <Link to={`/product/${slug}`} className="flex justify-center">
       <img
-        className="w-72"
+        className="h-72"
         src={
           product.image[0].includes("http")
             ? product.image[0]
