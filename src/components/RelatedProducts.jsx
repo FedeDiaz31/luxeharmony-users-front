@@ -65,7 +65,7 @@ function RelatedProducts({ product }) {
 
   return (
     <>
-      <div className="mt-[70px] flex justify-center mb-14">
+      <div className="mt-[20px] flex justify-center mb-14">
         <h2 className="category-title   text-SecondaryColor">
           RELATED PRODUCTS
         </h2>
