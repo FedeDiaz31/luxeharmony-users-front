@@ -70,7 +70,7 @@ function RelatedProducts({ product }) {
           RELATED PRODUCTS
         </h2>
       </div>
-      <div className="px-32">
+      <div className="px-10 tablet:px-32">
         <Slider {...settings}>
           {relatedProducts?.map((product) => (
             <CardProduct
