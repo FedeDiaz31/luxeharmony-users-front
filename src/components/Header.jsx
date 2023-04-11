@@ -100,7 +100,7 @@ function Header() {
       {/*       Categories Component */}
       <div className="w-full flex tablet:justify-center">
         <div
-          className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-3 items-center rounded text-textPrimary px-3 pb-1 absolute transition-all duration-200 ${
+          className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-5 items-center rounded text-textPrimary px-3 pb-1 absolute transition-all duration-200 ${
             showCategories
               ? "pt-[80px] tablet:pt-[180px] left-[200px] tablet:left-auto"
               : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
@@ -116,17 +116,7 @@ function Header() {
               key={i}
             >
               <div className="flex items-center gap-2">
-                <img
-                  className="w-8 my-1 object-contain gap-3"
-                  src={
-                    category.products[0].image[0].includes("http")
-                      ? `${category.products[0].image[0]}`
-                      : `${process.env.REACT_APP_API_URL}/img/products/${category.products[0].image[0]}`
-                  }
-                  alt="image"
-                />
-
-                <span className=""> {category.name}</span>
+                <span className="text-xl"> {category.name}</span>
               </div>
             </NavLink>
           ))}
@@ -153,7 +143,7 @@ function Header() {
               <div className="flex">
                 <img
                   className="w-16 object-contain"
-                  src={`${process.env.REACT_APP_API_URL}/img/${brand.logo}`}
+                  src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${brand.logo}`}
                   alt="logo"
                 />
               </div>

@@ -41,7 +41,6 @@ function AboutCard({ linkedin, img, title, paragraph, github }) {
         <div className="mt-6 flex justify-around">
           <div>
             <Link
-              className="  "
               to={`https://www.linkedin.com/in/${linkedin}`}
               target="_blank"
             >

@@ -37,11 +37,7 @@ function BrandsContainer() {
                 >
                   <img
                     className="w-36 tablet:w-[180px] "
-                    src={
-                      brand.logo.includes("http")
-                        ? brand.logo
-                        : `${process.env.REACT_APP_API_URL}/img/${brand.logo}`
-                    }
+                    src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${brand.logo}`}
                     alt=""
                   />
                 </Link>
