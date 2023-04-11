@@ -19,15 +19,18 @@ function OrderProduct({
   const user = useSelector((state) => state.user);
 
   return (
-    <div className="flex mt-2 py-4 border-b-[1px]">
+    <div className="flex mt-2 px-10 py-4 border-b-[1px]">
       <div className="flex">
         <img
-          src={image}
+          src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${image}`}
           className="w-[100px] h-[200px]  object-cover mr-3 overflow-visible"
           alt=""
         />
         <div className="flex flex-col">
-          <Link to={"/product/" + slug} className=" font-primaryFont text-lg hover:text-bgTertiaryColor">
+          <Link
+            to={"/product/" + slug}
+            className=" font-primaryFont text-lg hover:text-bgTertiaryColor"
+          >
             {model}
           </Link>
           <div>
@@ -35,7 +38,7 @@ function OrderProduct({
               {description}
             </p>
           </div>
-          <span className=" font-semibold">${price}</span>
+          <span className="font-light text-lg">U$D {price.toFixed(2)}</span>
         </div>
       </div>
     </div>

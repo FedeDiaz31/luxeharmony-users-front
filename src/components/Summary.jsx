@@ -27,11 +27,7 @@ const Summary = () => {
         {cart.map((detail) => (
           <div className="flex justify-around  w-full py-2 border-b  border-b-bgFourthColor my-2 items-center">
             <img
-              src={
-                detail.product.image[0].includes("http")
-                  ? detail.product.image[0]
-                  : `${url}/img/products/${detail.product.image[0]}`
-              }
+              src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${detail.product.image[0]}`}
               alt="product-pic"
               className="w-14 z-0 object-contain"
             />

@@ -38,7 +38,7 @@ function Order() {
   }, [order]);
 
   return (
-    <div className=" m-auto ">
+    <div className="m-auto">
       <div className="bg-bgSecondaryColor w-full h-[170px] pt-[100px] pl-10 tablet:px-40 pb-10">
         <div className="w-[70vw]">
           <h3 className="text-textPrimary font-light text-3xl">
@@ -46,7 +46,7 @@ function Order() {
           </h3>
         </div>
       </div>
-      <div className="pt-10">
+      <div className="pt-10 mx-20">
         <div className=" flex flex-col items-center justify-center w-full pb-10">
           {statusData && (
             <StatusBar
@@ -56,7 +56,7 @@ function Order() {
             ></StatusBar>
           )}
         </div>
-        <div className="my-5 border-t-2 flex flex-col">
+        <div className="my-5 border-t flex flex-col">
           {order ? (
             order.products.map((product) => (
               <OrderProduct

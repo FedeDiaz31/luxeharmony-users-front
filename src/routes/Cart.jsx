@@ -39,11 +39,7 @@ function Cart() {
                   <div className="flex justify-center">
                     <img
                       className="w-[130px] object-contain"
-                      src={
-                        detail.product.image[0].includes("http")
-                          ? detail.product.image[0]
-                          : `${process.env.REACT_APP_API_URL}/img/products/${detail.product.image[0]}`
-                      }
+                      src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${detail.product.image[0]}`}
                       alt=""
                     />
                   </div>

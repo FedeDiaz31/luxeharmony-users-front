@@ -30,11 +30,7 @@ function CartComponent({ setShowCart }) {
             >
               <div className="flex items-center gap-2">
                 <img
-                  src={
-                    detail.product.image[0].includes("http")
-                      ? detail.product.image[0]
-                      : `${process.env.REACT_APP_API_URL}/img/products/${detail.product.image[0]}`
-                  }
+                  src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${detail.product.image[0]}`}
                   alt="product-pic"
                   className="w-10 z-0"
                 />
