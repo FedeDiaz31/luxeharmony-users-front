@@ -202,7 +202,7 @@ const CheckOut = () => {
                   </motion.div>
                 </div>
               ) : null}
-              {orderIsSend ? <Navigate to="/" replace={true} /> : null}
+              {orderIsSend ? <Navigate to="/pdf" replace={true} /> : null}
             </motion.div>
           </AnimatePresence>
         </div>

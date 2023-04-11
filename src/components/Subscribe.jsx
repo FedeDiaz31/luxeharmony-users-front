@@ -57,7 +57,7 @@ function Subscribe() {
               </svg>
             </div>
             <h6 className="text-xs text-center tablet:text-start max-w-[300px] tablet:w-full">
-              You can disable this at anytime
+              You can disable this subscription at anytime
             </h6>
           </div>
           <div className="w-80 justify-center mt-10 tablet:mt-0">

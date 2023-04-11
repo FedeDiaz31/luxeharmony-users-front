@@ -15,21 +15,13 @@ function CardProductCategory({ product }) {
       )}
       <img
         className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain "
-        src={
-          product.image[0].includes("http")
-            ? product.image[0]
-            : `${process.env.REACT_APP_API_URL}/img/products/${product.image[0]}`
-        }
+        src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${product.image[0]}`}
         alt={product.brand + product.model}
       />
       <div className="text-left w-full">
         <img
           className="w-20 my-4"
-          src={
-            product.brand.logo2.includes("http")
-              ? product.brand.logo2
-              : `${process.env.REACT_APP_API_URL}/img/${product.brand.logo2}`
-          }
+          src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${product.brand.logo2}`}
           alt=""
         />
         <h1 className="title-card-category truncate">{product.model}</h1>

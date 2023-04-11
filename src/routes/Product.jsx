@@ -44,8 +44,8 @@ const Product = () => {
             return { original: picture, thumbnail: picture };
           } else
             return {
-              original: `${process.env.REACT_APP_API_URL}/img/products/${picture}`,
-              thumbnail: `${process.env.REACT_APP_API_URL}/img/products/${picture}`,
+              original: `${process.env.REACT_APP_SUPABASE_BUCKET}/${picture}`,
+              thumbnail: `${process.env.REACT_APP_SUPABASE_BUCKET}/${picture}`,
             };
         })
       );
