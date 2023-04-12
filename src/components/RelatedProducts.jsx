@@ -65,12 +65,10 @@ function RelatedProducts({ product }) {
 
   return (
     <>
-      <div className="mt-[20px] flex justify-center mb-14">
-        <h2 className="category-title   text-SecondaryColor">
-          RELATED PRODUCTS
-        </h2>
+      <div className="flex justify-center mb-14">
+        <h2 className="font-primaryFont text-3xl">RELATED PRODUCTS</h2>
       </div>
-      <div className="px-10 tablet:px-32">
+      <div className="px-10 tablet:px-44">
         <Slider {...settings}>
           {relatedProducts?.map((product) => (
             <CardProduct
