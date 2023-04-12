@@ -1,22 +1,12 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import StatusBar from "./StatusBar";
 
-function OrderProduct({
-  model,
-  price,
-  status,
-  payment,
-  image,
-  slug,
-  description,
-}) {
-  const params = useParams();
-  const orderId = params.id;
-  const user = useSelector((state) => state.user);
+// import { useSelector } from "react-redux";
+// import { useParams } from "react-router-dom";
+
+function OrderProduct({ model, price, image, slug, description }) {
+  // const params = useParams();
+  // const orderId = params.id;
+  // const user = useSelector((state) => state.user);
 
   return (
     <div className="flex mt-2 px-10 py-4 border-b-[1px]">

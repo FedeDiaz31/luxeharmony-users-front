@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const url = process.env.REACT_APP_API_URL;
-
 const Summary = () => {
   const cart = useSelector((state) => state.cart);
 

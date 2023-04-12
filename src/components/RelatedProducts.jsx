@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Slider from "react-slick";
 import arrowBack from "../assets/img/arrowBack.svg";
 import arrowForward from "../assets/img/arrowForward.svg";
 
 function RelatedProducts({ product }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
@@ -22,12 +22,12 @@ function RelatedProducts({ product }) {
   }, [product]);
 
   function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return <img src={arrowForward} className={className} onClick={onClick} />;
   }
 
   function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return <img src={arrowBack} className={className} onClick={onClick} />;
   }
 

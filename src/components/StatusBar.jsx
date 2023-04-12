@@ -1,6 +1,5 @@
 import React from "react";
 import tick from "../assets/icons/tick.svg";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function StatusBar({ status, orderId }) {

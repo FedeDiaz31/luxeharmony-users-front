@@ -51,7 +51,7 @@ function Header() {
       dispatch(getCategories(response.data));
     };
     callCategories();
-  }, []);
+  });
 
   useEffect(() => {
     window.onscroll = function (e) {
@@ -237,7 +237,7 @@ function Header() {
             className="h-full bg-bgPrimaryColor p-1 flex items-center shadow"
             to={"/"}
           >
-            <img className="w-20" src={logoLuxeHarmony} />
+            <img className="w-20" alt="decorative img" src={logoLuxeHarmony} />
           </Link>
           <div className="hidden laptop:flex h-full items-center z-10">
             <div className="gap-5 z-10 w-[350px] h-full justify-center mx-auto relative items-start flex">

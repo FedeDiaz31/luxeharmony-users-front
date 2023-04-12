@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import CardProduct from "./CardProduct";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,12 +24,16 @@ function CardCarousel() {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
-    return <img src={arrowForward} className={className} onClick={onClick} />;
+    return (
+      <img src={arrowForward} alt="" className={className} onClick={onClick} />
+    );
   }
 
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
-    return <img src={arrowBack} className={className} onClick={onClick} />;
+    return (
+      <img src={arrowBack} alt="" className={className} onClick={onClick} />
+    );
   }
 
   const settings = {
