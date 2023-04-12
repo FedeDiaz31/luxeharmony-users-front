@@ -1,6 +1,9 @@
-import React from "react";
 import { Page, Text, Image, Document, StyleSheet } from "@react-pdf/renderer";
 import { useSelector } from "react-redux";
+// import { PDFDownloadLink } from "@react-pdf/renderer";
+import axios from "axios";
+import { useState, useEffect } from "react";
+// import { BlindsClosedSharp } from "@mui/icons-material";
 
 const styles = StyleSheet.create({
   body: {
@@ -39,7 +42,25 @@ const styles = StyleSheet.create({
   },
 });
 
-const BillingPdf = () => {
+const BillingPdf = (bill) => {
+  // const [bills, setBills] = useState("");
+
+  // console.log(bill.bill);
+  // useEffect(() => {
+  //   const getBill = async () => {
+  //     const response = await axios({
+  //       headers: { Authorization: `Bearer ${user.token}` },
+  //       method: "get",
+  //       url: `${process.env.REACT_APP_API_URL}/bills/${user.id}`,
+  //     });
+  //     setBills(response.data);
+  //   };
+  //   getBill();
+  // }, []);
+
+  // const lastBillNumber = bills.length - 1;
+  // const bill = bills[lastBillNumber];
+  // console.log(bill);
   return (
     <Document>
       <Page style={styles.body}>
@@ -51,7 +72,7 @@ const BillingPdf = () => {
         </Text>
         <Text style={styles.text}>Order date: createdAt</Text>
         <Text style={styles.text}>Products: item + precio</Text>
-        <Text style={styles.text}>Total price: totalPrice</Text>
+        <Text style={styles.text}>Actualizado </Text>
         <Text
           style={styles.pageNumber}
           render={({ pageNumber, totalPages }) =>

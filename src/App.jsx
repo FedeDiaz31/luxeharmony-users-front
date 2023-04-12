@@ -21,7 +21,7 @@ import AuthRequire from "./hooks/AuthRequire";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
 import InfoModal from "./components/InfoModal";
-import Ia from "./routes/Ia";
+
 import PdfViewer from "./routes/PdfViewer";
 
 function App() {
@@ -45,7 +45,6 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route path="/pdf" element={<PdfViewer />} />
-              <Route path="/ia" element={<Ia />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
