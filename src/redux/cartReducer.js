@@ -12,7 +12,7 @@ const cartSlice = createSlice({
       );
       if (matchInCart) {
         return state.map((detail) => {
-          if (detail.product.slug === action.payload.product.slug) {
+          if (detail.product.slug === action.payload.product.slug & action.payload.quantity < detail.product.stock) {
             return {
               product: action.payload.product,
               quantity: action.payload.quantity + 1,
