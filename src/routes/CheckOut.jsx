@@ -17,9 +17,6 @@ import { removeEveryProducts } from "../redux/cartReducer";
 const URL = process.env.REACT_APP_API_URL;
 
 const CheckOut = () => {
-  // POSIBLE USO FUTURO
-  const [order, setOrder] = useState(null);
-  const [bill, setBill] = useState({});
   const [data, setData] = useState(null);
 
   const [process, setProcess] = useState("shippingInfo");
@@ -35,6 +32,7 @@ const CheckOut = () => {
     lastname: user.lastname,
     email: user.email,
     address: user.address,
+    phone: user.phone,
   };
 
   const sendOrder = async () => {
@@ -129,13 +127,13 @@ const CheckOut = () => {
     <div className="container mx-auto pt-24 justify-around  ">
       <Stepper step={step} />
 
-      <div className=" laptop:flex justify-around laptop:columns-2">
+      <div className="laptop:flex justify-around laptop:columns-2">
         <div
-          className="flex justify-between columns-2 p-2 hover:cursor-help laptop:hidden"
+          className="mx-3 flex justify-between columns-2 p-2 hover:cursor-help laptop:hidden"
           onClick={(e) => handleToggleSummary()}
         >
           <p className="w-1/2 underline">Expand Cart</p>
-          <p>${cart ? subTotalPrice() : null}</p>
+          <p>U$D {cart ? subTotalPrice() : null}</p>
         </div>
         <Summary />
         <div className="laptop:order-first laptop:w-1/2 mx-5 tablet:mx-10">

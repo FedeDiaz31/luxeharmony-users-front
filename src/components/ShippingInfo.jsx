@@ -549,13 +549,14 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
             onClick={(e) => {
               e.preventDefault();
               checkData();
+              window.scrollTo(0, 0);
             }}
             className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"
           >
             Continue to Shipping Options
           </button>
           {disabled ? (
-            <span className="text-[red]">Please check all the fields.</span>
+            <span className="text-[red] ">Please check all the fields.</span>
           ) : null}
         </div>
       </form>

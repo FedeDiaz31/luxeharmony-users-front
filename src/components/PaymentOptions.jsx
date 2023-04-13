@@ -16,9 +16,9 @@ const PaymentOptions = ({
 
   const [checked, setChecked] = useState(false);
 
-  const [cardNumber, setCardNumber] = useState(null);
-  const [cvv, setCvv] = useState(null);
-  const [date, setDate] = useState(null);
+  const [cardNumber, setCardNumber] = useState("5423 4312 3241 3122");
+  const [cvv, setCvv] = useState("831");
+  const [date, setDate] = useState("12/28");
 
   const [cardNumberError, setCardNumberError] = useState(null);
   const [cvvError, setCvvError] = useState(null);
@@ -147,7 +147,8 @@ const PaymentOptions = ({
             <input
               onChange={(e) => handleCardNumber(e)}
               className="py-1 mt-1 pl-2 w-full"
-              type="number"
+              value={cardNumber}
+              type="text"
               placeholder="Card number // mastercard"
             />
           </div>
@@ -162,6 +163,7 @@ const PaymentOptions = ({
               <input
                 className="py-1 mt-1 pl-2 w-full"
                 onChange={(e) => handleDate(e)}
+                value={date}
                 type="text"
                 placeholder="MM/YY"
               />
@@ -176,6 +178,7 @@ const PaymentOptions = ({
               <input
                 className="py-1 mt-1 pl-2 w-full"
                 onChange={(e) => handleCvv(e)}
+                value={cvv}
                 type="text"
                 placeholder="CVV"
               />
@@ -183,11 +186,7 @@ const PaymentOptions = ({
           </div>
         </div>
         <div className="flex py-4 items-center gap-2 w-full justify-center">
-          <input
-            className=""
-            type="checkbox"
-            onChange={(e) => setChecked(!checked)}
-          />
+          <input type="checkbox" onChange={(e) => setChecked(!checked)} />
           <h3>
             I am over age 18 agree to the following: Privacy, Terms &
             Conditions.
@@ -199,6 +198,8 @@ const PaymentOptions = ({
             e.preventDefault();
             if (checked) {
               checkData();
+            } else {
+              setDisabled(false);
             }
           }}
           className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"

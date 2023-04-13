@@ -13,7 +13,7 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
     handleStep(2);
   };
   return (
-    <>
+    <div className="mb-3">
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -29,11 +29,12 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
       </h2>
       <hr className="pb-3 opacity-30" />
       <div className="bg-[#1d9219c4] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
-        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex  columns-2 mt-0">
+        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center columns-2 mt-0">
           <input
+            checked
             type="radio"
             name="radio"
-            className="scale-150 bg-bgTertiaryColor ml-8"
+            className="scale-150 h-full bg-bgTertiaryColor ml-8"
           />
           <div className="ml-8">
             <h3 className="inline-block text-xl font-primaryFont text-textPrimary drop-shadow-lg w-5/6">
@@ -44,11 +45,11 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
         </label>
       </div>
       <div className=" bg-[#8d8d8dae] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
-        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex  columns-2 mt-0">
+        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center  columns-2 mt-0">
           <input
             type="radio"
             name="radio"
-            className="scale-150  bg-bgTertiaryColor ml-8"
+            className="scale-150 h-full  bg-bgTertiaryColor ml-8"
           />
           <div className="ml-8">
             <h3 className="inline-block text-xl font-primaryFont text-textPrimary drop-shadow-lg w-5/6">
@@ -59,11 +60,11 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
         </label>
       </div>
       <div className=" bg-[#ceca4dd8] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
-        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex  columns-2 mt-0">
+        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center  columns-2 mt-0">
           <input
             type="radio"
             name="radio"
-            className="scale-150  bg-bgTertiaryColor ml-8"
+            className="scale-150 h-full bg-bgTertiaryColor ml-8"
           />
           <div className="ml-8">
             <h3 className="inline-block text-xl font-primaryFont text-textPrimary drop-shadow-lg w-5/6">
@@ -78,12 +79,13 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
         onClick={(e) => {
           e.preventDefault();
           handlePaymentButton();
+          window.scrollTo(0, 0);
         }}
-        className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"
+        className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 m font-terciaryFont"
       >
         Continue to Payment Options
       </button>
-    </>
+    </div>
   );
 };
 
