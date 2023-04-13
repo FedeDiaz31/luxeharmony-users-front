@@ -71,7 +71,7 @@ function Header() {
           className={
             showUser
               ? "absolute top-[70px] left-[200px] laptop:left-auto laptop:right-[80px] laptop:top-[40px] transition-all duration-200"
-              : "hidden absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[80px] laptop:top-[-300px] transition-all duration-200"
+              : "absolute top-[70px] left-[-300px] laptop:left-auto laptop:right-[80px] laptop:top-[-300px] transition-all duration-200"
           }
         >
           <UserComponent setShowUser={setShowUser} />
@@ -92,7 +92,7 @@ function Header() {
         className={
           showCart
             ? "absolute top-[40px] transition-all duration-200 z-10 right-[20px] opacity-100"
-            : "absolute transition-all duration-200 z-10 -top-[500px] right-[20px] opacity-0"
+            : " absolute transition-all duration-200 z-10 -top-[500px] right-[20px] opacity-0"
         }
       >
         <CartComponent setShowCart={setShowCart} />
@@ -103,7 +103,7 @@ function Header() {
           className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-8 items-center rounded text-textPrimary px-6 pb-3 absolute transition-all duration-200 ${
             showCategories
               ? "pt-[80px] tablet:pt-[190px] left-[200px] tablet:left-auto"
-              : "hidden left-[-108px] tablet:left-auto pt-[100px] tablet:pt-0"
+              : "left-[-108px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
           {categories?.map((category, i) => (

@@ -38,9 +38,9 @@ function App() {
   } else {
     return (
       <div className="App">
-        <div className="w-full fixed z-50">
+        {/*    <div className="w-full fixed z-50">
           <Header />
-        </div>
+        </div> */}
         <div className="min-h-[100vh]">
           <ScrollToTop>
             <Routes>
