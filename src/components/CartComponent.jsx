@@ -34,7 +34,7 @@ function CartComponent({ setShowCart }) {
                   alt="product-pic"
                   className="w-10 z-0"
                 />
-                <h2 className="text-bgSecondaryColor hidden tablet:block max-w-[160px] text-ellipsis overflow-hidden">
+                <h2 className="text-bgSecondaryColor hidden tablet:block w-[160px] truncate">
                   {detail.product.model}
                 </h2>
               </div>

@@ -38,15 +38,18 @@ function Cart() {
                 <div className="grid justify-center tablet:flex gap-10">
                   <div className="flex justify-center">
                     <img
-                      className="w-[130px] object-contain"
+                      className="w-[130px] h-[130px] object-contain"
                       src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${detail.product.image[0]}`}
                       alt=""
                     />
                   </div>
                   <div className="grid items-center">
                     <div>
-                      <h3 className="font-medium mt-4">
-                        {detail.product.model}, {detail.product.brand.name}
+                      <h3 className="font-medium mt-4 truncate w-[250px]">
+                        {detail.product.model},
+                      </h3>
+                      <h3 className="font-medium">
+                        {detail.product.brand.name}
                       </h3>
                       <div className="flex mt-3">
                         <h3 className=" font-light">
