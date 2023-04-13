@@ -55,13 +55,17 @@ function Orders() {
                         key={i}
                         className="flex items-center gap-1 tablet:gap-3"
                       >
-                        <h3 className=" text-sm tablet:text-lg truncate">
+                        <h3 className="w-[140px] tablet:w-[300px] text-sm tablet:text-lg truncate">
                           {product.product.model}
                         </h3>
                         <div className="hidden mobilXS:flex items-center gap-3">
                           <h3 className="text-sm tablet:text-lg">⦾</h3>
                           <h3 className="text-sm tablet:text-lg font-light">
-                            U$D {product.product.price.toFixed(2)}
+                            U$D {product.fixedPrice.toFixed(2)}
+                          </h3>
+                          <h3 className="text-sm tablet:text-lg">⦾</h3>
+                          <h3 className="text-sm tablet:text-lg font-light">
+                            {product.quantity} u
                           </h3>
                         </div>
                       </div>
@@ -73,7 +77,7 @@ function Orders() {
 
                 <div className="grid grid-cols-1 tablet:flex tablet:flex-row justify-between w-full">
                   <Link
-                    className="bg-bgTertiaryColor px-3 h-10 mt-4 flex items-center text-textPrimary "
+                    className="bg-bgTertiaryColor w-[120px] justify-center px-3 h-10 mt-4 flex items-center text-textPrimary "
                     to={`/orders/${order._id}`}
                   >
                     View order
