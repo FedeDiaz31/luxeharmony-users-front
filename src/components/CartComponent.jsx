@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { toggle } from "../redux/showLoginReducer";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   addProduct,
@@ -7,12 +8,12 @@ import {
   removeAllThisProducts,
 } from "../redux/cartReducer";
 
-function CartComponent({ setShowCart }) {
+function CartComponent() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
   const handleCloseCart = () => {
-    setShowCart(false);
+    dispatch(toggle());
   };
 
   return (

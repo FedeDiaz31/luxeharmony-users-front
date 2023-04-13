@@ -95,7 +95,7 @@ function Header() {
             : " absolute transition-all duration-200 z-10 -top-[500px] right-[20px] opacity-0"
         }
       >
-        <CartComponent setShowCart={setShowCart} />
+        <CartComponent />
       </div>
       {/*       Categories Component */}
       <div className="w-full flex tablet:justify-center">

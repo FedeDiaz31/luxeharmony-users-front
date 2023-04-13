@@ -8,12 +8,13 @@ import cross from "../assets/icons/closeIcon.svg";
 import { signInWithGoogle } from "../Firebase";
 import GoogleIcon from "@mui/icons-material/Google";
 
-function LoginComponent({ setShowLogin }) {
+function LoginComponent() {
   const [email, setEmail] = useState("user@luxeharmony.com");
   const [password, setPassword] = useState("1234");
   const dispatch = useDispatch();
+
   const handleCloseLogin = () => {
-    setShowLogin(false);
+    dispatch(toggle());
   };
 
   const handleLogin = async (e) => {
