@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addProduct } from "../redux/cartReducer";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // Animations
 import "../animation/animations.css";
 // Components
@@ -22,6 +24,18 @@ const Product = () => {
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const addCartToastify = () => {
+    return toast("Producto agregado al carrito.", {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
+  };
 
   document.title = `${product ? product.model : "cargando..."} | LuxeHarmony `;
 
@@ -67,6 +81,7 @@ const Product = () => {
         })
       );
     }
+    addCartToastify();
   };
 
   const thumbnailClass = {
@@ -83,6 +98,9 @@ const Product = () => {
     return (
       <>
         <main className="">
+          <div>
+            <ToastContainer />
+          </div>
           <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
             <img
               className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"
