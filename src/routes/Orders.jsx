@@ -55,10 +55,10 @@ function Orders() {
                         key={i}
                         className="flex items-center gap-1 tablet:gap-3"
                       >
-                        <h3 className="w-[140px] tablet:w-[300px] text-sm tablet:text-lg truncate">
+                        <h3 className="w-[240px] tablet:w-auto text-sm tablet:text-lg truncate">
                           {product.product.model}
                         </h3>
-                        <div className="hidden mobilXS:flex items-center gap-3">
+                        <div className="hidden tablet:flex items-center gap-3">
                           <h3 className="text-sm tablet:text-lg">⦾</h3>
                           <h3 className="text-sm tablet:text-lg font-light">
                             U$D {product.fixedPrice.toFixed(2)}
