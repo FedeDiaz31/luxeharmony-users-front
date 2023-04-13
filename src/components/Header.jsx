@@ -103,7 +103,7 @@ function Header() {
           className={`bg-headerAndFooterColor tablet:flex tablet:top-[-100px] font-primaryFont gap-8 items-center rounded text-textPrimary px-6 pb-3 absolute transition-all duration-200 ${
             showCategories
               ? "pt-[80px] tablet:pt-[190px] left-[200px] tablet:left-auto"
-              : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
+              : "left-[-108px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
           {categories?.map((category, i) => (
@@ -128,7 +128,7 @@ function Header() {
           className={`bg-headerAndFooterColor tablet:top-[-90px] z-0 gap-3 grid tablet:flex rounded pb-5 absolute pr-6 pl-8 transition-all duration-200 ${
             showBrands
               ? "pt-[90px] tablet:pt-[180px] left-[200px] tablet:left-auto"
-              : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
+              : "left-[-120px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
           {brands?.map((brand, i) => (
