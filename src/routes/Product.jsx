@@ -149,7 +149,7 @@ const Product = () => {
                         "relative opacity-30 cursor-default"
                       } add-to-cart bg-buttonsPrimaryColor w-full py-2 mb-2 text-textPrimary mt-7`}
                     >
-                      {product.stock === 0 ? "NO STOCK" : "ADD TO CART"}
+                      {product.stock === 0 ? "SOLD OUT" : "ADD TO CART"}
                     </button>
                     <div className="column-1 w-full">
                       <p className="text-xs text-end  mt-1">

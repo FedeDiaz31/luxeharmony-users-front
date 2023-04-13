@@ -13,11 +13,21 @@ function CardProductCategory({ product }) {
           alt="band"
         />
       )}
-      <img
-        className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain "
-        src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${product.image[0]}`}
-        alt={product.brand + product.model}
-      />
+
+      <div className="relative overflow-hidden">
+        {product.stock === 0 && (
+          <div className="bg-bgSecondaryColor grid place-content-center h-10 w-full absolute top-[40%] -rotate-12 scale-x-125">
+            <h3 className="font-primaryFont text-textPrimary text-lg">
+              SOLD OUT
+            </h3>
+          </div>
+        )}
+        <img
+          className="py-5 border w-[240px] h-[300px] border-bgFourthColor object-contain "
+          src={`${process.env.REACT_APP_SUPABASE_BUCKET}/${product.image[0]}`}
+          alt={product.brand + product.model}
+        />
+      </div>
       <div className="text-left w-full">
         <img
           className="w-20 my-4"
