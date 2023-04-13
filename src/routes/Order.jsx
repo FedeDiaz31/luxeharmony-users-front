@@ -47,7 +47,7 @@ function Order() {
         </div>
       </div>
       <div className="pt-10 mx-20">
-        <div className=" flex flex-col items-center justify-center w-full pb-10">
+        <div className="flex flex-col items-center justify-center w-full pb-10">
           {statusData && (
             <StatusBar
               created={statusData.createdAt}
