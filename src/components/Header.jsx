@@ -128,7 +128,7 @@ function Header() {
           className={`bg-headerAndFooterColor tablet:top-[-90px] z-0 gap-3 grid tablet:flex rounded pb-5 absolute pr-6 pl-8 transition-all duration-200 ${
             showBrands
               ? "pt-[90px] tablet:pt-[180px] left-[200px] tablet:left-auto"
-              : "left-[-100px] tablet:left-auto pt-[100px] tablet:pt-0"
+              : "left-[-200px] tablet:left-auto pt-[100px] tablet:pt-0"
           } `}
         >
           {brands?.map((brand, i) => (
