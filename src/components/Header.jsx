@@ -51,7 +51,7 @@ function Header() {
       dispatch(getCategories(response.data));
     };
     callCategories();
-  });
+  }, []);
 
   useEffect(() => {
     window.onscroll = function (e) {

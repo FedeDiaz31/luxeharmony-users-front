@@ -18,7 +18,7 @@ function BrandsContainer() {
       dispatch(getBrands(response.data));
     };
     callBrands();
-  });
+  }, []);
 
   return (
     <>
