@@ -14,6 +14,7 @@ function SignUp() {
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   const [reference, setReference] = useState("");
+  const [phone, setPhone] = useState("");
 
   const [saveDataButton, setSaveDataButton] = useState(true);
   const [formError, setFormError] = useState("");
@@ -31,6 +32,11 @@ function SignUp() {
   const handlePassword = (event) => {
     const value = event.target.value;
     setPassword(value);
+  };
+
+  const handlePhone = (event) => {
+    const value = event.target.value;
+    setPhone(value);
   };
 
   const handleEmail = (event) => {
@@ -85,6 +91,7 @@ function SignUp() {
         city,
         street,
         reference,
+        phone,
       });
       dispatch(login(response.data.user));
       setSaveDataButton(false);
@@ -145,6 +152,17 @@ function SignUp() {
                   placeholder="Enter email"
                   value={email}
                   onChange={handleEmail}
+                />
+                <label className="text-xs inline" htmlFor="phone">
+                  Phone
+                </label>
+                <input
+                  className="py-1 mt-1 pl-2 w-full"
+                  type="text"
+                  name="phone"
+                  placeholder="Enter phone"
+                  value={phone}
+                  onChange={handlePhone}
                 />
                 <label className="text-xs inline" htmlFor="password">
                   Password

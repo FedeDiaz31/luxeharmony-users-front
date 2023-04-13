@@ -92,6 +92,7 @@ function EditUser() {
           city,
           street,
           reference,
+          phone,
         },
       });
       navigate("/profile");
@@ -178,7 +179,7 @@ function EditUser() {
                 <input
                   className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
                   type="number"
-                  name="number"
+                  name="phone"
                   value={phone}
                   placeholder="Enter number of phone"
                   onChange={handlePhone}

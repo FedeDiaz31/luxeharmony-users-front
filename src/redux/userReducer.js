@@ -14,6 +14,7 @@ const userSlice = createSlice({
       state.lastname = action.payload.lastname;
       state.email = action.payload.email;
       state.address = action.payload.address;
+      state.phone = action.payload.phone;
     },
     logOut(state, action) {
       return null;

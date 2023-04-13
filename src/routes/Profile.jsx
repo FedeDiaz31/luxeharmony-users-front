@@ -8,6 +8,7 @@ function Profile() {
 
   const firstname = user.firstname;
   const lastname = user.lastname;
+  const phone = user.phone;
   const email = user.email;
   const [address] = useState(user.address);
   const [processingStatus, setProcessingStatus] = useState(0);
@@ -85,6 +86,12 @@ function Profile() {
                 E-Mail:
               </span>
               <h2 className="font-semibold  ">{email}</h2>
+            </div>
+            <div className="flex gap-2 tablet:gap-5 justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
+                Phone:
+              </span>
+              <h2 className="font-semibold  ">{phone}</h2>
             </div>
           </div>
           <div className="flex flex-col">
