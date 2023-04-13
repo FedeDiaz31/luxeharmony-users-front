@@ -70,8 +70,8 @@ function Profile() {
             USER DATA
           </span>
           <div className="flex flex-col">
-            <div className="flex gap-5 justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="flex gap-2 tablet:gap-5 justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 Name:
               </span>
               <div className="mb-1">
@@ -80,8 +80,8 @@ function Profile() {
                 </h2>
               </div>
             </div>
-            <div className="flex gap-5 justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="flex gap-2 tablet:gap-5 justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 E-Mail:
               </span>
               <h2 className="font-semibold  ">{email}</h2>
@@ -91,32 +91,32 @@ function Profile() {
             <span className="font-light text-center tablet:text-start font-primaryFont mt-4 text-xl">
               SHIPPING DATA
             </span>
-            <div className="mb-1 gap-5 flex justify-center tablet:justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="mb-1 gap-2 tablet:gap-5 flex justify-center tablet:justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 Country:
               </span>
               <h2 className="font-semibold">{address.country}</h2>
             </div>
-            <div className="mb-1 gap-5 flex justify-center tablet:justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="mb-1 gap-2 tablet:gap-5 flex justify-center tablet:justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 State:
               </span>
               <h2 className="font-semibold">{address.state}</h2>
             </div>
-            <div className="mb-1 gap-5 flex justify-center tablet:justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="mb-1 gap-2 tablet:gap-5 flex justify-center tablet:justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 City:
               </span>
               <h2 className="font-semibold">{address.city}</h2>
             </div>
-            <div className="mb-1 gap-5 flex justify-center tablet:justify-start items-center">
-              <span className="text-sm semi-bold font-secondaryFont  w-[80px]">
+            <div className="mb-1 gap-2 tablet:gap-5 flex justify-center tablet:justify-start items-center">
+              <span className="text-sm semi-bold font-secondaryFont  w-[70px]">
                 Street:
               </span>
               <h2 className="font-semibold">{address.street}</h2>
             </div>
-            <div className="mb-1 gap-5 flex justify-center tablet:justify-start">
-              <span className="text-sm semi-bold font-secondaryFont w-[80px]">
+            <div className="mb-1 gap-2 tablet:gap-5 flex justify-center tablet:justify-start">
+              <span className="text-sm semi-bold font-secondaryFont w-[70px]">
                 Reference:
               </span>
               <h2 className="font-semibold  max-w-[150px] tablet:max-w-[250px]">
