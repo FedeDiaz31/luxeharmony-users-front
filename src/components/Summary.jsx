@@ -48,9 +48,11 @@ const Summary = () => {
         </div>
         <div className="columns-2 flex justify-between py-1 items-center mx-1">
           <h3 className="text-xl font-light">Shipping</h3>
-          <h3 className="text-sm font-secondaryFont">
-            Calculated at next step...
-          </h3>
+          {cart.shipping ? (
+            <h3 className="text-sm font-secondaryFont">{cart.shipping}</h3>
+          ) : (
+            <h3 className="text-sm font-secondaryFont">FREE</h3>
+          )}
         </div>
       </div>
       <div className="columns-2 flex justify-between py-1 mt-3 items-center mx-1">

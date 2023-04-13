@@ -105,7 +105,7 @@ function EditUser() {
   return (
     <>
       {" "}
-      <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
+      <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pt-[100px] pl-10 tablet:px-40 pb-10">
         <img
           className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"
           onClick={() => navigate(-1)}
@@ -118,72 +118,74 @@ function EditUser() {
       </div>
       <div className="py-[30px] bg-bgPrimaryColor text-textSecondary m-auto tablet:flex items-center justify-center">
         <form className=" text-center" onSubmit={handleSubmit}>
-          <div className="grid laptop:flex gap-10 laptop:gap-20">
-            <div className="flex items-center flex-col gap-3">
-              <h1 className="text-2xl font-primaryFont">Change user data</h1>
-              <div className="flex items-center justify-between  gap-3">
-                <h3
-                  className="text-sm semi-bold font-secondaryFont"
-                  htmlFor="firstname"
-                >
-                  Firstname
-                </h3>
-                <input
-                  className="py-2 pl-2 w-60 text-bgSecondaryColor "
-                  type="text"
-                  name="firstname"
-                  value={firstname}
-                  placeholder="Enter firstname"
-                  onChange={handleFirstname}
-                />
-              </div>
-              <div className="flex items-center  justify-between  gap-3">
-                <h3
-                  className="text-sm semi-bold font-secondaryFont"
-                  htmlFor="lastname"
-                >
-                  Lastname
-                </h3>
-                <input
-                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-                  type="text"
-                  name="lastName"
-                  value={lastname}
-                  placeholder="Enter lastname"
-                  onChange={handleLastname}
-                />
-              </div>
-              <div className="flex items-center  justify-between  gap-3">
-                <h3
-                  className="text-sm semi-bold font-secondaryFont"
-                  htmlFor="email"
-                >
-                  Email
-                </h3>
-                <input
-                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-                  type="text"
-                  name="email"
-                  value={email}
-                  placeholder="Enter email"
-                  onChange={handleEmail}
-                />
-              </div>
-              <div className="flex items-center  justify-between  gap-3">
-                <h3
-                  className="text-sm semi-bold font-secondaryFont"
-                  htmlFor="email"
-                >
-                  Phone
-                </h3>
-                <input
-                  className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
-                  type="number"
-                  name="phone"
-                  value={phone}
-                  placeholder="Enter number of phone"
-                  onChange={handlePhone}
-                />
+          <div className="grid laptop:flex gap-10 laptop:gap-12">
+            <div className="flex  items-center flex-col gap-3">
+              <h1 className="text-2xl  font-primaryFont">Change user data</h1>
+              <div className="mr-20 gap-3 grid">
+                <div className="flex items-center gap-3">
+                  <h3
+                    className="text-sm  w-[80px] semi-bold font-secondaryFont"
+                    htmlFor="firstname"
+                  >
+                    Firstname
+                  </h3>
+                  <input
+                    className="py-2 pl-2 w-60 text-bgSecondaryColor "
+                    type="text"
+                    name="firstname"
+                    value={firstname}
+                    placeholder="Enter firstname"
+                    onChange={handleFirstname}
+                  />
+                </div>
+                <div className="flex items-center gap-3">
+                  <h3
+                    className="text-sm  w-[80px] semi-bold font-secondaryFont"
+                    htmlFor="lastname"
+                  >
+                    Lastname
+                  </h3>
+                  <input
+                    className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                    type="text"
+                    name="lastName"
+                    value={lastname}
+                    placeholder="Enter lastname"
+                    onChange={handleLastname}
+                  />
+                </div>
+                <div className="flex items-center gap-3">
+                  <h3
+                    className="text-sm  w-[80px] semi-bold font-secondaryFont"
+                    htmlFor="email"
+                  >
+                    Email
+                  </h3>
+                  <input
+                    className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                    type="text"
+                    name="email"
+                    value={email}
+                    placeholder="Enter email"
+                    onChange={handleEmail}
+                  />
+                </div>
+                <div className="flex items-center gap-3">
+                  <h3
+                    className="text-sm w-[80px] semi-bold font-secondaryFont"
+                    htmlFor="email"
+                  >
+                    Phone
+                  </h3>
+                  <input
+                    className="py-2 pl-2 w-60 bg-bgPrimaryColor text-bgSecondaryColor "
+                    type="number"
+                    name="phone"
+                    value={phone}
+                    placeholder="Enter number of phone"
+                    onChange={handlePhone}
+                  />
+                </div>
               </div>
             </div>
             <div className="flex items-center flex-col gap-3">

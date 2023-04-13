@@ -98,9 +98,9 @@ const Product = () => {
     return (
       <>
         <main className="">
-          <div>
+          {/*   <div>
             <ToastContainer />
-          </div>
+          </div> */}
           <div className="w-full flex items-center gap-10 bg-bgSecondaryColor pb-5 pt-[90px] text-textPrimary pl-10 tablet:px-32">
             <img
               className="chevron-back-category w-6 h-6 pt-1 cursor-pointer"

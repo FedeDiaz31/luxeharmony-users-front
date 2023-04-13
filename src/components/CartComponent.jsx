@@ -8,12 +8,12 @@ import {
   removeAllThisProducts,
 } from "../redux/cartReducer";
 
-function CartComponent() {
+function CartComponent({ setShowCart }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
   const handleCloseCart = () => {
-    dispatch(toggle());
+    setShowCart(false);
   };
 
   return (

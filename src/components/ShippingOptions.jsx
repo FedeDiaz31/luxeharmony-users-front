@@ -1,8 +1,11 @@
 import React from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useDispatch } from "react-redux";
+/* import { addShippinOption } from "../redux/cartReducer"; */
 
 const ShippingOptions = ({ handleProcess, handleStep }) => {
   //
+  const dispatch = useDispatch();
   const handleBackButton = () => {
     handleProcess("shippingInfo");
     handleStep(0);
@@ -28,25 +31,29 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
         Shipping Options
       </h2>
       <hr className="pb-3 opacity-30" />
-      <div className="bg-[#1d9219c4] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
-        <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center columns-2 mt-0">
+      <div className="border-[#1d9219c4] border-2 relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
+        <label className="p-2 text-textSecondary cursor-pointer select-none labelCheckbox w-full flex items-center columns-2 mt-0">
           <input
-            checked
+            /* onChange={dispatch(addShippinOption("free"))} */
             type="radio"
+            checked
             name="radio"
             className="scale-150 h-full bg-bgTertiaryColor ml-8"
           />
           <div className="ml-8">
-            <h3 className="inline-block text-xl font-primaryFont text-textPrimary drop-shadow-lg w-5/6">
+            <h3 className="inline-block text-xl font-primaryFont text-textSecondary drop-shadow-lg w-5/6">
               Free Ground Shipping
             </h3>
-            <h5>Receive your order within 7 business days</h5>
+            <h5 className="font-light">
+              Promotion: receive your order within 7 business days
+            </h5>
           </div>
         </label>
       </div>
-      <div className=" bg-[#8d8d8dae] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
+      {/*       <div className=" bg-[#8d8d8dae] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
         <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center  columns-2 mt-0">
           <input
+            onChange={dispatch(addShippinOption("fast"))}
             type="radio"
             name="radio"
             className="scale-150 h-full  bg-bgTertiaryColor ml-8"
@@ -62,6 +69,7 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
       <div className=" bg-[#ceca4dd8] relative py-3 rounded cursor-pointer my-3 shadow hover:shadow-lg transition-all">
         <label className="p-2 text-textPrimary cursor-pointer select-none labelCheckbox w-full flex items-center  columns-2 mt-0">
           <input
+            onChange={dispatch(addShippinOption("inmediate"))}
             type="radio"
             name="radio"
             className="scale-150 h-full bg-bgTertiaryColor ml-8"
@@ -74,7 +82,7 @@ const ShippingOptions = ({ handleProcess, handleStep }) => {
           </div>
         </label>
       </div>
-
+ */}
       <button
         onClick={(e) => {
           e.preventDefault();

@@ -55,6 +55,9 @@ const cartSlice = createSlice({
     removeEveryProducts() {
       return [];
     },
+    /*  addShippinOption(state, action) {
+       return { ...state, shipping: action.payload }
+     }, */
   },
 });
 
@@ -63,5 +66,6 @@ export const {
   removeProduct,
   removeAllThisProducts,
   removeEveryProducts,
+  /*  addShippinOption */
 } = cartSlice.actions;
 export default cartSlice.reducer;
