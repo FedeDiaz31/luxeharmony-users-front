@@ -23,7 +23,9 @@ const cartSlice = createSlice({
           }
         });
       } else {
-        return [...state, action.payload];
+        if (action.payload.product.stock !== 0) {
+          return [...state, action.payload];
+        }
       }
     },
     removeProduct(state, action) {
