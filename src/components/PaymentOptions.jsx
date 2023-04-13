@@ -16,7 +16,7 @@ const PaymentOptions = ({
 
   const [checked, setChecked] = useState(false);
 
-  const [cardNumber, setCardNumber] = useState("5423 4312 3241 3122");
+  const [cardNumber, setCardNumber] = useState("5423431232413122");
   const [cvv, setCvv] = useState("831");
   const [date, setDate] = useState("12/28");
 
@@ -198,8 +198,6 @@ const PaymentOptions = ({
             e.preventDefault();
             if (checked) {
               checkData();
-            } else {
-              setDisabled(false);
             }
           }}
           className="bg-bgTertiaryColor w-full tablet:py-2  text-textPrimary py-1 my-2 font-terciaryFont"

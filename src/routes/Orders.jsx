@@ -29,15 +29,15 @@ function Orders() {
         <h3 className="text-textPrimary font-light text-3xl">Your Orders</h3>
       </div>
       {orders ? (
-        <div className="px-10 tablet:px-20 laptop:px-40 py-8 grid gap-10">
+        <div className="px-5 tablet:px-20 laptop:px-40 py-8 grid gap-10">
           {orders.map((order, i) => {
             return (
               <div
                 key={i}
                 className="bg-bgPrimaryColor rounded p-5 border border-bgFourthColor shadow-md"
               >
-                <div className="tablet:flex gap-5 justify-between mb-5">
-                  <h3 className="font-light text-sm tablet:text-lg">
+                <div className="tablet:flex w-full justify-between mb-5">
+                  <h3 className="font-light w-full text-sm tablet:text-lg">
                     Order ID: {order._id}
                   </h3>
                   <h3 className="font-light  text-sm tablet:text-lg">
@@ -79,22 +79,45 @@ function Orders() {
                     View order
                   </Link>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full items-end">
                     <div className="flex gap-3 mt-2 items-center">
                       <h3 className="font-light  text-sm tablet:text-lg">
                         Total Price:
                       </h3>
-                      <h3 className="font-normal  text-sm tablet:text-lg">
+                      <h3 className="font-normal text-sm tablet:text-lg">
                         U$D {order.totalPrice.toFixed(2)}
                       </h3>
                     </div>
-                    <div className="flex gap-3 items-center">
+                    <div className="flex gap-2 items-center justify-end">
                       <h3 className="font-light  text-sm tablet:text-lg">
                         Status:
                       </h3>
-                      <h3 className="font-normal  text-sm tablet:text-lg">
+                      <h3 className="font-normal text-sm tablet:text-lg">
                         {order.status.name}
                       </h3>
+                      <div className="flex">
+                        {order.status.name === "Processing" && (
+                          <img
+                            className="w-4 mt-1"
+                            src="https://icon-library.com/images/icon-process/icon-process-25.jpg"
+                            alt=""
+                          />
+                        )}
+                        {order.status.name === "Sent" && (
+                          <img
+                            className="w-4 mt-1"
+                            src=" https://cdn.onlinewebfonts.com/svg/img_307755.png"
+                            alt=""
+                          />
+                        )}
+                        {order.status.name === "Received" && (
+                          <img
+                            className="w-4"
+                            src="https://cdn-icons-png.flaticon.com/512/665/665939.png"
+                            alt=""
+                          />
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
