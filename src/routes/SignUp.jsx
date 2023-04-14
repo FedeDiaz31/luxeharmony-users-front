@@ -81,18 +81,21 @@ function SignUp() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/users", {
-        firstname,
-        lastname,
-        password,
-        email,
-        country,
-        state,
-        city,
-        street,
-        reference,
-        phone,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/users`,
+        {
+          firstname,
+          lastname,
+          password,
+          email,
+          country,
+          state,
+          city,
+          street,
+          reference,
+          phone,
+        }
+      );
       dispatch(login(response.data.user));
       setSaveDataButton(false);
       setFormError("");
@@ -236,11 +239,17 @@ function SignUp() {
                   onChange={handleReference}
                 />
               </div>
-              <button className="bg-bgTertiaryColor text-textPrimary p-2   mt-4 font-primaryFont">
-                SAVE DATA
-              </button>
+              <div className="w-full text-end">
+                <button className="bg-bgTertiaryColor text-textPrimary p-2 mt-4 font-primaryFont">
+                  SAVE DATA
+                </button>
+                {formError && (
+                  <div className="pt-2 text-red-600">
+                    <h3>{formError}</h3>
+                  </div>
+                )}
+              </div>
             </div>
-            {formError && <div className="text-red-600">{formError}</div>}
           </form>
         </div>
       </div>
