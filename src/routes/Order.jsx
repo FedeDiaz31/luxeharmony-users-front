@@ -51,7 +51,8 @@ function Order() {
             <div className="mb-20 flex mx-0 tablet:mx-20">
               <div
                 className={`h-[9px] w-full relative ${
-                  order.status.name === "Sent"
+                  order.status.name === "Sent" ||
+                  order.status.name === "Recived"
                     ? "bg-bgTertiaryColor"
                     : "bg-bgFourthColor"
                 }  rounded-l`}
@@ -73,7 +74,7 @@ function Order() {
               </div>
               <div
                 className={`h-[9px] w-full relative ${
-                  order.status.name === "Sent"
+                  order.status.name === "Recived"
                     ? "bg-bgTertiaryColor"
                     : "bg-bgSecondaryColor"
                 }  rounded-r  `}
