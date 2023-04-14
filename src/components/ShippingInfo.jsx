@@ -464,7 +464,6 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
               onChange={(e) => handleReference(e)}
               required
             />
-            <div className="h-[12px]"></div>
           </div>
           <div className="mt-1">
             <label className="text-xs " htmlFor="city">
@@ -491,7 +490,7 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
               Invalid entry.
             </span>
             <select
-              className="py-2 w-full"
+              className="px-2 py-2 w-full"
               name="country"
               placeholder="Country"
               onChange={(e) => handleCountry(e)}
@@ -514,7 +513,7 @@ const FormCheckOut = ({ handleProcess, handleStep, user, handleData }) => {
             </span>
             <select
               onChange={(e) => handleProvince(e)}
-              className="py-2 w-full"
+              className="px-2 py-2 w-full"
               name="state"
               placeholder="state"
               value={province}

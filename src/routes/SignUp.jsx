@@ -104,16 +104,19 @@ function SignUp() {
 
   return (
     <>
-      <div className="grid grid-cols-1 tablet:grid-cols-2">
+      <div className="grid justify-center pt-[100px] pb-[80px]">
         <div>
           <form
-            className=" mx-auto font-terciaryFont text-[#737373]"
+            className="max-w-[700px] mx-5  border-bgFourthColor border rounded font-terciaryFont text-[#737373]"
             onSubmit={handleSubmit}
           >
-            <div className="columns-1 px-6">
-              <h1 className="text-xl mt-[120px] font-teciaryFont">Sign Up</h1>
+            <div className="w-full flex justify-center pt-5">
+              <h1 className="text-xl font-teciaryFont">Sign Up User</h1>
+            </div>
+            <div className="px-6 pb-5 py-3">
+              <h1 className="text-xl font-teciaryFont">User Data</h1>
               <hr className="mt-2" />
-              <div className="grid grid-cols-2 gap-2">
+              <div className="">
                 <div className="mt-1">
                   <label className="text-xs inline" htmlFor="firstname">
                     Firstname
@@ -140,8 +143,6 @@ function SignUp() {
                     onChange={handleLastname}
                   />
                 </div>
-              </div>
-              <div className="mt-1">
                 <label className="text-xs inline" htmlFor="email">
                   Email
                 </label>
@@ -168,13 +169,17 @@ function SignUp() {
                   Password
                 </label>
                 <input
-                  className="py-1 mt-1 pl-2 w-full"
+                  className="py-1 border rounded mt-1 pl-2 w-full"
                   type="password"
                   name="password"
                   placeholder="Enter password"
                   value={password}
                   onChange={handlePassword}
                 />
+              </div>
+              <div className="mt-5">
+                <h1 className="text-xl font-teciaryFont">Shipping Data</h1>
+                <hr className="mt-2" />
                 <label className="text-xs inline" htmlFor="country">
                   Country
                 </label>
@@ -237,9 +242,6 @@ function SignUp() {
             </div>
             {formError && <div className="text-red-600">{formError}</div>}
           </form>
-        </div>
-        <div className="[mt-[120px]">
-          <h1 className="text-xl">una imagen</h1>
         </div>
       </div>
     </>

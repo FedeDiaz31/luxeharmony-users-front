@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Cart from "./routes/Cart";
 import Product from "./routes/Product";
-// import SignUpGoogle from "./routes/SignUpGoogle";
 import CheckOut from "./routes/CheckOut";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,6 +17,7 @@ import Orders from "./routes/Orders";
 import Order from "./routes/Order";
 import ScrollToTop from "./hooks/ScrollToTop";
 import AuthRequire from "./hooks/AuthRequire";
+import NoAuthRequire from "./hooks/NoAuthRequire";
 import SignUp from "./routes/SignUp";
 import Profile from "./routes/Profile";
 import InfoModal from "./components/InfoModal";
@@ -44,8 +44,10 @@ function App() {
         <div className="min-h-[100vh]">
           <ScrollToTop>
             <Routes>
+              <Route element={<NoAuthRequire />}>
+                <Route path="/signup" element={<SignUp />} />
+              </Route>
               <Route path="/pdf" element={<PdfViewer />} />
-              <Route path="/signup" element={<SignUp />} />
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/product/:slug" element={<Product />} />
