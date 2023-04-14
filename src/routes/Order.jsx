@@ -52,7 +52,7 @@ function Order() {
               <div
                 className={`h-[9px] w-full relative ${
                   order.status.name === "Sent" ||
-                  order.status.name === "Recived"
+                  order.status.name === "Received"
                     ? "bg-bgTertiaryColor"
                     : "bg-bgFourthColor"
                 }  rounded-l`}
@@ -74,7 +74,7 @@ function Order() {
               </div>
               <div
                 className={`h-[9px] w-full relative ${
-                  order.status.name === "Recived"
+                  order.status.name === "Received"
                     ? "bg-bgTertiaryColor"
                     : "bg-bgSecondaryColor"
                 }  rounded-r  `}
